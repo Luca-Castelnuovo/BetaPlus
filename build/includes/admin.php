@@ -23,7 +23,8 @@ function accounts_list($class)
             failed_login,
             first_name,
             last_name,
-            utalent
+            utalent,
+            leerling_nummer
         FROM
             leerlingen
         WHERE
@@ -39,28 +40,52 @@ function accounts_list($class)
             <div class="row">
 END;
         while ($user = $result->fetch_assoc()) {
+            $opposite_enable_disable_state_binary = $user['active'] ? 0 : 1;
+            $opposite_enable_disable_state_text = $user['active'] ? 'Disable' : 'Enable';
+
+            if ($class === 'docenten') {
+                $utalent = null;
+                $user['leerling_nummer'] = null;
+            } else {
+                $opposite_utalent_state_binary = $user['utalent'] ? 0 : 1;
+                $opposite_utalent_state_text = $user['utalent'] ? 'Disable' : 'Enable';
+                $utalent = "<li class=\"btn waves-effect waves-light color-secondary--background\"><a href=\"/admin/process/utalent/{$user['id']}/{$class}/{$opposite_utalent_state_binary}\">{$opposite_utalent_state_text} Utalent</a></li>";
+            }
+
             echo <<<END
             <div class="col s12 m6 l4 xl3">
                 <div class="card medium hoverable">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="/files/leerlingen/{$student['leerling_nummer']}.png" onerror="this.src='https://cdn.lucacastelnuovo.nl/images/betasterren/default_profile.png'">
+                        <img class="activator" src="/files/leerlingen/{$user['leerling_nummer']}.png" onerror="this.src='https://cdn.lucacastelnuovo.nl/images/betasterren/default_profile.png'">
                     </div>
-                    <div class="card-content"><span class="card-title activator grey-text text-darken-4 center">{$student['first_name']} {$student['last_name']}</span></div>
+                    <div class="card-content"><span class="card-title activator grey-text text-darken-4 center">{$user['first_name']} {$user['last_name']}</span></div>
                     <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Recente Opdrachten<i class="material-icons right">close</i></span>
-END;
-            steropdrachten_list_individual_recent($student['id']);
-            echo <<<END
+                        <span class="card-title grey-text text-darken-4">Opties<i class="material-icons right">close</i></span>
+                        <ul class="align-center card-reveal--links">
+                            <li class="btn waves-effect waves-light color-secondary--background">
+                                <a href="/admin/process/active/{$user['id']}/{$class}/{$opposite_enable_disable_state_binary}">{$opposite_enable_disable_state_text} User</a>
+                            </li>
+                            {$utalent}
+                            <li class="btn waves-effect waves-light color-secondary--background">
+                                <a href="/admin/process/unblock/{$user['id']}/{$class}/">Unblock Password</a>
+                            </li>
+                            <li class="btn waves-effect waves-light color-secondary--background">
+                                <a href="/admin/process/reset/{$user['id']}/{$class}/">Reset Password</a>
+                            </li>
+                            <li class="btn waves-effect waves-light disabled color-secondary--background">
+                                <a href="/admin/process/delete/{$user['id']}/{$class}/">Delete User</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div> 
-    </div>
 END;
         }
         echo <<<END
+        </div>
     </div>
-</div>
 END;
     } else {
-        echo "<p>Er doen op dit moment geen {$class} leerlingen mee aan het BetaSterren project.</p>";
+        echo "<p>Er doen op dit moment geen users in deze ({$class}) categorie.</p>";
     }
 }
