@@ -1,0 +1,82 @@
+/*************/
+/* VARIABLES */
+/*************/
+$color_primary: #003d14;
+$color_secundary: #7a0036;
+$color_secundary_darken: #4f0023;
+/***********/
+/* COLORS */
+/***********/
+.color-primary {
+    color: $color_primary !important;
+}
+
+.color-primary--background {
+    background-color: $color_primary !important;
+}
+
+.color-secondary {
+    color: $color_secundary !important;
+}
+
+.color-secondary--background {
+    background-color: $color_secundary !important;
+
+    &:hover {
+        background-color: $color_secundary_darken !important;
+    }
+}
+/**********/
+/* NAVBAR */
+/**********/
+.brand-logo {
+    padding-left: 15px !important;
+}
+/*********/
+/* CARDS */
+/*********/
+.card {
+    height: auto !important;
+    width: 250px;
+}
+
+.card-reveal {
+    overflow-y: hidden !important;
+
+    &--links li {
+        width: 100%;
+        margin-bottom: 10px;
+
+        a {
+            display: block;
+            color: inherit;
+            text-decoration: inherit;
+        }
+    }
+}
+//Responsive cards
+@media only screen and(max-width: 1500px) {
+    .card {
+        width: 220px;
+    }
+}
+@media only screen and(max-width: 1250px) {
+    .card {
+        width: 200px;
+    }
+}
+@media only screen and(max-width: 992px) {
+    .card {
+        width: 300px;
+    }
+}
+@media only screen and(max-width: 725px) {
+    .card {
+        width: 250px;
+    }
+}
+@media only screen and(max-width: 256px) {
+    .card {
+        width: 170px;
+    }
+}
