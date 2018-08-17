@@ -58,6 +58,14 @@ function menu($active_menu_item, $menu_title) //0 = Home, 1 = Leerlingen, 2 = St
             $steropdrachten = null;
     }
 
+    if ($_SESSION['admin']) {
+        $admin_link = '<li class="divider"></li>
+        <li><a href="/admin"><span class="black-text">Admin</span></a></li>';
+    } else {
+        $admin_link = null;
+    }
+
+
     echo <<<END
 <body>
     <nav>
@@ -75,6 +83,7 @@ function menu($active_menu_item, $menu_title) //0 = Home, 1 = Leerlingen, 2 = St
         <ul id="menu-desktop" class="dropdown-content">
             <li><a href="/general/agenda"><span class="black-text">Agenda</span></a></li>
             <li><a href="/general/pdf/3947192837928739812"><span class="black-text">Schema</span></a></li>
+            {$admin_link}
         </ul>
 
         <ul id="menu-mobile" class="sidenav">

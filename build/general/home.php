@@ -7,5 +7,5 @@ login();
 if ($_SESSION['class'] === 'docent') {
     redirect('/docenten/home');
 } else {
-    redirect('/leeringen/home');
+    redirect('/leerlingen/home');
 }

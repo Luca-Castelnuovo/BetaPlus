@@ -193,146 +193,6 @@
 		"oAP": "\/build\/leerlingen\/index.php",
 		"oF": 0
 		},
-	"\/login\/admin\/account-list.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/admin\/account-list.php",
-		"oF": 0
-		},
-	"\/login\/admin\/agenda-admin.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/admin\/agenda-admin.php",
-		"oF": 0
-		},
-	"\/login\/admin\/agenda.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/admin\/agenda.php",
-		"oF": 0
-		},
-	"\/login\/admin\/confirm-account.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/admin\/confirm-account.php",
-		"oF": 0
-		},
-	"\/login\/admin\/confirm-delete-agenda.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/admin\/confirm-delete-agenda.php",
-		"oF": 0
-		},
-	"\/login\/admin\/delete-agenda.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/admin\/delete-agenda.php",
-		"oF": 0
-		},
-	"\/login\/admin\/docent.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/admin\/docent.php",
-		"oF": 0
-		},
-	"\/login\/admin\/edit-account.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/admin\/edit-account.php",
-		"oF": 0
-		},
-	"\/login\/admin\/index.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/admin\/index.php",
-		"oF": 0
-		},
-	"\/login\/admin\/ip-forgot.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/admin\/ip-forgot.php",
-		"oF": 0
-		},
-	"\/login\/admin\/ip-login.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/admin\/ip-login.php",
-		"oF": 0
-		},
-	"\/login\/admin\/ip-register.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/admin\/ip-register.php",
-		"oF": 0
-		},
-	"\/login\/admin\/login-confirm.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/admin\/login-confirm.php",
-		"oF": 0
-		},
-	"\/login\/admin\/login.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/admin\/login.php",
-		"oF": 0
-		},
-	"\/login\/admin\/new-docent-register.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/admin\/new-docent-register.php",
-		"oF": 0
-		},
-	"\/login\/admin\/new-docent.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/admin\/new-docent.php",
-		"oF": 0
-		},
-	"\/login\/admin\/select-account.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/admin\/select-account.php",
-		"oF": 0
-		},
-	"\/login\/admin\/send-code.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/admin\/send-code.php",
-		"oF": 0
-		},
-	"\/login\/admin\/verify-register-docent.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/admin\/verify-register-docent.php",
-		"oF": 0
-		},
-	"\/login\/admin\/verify-register-leerling.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/admin\/verify-register-leerling.php",
-		"oF": 0
-		},
 	"\/login\/forgot-confirm.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -352,13 +212,6 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/build\/login\/index.php",
-		"oF": 0
-		},
-	"\/login\/ip-login.txt": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/ip-login.txt",
 		"oF": 0
 		},
 	"\/login\/loggedin.php": {
@@ -382,13 +235,6 @@
 		"oAP": "\/build\/login\/new-user.php",
 		"oF": 0
 		},
-	"\/login\/profile.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/profile.php",
-		"oF": 0
-		},
 	"\/login\/register.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -403,25 +249,11 @@
 		"oAP": "\/build\/login\/reset-password.php",
 		"oF": 0
 		},
-	"\/login\/reset-password2.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/reset-password2.php",
-		"oF": 0
-		},
 	"\/login\/reset.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/build\/login\/reset.php",
-		"oF": 0
-		},
-	"\/login\/reset2.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/reset2.php",
 		"oF": 0
 		},
 	"\/login\/verify-register.php": {

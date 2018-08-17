@@ -3,7 +3,7 @@ $admin_require = true; require($_SERVER['DOCUMENT_ROOT'] . "/init.php");
 
 login_admin();
 
-head('Users || Admin', 5, 'Users');
+head('Admin', 5);
 ?>
 
 <div class="section">
@@ -34,7 +34,8 @@ head('Users || Admin', 5, 'Users');
                 <?php admin_log_list(); ?>
             </div>
             <div id="generate" class="col s12">
-                Generete register code
+                <h3>Registration</h3>
+                <a class="waves-effect waves-light btn-large"><i class="material-icons left">code</i>Generate registration key</a>
             </div>
         </div>
     </div>

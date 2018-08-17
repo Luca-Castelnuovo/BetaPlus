@@ -65,9 +65,7 @@ function steropdrachten_list_individual_recent($leerling_id)
 
     $result = sql_query($query, false);
     if ($result->num_rows > 0) {
-        echo <<<END
-    <ul class="align-center card-reveal--links">
-END;
+        echo '<ul class="align-center card-reveal--links">';
         while ($steropdracht = $result->fetch_assoc()) {
             echo <<<END
         <li class="btn waves-effect waves-light color-secondary--background">
@@ -75,9 +73,7 @@ END;
         </li>
 END;
         }
-        echo <<<END
-    </ul>
-END;
+        echo '</ul>';
     } else {
         echo '<p>Deze leerling heeft geen steropdrachten</p>';
     }
