@@ -48,6 +48,6 @@ END;
 </div>
 END;
     } else {
-        echo "<p>Er doen op dit moment geen steropdrachten in deze categorie.</p>";
+        echo '<p>Er doen op dit moment geen steropdrachten in deze categorie.</p>';
     }
 }

@@ -53,25 +53,24 @@ function steropdrachten_list_individual_recent($leerling_id)
     $query =
     "SELECT
         id,
-        projectname
+        project_name
     FROM
         steropdrachten
     WHERE
         leerling_id='{$leerling_id}'
     ORDER BY
         created DESC
-    LIMIT
-        4";
+    LIMIT 4";
 
     $result = sql_query($query, false);
-    echo <<<END
-<ul class="align-center card-reveal--links">
-END;
     if ($result->num_rows > 0) {
+        echo <<<END
+    <ul class="align-center card-reveal--links">
+END;
         while ($steropdracht = $result->fetch_assoc()) {
             echo <<<END
         <li class="btn waves-effect waves-light color-secondary--background">
-            <a href="/ster-opdrachten/view/{$steropdracht['id']}">{$steropdracht['projectname']}</a>
+            <a href="/ster-opdrachten/view/{$steropdracht['id']}">{$steropdracht['project_name']}</a>
         </li>
 END;
         }
@@ -79,6 +78,6 @@ END;
     </ul>
 END;
     } else {
-        echo "<p>Deze leerling heeft geen steropdrachten</p>";
+        echo '<p>Deze leerling heeft geen steropdrachten</p>';
     }
 }
