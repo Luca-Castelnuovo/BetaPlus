@@ -1,6 +1,6 @@
 <?php
 
-function accounts_list($class)
+function admin_accounts_list($class)
 {
     if ($class === 'docenten') {
         $query =
@@ -89,5 +89,53 @@ END;
 END;
     } else {
         echo "<p>Er doen op dit moment geen users in deze ({$class}) categorie.</p>";
+    }
+}
+
+
+function admin_log_list()
+{
+    $query =
+    "SELECT
+        user,
+        action,
+        ip,
+        date
+    FROM
+        logs
+    ORDER BY
+        date DESC";
+
+    $result = sql_query($query, false);
+    if ($result->num_rows > 0) {
+        echo <<<END
+        <table class="striped centered highlight responsive-table">
+            <thead>
+              <tr>
+                    <th>IP</th>
+                    <th>User</th>
+                    <th>Action</th>
+                    <th>Date</th>
+              </tr>
+            </thead>
+
+            <tbody>
+END;
+        while ($entry = $result->fetch_assoc()) {
+            echo <<<END
+            <tr>
+                <td>{$entry['ip']}</td>
+                <td>{$entry['user']}</td>
+                <td>{$entry['action']}</td>
+                <td>{$entry['date']}</td>
+            </tr>
+END;
+        }
+        echo <<<END
+        </tbody>
+      </table>
+END;
+    } else {
+        echo 'There are no log entry\'s';
     }
 }

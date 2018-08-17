@@ -18,23 +18,23 @@ head('Users || Admin', 5, 'Users');
             </div>
             <div id="users" class="col s12">
                 <h3>4 HAVO</h3>
-                <?php accounts_list('4havo'); ?>
+                <?php admin_accounts_list('4havo'); ?>
                 <h3>4 VWO</h3>
-                <?php accounts_list('4vwo'); ?>
+                <?php admin_accounts_list('4vwo'); ?>
                 <h3>5 HAVO</h3>
-                <?php accounts_list('5havo'); ?>
+                <?php admin_accounts_list('5havo'); ?>
                 <h3>5 VWO</h3>
-                <?php accounts_list('5vwo'); ?>
+                <?php admin_accounts_list('5vwo'); ?>
                 <h3>6 VWO</h3>
-                <?php accounts_list('6vwo'); ?>
+                <?php admin_accounts_list('6vwo'); ?>
                 <h3>Docenten</h3>
-                <?php accounts_list('docenten'); ?>
+                <?php admin_accounts_list('docenten'); ?>
             </div>
             <div id="logs" class="col s12">
-                Test 2
+                <?php admin_log_list(); ?>
             </div>
             <div id="generate" class="col s12">
-                Test 4
+                Generete register code
             </div>
         </div>
     </div>
