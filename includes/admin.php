@@ -52,7 +52,7 @@ END;
             steropdrachten_list_individual_recent($student['id']);
             echo <<<END
             </div>
-        </div>
+        </div> 
     </div>
 END;
         }
