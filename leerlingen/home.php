@@ -1,16 +1,10 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . "/init.php");
+require($_SERVER['DOCUMENT_ROOT'] . "/init.php");
 
-// login_leerling();
-// alert_personal($_SESSION["user_number"]);
+login_leerling();
 
+head('Home', 2);
 ?>
-<!DOCTYPE html>
-<html lang="nl">
-
-<?php head('Home'); ?>
-
-<body>
 
 <div style="display: inline;">
     <h2 style="margin-bottom: 0;">Mijn Ster-opdracht(en) - <a class="link" href="/ster-opdrachten/new">Nieuw</a></h2>

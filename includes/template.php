@@ -1,7 +1,7 @@
 <?php
 
 //Header
-function head($title)
+function head($title, $active_menu_item = null, $differen_menu_title = null)
 {
     echo <<<END
 <!DOCTYPE html>
@@ -22,10 +22,16 @@ function head($title)
     <title>{$title}</title>
 </head>
 END;
+
+    $menu_title = isset($differen_menu_title) ? $differen_menu_title : $title;
+
+    $active_menu_item = isset($active_menu_item) ? $active_menu_item : null;
+
+    menu($active_menu_item, $menu_title);
 }
 
 //Navbar
-function menu($active_menu_item) //0 = Home, 1 = Leerlingen, 2 = Steropdrachten
+function menu($active_menu_item, $menu_title) //0 = Home, 1 = Leerlingen, 2 = Steropdrachten
 {
     switch ($active_menu_item) {
         case 0:
@@ -45,13 +51,18 @@ function menu($active_menu_item) //0 = Home, 1 = Leerlingen, 2 = Steropdrachten
             $students = null;
             $steropdrachten = 'class="active"';
             break;
+
+        default:
+            $home = null;
+            $students = null;
+            $steropdrachten = null;
     }
 
     echo <<<END
 <body>
     <nav>
         <div class="nav-wrapper color-primary--background">
-            <a href="#" class="brand-logo">Leerlingen</a>
+            <a href="#" class="brand-logo">{$menu_title}</a>
             <a href="#" data-target="menu-mobile" class="right sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li {$steropdrachten}><a href="/ster-opdrachten/"><i class="material-icons tooltipped" data-tooltip="Steropdrachten">folder_special</i></a></li>

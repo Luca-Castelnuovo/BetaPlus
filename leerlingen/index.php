@@ -1,9 +1,9 @@
 <?php
 require($_SERVER['DOCUMENT_ROOT'] . "/init.php");
-// add login validation
-// add personal message
-head('Test Page');
-menu(1);
+
+login();
+
+head('Leerlingen', 1);
 ?>
 
 <div class="section">

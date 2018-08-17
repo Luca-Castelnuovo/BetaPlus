@@ -4,7 +4,7 @@ require($_SERVER['DOCUMENT_ROOT'] . '/init.php');
 
 login();
 
-if ($_SESSION['class'] !== 'docent') {
+if ($_SESSION['class'] === 'docent') {
     redirect('/docenten/home');
 } else {
     redirect('/leeringen/home');

@@ -13,25 +13,17 @@ function gen($length)
 
 
 //Clean user submitted data
-function clean_data($data, $disable = null)
+function clean_data($data)
 {
-    if ($disable != 'sql') {
-        $conn = sql_connect();
-        $data = $conn->escape_string($data);
-        sql_disconnect($conn);
-    }
+    $conn = sql_connect();
+    $data = $conn->escape_string($data);
+    sql_disconnect($conn);
 
-    if ($disable != 'trim') {
-        $data = trim($data);
-    }
+    $data = trim($data);
 
-    if ($disable != 'html') {
-        $data = htmlspecialchars($data);
-    }
+    $data = htmlspecialchars($data);
 
-    if ($disable != 'slash') {
-        $data = stripslashes($data);
-    }
+    $data = stripslashes($data);
 
     return $data;
 }
