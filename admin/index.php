@@ -13,6 +13,7 @@ head('Admin', 5);
                 <ul class="tabs tabs-fixed-width z-depth-1">
                     <li class="tab col s3"><a class="active" href="#users">Users</a></li>
                     <li class="tab col s3"><a href="#logs">Logs</a></li>
+                    <li class="tab col s3"><a href="#agenda">Agenda</a></li>
                     <li class="tab col s3"><a href="#generate">Generate</a></li>
                 </ul>
             </div>
@@ -33,9 +34,12 @@ head('Admin', 5);
             <div id="logs" class="col s12">
                 <?php admin_log_list(); ?>
             </div>
+            <div id="agenda" class="col s12">
+                <h3>Agenda</h3>
+            </div>
             <div id="generate" class="col s12">
                 <h3>Registration</h3>
-                <a class="waves-effect waves-light btn-large"><i class="material-icons left">code</i>Generate registration key</a>
+                <a class="waves-effect waves-light btn-large color-secondary--background"><i class="material-icons left">code</i>Generate registration key</a>
             </div>
         </div>
     </div>

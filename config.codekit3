@@ -16,6 +16,13 @@
 		"oAP": "\/build\/.htaccess",
 		"oF": 0
 		},
+	"\/admin\/agenda.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/admin\/agenda.php",
+		"oF": 0
+		},
 	"\/admin\/index.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -30,23 +37,90 @@
 		"oAP": "\/build\/admin\/process.php",
 		"oF": 0
 		},
+	"\/authentication\/forgot-confirm.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/authentication\/forgot-confirm.php",
+		"oF": 0
+		},
+	"\/authentication\/forgot.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/authentication\/forgot.php",
+		"oF": 0
+		},
+	"\/authentication\/index.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/authentication\/index.php",
+		"oF": 0
+		},
+	"\/authentication\/loggedin.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/authentication\/loggedin.php",
+		"oF": 0
+		},
+	"\/authentication\/login.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/authentication\/login.php",
+		"oF": 0
+		},
+	"\/authentication\/new-user.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/authentication\/new-user.php",
+		"oF": 0
+		},
+	"\/authentication\/register.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/authentication\/register.php",
+		"oF": 0
+		},
+	"\/authentication\/reset-password.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/authentication\/reset-password.php",
+		"oF": 0
+		},
+	"\/authentication\/reset.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/authentication\/reset.php",
+		"oF": 0
+		},
+	"\/authentication\/verify-register.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/authentication\/verify-register.php",
+		"oF": 0
+		},
+	"\/authentication\/verify.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/authentication\/verify.php",
+		"oF": 0
+		},
 	"\/build": {
 		"ft": 65536,
 		"oA": 1,
 		"oAP": "\/build\/build",
 		"oF": 0
 		},
-	"\/css\/style.css": {
-		"aP": 1,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 0,
-		"oAP": "\/build\/css\/style.css",
-		"oF": 0,
-		"oS": 3
-		},
-	"\/css\/style2.scss": {
+	"\/css\/style.scss": {
 		"aP": 1,
 		"bl": 0,
 		"dP": 10,
@@ -54,7 +128,7 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "\/build\/css\/style2.css",
+		"oAP": "\/build\/css\/style.css",
 		"oF": 0,
 		"oS": 3,
 		"uL": 1
@@ -76,6 +150,13 @@
 		"opt": 1,
 		"oT": 1,
 		"q": 90
+		},
+	"\/files\/overig\/jaarschema.pdf": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/files\/overig\/jaarschema.pdf",
+		"oF": 0
 		},
 	"\/files\/steropdrachten\/2.png": {
 		"ft": 32768,
@@ -191,83 +272,6 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/build\/leerlingen\/index.php",
-		"oF": 0
-		},
-	"\/login\/forgot-confirm.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/forgot-confirm.php",
-		"oF": 0
-		},
-	"\/login\/forgot.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/forgot.php",
-		"oF": 0
-		},
-	"\/login\/index.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/index.php",
-		"oF": 0
-		},
-	"\/login\/loggedin.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/loggedin.php",
-		"oF": 0
-		},
-	"\/login\/login.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/login.php",
-		"oF": 0
-		},
-	"\/login\/new-user.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/new-user.php",
-		"oF": 0
-		},
-	"\/login\/register.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/register.php",
-		"oF": 0
-		},
-	"\/login\/reset-password.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/reset-password.php",
-		"oF": 0
-		},
-	"\/login\/reset.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/reset.php",
-		"oF": 0
-		},
-	"\/login\/verify-register.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/verify-register.php",
-		"oF": 0
-		},
-	"\/login\/verify.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/login\/verify.php",
 		"oF": 0
 		},
 	"\/README.md": {
