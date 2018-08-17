@@ -9,18 +9,11 @@
 	],
 "creatorBuild": "26680",
 "files": {
-	"\/admin\/accounts.php": {
+	"\/.htaccess": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/admin\/accounts.php",
-		"oF": 0
-		},
-	"\/admin\/generate.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/admin\/generate.php",
+		"oAP": "\/build\/.htaccess",
 		"oF": 0
 		},
 	"\/admin\/index.php": {
@@ -28,13 +21,6 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/build\/admin\/index.php",
-		"oF": 0
-		},
-	"\/admin\/logs.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/admin\/logs.php",
 		"oF": 0
 		},
 	"\/admin\/process.php": {
@@ -451,6 +437,24 @@
 		"oA": 0,
 		"oAP": "\/build\/login\/verify.php",
 		"oF": 0
+		},
+	"\/README.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 0,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 1,
+		"oAP": "\/build\/README.html",
+		"oF": 0,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
 		},
 	"\/ster-opdrachten\/docenten\/feedback.php": {
 		"cB": 0,

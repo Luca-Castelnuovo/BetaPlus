@@ -88,7 +88,7 @@ function menu($active_menu_item, $menu_title) //0 = Home, 1 = Leerlingen, 2 = St
 END;
 }
 
-function footer()
+function footer($extra = null)
 {
     echo <<<END
     <!--Init Materialize Navbar Components-->
@@ -117,6 +117,10 @@ function footer()
     </script>
     <!--Import Materialize JavaScript-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+END;
+    echo $extra;
+    alert_display();
+    echo <<<END
 </body>
 
 </html>

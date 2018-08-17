@@ -10,6 +10,13 @@ head('Users || Admin', 5, 'Users');
     <div class="container">
         <div class="row">
             <div class="col s12">
+                <ul class="tabs tabs-fixed-width z-depth-1">
+                    <li class="tab col s3"><a class="active" href="#users">Users</a></li>
+                    <li class="tab col s3"><a href="#logs">Logs</a></li>
+                    <li class="tab col s3"><a href="#generate">Generate</a></li>
+                </ul>
+            </div>
+            <div id="users" class="col s12">
                 <h3>4 HAVO</h3>
                 <?php accounts_list('4havo'); ?>
                 <h3>4 VWO</h3>
@@ -23,8 +30,13 @@ head('Users || Admin', 5, 'Users');
                 <h3>Docenten</h3>
                 <?php accounts_list('docenten'); ?>
             </div>
+            <div id="logs" class="col s12">
+                Test 2
+            </div>
+            <div id="generate" class="col s12">
+                Test 4
+            </div>
         </div>
     </div>
 </div>
-
-<?php footer(); ?>
+<?php footer("<script>var instance = M.Tabs.init(document.querySelector('.tabs'), {});</script>"); ?>

@@ -28,6 +28,29 @@ function clean_data($data)
     return $data;
 }
 
+function csrf_gen()
+{
+    if (isset($_SESSION['CSRFtoken'])) {
+        return $_SESSION['CSRFtoken'];
+    } else {
+        $_SESSION['CSRFtoken'] = gen(32);
+        return $_SESSION['CSRFtoken'];
+    }
+}
+
+function csrf_val($post_token)
+{
+    if (!isset($_SESSION['CSRFtoken'])) {
+        redirect('/', 'CSRF error!');
+    }
+
+    if (!(hash_equals($_SESSION['CSRFtoken'], $post_token))) {
+        redirect('/', 'CSRF error!');
+    } else {
+        unset($_SESSION['CSRFtoken']);
+    }
+}
+
 function login()
 {
     // //check if user is loggedin

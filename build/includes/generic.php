@@ -35,5 +35,8 @@ function alert_set($alert)
 
 function alert_display()
 {
-    //TODO: make alert display function
+    if (isset($_SESSION['alert']) && !empty($_SESSION['alert'])) {
+        echo "<script>M.toast({html: '{$_SESSION['alert']}'})</script>";
+        unset($_SESSION['alert']);
+    }
 }

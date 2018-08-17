@@ -40,6 +40,8 @@ function accounts_list($class)
             <div class="row">
 END;
         while ($user = $result->fetch_assoc()) {
+            $CSRFtoken = csrf_gen();
+
             $opposite_enable_disable_state_binary = $user['active'] ? 0 : 1;
             $opposite_enable_disable_state_text = $user['active'] ? 'Disable' : 'Enable';
 
@@ -49,7 +51,7 @@ END;
             } else {
                 $opposite_utalent_state_binary = $user['utalent'] ? 0 : 1;
                 $opposite_utalent_state_text = $user['utalent'] ? 'Disable' : 'Enable';
-                $utalent = "<li class=\"btn waves-effect waves-light color-secondary--background\"><a href=\"/admin/process/utalent/{$user['id']}/{$class}/{$opposite_utalent_state_binary}\">{$opposite_utalent_state_text} Utalent</a></li>";
+                $utalent = "<li class=\"btn waves-effect waves-light color-secondary--background\"><a href=\"/admin/process/{$CSRFtoken}/utalent/{$user['id']}/{$class}/{$opposite_utalent_state_binary}\">{$opposite_utalent_state_text} Utalent</a></li>";
             }
 
             echo <<<END
@@ -63,17 +65,17 @@ END;
                         <span class="card-title grey-text text-darken-4">Opties<i class="material-icons right">close</i></span>
                         <ul class="align-center card-reveal--links">
                             <li class="btn waves-effect waves-light color-secondary--background">
-                                <a href="/admin/process/active/{$user['id']}/{$class}/{$opposite_enable_disable_state_binary}">{$opposite_enable_disable_state_text} User</a>
+                                <a href="/admin/process/{$CSRFtoken}/active/{$user['id']}/{$class}/{$opposite_enable_disable_state_binary}">{$opposite_enable_disable_state_text} User</a>
                             </li>
                             {$utalent}
                             <li class="btn waves-effect waves-light color-secondary--background">
-                                <a href="/admin/process/unblock/{$user['id']}/{$class}/">Unblock Password</a>
+                                <a href="/admin/process/{$CSRFtoken}/unblock/{$user['id']}/{$class}/">Unblock Password</a>
                             </li>
                             <li class="btn waves-effect waves-light color-secondary--background">
-                                <a href="/admin/process/reset/{$user['id']}/{$class}/">Reset Password</a>
+                                <a href="/admin/process/{$CSRFtoken}/reset/{$user['id']}/{$class}/">Reset Password</a>
                             </li>
                             <li class="btn waves-effect waves-light disabled color-secondary--background">
-                                <a href="/admin/process/delete/{$user['id']}/{$class}/">Delete User</a>
+                                <a href="/admin/process/{$CSRFtoken}/delete/{$user['id']}/{$class}/">Delete User</a>
                             </li>
                         </ul>
                     </div>
