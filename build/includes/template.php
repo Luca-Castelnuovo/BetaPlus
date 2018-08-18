@@ -1,7 +1,7 @@
 <?php
 
 //Header
-function head($title, $active_menu_item = null, $differen_menu_title = null)
+function head($title, $active_menu_item = null, $differen_menu_title = null, $extra = null)
 {
     echo <<<END
 <!DOCTYPE html>
@@ -40,6 +40,7 @@ function head($title, $active_menu_item = null, $differen_menu_title = null)
     <!--Import Google Icon Font-->
     <link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    {$extra}
 </head>
 END;
 
