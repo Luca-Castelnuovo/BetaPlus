@@ -7,7 +7,8 @@ function steropdrachten_list($done)
     $query =
     "SELECT
         id,
-        project_name
+        project_name,
+        leerling_id
     FROM
         steropdrachten
     WHERE
@@ -22,6 +23,13 @@ function steropdrachten_list($done)
             <div class="row">
 END;
         while ($steropdracht = $result->fetch_assoc()) {
+            // TODO: remove true for production
+            if ($steropdracht['leerling_id'] === $_SESSION['leerling_id'] || true) {
+                $extra = "<li class=\"btn waves-effect waves-light color-secondary--background\"><a href=\"/ster-opdrachten/edit/{$steropdracht['id']}\">Edit Opdracht</a></li>";
+            } else {
+                $extra = "<li class=\"btn waves-effect waves-light color-secondary--background\"><a href=\"/ster-opdrachten/join/{$steropdracht['id']}\">Join Opdracht</a></li>";
+            }
+
             echo <<<END
             <div class="col s12 m6 l4 xl3">
                 <div class="card medium hoverable">
@@ -35,9 +43,7 @@ END;
                             <li class="btn waves-effect waves-light color-secondary--background">
                                 <a href="/ster-opdrachten/view/{$steropdracht['id']}">Bekijk Opdracht</a>
                             </li>
-                            <li class="btn waves-effect waves-light color-secondary--background">
-                                <a href="/ster-opdrachten/join/{$steropdracht['id']}">Join Opdracht</a>
-                            </li>
+                            {$extra}
                         </ul>
                     </div>
                 </div>

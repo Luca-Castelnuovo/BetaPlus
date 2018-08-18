@@ -2,11 +2,11 @@
 
 require($_SERVER['DOCUMENT_ROOT'] . '/init.php');
 
-$id = escape_data($_GET['id']);
+$id = clean_data($_GET['random_id']);
 
 $query =
 "SELECT
-    name,
+    path,
     public
 FROM
     files
@@ -19,10 +19,13 @@ if (!$file["public"]) {
     login();
 }
 
-if (file_exists('../files/' . $file["path"])) {
+$path = "/files/{$file['path']}";
+
+if (file_exists($path)) {
     header('Content-type: application/pdf');
-    header('Content-Disposition: inline; filename="' . $file["name"] . '.pdf"');
-    @readfile('../files/' . $file["path"]);
+    header('Content-Disposition: inline; filename="' . $path . '"');
+    @readfile($path);
 } else {
     redirect('/general/error?code=404');
+    // http_response_code(404);exit;
 }
