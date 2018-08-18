@@ -9,6 +9,10 @@ head('Edit || Ster Opdrachten', 2, 'Edit', '<link rel="stylesheet" href="https:/
 $id = clean_data($_GET['id']);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if ($_SESSION['steropdrachten_edit_confirm_id'] !== $id) {
+        redirect('/ster-opdrachten/view/'.$id, 'U hebt geen toestemming om deze Ster Opdracht aan te passen');
+    }
+
     $project_name = clean_data($_POST['project_name']);
     $content = clean_data($_POST['content']);
     $date = date('Y-m-d');
@@ -25,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     sql_query($query, false);
 
-    redirect("/ster-opdrachten/view/{$id}", 'Ster Opdracht aangepast');
+    redirect('/ster-opdrachten/view/'.$id, 'Ster Opdracht aangepast');
 } else {
     $query=
     "SELECT
@@ -44,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         unset($_SESSION['steropdrachten_edit_confirm_id']);
         $_SESSION['steropdrachten_edit_confirm_id'] = $id;
     } else {
-        redirect('/ster-opdrachten/', 'U hebt geen toestemming om deze Ster Opdracht aan te passen');
+        redirect('/ster-opdrachten/view/'.$id, 'U hebt geen toestemming om deze Ster Opdracht aan te passen');
     }
 }
 

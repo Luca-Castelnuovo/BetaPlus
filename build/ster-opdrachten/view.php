@@ -41,7 +41,6 @@ WHERE
     id = '{$steropdracht['leerling_id']}'";
 
 $leerling = sql_query($query, true);
-//Niet Beoordeeld/Go/No Go/Done/Becijferd
 
 switch ($steropdracht['status']) {
     case 0:
@@ -88,6 +87,9 @@ $parsedown->setSafeMode(true);
                         </h6>
                     </div>
                 </div>
+                <?php // TODO: remove true for production?>
+                <?php if ($steropdracht['leerling_id'] === $_SESSION['leerling_id'] || true) {
+    ?>
                 <div class="container">
                     <div class="card-panel center">
                         <h3 class="center">Details</h3>
@@ -107,7 +109,7 @@ $parsedown->setSafeMode(true);
                                     <td><?= $steropdracht['status_date'] ?></td>
                                 </tr>
                                 <?php if (!empty($steropdracht['feedback'])) {
-    ?>
+        ?>
                                 <tr>
                                     <td>Feedback</td>
                                     <td><a class="waves-effect waves-light btn color-secondary--background modal-trigger" href="#feedback">Klik Hier</a></td>
@@ -123,7 +125,7 @@ $parsedown->setSafeMode(true);
                                     </div>
                                 </tr>
                                 <?php
-} ?>
+    } ?>
 
                                 <?php if ($steropdracht['status'] === 4) {
         ?>
@@ -138,7 +140,8 @@ $parsedown->setSafeMode(true);
                         </table>
                     </div>
                 </div>
-                <!-- PARAGRAPH -->
+            <?php
+} ?>
                 <div class="container">
                     <?php $content = $steropdracht['content']; echo $parsedown->text($content); ?>
                 </div>

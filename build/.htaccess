@@ -18,7 +18,9 @@ RewriteRule ^admin/process/([^/]*)/([^/]*)/([^/]*)/([^/]*)/([^/]*)$ /admin/proce
 RewriteRule ^ster-opdrachten/view/([^/]*)/$ /ster-opdrachten/view.php?id=$1 [L]
 RewriteRule ^ster-opdrachten/view/([^/]*)$ /ster-opdrachten/view.php?id=$1 [L]
 
-
+#edit
+RewriteRule ^ster-opdrachten/edit/([^/]*)/$ /ster-opdrachten/edit.php?id=$1 [L]
+RewriteRule ^ster-opdrachten/edit/([^/]*)$ /ster-opdrachten/edit.php?id=$1 [L]
 
 # Remove .php extension
 RewriteCond %{DOCUMENT_ROOT}/$1\.php -f

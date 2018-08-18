@@ -79,7 +79,7 @@ function menu($active_menu_item, $menu_title) //0 = Home, 1 = Leerlingen, 2 = St
             $steropdrachten = null;
     }
 
-    // TODO: Remove for production server true
+    // TODO: remove true for production
     if ($_SESSION['admin'] || true) {
         $admin_link = '<li class="divider"></li>
         <li><a href="/admin"><span class="black-text">Admin</span></a></li>';
@@ -124,7 +124,6 @@ function menu($active_menu_item, $menu_title) //0 = Home, 1 = Leerlingen, 2 = St
         </ul>
     </nav>
 END;
-    // TODO: change link of profile picture
 }
 
 function footer($extra = null)
