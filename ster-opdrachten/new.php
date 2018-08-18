@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $content = clean_data($_POST['content'], true);
     $date = date('Y-m-d');
     $datetime = date('Y-m-d H:i:s');
+    $subject = clean_data($_POST['subject']);
 
     $leerling_id = $_SESSION['leerling_nummer'] ?? '1';
 
@@ -22,14 +23,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             created,
             status_date,
             last_edited,
-            leerling_id)
+            leerling_id,
+            subject)
     VALUES
         ('{$project_name}',
         '{$content}',
         '{$datetime}',
         '{$date}',
         '{$datetime}',
-        '{$leerling_id}')";
+        '{$leerling_id}',
+        '{$subject}')";
 
     sql_query($query, false);
 
@@ -49,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <input class="validate" id="project_name" name="project_name" type="text" required> <label for="project_name">Naam Ster Opdracht</label>
                                 </div>
                                 <div class="file-field input-field col s4">
-                                    <div class="btn">
+                                    <div class="btn color-primary--background">
                                         <span>Omslagfoto</span>
                                         <input type="file">
                                     </div>
@@ -58,6 +61,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     </div>
                                 </div>
                             </div>
+                            <h5>Vak</h5>
+                            <p>
+                              <label>
+                                <input name="subject" type="radio" value="Biologie" required checked />
+                                <span>Biologie</span>
+                              </label>
+                            </p>
+                            <p>
+                              <label>
+                                <input name="subject" type="radio" value="Informatica" required />
+                                <span>Informatica</span>
+                              </label>
+                            </p>
+                            <p>
+                              <label>
+                                <input name="subject" type="radio" value="Natuurkunde" required />
+                                <span>Natuurkunde</span>
+                              </label>
+                            </p>
+                            <p>
+                              <label>
+                                <input name="subject" type="radio" value="Scheikunde" required />
+                                <span>Scheikunde</span>
+                              </label>
+                            </p>
+                            <p>
+                              <label>
+                                <input name="subject" type="radio" value="Wiskunde" required />
+                                <span>Wiskunde</span>
+                              </label>
+                            </p>
                             <div class="row">
                                 <h5>Content Ster Opdracht</h5>
                                 <textarea name="content" id="simplemde" cols="30" rows="10"></textarea>

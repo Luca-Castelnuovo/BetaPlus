@@ -18,7 +18,8 @@ $query =
     grade_date,
     content,
     created,
-    last_edited
+    last_edited,
+    sterren
 FROM
     steropdrachten
 WHERE
@@ -114,6 +115,11 @@ $parsedown->setSafeMode(true);
                                 <tr>
                                     <td>Cijfer</td>
                                     <td><span class="transform-uppercase bold"><?= $steropdracht['grade'] ?></span></td>
+                                    <td><?= $steropdracht['grade_date'] ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Aantal Sterren</td>
+                                    <td><?= $steropdracht['sterren'] ?></td>
                                     <td><?= $steropdracht['grade_date'] ?></td>
                                 </tr>
                                 <?php
