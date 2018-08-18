@@ -5,8 +5,6 @@ login();
 
 head('Naam Steropdracht || Ster Opdrachten', 2, 'Naam Ster Opdracht');
 
-$id = clean_data($_GET['id']);
-
 $query =
 "SELECT
     id,
@@ -16,15 +14,14 @@ $query =
     last_edited,
     reviewed,
     approved,
-    done
+    done,
+    text
 FROM
     steropdrachten
 WHERE
-    id = '{$id}'";
+    id = '1'";
 
 $steropdracht = sql_query($query, true);
-
-var_dump($steropdracht);
 
 $query =
 "SELECT
@@ -32,9 +29,11 @@ $query =
     last_name,
     leerling_nummer
 FROM
-    leerlingen
+    steropdrachten
 WHERE
-    id = '{$steropdracht['leerling_id']}'";
+    id = '{$steropdracht['leerling_id']}'
+ORDER BY
+    created DESC";
 
 $leerling = sql_query($query, true);
 

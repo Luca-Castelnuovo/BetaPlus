@@ -11,15 +11,52 @@ function head($title, $active_menu_item = null, $differen_menu_title = null)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#003d14">
+
+    <title>{$title}</title>
+    <meta content="INSERT DESCRIPTION" name="description">
+    <meta content="INSERT KEYWORDS" name="keywords">
+
+    <!-- Tells Google not to provide a translation for this document -->
+    <meta name="google" content="notranslate">
+
+    <!-- Control the behavior of search engine crawling and indexing -->
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+
+    <!-- Favicons/Icons -->
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" sizes="192x192" href="https://betasterren.lucacastelnuovo.nl/favicon.png">
+    <link rel="apple-touch-icon" href="https://betasterren.lucacastelnuovo.nl/favicon.png">
+    <link rel="mask-icon" href="https://betasterren.lucacastelnuovo.nl/favicon.png" color="green">
+
+    <!-- Facebook cards -->
+    <meta property="og:url" content="https://{$_SERVER[HTTP_HOST]}{$_SERVER[REQUEST_URI]}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="INSERT PAGE NAME">
+    <meta property="og:image" content="https://betasterren.lucacastelnuovo.nl/favicon.png">
+    <meta property="og:description" content="INSERT DESCRIPTION">
+    <meta property="og:site_name" content="INSERT SITE NAME">
+
+    <!-- Twitter cards -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@LucaCastelnuovo">
+    <meta name="twitter:creator" content="@LucaCastelnuovo">
+    <meta name="twitter:url" content="https://{$_SERVER[HTTP_HOST]}{$_SERVER[REQUEST_URI]}">
+    <meta name="twitter:title" content="INSERT PAGE NAME">
+    <meta name="twitter:description" content="Content description less than 200 characters">
+    <meta name="twitter:image" content="https://betasterren.lucacastelnuovo.nl/favicon.png">
+
     <!--Import Materialize CSS-->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com/" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
 
     <link rel="stylesheet" href="/css/style.css">
 
     <!--Import Google Icon Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <title>{$title}</title>
 </head>
 END;
 
@@ -112,30 +149,8 @@ function footer($extra = null)
     <!--Import Materialize JavaScript-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
     <!--Init Materialize Navbar Components-->
-    <script src="https://cdn.betasterren.nl/js/betasterren/init.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var elems = document.querySelectorAll(".sidenav");
-            var instances = M.Sidenav.init(elems, {
-                edge: "right",
-                draggable: true
-            });
-        });
-
-        document.addEventListener("DOMContentLoaded", function () {
-            var elems = document.querySelectorAll(".dropdown-trigger");
-            var instances = M.Dropdown.init(elems, {
-                alignment: "right",
-                hover: true,
-                coverTrigger: false
-            });
-        });
-
-        document.addEventListener("DOMContentLoaded", function () {
-            var elems = document.querySelectorAll(".tooltipped");
-            var instances = M.Tooltip.init(elems, {});
-        });
-    </script>
+    <link rel="preconnect" href="https://cdn.lucacastelnuovo.nl/" crossorigin>
+    <script src="https://cdn.lucacastelnuovo.nl/js/betasterren/init.js"></script>
 END;
     echo $extra;
     alert_display();

@@ -140,6 +140,17 @@
 		"oAP": "\/build\/favicon.ico",
 		"oF": 0
 		},
+	"\/favicon.png": {
+		"ft": 32768,
+		"iS": 31462,
+		"oA": 0,
+		"oAP": "\/build\/favicon.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 1,
+		"oT": 1,
+		"q": 90
+		},
 	"\/files\/leerlingen\/106343.png": {
 		"ft": 32768,
 		"iS": 1064,
@@ -281,6 +292,14 @@
 		"oAP": "\/build\/leerlingen\/index.php",
 		"oF": 0
 		},
+	"\/manifest.json": {
+		"ft": 524288,
+		"oA": 2,
+		"oAP": "\/build\/manifest.json",
+		"oF": 1,
+		"oO": 0,
+		"oS": 0
+		},
 	"\/README.md": {
 		"cB": 0,
 		"cS": 0,
@@ -353,6 +372,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/build\/ster-opdrachten\/new.php",
+		"oF": 0
+		},
+	"\/ster-opdrachten\/tmp.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/ster-opdrachten\/tmp.php",
 		"oF": 0
 		},
 	"\/ster-opdrachten\/view.php": {
