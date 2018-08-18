@@ -2,6 +2,8 @@
 
 function steropdrachten_list($done)
 {
+    $status = $done ? ">= '3'" : "= '2'";
+
     $query =
     "SELECT
         id,
@@ -10,7 +12,7 @@ function steropdrachten_list($done)
     FROM
         steropdrachten
     WHERE
-        reviewed = '1' AND approved = '1' AND done='$done'
+        status {$status}
     ORDER BY
         created DESC";
 

@@ -374,13 +374,6 @@
 		"oAP": "\/build\/ster-opdrachten\/new.php",
 		"oF": 0
 		},
-	"\/ster-opdrachten\/tmp.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/ster-opdrachten\/tmp.php",
-		"oF": 0
-		},
 	"\/ster-opdrachten\/view.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -399,7 +392,7 @@
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "meme-drunkArcher",
 	"iconImageWasSetByUser": 0,
-	"lastBuiltDate": 556231767
+	"lastBuiltDate": 556294496
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

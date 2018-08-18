@@ -16,7 +16,7 @@ function head($title, $active_menu_item = null, $differen_menu_title = null)
 
     <title>{$title}</title>
     <meta content="INSERT DESCRIPTION" name="description">
-    <meta content="INSERT KEYWORDS" name="keywords">
+    <meta content="Betasterren, Beta Sterren, Het Baarnsch Lyceum, beta+, beta hbl" name="keywords">
 
     <!-- Tells Google not to provide a translation for this document -->
     <meta name="google" content="notranslate">
@@ -30,23 +30,6 @@ function head($title, $active_menu_item = null, $differen_menu_title = null)
     <link rel="icon" sizes="192x192" href="https://betasterren.lucacastelnuovo.nl/favicon.png">
     <link rel="apple-touch-icon" href="https://betasterren.lucacastelnuovo.nl/favicon.png">
     <link rel="mask-icon" href="https://betasterren.lucacastelnuovo.nl/favicon.png" color="green">
-
-    <!-- Facebook cards -->
-    <meta property="og:url" content="https://{$_SERVER[HTTP_HOST]}{$_SERVER[REQUEST_URI]}">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="INSERT PAGE NAME">
-    <meta property="og:image" content="https://betasterren.lucacastelnuovo.nl/favicon.png">
-    <meta property="og:description" content="INSERT DESCRIPTION">
-    <meta property="og:site_name" content="INSERT SITE NAME">
-
-    <!-- Twitter cards -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@LucaCastelnuovo">
-    <meta name="twitter:creator" content="@LucaCastelnuovo">
-    <meta name="twitter:url" content="https://{$_SERVER[HTTP_HOST]}{$_SERVER[REQUEST_URI]}">
-    <meta name="twitter:title" content="INSERT PAGE NAME">
-    <meta name="twitter:description" content="Content description less than 200 characters">
-    <meta name="twitter:image" content="https://betasterren.lucacastelnuovo.nl/favicon.png">
 
     <!--Import Materialize CSS-->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com/" crossorigin>

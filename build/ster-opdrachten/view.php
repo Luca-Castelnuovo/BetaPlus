@@ -3,8 +3,6 @@ require($_SERVER['DOCUMENT_ROOT'] . "/init.php");
 
 login();
 
-head('Naam Steropdracht || Ster Opdrachten', 2, 'Naam Ster Opdracht');
-
 $id = clean_data($_GET['id']);
 
 $query =
@@ -12,11 +10,12 @@ $query =
     id,
     leerling_id,
     project_name,
+    status,
+    status_date,
+    feedback,
+    feedback_date,
     created,
     last_edited,
-    reviewed,
-    approved,
-    done
 FROM
     steropdrachten
 WHERE
@@ -24,7 +23,9 @@ WHERE
 
 $steropdracht = sql_query($query, true);
 
-var_dump($steropdracht);
+$steropdracht ?: redirect('/ster-opdrachten/', 'Deze Ster Opdracht bestaat niet');
+
+head($steropdracht['project_name'] . ' || Ster Opdrachten', 2, $steropdracht['project_name']);
 
 $query =
 "SELECT
@@ -47,7 +48,7 @@ $leerling = sql_query($query, true);
                 <div class="container">
                     <div class="card-panel center">
                         <div class="card-image">
-                            <img src="http://via.placeholder.com/400x300?text=placeholder">
+                            <img src="/files/steropdrachten/<?= $steropdracht['id'] ?>.png" onerror="this.src='https://cdn.lucacastelnuovo.nl/images/betasterren/default_profile.png'">
                         </div>
                         <h1 class="center"><?= $steropdracht['project_name'] ?></h1>
                         <h6 class="center flow-text">
@@ -58,45 +59,47 @@ $leerling = sql_query($query, true);
                 </div>
                 <div class="container">
                     <div class="card-panel center">
-                        <h3 class="center">Review Details</h3>
-                        <table class="responsive-table center grey lighten-3">
+                        <h3 class="center">Details</h3>
+                        <h6>(alleen zichtbaar voor jou en docenten)</h6>
+                        <table class="striped centered highlight responsive-table">
                             <thead>
                                 <tr>
-                                    <th>Feedback</th>
+                                    <th></th>
                                     <th>Status</th>
-                                    <th>
-                                        Grade
-                                    </th>
+                                    <th>Datum</th>
                                 </tr>
                             </thead>
                             <tbody>
+
                                 <tr>
-                                    <td><a href="">Feedback Given</a></td>
-                                    <td>No Go</td>
-                                    <td>
-                                        <a href="">ABCD</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>30-07-2018</td>
+                                    <td>Project</td>
+                                    <td>Niet Beoordeeld/Go/No Go/Done/Becijferd</td>
                                     <td>2-08-2018</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Feedback</td>
+                                    <td><a class="waves-effect waves-light btn color-secondary--background modal-trigger" href="#feedback">Klik Hier</a></td>
+
+                                    <div id="feedback" class="modal ">
+                                        <div class="modal-content">
+                                            <h4>Feedback</h4>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a href="#!" class="modal-close waves-effect waves-light color-secondary--background btn">Close</a>
+                                        </div>
+                                    </div>
+
                                     <td>5-08-2018</td>
                                 </tr>
-                            </tbody>
-                        </table>
-                        <h3 class="center">Date Details</h3>
-                        <table class="responsive-table center grey lighten-3">
-                            <tbody>
+
                                 <tr>
-                                    <td>Date Created:</td>
-                                    <td>Date Edited:</td>
-                                    <td>Date Finished:</td>
+                                    <td>Cijfer</td>
+                                    <td><b>B</b></td>
+                                    <td>5-08-2018</td>
                                 </tr>
-                                <tr>
-                                    <td>17-07-2018</td>
-                                    <td>30-07-2018</td>
-                                    <td>2-08-2018</td>
-                                </tr>
+
                             </tbody>
                         </table>
                     </div>
@@ -162,4 +165,4 @@ $leerling = sql_query($query, true);
     </div>
 </div>
 
-<?php footer(); ?>
+<?php footer("<script>document.addEventListener('DOMContentLoaded', function() {var elems = document.querySelectorAll('.modal');var instances = M.Modal.init(elems, {});});</script>"); ?>
