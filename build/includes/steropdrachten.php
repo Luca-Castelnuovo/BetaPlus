@@ -7,8 +7,7 @@ function steropdrachten_list($done)
     $query =
     "SELECT
         id,
-        project_name,
-        leerling_id
+        project_name
     FROM
         steropdrachten
     WHERE

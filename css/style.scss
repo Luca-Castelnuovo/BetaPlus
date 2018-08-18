@@ -80,3 +80,17 @@ $color_secundary_darken: #4f0023;
         width: 170px;
     }
 }
+
+/**********/
+/* HELPER */
+/**********/
+
+.bold {
+    font-weight: bold;
+}
+
+.transform {
+    &-uppercase {
+        text-transform: uppercase;
+    }
+}

@@ -14,8 +14,10 @@ $query =
     status_date,
     feedback,
     feedback_date,
+    grade,
+    grade_date,
     created,
-    last_edited,
+    last_edited
 FROM
     steropdrachten
 WHERE
@@ -38,6 +40,29 @@ WHERE
     id = '{$steropdracht['leerling_id']}'";
 
 $leerling = sql_query($query, true);
+//Niet Beoordeeld/Go/No Go/Done/Becijferd
+
+switch ($steropdracht['status']) {
+    case 0:
+        $status = 'Niet Beoordeeld';
+        break;
+    case 1:
+        $status = 'No Go';
+        break;
+    case 2:
+        $status = 'Go';
+        break;
+    case 3:
+        $status = 'Wachtend op Cijfer';
+        break;
+    case 4:
+        $status = 'Becijferd';
+        break;
+
+    default:
+        $status = 'Unknown';
+        break;
+}
 
 ?>
 
@@ -60,46 +85,49 @@ $leerling = sql_query($query, true);
                 <div class="container">
                     <div class="card-panel center">
                         <h3 class="center">Details</h3>
-                        <h6>(alleen zichtbaar voor jou en docenten)</h6>
                         <table class="striped centered highlight responsive-table">
                             <thead>
                                 <tr>
                                     <th></th>
                                     <th>Status</th>
-                                    <th>Datum</th>
+                                    <th>Laatste Update</th>
                                 </tr>
                             </thead>
                             <tbody>
 
                                 <tr>
                                     <td>Project</td>
-                                    <td>Niet Beoordeeld/Go/No Go/Done/Becijferd</td>
-                                    <td>2-08-2018</td>
+                                    <td><?= $status ?></td>
+                                    <td><?= $steropdracht['status_date'] ?></td>
                                 </tr>
-
+                                <?php if (!empty($steropdracht['feedback'])) {
+    ?>
                                 <tr>
                                     <td>Feedback</td>
                                     <td><a class="waves-effect waves-light btn color-secondary--background modal-trigger" href="#feedback">Klik Hier</a></td>
-
+                                    <td><?= $steropdracht['feedback_date'] ?></td>
                                     <div id="feedback" class="modal ">
                                         <div class="modal-content">
                                             <h4>Feedback</h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                            <p><?= nl2br($steropdracht['feedback']) ?></p>
                                         </div>
                                         <div class="modal-footer">
                                             <a href="#!" class="modal-close waves-effect waves-light color-secondary--background btn">Close</a>
                                         </div>
                                     </div>
-
-                                    <td>5-08-2018</td>
                                 </tr>
+                                <?php
+} ?>
 
+                                <?php if ($steropdracht['status'] === 4) {
+        ?>
                                 <tr>
                                     <td>Cijfer</td>
-                                    <td><b>B</b></td>
-                                    <td>5-08-2018</td>
+                                    <td><span class="transform-uppercase bold"><?= $steropdracht['grade'] ?></span></td>
+                                    <td><?= $steropdracht['grade_date'] ?></td>
                                 </tr>
-
+                                <?php
+    } ?>
                             </tbody>
                         </table>
                     </div>
