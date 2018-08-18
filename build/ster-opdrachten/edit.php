@@ -10,16 +10,7 @@ head('Edit || Ster Opdrachten', 2, 'Edit');
     <div class="container">
         <div class="row">
             <div class="col s12">
-                <h3>4 HAVO</h3>
-                <?php leerlingen_list('4havo'); ?>
-                <h3>4 VWO</h3>
-                <?php leerlingen_list('4vwo'); ?>
-                <h3>5 HAVO</h3>
-                <?php leerlingen_list('5havo'); ?>
-                <h3>5 VWO</h3>
-                <?php leerlingen_list('5vwo'); ?>
-                <h3>6 VWO</h3>
-                <?php leerlingen_list('6vwo'); ?>
+                <h1>edit</h1>
             </div>
         </div>
     </div>

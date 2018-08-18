@@ -58,7 +58,8 @@ function menu($active_menu_item, $menu_title) //0 = Home, 1 = Leerlingen, 2 = St
             $steropdrachten = null;
     }
 
-    if ($_SESSION['admin']) {
+    // TODO: Remove for production server true
+    if ($_SESSION['admin'] || true) {
         $admin_link = '<li class="divider"></li>
         <li><a href="/admin"><span class="black-text">Admin</span></a></li>';
     } else {
@@ -83,7 +84,11 @@ function menu($active_menu_item, $menu_title) //0 = Home, 1 = Leerlingen, 2 = St
         <ul id="menu-desktop" class="dropdown-content">
             <li><a href="/general/agenda"><span class="black-text">Agenda</span></a></li>
             <li><a href="/general/pdf/3947192837928739812"><span class="black-text">Schema</span></a></li>
+            <li><a href="/?logout"><span class="black-text">Profile Picture</span></a></li>
+            <li><a href="/?logout"><span class="black-text">Change Password</span></a></li>
             {$admin_link}
+            <li class="divider"></li>
+            <li><a href="/?logout"><span class="black-text">Logout</span></a></li>
         </ul>
 
         <ul id="menu-mobile" class="sidenav">
@@ -92,15 +97,22 @@ function menu($active_menu_item, $menu_title) //0 = Home, 1 = Leerlingen, 2 = St
             <li><a href="/ster-opdrachten/">Steropdrachten</a></li>
             <li><a href="/general/agenda">Agenda</a></li>
             <li><a href="/general/pdf/3947192837928739812">Jaarschema</a></li>
+            <li><a href="/?logout">Profile Picture</a></li>
+            <li><a href="/?logout">Change Password</a></li>
+            {$admin_link}
         </ul>
     </nav>
 END;
+    // TODO: change link of profile picture
 }
 
 function footer($extra = null)
 {
     echo <<<END
+    <!--Import Materialize JavaScript-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
     <!--Init Materialize Navbar Components-->
+    <script src="https://cdn.betasterren.nl/js/betasterren/init.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             var elems = document.querySelectorAll(".sidenav");
@@ -124,8 +136,6 @@ function footer($extra = null)
             var instances = M.Tooltip.init(elems, {});
         });
     </script>
-    <!--Import Materialize JavaScript-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 END;
     echo $extra;
     alert_display();

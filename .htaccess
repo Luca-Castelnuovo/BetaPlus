@@ -1,12 +1,30 @@
 RewriteEngine On
 
+################
+# Admin Panel #
+###############
+
+#Admin Panel
 RewriteRule ^admin/process/([^/]*)/([^/]*)/([^/]*)/([^/]*)/([^/]*)/$ /admin/process.php?CSRFtoken=$1&type=$2&id=$3&class=$4&state=$5 [L]
 RewriteRule ^admin/process/([^/]*)/([^/]*)/([^/]*)/([^/]*)/([^/]*)$ /admin/process.php?CSRFtoken=$1&type=$2&id=$3&class=$4&state=$5 [L]
 
+
+###################
+# Ster Opdrachten #
+###################
+
+#view
+RewriteRule ^ster-opdrachten/view/([^/]*)/$ /ster-opdrachten/view.php?id=$1 [L]
+RewriteRule ^ster-opdrachten/view/([^/]*)$ /ster-opdrachten/view.php?id=$1 [L]
+
+
+
+# Remove .php extension
 RewriteCond %{DOCUMENT_ROOT}/$1\.php -f
 RewriteRule ^(.+?)/?$ /$1.php [L]
 RewriteCond %{REQUEST_FILENAME} !-f [OR]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ - [L]
 
+#Error handling
 ErrorDocument 404 /general/error?code=404

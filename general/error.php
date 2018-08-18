@@ -37,7 +37,7 @@ switch ($error) {
                 <div class="col s12">
                     <h1><?= $error ?> Error</h1>
                     <h3><?= $error_text ?></h3>
-                    <a href="<?= $goto_url ?>" class="waves-effect waves-light btn-large">Ga naar <?= $goto ?></a>
+                    <a href="<?= $goto_url ?>" class="waves-effect waves-light btn-large red accent-4">Ga naar <?= $goto ?></a>
                 </div>
             </div>
         </div>

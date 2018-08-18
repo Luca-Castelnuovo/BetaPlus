@@ -169,6 +169,13 @@
 		"oT": 1,
 		"q": 90
 		},
+	"\/general\/agenda.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/general\/agenda.html",
+		"oF": 0
+		},
 	"\/general\/agenda.php": {
 		"cB": 0,
 		"ft": 8192,

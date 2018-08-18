@@ -34,7 +34,7 @@ head('Agenda', 5);
                         }
                         echo '</ul>';
                     } else {
-                        echo '<p>Er zijn op dit moment geen agenda items.</p>';
+                        echo '<p>Er zijn op dit moment geen agenda items.</p> ';
                     }
                 ?>
             </div>
