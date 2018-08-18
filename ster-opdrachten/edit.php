@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $project_name = clean_data($_POST['project_name']);
     $content = clean_data($_POST['content'], true);
-    $date = date('Y-m-d');
+    $datetime = date('Y-m-d H:i:s');
 
     $query=
     "UPDATE
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     SET
         project_name = '{$project_name}',
         content = '{$content}',
-        last_edited = '{$date}'
+        last_edited = '{$datetime}'
     WHERE
         id = {$id}";
 

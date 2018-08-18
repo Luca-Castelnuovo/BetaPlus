@@ -42,3 +42,9 @@ ErrorDocument 404 /general/error?code=404
 
 #Redirects
 Redirect /home /general/home
+
+# block access to .pdf
+<Files ~ "\.pdf$">
+    Order allow,deny
+    Deny from all
+</Files>

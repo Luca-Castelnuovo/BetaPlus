@@ -99,7 +99,7 @@ $parsedown->setSafeMode(true);
                                 <tr>
                                     <th></th>
                                     <th>Status</th>
-                                    <th>Laatste Update</th>
+                                    <th>Datum</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -109,6 +109,15 @@ $parsedown->setSafeMode(true);
                                     <td><?= $status ?></td>
                                     <td><?= $steropdracht['status_date'] ?></td>
                                 </tr>
+                                <?php if ($steropdracht['status'] == 4) {
+        ?>
+                                <tr>
+                                    <td>Cijfer</td>
+                                    <td><span class="transform-uppercase bold"><?= $steropdracht['grade'] ?></span></td>
+                                    <td><?= $steropdracht['grade_date'] ?></td>
+                                </tr>
+                                <?php
+    } ?>
                                 <?php if (!empty($steropdracht['feedback'])) {
         ?>
                                 <tr>
@@ -124,16 +133,7 @@ $parsedown->setSafeMode(true);
                                             <a href="#!" class="modal-close waves-effect waves-light color-secondary--background btn">Close</a>
                                         </div>
                                     </div>
-                                </tr>
-                                <?php
-    } ?>
-
-                                <?php if ($steropdracht['status'] === 4) {
-        ?>
-                                <tr>
-                                    <td>Cijfer</td>
-                                    <td><span class="transform-uppercase bold"><?= $steropdracht['grade'] ?></span></td>
-                                    <td><?= $steropdracht['grade_date'] ?></td>
+                                    <script>document.addEventListener('DOMContentLoaded', function() {var elems = document.querySelectorAll('.modal');var instances = M.Modal.init(elems, {});});</script>
                                 </tr>
                                 <?php
     } ?>
@@ -141,7 +141,7 @@ $parsedown->setSafeMode(true);
                         </table>
                     </div>
                 </div>
-            <?php
+                <?php
 } ?>
                 <div class="container">
                     <?php $content = $steropdracht['content']; echo $parsedown->text($content); ?>
@@ -151,4 +151,4 @@ $parsedown->setSafeMode(true);
     </div>
 </div>
 
-<?php footer("<script>document.addEventListener('DOMContentLoaded', function() {var elems = document.querySelectorAll('.modal');var instances = M.Modal.init(elems, {});});  document.querySelector('p').classList.add('flow-text');</script>"); ?>
+<?php footer("<script>document.querySelector('p').classList.add('flow-text');</script>"); ?>

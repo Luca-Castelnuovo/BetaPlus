@@ -4,14 +4,19 @@ require($_SERVER['DOCUMENT_ROOT'] . "/init.php");
 login_leerling();
 
 head('Home', 0);
+
+$_SESSION['leerling_id'] =1;
 ?>
 
 <div class="section">
     <div class="container">
         <div class="row">
             <div class="col s12">
-                <h2>Mijn Ster Opdrachten</h2>
-                <a href="/ster-opdrachten/new" class="waves-effect waves-light btn-large color-secondary--background"><i class="material-icons left">add_circle_outline</i>Nieuw</a>
+                <a href="/ster-opdrachten/new" class="waves-effect waves-light btn-large color-secondary--background"><i class="material-icons left">add_circle_outline</i>Nieuwe Ster Opdracht</a>
+                <h3>Mijn lopende Ster Opdrachten</h3>
+                <?php steropdrachten_list_my(0); ?>
+                <h3>Mijn afgeronde Ster Opdrachten</h3>
+                <?php steropdrachten_list_my(1); ?>
             </div>
         </div>
     </div>

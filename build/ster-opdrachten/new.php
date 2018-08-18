@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $project_name = clean_data($_POST['project_name']);
     $content = clean_data($_POST['content'], true);
     $date = date('Y-m-d');
+    $datetime = date('Y-m-d H:i:s');
 
     $leerling_id = $_SESSION['leerling_nummer'] ?? '1';
 
@@ -25,9 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     VALUES
         ('{$project_name}',
         '{$content}',
+        '{$datetime}',
         '{$date}',
-        '{$date}',
-        '{$date}',
+        '{$datetime}',
         '{$leerling_id}')";
 
     sql_query($query, false);

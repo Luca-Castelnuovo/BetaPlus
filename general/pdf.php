@@ -19,7 +19,7 @@ if (!$file["public"]) {
     login();
 }
 
-$path = "/files/{$file['path']}";
+$path = "{$_SERVER['DOCUMENT_ROOT']}/files/{$file['path']}";
 
 if (file_exists($path)) {
     header('Content-type: application/pdf');
