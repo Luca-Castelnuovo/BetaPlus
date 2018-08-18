@@ -93,6 +93,7 @@ $parsedown->setSafeMode(true);
                 <div class="container">
                     <div class="card-panel center">
                         <h3 class="center">Details</h3>
+                        <a href="/ster-opdrachten/edit/<?= $id ?>" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">edit</i>Edit Ster OPdracht</a>
                         <table class="striped centered highlight responsive-table">
                             <thead>
                                 <tr>

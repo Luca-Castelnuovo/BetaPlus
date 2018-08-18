@@ -4,8 +4,7 @@ require($_SERVER['DOCUMENT_ROOT'] . "/init.php");
 login();
 
 head('Agenda', 5);
-// TODO: make agenda insert system
-// TODO: improve agenda ui
+
 ?>
 
 <div class="section">

@@ -387,6 +387,13 @@
 		"oA": 0,
 		"oAP": "\/build\/ster-opdrachten\/view.php",
 		"oF": 0
+		},
+	"\/todo.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/todo.php",
+		"oF": 0
 		}
 	},
 "hooks": [

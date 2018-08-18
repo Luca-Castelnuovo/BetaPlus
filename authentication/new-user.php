@@ -1,8 +1,7 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . "/scripts/functions.php");
 
-// TODO: disallow access after testing fase
-if (/*!$_SESSION['allow_register']*/ false) {
+if (!$_SESSION['allow_register']) {
     $_SESSION['alert'] = "Deze link is reeds gebruikt of de URL is ongeldig!";
     header("location: /login/");
     exit;

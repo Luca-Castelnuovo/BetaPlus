@@ -13,17 +13,21 @@ function gen($length)
 
 
 //Clean user submitted data
-function clean_data($data)
+function clean_data($data, $editor = false)
 {
     $conn = sql_connect();
     $data = $conn->escape_string($data);
     sql_disconnect($conn);
 
-    $data = trim($data);
+    if (!$editor) {
+        $data = trim($data);
+    }
 
     $data = htmlspecialchars($data);
 
-    $data = stripslashes($data);
+    if (!$editor) {
+        $data = stripslashes($data);
+    }
 
     return $data;
 }

@@ -8,7 +8,7 @@ head('Nieuw || Ster Opdrachten', 2, 'Nieuw', '<link rel="stylesheet" href="https
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $project_name = clean_data($_POST['project_name']);
-    $content = clean_data($_POST['content']);
+    $content = clean_data($_POST['content'], true);
     $date = date('Y-m-d');
 
     $leerling_id = $_SESSION['leerling_nummer'] ?? '1';

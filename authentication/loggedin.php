@@ -7,7 +7,6 @@ session_regenerate_id(true);
 if (!empty($return_to)) {
     header("Location: $return_to");
 } elseif ($_SESSION['class'] == 'admin') {
-    // TODO: activate 2fa security
 
     //$_SESSION['admin_login'] = true;
     //header("Location: admin/login");

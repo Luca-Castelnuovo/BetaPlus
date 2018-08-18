@@ -11,19 +11,21 @@ $id = clean_data($_GET['id']);
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($_SESSION['steropdrachten_edit_confirm_id'] !== $id) {
         redirect('/ster-opdrachten/view/'.$id, 'U hebt geen toestemming om deze Ster Opdracht aan te passen');
+    } else {
+        unset($_SESSION['steropdrachten_edit_confirm_id']);
     }
 
     $project_name = clean_data($_POST['project_name']);
-    $content = clean_data($_POST['content']);
+    $content = clean_data($_POST['content'], true);
     $date = date('Y-m-d');
 
     $query=
     "UPDATE
         steropdrachten
     SET
-        project_name = {$project_name},
-        content = {$content},
-        last_edited = {$date}
+        project_name = '{$project_name}',
+        content = '{$content}',
+        last_edited = '{$date}'
     WHERE
         id = {$id}";
 
@@ -59,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="row">
                 <div class="col s12">
                     <div class="row">
-                        <form class="col s12" method="post" action="edit.php?id=<?= $id ?>">
+                        <form class="col s12" method="post" action="/ster-opdrachten/edit/<?= $id ?>">
                             <div class="row">
                                 <div class="input-field col s8">
                                     <input class="validate" id="project_name" name="project_name" type="text" required value="<?= $steropdracht['project_name'] ?>"> <label for="project_name">Naam Ster Opdracht</label>
