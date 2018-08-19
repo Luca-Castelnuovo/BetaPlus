@@ -62,7 +62,7 @@ function steropdrachten_list_individual_recent($leerling_id)
         leerling_id='{$leerling_id}'
     ORDER BY
         created DESC
-    LIMIT 4";
+    LIMIT 3";
 
     $result = sql_query($query, false);
     if ($result->num_rows > 0) {

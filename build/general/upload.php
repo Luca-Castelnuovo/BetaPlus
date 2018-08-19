@@ -4,10 +4,16 @@ require($_SERVER['DOCUMENT_ROOT'] . "/init.php");
 login();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    csrf_val($_POST['CSRFtoken']);
+    $CSRFtoken = clean_data($_POST['CSRFtoken']);
     $type = clean_data($_POST['type']);
     $url = clean_data($_POST['url']);
     $id = clean_data($_POST['id']);
+
+    if (!csrf_val($CSRFtoken, true)) {
+        // echo json_encode(['status' => true, 'url' => '/general/toast?url=/' . $id . '/&alert=CSRF error']);
+        var_dump($id);
+        exit;
+    }
 
     $_SESSION['toast_set'] = true;
 
@@ -27,7 +33,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             break;
 
         case 'steropdrachten_cover':
-            token_val($id);
+            if (!token_val($id, true)) {
+                echo json_encode(['status' => true, 'url' => '/general/toast?url=/ster-opdrachten/edit/' . $id . '/&alert=Oeps er ging iets fout, propbeer opnieuw']);
+                exit;
+            }
 
             $query =
             "UPDATE
@@ -38,12 +47,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 id = '{$id}'";
 
             sql_query($query, false);
-            echo json_encode(['status' => true, 'url' => '/general/toast?url=/ster-opdrachten/&alert=Ster Opdracht foto succesvol aangepast']);
+            echo json_encode(['status' => true, 'url' => '/general/toast?url=/ster-opdrachten/edit/' . $id . '/&alert=Cover foto succesvol aangepast']);
             exit;
             break;
 
         default:
-            echo json_encode(['status' => false, 'url' => '/general/toast?url=/general/home&alert=Oeps er ging iets fout']);
+            echo json_encode(['status' => true, 'url' => '/general/toast?url=/leerlingen/&alert=Oeps er ging iets fout']);
             exit;
             break;
     }
@@ -58,7 +67,7 @@ head('Upload', 5, 'Upload', '<link href="https://cdn.lucacastelnuovo.nl/css/beta
         <div class="row">
             <div class="col s12">
                 <div class="center-align">
-                    <h1>Upload Foto</h1>
+                    <h1>Upload Foto <?= $id ?></h1>
                     <input type="hidden" id="CSRFtoken" name="CSRFtoken" value="<?= csrf_gen(); ?>">
                 </div>
                 <div class="dropzone">
@@ -82,4 +91,4 @@ head('Upload', 5, 'Upload', '<link href="https://cdn.lucacastelnuovo.nl/css/beta
         </div>
     </div>
 </div>
-<?php footer('<script src="https://cdn.lucacastelnuovo.nl/js/ajax.js"></script><script src="https://cdn.lucacastelnuovo.nl/js/betasterren/imgur.php.2.js?response_url=/general/upload.php&type=' . clean_data($_GET['type']) . '&client_id=b2c72661027878c"></script>');?>
+<?php footer('<script src="https://cdn.lucacastelnuovo.nl/js/ajax.js"></script><script src="https://cdn.lucacastelnuovo.nl/js/betasterren/imgur.php.4.js?response_url=/general/upload.php&type=' . clean_data($_GET['type']) . '&id=' . clean_data($_GET['id']) . '&client_id=b2c72661027878c"></script>');?>

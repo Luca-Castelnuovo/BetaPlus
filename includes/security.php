@@ -42,16 +42,27 @@ function csrf_gen()
     }
 }
 
-function csrf_val($post_token)
+function csrf_val($post_token, $returnbool = false)
 {
     if (!isset($_SESSION['CSRFtoken'])) {
-        redirect('/', 'CSRF error!');
+        if ($returnbool) {
+            return false;
+        } else {
+            redirect('/', 'CSRF error!');
+        }
     }
 
     if (!(hash_equals($_SESSION['CSRFtoken'], $post_token))) {
-        redirect('/', 'CSRF error!');
+        if ($returnbool) {
+            return false;
+        } else {
+            redirect('/', 'CSRF error!');
+        }
     } else {
         unset($_SESSION['CSRFtoken']);
+        if ($returnbool) {
+            return true;
+        }
     }
 }
 
@@ -67,19 +78,19 @@ function token_gen($identifier)
     }
 }
 
-function token_val($identifier, $returntrue = false)
+function token_val($identifier, $returnbool = false)
 {
     $token = "token_{$_SESSION['leerling_id']}_{$identifier}";
 
     if (!isset($_SESSION[$token]) || !$_SESSION[$token]) {
-        if ($returntrue) {
+        if ($returnbool) {
             return false;
         } else {
             redirect('/general/home', 'U hebt geen toegang tot deze pagina!');
         }
     } else {
         unset($_SESSION[$token]);
-        if ($returntrue) {
+        if ($returnbool) {
             return true;
         }
     }
