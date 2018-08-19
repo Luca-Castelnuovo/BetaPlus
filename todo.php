@@ -1,8 +1,10 @@
 <?php
 
-// TODO: classify steropdrachten in subject math,physics etc see v1
-// TODO: abbility to delete ster opdrachten and to declare them as done
-// TODO: change password
-// TODO: upload profile pic
-// TODO: steropdrachten buddy implementation
-// TODO: Remove all unneccasrry trues
+// TODO: overal - upload profile pic
+// TODO: steropdracht - feedback specify teacher
+// TODO: steropdracht - abbility to delete
+// TODO: steropdracht - ability to declare as done (auto send email to speciefeid teacher uppon completion)
+// TODO: auth - change password option
+// TODO: steropdracht - buddy implementation
+// TODO: steropdracht - feedback request btn
+// TODO: overal - remove all `remove true for production`
