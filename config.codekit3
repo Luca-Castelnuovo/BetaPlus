@@ -215,6 +215,20 @@
 		"oAP": "\/build\/general\/pdf.php",
 		"oF": 0
 		},
+	"\/general\/toast.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/general\/toast.php",
+		"oF": 0
+		},
+	"\/general\/upload.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/general\/upload.php",
+		"oF": 0
+		},
 	"\/includes\/admin.php": {
 		"cB": 0,
 		"ft": 8192,

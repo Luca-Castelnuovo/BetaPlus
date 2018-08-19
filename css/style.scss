@@ -9,25 +9,25 @@ $color_secundary_darken: #4f0023;
 /***********/
 .color-primary {
     color: $color_primary !important;
-}
 
-.color-primary--background {
-    background-color: $color_primary !important;
+    &--background {
+        background-color: $color_primary !important;
 
-    &:hover:not(.nav-wrapper) {
-        background-color: $color_secundary !important;
+        &:hover:not(.nav-wrapper) {
+            background-color: $color_secundary !important;
+        }
     }
 }
 
 .color-secondary {
     color: $color_secundary !important;
-}
 
-.color-secondary--background {
-    background-color: $color_secundary !important;
+    &--background {
+        background-color: $color_secundary !important;
 
-    &:hover {
-        background-color: $color_secundary_darken !important;
+        &:hover {
+            background-color: $color_secundary_darken !important;
+        }
     }
 }
 /**********/
@@ -42,19 +42,19 @@ $color_secundary_darken: #4f0023;
 .card {
     height: auto !important;
     width: 250px;
-}
 
-.card-reveal {
-    overflow-y: hidden !important;
+    &-reveal {
+        overflow-y: hidden !important;
 
-    &--links li {
-        width: 100%;
-        margin-bottom: 10px;
+        &--links li {
+            width: 100%;
+            margin-bottom: 10px;
 
-        a {
-            display: block;
-            color: inherit;
-            text-decoration: inherit;
+            a {
+                display: block;
+                color: inherit;
+                text-decoration: inherit;
+            }
         }
     }
 }
@@ -84,11 +84,9 @@ $color_secundary_darken: #4f0023;
         width: 170px;
     }
 }
-
 /**********/
 /* HELPER */
 /**********/
-
 .bold {
     font-weight: bold;
 }

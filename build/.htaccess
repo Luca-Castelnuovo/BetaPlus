@@ -22,13 +22,23 @@ RewriteRule ^ster-opdrachten/view/([^/]*)$ /ster-opdrachten/view.php?id=$1 [L]
 RewriteRule ^ster-opdrachten/edit/([^/]*)/$ /ster-opdrachten/edit.php?id=$1 [L]
 RewriteRule ^ster-opdrachten/edit/([^/]*)$ /ster-opdrachten/edit.php?id=$1 [L]
 
-##########
-# Overig #
-##########
+
+###########
+# General #
+###########
 
 #Agenda
 RewriteRule ^general/pdf/([^/]*)/$ /general/pdf.php?random_id=$1 [L]
 RewriteRule ^general/pdf/([^/]*)$ /general/pdf.php?random_id=$1 [L]
+
+#Upload
+RewriteRule ^general/upload/([^/]*)/$ /general/upload.php?type=$1 [L]
+RewriteRule ^general/upload/([^/]*)$ /general/upload.php?type=$1 [L]
+
+
+##########
+# Overig #
+##########
 
 # Remove .php extension
 RewriteCond %{DOCUMENT_ROOT}/$1\.php -f
