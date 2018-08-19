@@ -48,17 +48,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="row">
                         <form class="col s12" method="post" action="new.php">
                             <div class="row">
-                                <div class="input-field col s8">
+                                <div class="input-field col s12">
                                     <input class="validate" id="project_name" name="project_name" type="text" required> <label for="project_name">Naam Ster Opdracht</label>
-                                </div>
-                                <div class="file-field input-field col s4">
-                                    <div class="btn color-primary--background">
-                                        <span>Omslagfoto</span>
-                                        <input type="file">
-                                    </div>
-                                    <div class="file-path-wrapper">
-                                        <input class="file-path validate" type="text">
-                                    </div>
                                 </div>
                             </div>
                             <h5>Vak</h5>

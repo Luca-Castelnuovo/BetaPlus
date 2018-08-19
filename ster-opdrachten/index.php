@@ -5,7 +5,6 @@ login();
 
 head('Ster Opdrachten', 2);
 
-unset($_SESSION['steropdrachten_edit_confirm_id']);
 ?>
 
 <div class="section">

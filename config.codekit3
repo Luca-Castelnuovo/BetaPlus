@@ -151,34 +151,12 @@
 		"oT": 1,
 		"q": 90
 		},
-	"\/files\/leerlingen\/106343.png": {
-		"ft": 32768,
-		"iS": 1064,
-		"oA": 0,
-		"oAP": "\/build\/files\/leerlingen\/106343.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 1,
-		"oT": 1,
-		"q": 90
-		},
 	"\/files\/overig\/jaarschema.pdf": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/build\/files\/overig\/jaarschema.pdf",
 		"oF": 0
-		},
-	"\/files\/steropdrachten\/2.png": {
-		"ft": 32768,
-		"iS": 1292,
-		"oA": 0,
-		"oAP": "\/build\/files\/steropdrachten\/2.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 1,
-		"oT": 1,
-		"q": 90
 		},
 	"\/general\/agenda.html": {
 		"cB": 0,

@@ -55,6 +55,36 @@ function csrf_val($post_token)
     }
 }
 
+function token_gen($identifier)
+{
+    $token = "token_{$_SESSION['leerling_id']}_{$identifier}";
+
+    if (isset($_SESSION[$token])) {
+        return $_SESSION[$token];
+    } else {
+        $_SESSION[$token] = true;
+        return $_SESSION[$token];
+    }
+}
+
+function token_val($identifier, $returntrue = false)
+{
+    $token = "token_{$_SESSION['leerling_id']}_{$identifier}";
+
+    if (!isset($_SESSION[$token]) || !$_SESSION[$token]) {
+        if ($returntrue) {
+            return false;
+        } else {
+            redirect('/general/home', 'U hebt geen toegang tot deze pagina!');
+        }
+    } else {
+        unset($_SESSION[$token]);
+        if ($returntrue) {
+            return true;
+        }
+    }
+}
+
 function login()
 {
     // //check if user is loggedin

@@ -1,7 +1,6 @@
 <?php
 
-// TODO: overal - upload profile pic
-// TODO: steropdracht - feedback specify teacher
+// TODO: steropdracht - feedback (specify teacher)
 // TODO: steropdracht - abbility to delete
 // TODO: steropdracht - ability to declare as done (auto send email to speciefeid teacher uppon completion)
 // TODO: auth - change password option

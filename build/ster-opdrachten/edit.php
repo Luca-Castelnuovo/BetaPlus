@@ -9,10 +9,8 @@ head('Edit || Ster Opdrachten', 2, 'Edit', '<link rel="stylesheet" href="https:/
 $id = clean_data($_GET['id']);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if ($_SESSION['steropdrachten_edit_confirm_id'] !== $id) {
+    if (!token_val($id, true)) {
         redirect('/ster-opdrachten/view/'.$id, 'U hebt geen toestemming om deze Ster Opdracht aan te passen');
-    } else {
-        unset($_SESSION['steropdrachten_edit_confirm_id']);
     }
 
     $project_name = clean_data($_POST['project_name']);
@@ -49,8 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // TODO: remove true for production
     if (($_SESSION['leerling_id'] === $steropdracht['leerling_id']) || true) {
-        unset($_SESSION['steropdrachten_edit_confirm_id']);
-        $_SESSION['steropdrachten_edit_confirm_id'] = $id;
+        token_gen($id);
     } else {
         redirect('/ster-opdrachten/view/'.$id, 'U hebt geen toestemming om deze Ster Opdracht aan te passen');
     }
@@ -68,14 +65,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <div class="input-field col s8">
                                     <input class="validate" id="project_name" name="project_name" type="text" required value="<?= $steropdracht['project_name'] ?>"> <label for="project_name">Naam Ster Opdracht</label>
                                 </div>
-                                <div class="file-field input-field col s4">
-                                    <div class="btn color-primary--background">
-                                        <span>Omslagfoto</span>
-                                        <input type="file">
-                                    </div>
-                                    <div class="file-path-wrapper">
-                                        <input class="file-path validate" type="text">
-                                    </div>
+                                <div class="col s4">
+                                    <a href="/general/upload/steropdrachten_cover/<?= $id ?>/<?php token_gen($id); ?>" class="waves-effect waves-light btn-large color-primary--background">Upload Cover Foto</a>
                                 </div>
                             </div>
                             <h5>Vak</h5>

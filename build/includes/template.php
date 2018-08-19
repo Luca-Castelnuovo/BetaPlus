@@ -105,7 +105,7 @@ function menu($active_menu_item, $menu_title) //0 = Home, 1 = Leerlingen, 2 = St
         <ul id="menu-desktop" class="dropdown-content">
             <li><a href="/general/agenda"><span class="black-text">Agenda</span></a></li>
             <li><a href="/general/pdf/jaarschema" target="_blank"><span class="black-text">Schema</span></a></li>
-            <li><a href="/general/upload/leerling_profile_picture"><span class="black-text">Profile Picture</span></a></li>
+            <li><a href="/general/upload/leerling_profile"><span class="black-text">Profile Picture</span></a></li>
             <li><a href="/?logout"><span class="black-text">Change Password</span></a></li>
             {$admin_link}
             <li class="divider"></li>
@@ -118,7 +118,7 @@ function menu($active_menu_item, $menu_title) //0 = Home, 1 = Leerlingen, 2 = St
             <li><a href="/ster-opdrachten/">Steropdrachten</a></li>
             <li><a href="/general/agenda">Agenda</a></li>
             <li><a href="/general/pdf/jaarschema" >Jaarschema</a></li>
-            <li><a href="/general/upload/leerling_profile_picture">Profile Picture</a></li>
+            <li><a href="/general/upload/leerling_profile">Profile Picture</a></li>
             <li><a href="/?logout">Change Password</a></li>
             {$admin_link}
         </ul>
@@ -135,8 +135,8 @@ function footer($extra = null)
     <link rel="preconnect" href="https://cdn.lucacastelnuovo.nl/" crossorigin>
     <script src="https://cdn.lucacastelnuovo.nl/js/betasterren/init.js"></script>
 END;
-    echo $extra;
     alert_display();
+    echo $extra;
     echo <<<END
 </body>
 

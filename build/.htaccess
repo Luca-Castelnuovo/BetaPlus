@@ -32,9 +32,8 @@ RewriteRule ^general/pdf/([^/]*)/$ /general/pdf.php?random_id=$1 [L]
 RewriteRule ^general/pdf/([^/]*)$ /general/pdf.php?random_id=$1 [L]
 
 #Upload
-RewriteRule ^general/upload/([^/]*)/$ /general/upload.php?type=$1 [L]
-RewriteRule ^general/upload/([^/]*)$ /general/upload.php?type=$1 [L]
-
+RewriteRule ^general/upload/([^/]*)/([^/]*)/$ /general/upload.php?type=$1&id=$2 [L]
+RewriteRule ^general/upload/([^/]*)/([^/]*)$ /general/upload.php?type=$1&id=$2 [L]
 
 ##########
 # Overig #
