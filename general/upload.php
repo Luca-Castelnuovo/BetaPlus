@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 id = '{$_SESSION['leerling_id']}'";
 
             sql_query($query, false);
-            echo json_encode(['status' => true, 'url' => '/general/toast?url=/leerlingen/&alert=Profiel foto succesvol aangepast']);
+            echo json_encode(['status' => true, 'url' => '/general/toast?url=/leerlingen/&alert=Profiel foto aangepast']);
             exit;
             break;
 
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 id = '{$id}'";
 
             sql_query($query, false);
-            echo json_encode(['status' => true, 'url' => '/general/toast?url=/ster-opdrachten/edit/' . $id . '/&alert=Cover foto succesvol aangepast']);
+            echo json_encode(['status' => true, 'url' => '/general/toast?url=/ster-opdrachten/view/' . $id . '/&alert=Cover foto aangepast']);
             exit;
             break;
 
@@ -55,6 +55,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo json_encode(['status' => true, 'url' => '/general/toast?url=/leerlingen/&alert=Oeps er ging iets fout']);
             exit;
             break;
+    }
+} else {
+    if (strlen($_GET['id']) < 1) {
+        $id = 'undefined';
+    } else {
+        $id = clean_data($_GET['id']);
     }
 }
 
@@ -67,7 +73,7 @@ head('Upload', 5, 'Upload', '<link href="https://cdn.lucacastelnuovo.nl/css/beta
         <div class="row">
             <div class="col s12">
                 <div class="center-align">
-                    <h1>Upload Foto <?= $id ?></h1>
+                    <h1>Upload Foto</h1>
                     <input type="hidden" id="CSRFtoken" name="CSRFtoken" value="<?= csrf_gen(); ?>">
                 </div>
                 <div class="dropzone">
@@ -91,4 +97,4 @@ head('Upload', 5, 'Upload', '<link href="https://cdn.lucacastelnuovo.nl/css/beta
         </div>
     </div>
 </div>
-<?php footer('<script src="https://cdn.lucacastelnuovo.nl/js/ajax.js"></script><script src="https://cdn.lucacastelnuovo.nl/js/betasterren/imgur.php.4.js?response_url=/general/upload.php&type=' . clean_data($_GET['type']) . '&id=' . clean_data($_GET['id']) . '&client_id=b2c72661027878c"></script>');?>
+<?php footer('<script src="https://cdn.lucacastelnuovo.nl/js/ajax.js"></script><script src="https://cdn.lucacastelnuovo.nl/js/betasterren/imgur.php.4.js?response_url=/general/upload.php&type=' . clean_data($_GET['type']) . '&id=' . $id . '&client_id=b2c72661027878c"></script>');?>

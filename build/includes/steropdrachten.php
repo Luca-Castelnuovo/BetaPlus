@@ -68,7 +68,8 @@ function steropdrachten_list_my($done)
     "SELECT
         id,
         project_name,
-        leerling_id
+        leerling_id,
+        image_url
     FROM
         steropdrachten
     WHERE
@@ -87,7 +88,7 @@ END;
             <div class="col s12 m6 l4 xl3">
                 <div class="card medium hoverable">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator responsive-img" src="/files/steropdrachten/{$steropdracht['id']}.png" onerror="this.src='https://cdn.lucacastelnuovo.nl/images/betasterren/default_profile.png'">
+                        <img class="activator responsive-img" src="{$steropdracht['image_url']}" onerror="this.src='https://cdn.lucacastelnuovo.nl/images/betasterren/default_profile.png'">
                     </div>
                     <div class="card-content"><span class="card-title activator grey-text text-darken-4 center">{$steropdracht['project_name']}</span></div>
                     <div class="card-reveal">
