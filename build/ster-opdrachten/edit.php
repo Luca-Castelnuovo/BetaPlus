@@ -37,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     "SELECT
         project_name,
         content,
+        status,
         leerling_id
     FROM
         steropdrachten
@@ -45,11 +46,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $steropdracht = sql_query($query, true);
 
+    if ($steropdracht['status'] >= 3) {
+        redirect('/ster-opdrachten/view/'.$id, 'Deze Ster Opdracht is klaar u kunt hem niet meer aanpassen');
+    }
+
     // TODO: remove true for production
     if (($_SESSION['leerling_id'] === $steropdracht['leerling_id']) || true) {
         token_gen($id);
     } else {
         redirect('/ster-opdrachten/view/'.$id, 'U hebt geen toestemming om deze Ster Opdracht aan te passen');
+    }
+
+    switch ($_GET['type']) {
+        case 'done':
+
+            if ($steropdracht['status'] < 2) {
+                redirect('/ster-opdrachten/view/'.$id, 'Ster Opdracht heeft geen Go en kan dus niet klaar zijn');
+            }
+
+            $query =
+            "UPDATE
+                steropdrachten
+            SET
+                status = '3'
+            WHERE
+                id='{$id}' AND status='2'";
+
+            sql_query($query, false);
+
+            redirect('/ster-opdrachten/view/'.$id, 'Ster Opdracht klaar');
+            break;
+
+        case 'delete':
+            $query =
+            "DELETE FROM
+                steropdrachten
+            WHERE
+                id='{$id}'";
+
+            sql_query($query, false);
+
+            redirect('/ster-opdrachten/', 'Ster Opdracht verwijderd');
+            break;
     }
 }
 
@@ -104,6 +142,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <h5>Content Ster Opdracht</h5>
                                 <textarea name="content" id="simplemde" cols="30" rows="10"><?= $steropdracht['content'] ?></textarea>
                                 <script>var simplemde = new SimpleMDE({ element: document.querySelector("#simplemde") });</script>
+                            </div>
+                            <div class="row">
+                                <a href="/ster-opdrachten/edit/<?= $id ?>/done" class="waves-effect waves-light btn-small color-secondary--background"><i class="material-icons left">done</i>Ster Opdracht klaar</a>
+                                <a href="/ster-opdrachten/edit/<?= $id ?>/delete" class="waves-effect waves-light btn-small color-secondary--background"><i class="material-icons left">delete</i>Verwijder Ster Opdracht</a>
                             </div>
                             <button class="btn-large waves-effect waves-light color-primary--background" type="submit" name="action">Verstuur
                                 <i class="material-icons right">send</i>

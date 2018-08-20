@@ -7,19 +7,22 @@ $id = clean_data($_GET['id']);
 
 $query =
 "SELECT
-    id,
     leerling_id,
     project_name,
+    subject,
+    content,
     status,
+    status_docent,
     status_date,
     feedback,
+    feedback_docent,
     feedback_date,
     grade,
+    grade_docent,
     grade_date,
-    content,
+    sterren,
     created,
     last_edited,
-    sterren,
     image_url
 FROM
     steropdrachten
@@ -85,7 +88,7 @@ $parsedown->setSafeMode(true);
                         <h1 class="center"><?= $steropdracht['project_name'] ?></h1>
                         <h6 class="center flow-text">
                             <?php // TODO: implement rewriterule for leerling search query and add support for buddys?>
-                            Door: <a href="/leerlingen/<?= $leerling['leerling_nummer'] ?>"><?= $leerling['first_name'] ?> <?= $leerling['last_name'] ?></a>
+                            Door: <a href="/leerlingen/search/<?= $leerling['leerling_nummer'] ?>"><?= $leerling['first_name'] ?> <?= $leerling['last_name'] ?></a>
                         </h6>
                     </div>
                 </div>
@@ -95,12 +98,18 @@ $parsedown->setSafeMode(true);
                 <div class="container">
                     <div class="card-panel center">
                         <h3 class="center">Details</h3>
-                        <a href="/ster-opdrachten/edit/<?= $id ?>" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">edit</i>Edit Ster OPdracht</a>
+                        <?php if ($steropdracht['status'] <= 2) {
+        ?>
+                        <a href="/ster-opdrachten/edit/<?= $id ?>/" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">edit</i>Edit Ster OPdracht</a>
+                        <a href="/ster-opdrachten/feedback/<?= $id ?>/request" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">feedback</i>Vraag Feedback</a>
+                    <?php
+    } ?>
                         <table class="striped centered highlight responsive-table">
                             <thead>
                                 <tr>
                                     <th></th>
                                     <th>Status</th>
+                                    <th>Docent</th>
                                     <th>Datum</th>
                                 </tr>
                             </thead>
@@ -109,6 +118,7 @@ $parsedown->setSafeMode(true);
                                 <tr>
                                     <td>Project</td>
                                     <td><?= $status ?></td>
+                                    <td><?= $steropdracht['status_docent'] ?></td>
                                     <td><?= $steropdracht['status_date'] ?></td>
                                 </tr>
                                 <?php if ($steropdracht['status'] == 4) {
@@ -116,11 +126,13 @@ $parsedown->setSafeMode(true);
                                 <tr>
                                     <td>Cijfer</td>
                                     <td><span class="transform-uppercase bold"><?= $steropdracht['grade'] ?></span></td>
+                                    <td><?= $steropdracht['grade_docent'] ?></td>
                                     <td><?= $steropdracht['grade_date'] ?></td>
                                 </tr>
                                 <tr>
                                     <td>Aantal Sterren</td>
                                     <td><?= $steropdracht['sterren'] ?></td>
+                                    <td><?= $steropdracht['grade_docent'] ?></td>
                                     <td><?= $steropdracht['grade_date'] ?></td>
                                 </tr>
                                 <?php
@@ -130,6 +142,7 @@ $parsedown->setSafeMode(true);
                                 <tr>
                                     <td>Feedback</td>
                                     <td><a class="waves-effect waves-light btn color-secondary--background modal-trigger" href="#feedback">Klik Hier</a></td>
+                                    <td><?= $steropdracht['feedback_docent'] ?></td>
                                     <td><?= $steropdracht['feedback_date'] ?></td>
                                     <div id="feedback" class="modal ">
                                         <div class="modal-content">

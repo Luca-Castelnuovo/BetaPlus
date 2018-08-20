@@ -25,7 +25,7 @@ function leerlingen_list($class)
 END;
         while ($student = $result->fetch_assoc()) {
             echo <<<END
-            <div class="col s12 m6 l4 xl3">
+            <div class="col s12 m6 l4 xl3" id="{$student['id']}">
                 <div class="card medium hoverable">
                     <div class="card-image waves-effect waves-block waves-light">
                         <img class="activator responsive-img" src="{$student['profile_url']}" onerror="this.src='https://cdn.lucacastelnuovo.nl/images/betasterren/default_profile.png'">
@@ -59,7 +59,7 @@ function steropdrachten_list_individual_recent($leerling_id)
     FROM
         steropdrachten
     WHERE
-        leerling_id='{$leerling_id}'
+        leerling_id='{$leerling_id}' AND status >= '2'
     ORDER BY
         created DESC
     LIMIT 3";

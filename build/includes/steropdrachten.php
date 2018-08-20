@@ -26,13 +26,13 @@ END;
         while ($steropdracht = $result->fetch_assoc()) {
             // TODO: remove true for production
             if ($steropdracht['leerling_id'] === $_SESSION['leerling_id'] || true) {
-                $extra = "<li class=\"btn waves-effect waves-light color-secondary--background\"><a href=\"/ster-opdrachten/edit/{$steropdracht['id']}\">Edit Opdracht</a></li>";
+                $extra = "<li class=\"btn waves-effect waves-light color-secondary--background\"><a href=\"/ster-opdrachten/edit/{$steropdracht['id']}/\">Edit Opdracht</a></li>";
             } else {
-                $extra = "<li class=\"btn waves-effect waves-light color-secondary--background\"><a href=\"/ster-opdrachten/join/{$steropdracht['id']}\">Join Opdracht</a></li>";
+                $extra = "<li class=\"btn waves-effect waves-light color-secondary--background\"><a href=\"/ster-opdrachten/join/{$steropdracht['id']}/\">Join Opdracht</a></li>";
             }
 
             echo <<<END
-            <div class="col s12 m6 l4 xl3">
+            <div class="col s12 m6 l4 xl3" id="{$steropdracht['id']}">
                 <div class="card medium hoverable">
                     <div class="card-image waves-effect waves-block waves-light">
                         <img class="activator responsive-img" src="{$steropdracht['image_url']}" onerror="this.src='https://cdn.lucacastelnuovo.nl/images/betasterren/default_profile.png'">
@@ -98,7 +98,7 @@ END;
                                 <a href="/ster-opdrachten/view/{$steropdracht['id']}">Bekijk Opdracht</a>
                             </li>
                             <li class="btn waves-effect waves-light color-secondary--background">
-                                <a href="/ster-opdrachten/edit/{$steropdracht['id']}">Edit Opdracht</a>
+                                <a href="/ster-opdrachten/edit/{$steropdracht['id']}/">Edit Opdracht</a>
                             </li>
                         </ul>
                     </div>

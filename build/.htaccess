@@ -19,9 +19,16 @@ RewriteRule ^ster-opdrachten/view/([^/]*)/$ /ster-opdrachten/view.php?id=$1 [L]
 RewriteRule ^ster-opdrachten/view/([^/]*)$ /ster-opdrachten/view.php?id=$1 [L]
 
 #edit
-RewriteRule ^ster-opdrachten/edit/([^/]*)/$ /ster-opdrachten/edit.php?id=$1 [L]
-RewriteRule ^ster-opdrachten/edit/([^/]*)$ /ster-opdrachten/edit.php?id=$1 [L]
+RewriteRule ^ster-opdrachten/edit/([^/]*)/([^/]*)/$ /ster-opdrachten/edit.php?id=$1&type=$2 [L]
+RewriteRule ^ster-opdrachten/edit/([^/]*)/([^/]*)$ /ster-opdrachten/edit.php?id=$1&type=$2 [L]
 
+#feedback
+RewriteRule ^ster-opdrachten/feedback/([^/]*)/([^/]*)/$ /ster-opdrachten/feedback.php?id=$1&type=$2 [L]
+RewriteRule ^ster-opdrachten/feedback/([^/]*)/([^/]*)$ /ster-opdrachten/feedback.php?id=$1&type=$2 [L]
+
+#join
+RewriteRule ^ster-opdrachten/join/([^/]*)/([^/]*)/$ /ster-opdrachten/join.php?id=$1&type=$2 [L]
+RewriteRule ^ster-opdrachten/join/([^/]*)/([^/]*)$ /ster-opdrachten/join.php?id=$1&type=$2 [L]
 
 ###########
 # General #
@@ -34,6 +41,14 @@ RewriteRule ^general/pdf/([^/]*)$ /general/pdf.php?random_id=$1 [L]
 #Upload
 RewriteRule ^general/upload/([^/]*)/([^/]*)/$ /general/upload.php?type=$1&id=$2 [L]
 RewriteRule ^general/upload/([^/]*)/([^/]*)$ /general/upload.php?type=$1&id=$2 [L]
+
+##############
+# Leerlingen #
+##############
+
+#Search in Index
+RewriteRule ^leerlingen/search/([^/]*)/$ /leerlingen/index.php?search=$1 [L]
+RewriteRule ^leerlingen/search/([^/]*)$ /leerlingen/index.php?search=$1 [L]
 
 ##########
 # Overig #
