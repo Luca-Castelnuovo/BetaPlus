@@ -91,8 +91,7 @@ $parsedown->setSafeMode(true);
                         </h6>
                     </div>
                 </div>
-                <?php // TODO: remove true for production?>
-                <?php if ($steropdracht['leerling_id'] === $_SESSION['id'] || true) {
+                <?php if ($steropdracht['leerling_id'] == $_SESSION['id'] || $_SESSION['class'] == 'docenten') {
     ?>
                 <div class="container">
                     <div class="card-panel center">

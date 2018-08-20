@@ -16,6 +16,8 @@ $sql_table = ($user_class === 'docent') ? 'docenten' : 'leerlingen';
 
 $value = $state;
 
+$customQuery = false;
+
 switch ($type) {
     case 'active':
         $set = 'active';
@@ -35,9 +37,14 @@ switch ($type) {
         redirect('/admin', 'Reset function not yet implemented!');
         break;
 
-    case 'reset':
+    case 'delete':
         //TODO: create delete process (delete account and delete steropdrachten)
         redirect('/admin', 'Delete function not yet implemented!');
+        break;
+
+    case 'log_clear':
+        $customQuery = true;
+        $query = "DELETE FROM logs";
         break;
 
     default:
@@ -45,7 +52,10 @@ switch ($type) {
         break;
 }
 
-$query = "UPDATE {$sql_table} SET {$set}='{$value}' WHERE id='{$user_id}'";
+if (!$customQuery) {
+    $query = "UPDATE {$sql_table} SET {$set}='{$value}' WHERE id='{$user_id}'";
+}
+
 
 sql_query($query, false);
 

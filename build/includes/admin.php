@@ -18,13 +18,12 @@ function admin_accounts_list($class)
         $query =
         "SELECT
             id,
-            admin,
             active,
-            failed_login,
             first_name,
             last_name,
             utalent,
-            leerling_nummer
+            leerling_nummer,
+            profile_url
         FROM
             leerlingen
         WHERE
@@ -58,7 +57,7 @@ END;
             <div class="col s12 m6 l4 xl3">
                 <div class="card medium hoverable">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator responsive-img" src="/files/leerlingen/{$user['leerling_nummer']}.png" onerror="this.src='https://cdn.lucacastelnuovo.nl/images/betasterren/default_profile.png'">
+                        <img class="activator responsive-img" src="{$user['profile_url']}" onerror="this.src='https://cdn.lucacastelnuovo.nl/images/betasterren/default_profile.png'">
                     </div>
                     <div class="card-content"><span class="card-title activator grey-text text-darken-4 center">{$user['first_name']} {$user['last_name']}</span></div>
                     <div class="card-reveal">
@@ -108,6 +107,7 @@ function admin_log_list()
 
     $result = sql_query($query, false);
     if ($result->num_rows > 0) {
+        $CSRFtoken = csrf_gen();
         echo <<<END
         <table class="striped centered highlight responsive-table">
             <thead>
@@ -134,6 +134,7 @@ END;
         echo <<<END
         </tbody>
       </table>
+      <a href="/admin/process/{$CSRFtoken}/log_clear/id/class/state" class="waves-effect waves-light btn color-primary--background" onclick="return confirm('Weet je het zeker?')">Clear Log</a>
 END;
     } else {
         echo 'There are no log entry\'s';

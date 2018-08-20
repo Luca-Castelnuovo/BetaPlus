@@ -50,8 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         redirect('/ster-opdrachten/view/'.$id, 'Deze Ster Opdracht is klaar u kunt hem niet meer aanpassen');
     }
 
-    // TODO: remove true for production
-    if (($_SESSION['id'] === $steropdracht['leerling_id']) || true) {
+    if ($_SESSION['id'] == $steropdracht['leerling_id']) {
         token_gen($id);
     } else {
         redirect('/ster-opdrachten/view/'.$id, 'U hebt geen toestemming om deze Ster Opdracht aan te passen');
@@ -144,8 +143,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <script>var simplemde = new SimpleMDE({ element: document.querySelector("#simplemde") });</script>
                             </div>
                             <div class="row">
-                                <a href="/ster-opdrachten/edit/<?= $id ?>/done" class="waves-effect waves-light btn-small color-secondary--background"><i class="material-icons left">done</i>Ster Opdracht klaar</a>
-                                <a href="/ster-opdrachten/edit/<?= $id ?>/delete" class="waves-effect waves-light btn-small color-secondary--background"><i class="material-icons left">delete</i>Verwijder Ster Opdracht</a>
+                                <a href="/ster-opdrachten/edit/<?= $id ?>/done" class="waves-effect waves-light btn-small color-secondary--background" onclick="return confirm('Weet je het zeker?')"><i class="material-icons left">done</i>Ster Opdracht klaar</a>
+                                <a href="/ster-opdrachten/edit/<?= $id ?>/delete" class="waves-effect waves-light btn-small color-secondary--background" onclick="return confirm('Weet je het zeker?')"><i class="material-icons left">delete</i>Verwijder Ster Opdracht</a>
                             </div>
                             <button class="btn-large waves-effect waves-light color-primary--background" type="submit" name="action">Verstuur
                                 <i class="material-icons right">send</i>

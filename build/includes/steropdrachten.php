@@ -24,8 +24,7 @@ function steropdrachten_list($done)
             <div class="row">
 END;
         while ($steropdracht = $result->fetch_assoc()) {
-            // TODO: remove true for production
-            if ($steropdracht['leerling_id'] === $_SESSION['id'] || true) {
+            if ($steropdracht['leerling_id'] == $_SESSION['id']) {
                 $extra = "<li class=\"btn waves-effect waves-light color-secondary--background\"><a href=\"/ster-opdrachten/edit/{$steropdracht['id']}/\">Edit Opdracht</a></li>";
             } else {
                 $extra = "<li class=\"btn waves-effect waves-light color-secondary--background\"><a href=\"/ster-opdrachten/join/{$steropdracht['id']}/\">Join Opdracht</a></li>";

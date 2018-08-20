@@ -100,63 +100,54 @@ function token_val($identifier, $returnbool = false)
 
 function login()
 {
-    // //check if user is loggedin
-    // if ($_SESSION['logged_in'] != 1) {
-    //     $_SESSION['return_url'] = $_SERVER['REQUEST_URI'];
-    //     redirect('/', 'Deze pagina is alleen zichtbaar als u ingelogd bent!');
-    // }
-    //
-    // //check if account is active
-    // if ($_SESSION['active'] != 1) {
-    //     redirect('/', 'Uw Account is nog niet actief. Bevestig uw e-mailadres door te klikken op de link in uw email!');
-    // }
-    //
-    // //auto logout after 10min no activity
-    // if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) {
-    //     redirect('/', 'Uw sessie is verlopen');
-    // } else {
-    //     $_SESSION['LAST_ACTIVITY'] = time();
-    // }
-    //
-    // //regenerate session id (sec against session stealing)
-    // if (!isset($_SESSION['CREATED'])) {
-    //     $_SESSION['CREATED'] = time();
-    // } elseif (time() - $_SESSION['CREATED'] > 600) {
-    //     session_regenerate_id(true);
-    //     $_SESSION['CREATED'] = time();
-    // }
-    //
-    // //check if session is stolen
-    // if ($_SESSION['ip'] != ip()) {
-    //     mail_alert('Deze sessie is gestolen door: ' . ip() . '<br><br>' . var_export($_SESSION, true));
-    //     redirect();
-    // }
+    if ($_SESSION['logged_in'] != 1) {
+        $_SESSION['return_url'] = $_SERVER['REQUEST_URI'];
+        redirect('/', 'Deze pagina is alleen zichtbaar als u ingelogd bent!');
+    }
+
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) {
+        redirect('/', 'Uw sessie is verlopen');
+    } else {
+        $_SESSION['LAST_ACTIVITY'] = time();
+    }
+
+    if (!isset($_SESSION['CREATED'])) {
+        $_SESSION['CREATED'] = time();
+    } elseif (time() - $_SESSION['CREATED'] > 600) {
+        session_regenerate_id(true);
+        $_SESSION['CREATED'] = time();
+    }
+
+    if ($_SESSION['ip'] != ip()) {
+        log_action($_SESSION['id'], 'auth_denied_ip_mismatch_session');
+        redirect('/', 'Uw sessie is verlopen');
+    }
 }
 
 function login_leerling()
 {
     login();
 
-    // if ($_SESSION['class'] === 'docent') {
-    //     redirect('/general/home', 'Deze pagina is alleen zichtbaar voor leerlingen!');
-    // }
+    if ($_SESSION['class'] === 'docent') {
+        redirect('/general/home', 'Deze pagina is alleen zichtbaar voor leerlingen!');
+    }
 }
 
 function login_docent()
 {
     login();
 
-    // if ($_SESSION['class'] !== 'docent') {
-    //     redirect('/general/home', 'Deze pagina is alleen zichtbaar voor docenten!');
-    // }
+    if ($_SESSION['class'] !== 'docent') {
+        redirect('/general/home', 'Deze pagina is alleen zichtbaar voor docenten!');
+    }
 }
 
 function login_admin()
 {
     login();
 
-    // if ($_SESSION['admin'] !== true && $_SESSION['class'] !== 'docent') {
-    //     log_action($_SESSION['id'], 'auth_denied_for_admin');
-    //     redirect('/general/home', 'Deze pagina is alleen zichtbaar voor administrators!');
-    // }
+    if ($_SESSION['admin'] != true) {
+        log_action($_SESSION['id'], 'auth_denied_for_admin');
+        redirect('/general/home', 'Deze pagina is alleen zichtbaar voor administrators!');
+    }
 }

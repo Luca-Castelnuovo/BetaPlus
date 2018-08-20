@@ -79,8 +79,7 @@ function menu($active_menu_item, $menu_title) //0 = Home, 1 = Leerlingen, 2 = St
             $steropdrachten = null;
     }
 
-    // TODO: remove true for production
-    if ($_SESSION['admin'] || true) {
+    if ($_SESSION['admin']) {
         $admin_link = '<li class="divider"></li>
         <li><a href="/admin"><span class="black-text">Admin</span></a></li>';
     } else {

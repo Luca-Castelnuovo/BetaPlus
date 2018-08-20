@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $error = htmlspecialchars($_GET['code']);
 $goto = $_SESSION['logged_in'] ? 'home' : 'login';
 $goto_url = $_SESSION['logged_in'] ? '/general/home' : '/';

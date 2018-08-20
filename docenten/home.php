@@ -5,7 +5,6 @@ login_docent();
 
 head('Home', 0);
 
-$_SESSION['id'] = 1;
 ?>
 
 <div class="section">

@@ -15,6 +15,7 @@ $queryDocent =
     "SELECT
         id,
         class,
+        active,
         password,
         failed_login
     FROM
@@ -26,6 +27,7 @@ $queryLeerling =
     "SELECT
         id,
         class,
+        active,
         password,
         failed_login,
         admin
@@ -37,10 +39,10 @@ $queryLeerling =
 $userDocent = sql_query($queryDocent, false);
 $userLeerling = sql_query($queryLeerling, false);
 
-if ($userDocent->num_rows >= 0) {
-    $user = $userDocent;
-} elseif ($userLeerling->num_rows >= 0) {
-    $user = $userLeerling;
+if ($userDocent->num_rows > 0) {
+    $user = $userDocent->fetch_assoc();
+} elseif ($userLeerling->num_rows > 0) {
+    $user = $userLeerling->fetch_assoc();
 } else {
     redirect('/?reset', 'Het is niet mogelijk om in te loggen met de ingevulde gegevens.');
 }
@@ -60,20 +62,18 @@ if (password_verify($password, $user['password'])) {
     }
 
     $_SESSION['logged_in'] = true;
+    $_SESSION['ip'] = ip();
     $_SESSION['id'] = $user['id'];
     $_SESSION['class'] = $user['class'];
-    $_SESSION['ip'] = ip();
 
     if (isset($user['admin'])) {
         $_SESSION['admin'] = $user['admin'];
     }
 
+    session_regenerate_id(true);
+
     $return_to = $_SESSION['return_url'];
     unset($_SESSION['return_url']);
-
-    unset($_SESSION['alert']);
-
-    session_regenerate_id(true);
 
     log_action($_SESSION['id'], 'auth_accept_login');
 

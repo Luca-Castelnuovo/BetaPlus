@@ -1,6 +1,4 @@
-<?php
-require($_SERVER['DOCUMENT_ROOT'] . "/init.php");
-?>
+<?php require($_SERVER['DOCUMENT_ROOT'] . "/init.php"); ?>
 
 <!DOCTYPE html>
 <html lang="nl">
@@ -39,26 +37,57 @@ require($_SERVER['DOCUMENT_ROOT'] . "/init.php");
     <link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <?php
+        if (isset($_GET['reset'])) {
+            $alert = $_SESSION['alert'];
+            session_destroy();
+            session_start();
+            $_SESSION['alert'] = $alert;
+        }
+
+        if (isset($_GET['logout'])) {
+            session_destroy();
+            session_start();
+            redirect('/', 'U bent uitgelogd');
+        }
+    ?>
 </head>
 
-<body>
+<body class="bg-image">
+    <div class="row">
+        <div class="col s12 m4 offset-m4">
+            <div class="card login">
+                <div class="card-action color-primary--background hover-disable white-text">
+                    <h3>Login Form</h3>
+                </div>
+                <div class="card-content">
+                    <form action="/auth/login.php" method="post">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <label for="username">Leerling nummer of email</label>
+                                <input type="text" id="username" name="username" required="" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <label for="password">Wachtwoord</label>
+                                <input type="password" id="password" name="password" required="" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>" />
+                            <button type="submit" class="waves-effect waves-light btn color-primary--background width-full">Login</button>
+                        </div>
+                        <a href="/auth/forgot" class="right">Wachtwoord vergeten?</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
-
-<!--Import Materialize JavaScript-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-<?php
-    if (isset($_GET['reset'])) {
-        session_destroy();
-    }
-
-    if (isset($_GET['logout'])) {
-        session_destroy();
-        session_start();
-        redirect('/', 'U bent uitgelogd');
-    }
-    alert_display();
-
-?>
+    <!--Import Materialize JavaScript-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <?php alert_display(); ?>
 </body>
 
 </html>

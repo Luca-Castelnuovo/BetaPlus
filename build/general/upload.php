@@ -78,7 +78,7 @@ head('Upload', 5, 'Upload', '<link href="https://cdn.lucacastelnuovo.nl/css/beta
                 <div class="dropzone">
                     <div class="info">
                         <div class="preloader-wrapper big hide">
-                            <div class="spinner-layer spinner-blue-only">
+                            <div class="spinner-layer spinner-green-only color-primary--border hover-disable">
                                 <div class="circle-clipper left">
                                     <div class="circle"></div>
                                 </div>

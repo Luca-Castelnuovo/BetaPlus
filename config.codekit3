@@ -37,20 +37,6 @@
 		"oAP": "\/build\/admin\/process.php",
 		"oF": 0
 		},
-	"\/auth\/forgot-confirm.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/auth\/forgot-confirm.php",
-		"oF": 0
-		},
-	"\/auth\/forgot.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/auth\/forgot.php",
-		"oF": 0
-		},
 	"\/auth\/login.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -58,46 +44,60 @@
 		"oAP": "\/build\/auth\/login.php",
 		"oF": 0
 		},
-	"\/auth\/new-user.php": {
+	"\/auth\/old\/forgot-confirm.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/auth\/new-user.php",
+		"oAP": "\/build\/auth\/old\/forgot-confirm.php",
 		"oF": 0
 		},
-	"\/auth\/register.php": {
+	"\/auth\/old\/forgot.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/auth\/register.php",
+		"oAP": "\/build\/auth\/old\/forgot.php",
 		"oF": 0
 		},
-	"\/auth\/reset-password.php": {
+	"\/auth\/old\/new-user.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/auth\/reset-password.php",
+		"oAP": "\/build\/auth\/old\/new-user.php",
 		"oF": 0
 		},
-	"\/auth\/reset.php": {
+	"\/auth\/old\/register.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/auth\/reset.php",
+		"oAP": "\/build\/auth\/old\/register.php",
 		"oF": 0
 		},
-	"\/auth\/verify-register.php": {
+	"\/auth\/old\/reset-password.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/auth\/verify-register.php",
+		"oAP": "\/build\/auth\/old\/reset-password.php",
 		"oF": 0
 		},
-	"\/auth\/verify.php": {
+	"\/auth\/old\/reset.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/auth\/verify.php",
+		"oAP": "\/build\/auth\/old\/reset.php",
+		"oF": 0
+		},
+	"\/auth\/old\/verify-register.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/auth\/old\/verify-register.php",
+		"oF": 0
+		},
+	"\/auth\/old\/verify.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/auth\/old\/verify.php",
 		"oF": 0
 		},
 	"\/build": {
@@ -405,7 +405,7 @@
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "meme-drunkArcher",
 	"iconImageWasSetByUser": 0,
-	"lastBuiltDate": 556316875
+	"lastBuiltDate": 556473796
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

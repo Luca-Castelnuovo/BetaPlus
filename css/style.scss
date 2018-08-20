@@ -13,8 +13,16 @@ $color_secundary_darken: #4f0023;
     &--background {
         background-color: $color_primary !important;
 
-        &:hover:not(.nav-wrapper) {
+        &:hover:not(.nav-wrapper):not(.hover-disable) {
             background-color: $color_secundary !important;
+        }
+    }
+
+    &--border {
+        border-color: $color_primary !important;
+
+        &:hover:not(.hover-disable) {
+            border-color: $color_secundary !important;
         }
     }
 }
@@ -25,7 +33,7 @@ $color_secundary_darken: #4f0023;
     &--background {
         background-color: $color_secundary !important;
 
-        &:hover {
+        &:hover:not(.hover-disable) {
             background-color: $color_secundary_darken !important;
         }
     }
@@ -95,4 +103,22 @@ $color_secundary_darken: #4f0023;
     &-uppercase {
         text-transform: uppercase;
     }
+}
+
+.width {
+    &-full {
+        width: 100%;
+    }
+}
+/**************/
+/* Login Page */
+/**************/
+.bg-image {
+    background: url("https://cdn.lucacastelnuovo.nl/images/backgrounds/7.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.login {
+    margin-top: 10rem;
+    width: auto;
 }
