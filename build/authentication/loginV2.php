@@ -1,5 +1,7 @@
 <?php
 
+require($_SERVER['DOCUMENT_ROOT'] . "/init.php");
+
 csrf_val($_POST['CSRFtoken']);
 
 if (empty($_POST['username']) || empty($_POST['password'])) {
@@ -45,15 +47,15 @@ if ($userDocent->num_rows >= 0) {
 
 if (password_verify($password, $user['password'])) {
     if ($user['failed_login'] > 4) {
-        //log blocked account
+        log_action($_SESSION['id'], 'auth_denied_login_blocked');
         redirect('/?reset', 'Uw account is geblokkeerd, contacteer AUB de administrator om uw account te deblokkeren');
     } else {
         sql_query("UPDATE leerlingen SET failed_login='0' WHERE id='{$user['id']}'", false);
         sql_query("UPDATE docenten SET failed_login='0' WHERE id='{$user['id']}'", false);
     }
 
-    if (!$user['failed_login']) {
-        //log failed login
+    if (!$user['active']) {
+        log_action($_SESSION['id'], 'auth_denied_login_inactive');
         redirect('/?reset', 'Uw account is nog niet actief, klik op de link in  uw mail om uw account te activeren');
     }
 
@@ -73,7 +75,7 @@ if (password_verify($password, $user['password'])) {
 
     session_regenerate_id(true);
 
-    //log login
+    log_action($_SESSION['id'], 'auth_accept_login');
 
     if (!empty($return_to)) {
         redirect($return_to, 'U bent ingelogd');

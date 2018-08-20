@@ -45,18 +45,20 @@ function csrf_gen()
 function csrf_val($post_token, $returnbool = false)
 {
     if (!isset($_SESSION['CSRFtoken'])) {
+        log_action($_SESSION['id'] ?? 'SERVER', 'auth_denied_CSRF');
         if ($returnbool) {
             return false;
         } else {
-            redirect('/', 'CSRF error!');
+            redirect('/?reset', 'CSRF error!');
         }
     }
 
     if (!(hash_equals($_SESSION['CSRFtoken'], $post_token))) {
+        log_action($_SESSION['id'] ?? 'SERVER', 'auth_denied_CSRF');
         if ($returnbool) {
             return false;
         } else {
-            redirect('/', 'CSRF error!');
+            redirect('/?reset', 'CSRF error!');
         }
     } else {
         unset($_SESSION['CSRFtoken']);
@@ -154,6 +156,7 @@ function login_admin()
     login();
 
     // if ($_SESSION['admin'] !== true && $_SESSION['class'] !== 'docent') {
+    //     log_action($_SESSION['id'], 'auth_denied_for_admin');
     //     redirect('/general/home', 'Deze pagina is alleen zichtbaar voor administrators!');
     // }
 }

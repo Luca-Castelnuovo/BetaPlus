@@ -37,81 +37,67 @@
 		"oAP": "\/build\/admin\/process.php",
 		"oF": 0
 		},
-	"\/authentication\/forgot-confirm.php": {
+	"\/auth\/forgot-confirm.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/authentication\/forgot-confirm.php",
+		"oAP": "\/build\/auth\/forgot-confirm.php",
 		"oF": 0
 		},
-	"\/authentication\/forgot.php": {
+	"\/auth\/forgot.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/authentication\/forgot.php",
+		"oAP": "\/build\/auth\/forgot.php",
 		"oF": 0
 		},
-	"\/authentication\/index.php": {
+	"\/auth\/login.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/authentication\/index.php",
+		"oAP": "\/build\/auth\/login.php",
 		"oF": 0
 		},
-	"\/authentication\/login.php": {
+	"\/auth\/new-user.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/authentication\/login.php",
+		"oAP": "\/build\/auth\/new-user.php",
 		"oF": 0
 		},
-	"\/authentication\/loginV2.php": {
+	"\/auth\/register.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/authentication\/loginV2.php",
+		"oAP": "\/build\/auth\/register.php",
 		"oF": 0
 		},
-	"\/authentication\/new-user.php": {
+	"\/auth\/reset-password.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/authentication\/new-user.php",
+		"oAP": "\/build\/auth\/reset-password.php",
 		"oF": 0
 		},
-	"\/authentication\/register.php": {
+	"\/auth\/reset.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/authentication\/register.php",
+		"oAP": "\/build\/auth\/reset.php",
 		"oF": 0
 		},
-	"\/authentication\/reset-password.php": {
+	"\/auth\/verify-register.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/authentication\/reset-password.php",
+		"oAP": "\/build\/auth\/verify-register.php",
 		"oF": 0
 		},
-	"\/authentication\/reset.php": {
+	"\/auth\/verify.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/authentication\/reset.php",
-		"oF": 0
-		},
-	"\/authentication\/verify-register.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/authentication\/verify-register.php",
-		"oF": 0
-		},
-	"\/authentication\/verify.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/authentication\/verify.php",
+		"oAP": "\/build\/auth\/verify.php",
 		"oF": 0
 		},
 	"\/build": {
