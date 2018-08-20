@@ -10,8 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = clean_data($_POST['id']);
 
     if (!csrf_val($CSRFtoken, true)) {
-        // echo json_encode(['status' => true, 'url' => '/general/toast?url=/' . $id . '/&alert=CSRF error']);
-        var_dump($id);
+        echo json_encode(['status' => true, 'url' => '/general/toast?url=/' . $id . '/&alert=CSRF error']);
         exit;
     }
 

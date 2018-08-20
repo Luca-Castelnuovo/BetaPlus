@@ -98,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="row">
                 <div class="col s12">
                     <div class="row">
-                        <form class="col s12" method="post" action="/ster-opdrachten/edit/<?= $id ?>">
+                        <form class="col s12" method="post" action="/ster-opdrachten/edit/<?= $id ?>/">
                             <div class="row">
                                 <div class="input-field col s8">
                                     <input class="validate" id="project_name" name="project_name" type="text" required value="<?= $steropdracht['project_name'] ?>"> <label for="project_name">Naam Ster Opdracht</label>
