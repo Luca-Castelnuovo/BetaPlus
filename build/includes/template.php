@@ -104,8 +104,7 @@ function menu($active_menu_item, $menu_title) //0 = Home, 1 = Leerlingen, 2 = St
         <ul id="menu-desktop" class="dropdown-content">
             <li><a href="/general/agenda"><span class="black-text">Agenda</span></a></li>
             <li><a href="/general/pdf/jaarschema" target="_blank"><span class="black-text">Schema</span></a></li>
-            <li><a href="/general/upload/leerling_profile/"><span class="black-text">Profile Picture</span></a></li>
-            <li><a href="/?logout"><span class="black-text">Change Password</span></a></li>
+            <li><a href="/general/settings"><span class="black-text">Settings</span></a></li>
             {$admin_link}
             <li class="divider"></li>
             <li><a href="/?logout"><span class="black-text">Logout</span></a></li>
@@ -115,10 +114,10 @@ function menu($active_menu_item, $menu_title) //0 = Home, 1 = Leerlingen, 2 = St
             <li><a href="/general/home">Home</a></li>
             <li><a href="/leerlingen/">Leerlingen</a></li>
             <li><a href="/ster-opdrachten/">Steropdrachten</a></li>
+            <li class="divider"></li>
             <li><a href="/general/agenda">Agenda</a></li>
-            <li><a href="/general/pdf/jaarschema" >Jaarschema</a></li>
-            <li><a href="/general/upload/leerling_profile/">Profile Picture</a></li>
-            <li><a href="/?logout">Change Password</a></li>
+            <li><a href="/general/pdf/jaarschema">Jaarschema</a></li>
+            <li><a href="/general/settings">Settings</a></li>
             {$admin_link}
         </ul>
     </nav>

@@ -82,7 +82,7 @@ $parsedown->setSafeMode(true);
                 <div class="container">
                     <div class="card-panel center">
                         <div class="card-image">
-                            <img class="responsive-img" src="<?= $steropdracht['image_url'] ?>" onerror="this.src='https://cdn.lucacastelnuovo.nl/images/betasterren/default_profile.png'">
+                            <img class="responsive-img" src="<?= $steropdracht['image_url'] ?>" onerror="this.src='https://cdn.lucacastelnuovo.nl/images/betasterren/logo.png'">
                         </div>
                         <h1 class="center"><?= $steropdracht['project_name'] ?></h1>
                         <h6 class="center flow-text">

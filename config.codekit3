@@ -37,6 +37,13 @@
 		"oAP": "\/build\/admin\/process.php",
 		"oF": 0
 		},
+	"\/auth\/forgot.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/auth\/forgot.php",
+		"oF": 0
+		},
 	"\/auth\/login.php": {
 		"cB": 0,
 		"ft": 8192,
