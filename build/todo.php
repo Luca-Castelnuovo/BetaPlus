@@ -11,8 +11,9 @@
 // TODO: auth - (verify) register
 
 // TODO: security - check all forms for csrf
-// TODO: agenda - improve ui
+// TODO: agenda - improve ui (probaly wont do it)
 
+// TODO: steropdracht - search based on id - https://stackoverflow.com/questions/43480162/hide-all-elements-except-one-and-show-all-elements-again/43480468 - https://stackoverflow.com/questions/13239331/hide-all-divs-except-one
 // TODO: steropdracht - buddy implementation
 
 // TODO: overal - remove all `remove true for production`

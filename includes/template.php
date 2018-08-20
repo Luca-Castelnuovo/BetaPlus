@@ -131,7 +131,7 @@ function footer($extra = null)
     echo <<<END
     <!--Import Materialize JavaScript-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-    <!--Init Materialize Navbar Components-->
+    <!--Init Materialize Components-->
     <link rel="preconnect" href="https://cdn.lucacastelnuovo.nl/" crossorigin>
     <script src="https://cdn.lucacastelnuovo.nl/js/betasterren/init.js"></script>
 END;

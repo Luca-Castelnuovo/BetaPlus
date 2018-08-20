@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $datetime = date('Y-m-d H:i:s');
     $subject = clean_data($_POST['subject']);
 
-    $leerling_id = $_SESSION['leerling_nummer'] ?? '1';
+    $leerling_id = $_SESSION['id'];
 
     $query=
     "INSERT INTO

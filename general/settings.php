@@ -6,7 +6,7 @@ login();
 
 // TODO: rmeove true for produtction
 if ($_SESSION['class'] === 'docent' || true) {
-    redirect('/docenten/home');
+    redirect('/docenten/settings');
 } else {
-    redirect('/leerlingen/home');
+    redirect('/leerlingen/settings');
 }

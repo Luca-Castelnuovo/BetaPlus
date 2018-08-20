@@ -24,10 +24,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             SET
                 profile_url='{$url}'
             WHERE
-                id = '{$_SESSION['leerling_id']}'";
+                id = '{$_SESSION['id']}'";
 
             sql_query($query, false);
-            echo json_encode(['status' => true, 'url' => '/general/toast?url=/leerlingen/&alert=Profiel foto aangepast']);
+            echo json_encode(['status' => true, 'url' => '/general/toast?url=/leerlingen/settings&alert=Profiel foto aangepast']);
             exit;
             break;
 
@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             break;
 
         default:
-            echo json_encode(['status' => true, 'url' => '/general/toast?url=/leerlingen/&alert=Oeps er ging iets fout']);
+            echo json_encode(['status' => true, 'url' => '/general/toast?url=/general/home&alert=Oeps er ging iets fout']);
             exit;
             break;
     }

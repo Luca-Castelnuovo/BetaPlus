@@ -68,7 +68,7 @@ function csrf_val($post_token, $returnbool = false)
 
 function token_gen($identifier)
 {
-    $token = "token_{$_SESSION['leerling_id']}_{$identifier}";
+    $token = "token_{$_SESSION['id']}_{$identifier}";
 
     if (isset($_SESSION[$token])) {
         return $_SESSION[$token];
@@ -80,7 +80,7 @@ function token_gen($identifier)
 
 function token_val($identifier, $returnbool = false)
 {
-    $token = "token_{$_SESSION['leerling_id']}_{$identifier}";
+    $token = "token_{$_SESSION['id']}_{$identifier}";
 
     if (!isset($_SESSION[$token]) || !$_SESSION[$token]) {
         if ($returnbool) {
@@ -125,8 +125,8 @@ function login()
     // }
     //
     // //check if session is stolen
-    // if ($_SESSION['ip'] != ip_rem()) {
-    //     mail_alert('Deze sessie is gestolen door: ' . ip_rem() . '<br><br>' . var_export($_SESSION, true));
+    // if ($_SESSION['ip'] != ip()) {
+    //     mail_alert('Deze sessie is gestolen door: ' . ip() . '<br><br>' . var_export($_SESSION, true));
     //     redirect();
     // }
 }
@@ -145,7 +145,7 @@ function login_docent()
     login();
 
     // if ($_SESSION['class'] !== 'docent') {
-    //     redirect('/general/home', 'Deze pagina is alleen zichtbaar voor leerlingen!');
+    //     redirect('/general/home', 'Deze pagina is alleen zichtbaar voor docenten!');
     // }
 }
 
@@ -153,7 +153,7 @@ function login_admin()
 {
     login();
 
-    // if ($_SESSION['admin'] !== true && $_SESSION['class'] === 'docent') {
+    // if ($_SESSION['admin'] !== true && $_SESSION['class'] !== 'docent') {
     //     redirect('/general/home', 'Deze pagina is alleen zichtbaar voor administrators!');
     // }
 }

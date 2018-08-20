@@ -1,7 +1,7 @@
 <?php
 require($_SERVER['DOCUMENT_ROOT'] . "/init.php");
 
-login_leerling();
+login_docent();
 
 head('Home', 0);
 

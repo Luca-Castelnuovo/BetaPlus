@@ -58,18 +58,18 @@
 		"oAP": "\/build\/authentication\/index.php",
 		"oF": 0
 		},
-	"\/authentication\/loggedin.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/authentication\/loggedin.php",
-		"oF": 0
-		},
 	"\/authentication\/login.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/build\/authentication\/login.php",
+		"oF": 0
+		},
+	"\/authentication\/loginV2.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/authentication\/loginV2.php",
 		"oF": 0
 		},
 	"\/authentication\/new-user.php": {
@@ -133,6 +133,20 @@
 		"oS": 3,
 		"uL": 1
 		},
+	"\/docenten\/home.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/docenten\/home.php",
+		"oF": 0
+		},
+	"\/docenten\/settings.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/docenten\/settings.php",
+		"oF": 0
+		},
 	"\/favicon.ico": {
 		"cB": 0,
 		"ft": 8192,
@@ -156,13 +170,6 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/build\/files\/overig\/jaarschema.pdf",
-		"oF": 0
-		},
-	"\/general\/agenda.html": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/general\/agenda.html",
 		"oF": 0
 		},
 	"\/general\/agenda.php": {
@@ -191,6 +198,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/build\/general\/pdf.php",
+		"oF": 0
+		},
+	"\/general\/settings.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/general\/settings.php",
 		"oF": 0
 		},
 	"\/general\/toast.php": {
@@ -282,6 +296,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/build\/leerlingen\/index.php",
+		"oF": 0
+		},
+	"\/leerlingen\/settings.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/leerlingen\/settings.php",
 		"oF": 0
 		},
 	"\/libs\/Parsedown.php": {

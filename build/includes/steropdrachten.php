@@ -25,7 +25,7 @@ function steropdrachten_list($done)
 END;
         while ($steropdracht = $result->fetch_assoc()) {
             // TODO: remove true for production
-            if ($steropdracht['leerling_id'] === $_SESSION['leerling_id'] || true) {
+            if ($steropdracht['leerling_id'] === $_SESSION['id'] || true) {
                 $extra = "<li class=\"btn waves-effect waves-light color-secondary--background\"><a href=\"/ster-opdrachten/edit/{$steropdracht['id']}/\">Edit Opdracht</a></li>";
             } else {
                 $extra = "<li class=\"btn waves-effect waves-light color-secondary--background\"><a href=\"/ster-opdrachten/join/{$steropdracht['id']}/\">Join Opdracht</a></li>";
@@ -73,7 +73,7 @@ function steropdrachten_list_my($done)
     FROM
         steropdrachten
     WHERE
-        status {$status} AND leerling_id='{$_SESSION['leerling_id']}'
+        status {$status} AND leerling_id='{$_SESSION['id']}'
     ORDER BY
         created DESC";
 

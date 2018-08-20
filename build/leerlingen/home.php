@@ -5,7 +5,7 @@ login_leerling();
 
 head('Home', 0);
 
-$_SESSION['leerling_id'] = 1;
+$_SESSION['id'] = 1;
 ?>
 
 <div class="section">

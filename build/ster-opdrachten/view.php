@@ -70,7 +70,6 @@ switch ($steropdracht['status']) {
 }
 
 require($_SERVER['DOCUMENT_ROOT'] . "/libs/Parsedown.php");
-
 $parsedown = new Parsedown();
 $parsedown->setSafeMode(true);
 
@@ -93,7 +92,7 @@ $parsedown->setSafeMode(true);
                     </div>
                 </div>
                 <?php // TODO: remove true for production?>
-                <?php if ($steropdracht['leerling_id'] === $_SESSION['leerling_id'] || true) {
+                <?php if ($steropdracht['leerling_id'] === $_SESSION['id'] || true) {
     ?>
                 <div class="container">
                     <div class="card-panel center">

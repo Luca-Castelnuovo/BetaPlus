@@ -4,7 +4,8 @@ require($_SERVER['DOCUMENT_ROOT'] . '/init.php');
 
 login();
 
-if ($_SESSION['class'] === 'docent') {
+// TODO: rmeove true for produtction
+if ($_SESSION['class'] === 'docent' || true) {
     redirect('/docenten/home');
 } else {
     redirect('/leerlingen/home');

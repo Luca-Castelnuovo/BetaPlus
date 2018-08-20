@@ -11,6 +11,7 @@ head('Agenda', 5);
     <div class="container">
         <div class="row">
             <div class="col s12">
+                <h1>Work Not In Progress</h1>
                 <?php
                     if ($_SESSION['class'] === 'docent') {
                         echo '<a href="/admin/agenda" class="waves-effect waves-light btn color-secondary--background">Voeg agendaitem toe</a>';

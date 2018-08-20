@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // TODO: remove true for production
-    if (($_SESSION['leerling_id'] === $steropdracht['leerling_id']) || true) {
+    if (($_SESSION['id'] === $steropdracht['leerling_id']) || true) {
         token_gen($id);
     } else {
         redirect('/ster-opdrachten/view/'.$id, 'U hebt geen toestemming om deze Ster Opdracht aan te passen');
