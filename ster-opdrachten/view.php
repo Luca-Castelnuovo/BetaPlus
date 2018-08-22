@@ -147,10 +147,10 @@ $parsedown->setSafeMode(true);
         ?>
                                 <tr>
                                     <td>Feedback</td>
-                                    <td><a class="waves-effect waves-light btn color-secondary--background modal-trigger" href="#feedback">Klik Hier</a></td>
+                                    <td><a class="waves-effect waves-light btn color-secondary--background modal-trigger" href="#feedback_view">Klik Hier</a></td>
                                     <td><?= $steropdracht['feedback_docent'] ?></td>
                                     <td><?= $steropdracht['feedback_date'] ?></td>
-                                    <div id="feedback" class="modal ">
+                                    <div id="feedback_view" class="modal ">
                                         <div class="modal-content">
                                             <h4>Feedback</h4>
                                             <p><?= nl2br($steropdracht['feedback']) ?></p>
