@@ -91,24 +91,70 @@ $parsedown->setSafeMode(true);
                         </h6>
                     </div>
                 </div>
-                <?php if ($steropdracht['leerling_id'] == $_SESSION['id'] || $_SESSION['class'] == 'docenten') {
+                <?php if ($steropdracht['leerling_id'] == $_SESSION['id'] || $_SESSION['class'] == 'docent') {
     ?>
                 <div class="container">
                     <div class="card-panel center">
                         <h3 class="center">Details</h3>
-                        <?php if ($steropdracht['status'] <= 2) {
+                        <?php if ($steropdracht['status'] <= 2 && $_SESSION['class'] != 'docent') {
         ?>
         <div class="row">
             <div class="col s12 m12 l6">
                 <a href="/ster-opdrachten/edit/<?= $id ?>/" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">edit</i>Edit Ster OPdracht</a>
             </div>
             <div class="col s12 m12 l6">
-                <a href="/ster-opdrachten/feedback/<?= $id ?>/request" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">feedback</i>Vraag Feedback</a>
+                <a href="/ster-opdrachten/process/<?= $id ?>/request_feedback" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">feedback</i>Vraag Feedback</a>
             </div>
         </div>
 
 
                     <?php
+    } elseif ($steropdracht['status'] <= 2 && $_SESSION['class'] == 'docent') {
+        ?>
+        <div class="row">
+            <div class="col s12">
+                <a href="#feedback" class="waves-effect waves-light btn color-primary--background modal-trigger"><i class="material-icons left">feedback</i>Geef Feedback</a>
+                <div class="modal" id="feedback">
+                    <div class="modal-content">
+                        <h4>Feedback</h4>
+                        <div class="row">
+                            <form class="col s12">
+                                <div class="row"></div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>">
+                                        <textarea class="materialize-textarea" id="feedback_content" type="text"><?= $steropdracht['feedback'] ?></textarea> <label for="feedback_content">Zet uw feedback hier</label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="modal-close waves-effect waves-green btn-flat" href="#!" id="feedback_content_submit">Verstuur</a>
+                    </div>
+                </div>
+                <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                var elems = document.querySelectorAll('.modal');
+                var instances = M.Modal.init(elems, {});
+                });
+
+                document.querySelector('#feedback_content_submit').addEventListener('click', function() {
+                    $.ajax({
+                        type: "POST",
+                        url: '/ster-opdrachten/process.php',
+                        data: {CSRFtoken: document.querySelector('input[name="CSRFtoken"]').value, id: <?= $id ?>, feedback:document.querySelector('#feedback_content').value},
+                        cache: !1,
+                        dataType: "JSON",
+                        success: function (response) {
+                            location.replace(response.url);
+                        }
+                    });
+                });
+                </script>
+            </div>
+        </div>
+    <?php
     } ?>
                         <table class="striped centered highlight responsive-table">
                             <thead>
@@ -177,4 +223,4 @@ $parsedown->setSafeMode(true);
     </div>
 </div>
 
-<?php footer("<script>document.querySelector('p').classList.add('flow-text');</script>"); ?>
+<?php footer("<script src=\"https://cdn.lucacastelnuovo.nl/js/ajax.js\"></script><script>document.querySelector('p').classList.add('flow-text');</script>"); ?>

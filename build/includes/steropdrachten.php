@@ -123,5 +123,117 @@ function steropdrachten_list_docenten($type)
     //1 = feedback requested
     //2 = beoordeling (sterren, en abcd)
     //3 = lopend
-    echo $type;
+    //4 = afgerond
+
+    switch ($type) {
+        case '0':
+            //0 = go/no go
+            $status = '< 2';
+            break;
+        case '1':
+            //1 = feedback requested
+            $status = '= 2 AND feedback_requested = 1';
+            break;
+        case '2':
+            //2 = beoordeling (sterren, en abcd)
+            $status = '= 3';
+            break;
+        case '3':
+            //3 = lopend
+            $status = '= 2 AND feedback_requested = 0';
+            break;
+        case '4':
+            //4 = afgerond
+            $status = '= 4';
+            break;
+
+        default:
+            redirect('/?reset', 'Oeps er ging iets fout');
+            break;
+    }
+
+    $query =
+    "SELECT
+        id,
+        project_name,
+        subject,
+        image_url,
+        status
+    FROM
+        steropdrachten
+    WHERE
+        status {$status}
+    ORDER BY
+        created ASC";
+
+    $result = sql_query($query, false);
+    if ($result->num_rows > 0) {
+        echo <<<END
+        <div class="section white">
+            <div class="row">
+END;
+        while ($steropdracht = $result->fetch_assoc()) {
+            $extra = null;
+
+            switch ($steropdracht['status']) {
+                case '0':
+                    $extra = <<<END
+                        <li class="btn waves-effect waves-light color-secondary--background">
+                            <a href="/ster-opdrachten/process/{$steropdracht['id']}/go">Go</a>
+                        </li>
+                        <li class="btn waves-effect waves-light color-secondary--background">
+                            <a href="/ster-opdrachten/process/{$steropdracht['id']}/nogo">No Go</a>
+                        </li>
+END;
+                    break;
+                case '1':
+                    $extra = <<<END
+                        <li class="btn waves-effect waves-light color-secondary--background">
+                            <a href="/ster-opdrachten/process/{$steropdracht['id']}/go">Go</a>
+                        </li>
+END;
+                    break;
+                case '4':
+                    $extra = <<<END
+                        <li class="btn waves-effect waves-light color-secondary--background">
+                            <a href="/ster-opdrachten/process/{$steropdracht['id']}/abcd">Beoordeel Opdracht</a>
+                        </li>
+END;
+                    break;
+
+                default:
+                    $extra = null;
+                    break;
+            }
+
+            echo <<<END
+            <div class="col s12 m6 l4 xl3">
+                <div class="card medium hoverable">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator responsive-img" src="{$steropdracht['image_url']}" onerror="this.src='https://cdn.lucacastelnuovo.nl/images/betasterren/logo.png'">
+                    </div>
+                    <div class="card-content"><span class="card-title activator grey-text text-darken-4 center">{$steropdracht['project_name']} - {$steropdracht['subject']}</span></div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Opties<i class="material-icons right">close</i></span>
+                        <ul class="align-center card-reveal--links">
+                            <li class="btn waves-effect waves-light color-secondary--background">
+                                <a href="/ster-opdrachten/view/{$steropdracht['id']}">Bekijk Opdracht</a>
+                            </li>
+                            <li class="btn waves-effect waves-light color-secondary--background">
+                                <a href="/ster-opdrachten/view/{$steropdracht['id']}">Geef Feedback</a>
+                            </li>
+                            {$extra}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+END;
+        }
+        echo <<<END
+    </div>
+</div>
+END;
+    } else {
+        echo '<p>Er doen op dit moment geen steropdrachten in deze categorie.</p>';
+    }
 }

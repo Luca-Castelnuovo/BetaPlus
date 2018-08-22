@@ -22,9 +22,9 @@ RewriteRule ^ster-opdrachten/view/([^/]*)$ /ster-opdrachten/view.php?id=$1 [L]
 RewriteRule ^ster-opdrachten/edit/([^/]*)/([^/]*)/$ /ster-opdrachten/edit.php?id=$1&type=$2 [L]
 RewriteRule ^ster-opdrachten/edit/([^/]*)/([^/]*)$ /ster-opdrachten/edit.php?id=$1&type=$2 [L]
 
-#feedback
-RewriteRule ^ster-opdrachten/feedback/([^/]*)/([^/]*)/$ /ster-opdrachten/feedback.php?id=$1&type=$2 [L]
-RewriteRule ^ster-opdrachten/feedback/([^/]*)/([^/]*)$ /ster-opdrachten/feedback.php?id=$1&type=$2 [L]
+#process
+RewriteRule ^ster-opdrachten/process/([^/]*)/([^/]*)/$ /ster-opdrachten/process.php?id=$1&type=$2 [L]
+RewriteRule ^ster-opdrachten/process/([^/]*)/([^/]*)$ /ster-opdrachten/process.php?id=$1&type=$2 [L]
 
 #join
 RewriteRule ^ster-opdrachten/join/([^/]*)/([^/]*)/$ /ster-opdrachten/join.php?id=$1&type=$2 [L]
