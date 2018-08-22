@@ -8,8 +8,7 @@ function sql_connect()
     $conn = new mysqli($config['db_host'], $config['db_user'], $config['db_password'], $config['db_name']);
 
     if ($conn->connect_error) {
-        action_log('SERVER', 'sql_connect_failure');
-        echo '<h1>DataBase connection error.</h1><h2>Please contact administrator</h2>';
+        echo '<h1>DataBase connection error.</h1><h2>Please contact the administrator</h2>';
         exit;
     } else {
         return $conn;

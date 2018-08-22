@@ -331,25 +331,18 @@
 		"rFN": 0,
 		"uCM": 0
 		},
-	"\/ster-opdrachten\/docenten\/feedback.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/ster-opdrachten\/docenten\/feedback.php",
-		"oF": 0
-		},
-	"\/ster-opdrachten\/docenten\/review.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/ster-opdrachten\/docenten\/review.php",
-		"oF": 0
-		},
 	"\/ster-opdrachten\/edit.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/build\/ster-opdrachten\/edit.php",
+		"oF": 0
+		},
+	"\/ster-opdrachten\/feedback.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/ster-opdrachten\/feedback.php",
 		"oF": 0
 		},
 	"\/ster-opdrachten\/files\/add.php": {
@@ -387,6 +380,13 @@
 		"oAP": "\/build\/ster-opdrachten\/new.php",
 		"oF": 0
 		},
+	"\/ster-opdrachten\/review.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/ster-opdrachten\/review.php",
+		"oF": 0
+		},
 	"\/ster-opdrachten\/view.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -412,7 +412,7 @@
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "meme-drunkArcher",
 	"iconImageWasSetByUser": 0,
-	"lastBuiltDate": 556473796
+	"lastBuiltDate": 556487217
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

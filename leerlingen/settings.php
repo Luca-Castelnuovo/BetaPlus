@@ -32,8 +32,10 @@ $user = sql_query($query, true);
         </div>
     </div>
     <div class="row">
-        <div class="col s12">
+        <div class="col s12 m3">
             <a href="/general/upload/leerling_profile/" class="waves-effect waves-light btn color-primary--background">Change Profile Picture</a>
+        </div>
+        <div class="col s12 m3">
             <a href="/auth/change" class="waves-effect waves-light btn color-primary--background">Change Password</a>
         </div>
     </div>

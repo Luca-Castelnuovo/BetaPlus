@@ -3,7 +3,7 @@ require($_SERVER['DOCUMENT_ROOT'] . "/init.php");
 
 login_docent();
 
-head('Feedback || Ster Opdrachten', 2, 'Feedback');
+head('Beoordeeling || Ster Opdrachten', 2, 'Beoordeeling');
 ?>
 
 <div class="section">

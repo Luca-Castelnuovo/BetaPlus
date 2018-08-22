@@ -9,7 +9,8 @@ function steropdrachten_list($done)
         id,
         project_name,
         leerling_id,
-        image_url
+        image_url,
+        status
     FROM
         steropdrachten
     WHERE
@@ -24,9 +25,9 @@ function steropdrachten_list($done)
             <div class="row">
 END;
         while ($steropdracht = $result->fetch_assoc()) {
-            if ($steropdracht['leerling_id'] == $_SESSION['id']) {
+            if ($steropdracht['leerling_id'] == $_SESSION['id'] && $steropdracht['status'] <= 2) {
                 $extra = "<li class=\"btn waves-effect waves-light color-secondary--background\"><a href=\"/ster-opdrachten/edit/{$steropdracht['id']}/\">Edit Opdracht</a></li>";
-            } else {
+            } elseif ($steropdracht['status'] <= 2) {
                 $extra = "<li class=\"btn waves-effect waves-light color-secondary--background\"><a href=\"/ster-opdrachten/join/{$steropdracht['id']}/\">Join Opdracht</a></li>";
             }
 
@@ -68,7 +69,8 @@ function steropdrachten_list_my($done)
         id,
         project_name,
         leerling_id,
-        image_url
+        image_url,
+        status
     FROM
         steropdrachten
     WHERE
@@ -83,6 +85,9 @@ function steropdrachten_list_my($done)
             <div class="row">
 END;
         while ($steropdracht = $result->fetch_assoc()) {
+            if ($steropdracht['status'] <= 2) {
+                $edit = "<li class=\"btn waves-effect waves-light color-secondary--background\"><a href=\"/ster-opdrachten/edit/{$steropdracht['id']}/\">Edit Opdracht</a></li>";
+            }
             echo <<<END
             <div class="col s12 m6 l4 xl3">
                 <div class="card medium hoverable">
@@ -96,9 +101,7 @@ END;
                             <li class="btn waves-effect waves-light color-secondary--background">
                                 <a href="/ster-opdrachten/view/{$steropdracht['id']}">Bekijk Opdracht</a>
                             </li>
-                            <li class="btn waves-effect waves-light color-secondary--background">
-                                <a href="/ster-opdrachten/edit/{$steropdracht['id']}/">Edit Opdracht</a>
-                            </li>
+                            {$edit}
                         </ul>
                     </div>
                 </div>
@@ -112,4 +115,13 @@ END;
     } else {
         echo '<p>Er doen op dit moment geen steropdrachten in deze categorie.</p>';
     }
+}
+
+function steropdrachten_list_docenten($type)
+{
+    //0 = go/no go
+    //1 = feedback requested
+    //2 = beoordeling (sterren, en abcd)
+    //3 = lopend
+    echo $type;
 }

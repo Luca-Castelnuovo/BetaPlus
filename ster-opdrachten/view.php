@@ -98,8 +98,16 @@ $parsedown->setSafeMode(true);
                         <h3 class="center">Details</h3>
                         <?php if ($steropdracht['status'] <= 2) {
         ?>
-                        <a href="/ster-opdrachten/edit/<?= $id ?>/" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">edit</i>Edit Ster OPdracht</a>
-                        <a href="/ster-opdrachten/feedback/<?= $id ?>/request" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">feedback</i>Vraag Feedback</a>
+        <div class="row">
+            <div class="col s12 m12 l6">
+                <a href="/ster-opdrachten/edit/<?= $id ?>/" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">edit</i>Edit Ster OPdracht</a>
+            </div>
+            <div class="col s12 m12 l6">
+                <a href="/ster-opdrachten/feedback/<?= $id ?>/request" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">feedback</i>Vraag Feedback</a>
+            </div>
+        </div>
+
+
                     <?php
     } ?>
                         <table class="striped centered highlight responsive-table">

@@ -119,6 +119,8 @@ function menu($active_menu_item, $menu_title) //0 = Home, 1 = Leerlingen, 2 = St
             <li><a href="/general/pdf/jaarschema">Jaarschema</a></li>
             <li><a href="/general/settings">Settings</a></li>
             {$admin_link}
+            <li class="divider"></li>
+            <li><a href="/?logout"><span class="black-text">Logout</span></a></li>
         </ul>
     </nav>
 END;

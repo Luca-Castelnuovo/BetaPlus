@@ -11,11 +11,16 @@ head('Home', 0);
     <div class="container">
         <div class="row">
             <div class="col s12">
-                <a href="/ster-opdrachten/new" class="waves-effect waves-light btn-large color-secondary--background"><i class="material-icons left">add_circle_outline</i>Nieuwe Ster Opdracht</a>
-                <h3>Mijn lopende Ster Opdrachten</h3>
-                <?php steropdrachten_list_my(0); ?>
-                <h3>Mijn afgeronde Ster Opdrachten</h3>
-                <?php steropdrachten_list_my(1); ?>
+                <h1>Ster Opdrachten</h1>
+                <h3>Wachtend op Go/No Go</h3>
+                <?php steropdrachten_list_docenten(0); ?>
+                <h3>Wachtend op Feedback</h3>
+                <?php steropdrachten_list_docenten(1); ?>
+                <h3>Wachtend op Beoordeling</h3>
+                <?php steropdrachten_list_docenten(2); ?>
+                <h3>Lopend</h3>
+                <?php steropdrachten_list_docenten(3); ?>
+                <a href="/ster-opdrachten/#afgerond" class="waves-effect waves-light btn-large color-primary--background">Afgerond</a>
             </div>
         </div>
     </div>
