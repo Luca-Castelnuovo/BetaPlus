@@ -220,7 +220,7 @@ END;
                                 <a href="/ster-opdrachten/view/{$steropdracht['id']}">Bekijk Opdracht</a>
                             </li>
                             <li class="btn waves-effect waves-light color-secondary--background">
-                                <a href="/ster-opdrachten/view/{$steropdracht['id']}">Geef Feedback</a>
+                                <a href="/ster-opdrachten/view/{$steropdracht['id']}/feedback">Geef Feedback</a>
                             </li>
                             {$extra}
                         </ul>

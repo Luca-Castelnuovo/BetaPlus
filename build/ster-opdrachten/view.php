@@ -139,6 +139,14 @@ $parsedown->setSafeMode(true);
                 var instances = M.Modal.init(elems, {});
                 });
 
+                <?php if (isset($_GET['feedback'])) {
+            ?>
+            document.addEventListener('DOMContentLoaded', function () {
+                setTimeout(function(){M.Modal.getInstance(document.querySelector('#feedback')).open();}, 100);
+            });
+        <?php
+        } ?>
+
                 document.querySelector('#feedback_content_submit').addEventListener('click', function() {
                     $.ajax({
                         type: "POST",
