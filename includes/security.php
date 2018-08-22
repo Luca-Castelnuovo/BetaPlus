@@ -102,11 +102,11 @@ function login()
 {
     if ($_SESSION['logged_in'] != 1) {
         $_SESSION['return_url'] = $_SERVER['REQUEST_URI'];
-        redirect('/', 'Deze pagina is alleen zichtbaar als u ingelogd bent!');
+        redirect('/?reset', 'Deze pagina is alleen zichtbaar als u ingelogd bent!');
     }
 
     if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) {
-        redirect('/', 'Uw sessie is verlopen');
+        redirect('/?reset', 'Uw sessie is verlopen');
     } else {
         $_SESSION['LAST_ACTIVITY'] = time();
     }
@@ -120,7 +120,7 @@ function login()
 
     if ($_SESSION['ip'] != ip()) {
         log_action($_SESSION['id'], 'auth_denied_ip_mismatch_session');
-        redirect('/', 'Uw sessie is verlopen');
+        redirect('/?reset', 'Uw sessie is verlopen');
     }
 }
 

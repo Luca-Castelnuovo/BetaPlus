@@ -25,7 +25,7 @@ function steropdrachten_list($done)
             <div class="row">
 END;
         while ($steropdracht = $result->fetch_assoc()) {
-            if ($steropdracht['leerling_id'] == $_SESSION['id'] && $steropdracht['status'] <= 2) {
+            if ($steropdracht['leerling_id'] == $_SESSION['id'] && isset($_SESSION['admin']) && $steropdracht['status'] <= 2) {
                 $extra = "<li class=\"btn waves-effect waves-light color-secondary--background\"><a href=\"/ster-opdrachten/edit/{$steropdracht['id']}/\">Edit Opdracht</a></li>";
             } elseif ($steropdracht['status'] <= 2) {
                 $extra = "<li class=\"btn waves-effect waves-light color-secondary--background\"><a href=\"/ster-opdrachten/join/{$steropdracht['id']}/\">Join Opdracht</a></li>";
