@@ -83,6 +83,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <span>Wiskunde</span>
                               </label>
                             </p>
+                            <p>
+                              <label>
+                                <input name="subject" type="radio" value="Overig" required />
+                                <span>Overig</span>
+                              </label>
+                            </p>
                             <div class="row">
                                 <h5>Content Ster Opdracht</h5>
                                 <textarea name="content" id="simplemde" cols="30" rows="10"></textarea>

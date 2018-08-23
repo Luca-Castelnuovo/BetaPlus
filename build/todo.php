@@ -1,6 +1,6 @@
 <?php
 
-// TODO: add overig option to new and edit betasterren for subject0
+// TODO: steropdracht - add overig option to new and edit for subject0
 
 // TODO: auth - change password
 // TODO: auth - forgot password
@@ -13,7 +13,7 @@
 
 // TODO: steropdracht - search based on id - https://stackoverflow.com/questions/43480162/hide-all-elements-except-one-and-show-all-elements-again/43480468 - https://stackoverflow.com/questions/13239331/hide-all-divs-except-one
 
-// TODO: steropdracht - buddy implementation*
+// TODO: steropdracht - buddy implementation (join)
 // TODO: agenda - insert ui
 
 // TODO: agenda - support for pdf
