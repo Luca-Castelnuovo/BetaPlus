@@ -31,6 +31,7 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com/" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
 
+    <!--Import Custom CSS-->
     <link rel="stylesheet" href="/css/style.css">
 
     <!--Import Google Icon Font-->
@@ -42,7 +43,7 @@
             $alert = $_SESSION['alert'];
             session_destroy();
             session_start();
-            $_SESSION['alert'] = $alert;
+            redirect('/', $alert);
         }
 
         if (isset($_GET['logout'])) {

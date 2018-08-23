@@ -1,12 +1,9 @@
 <?php
 
-// TODO: steropdracht - add overig option to new and edit for subject0
-
-// TODO: auth - change password
 // TODO: auth - forgot password
 // TODO: auth - (verify) register
 
-// TODO: log everything (ster opdracht - new,edit,delete,join |  auth - login,logout,password reset,CSRF,session expired, ip session stolen, user tried to access unauthoprized page (leerlingen,docenten,admin) | sql - querys (maybe))
+// TODO: log everything (ster opdracht - new,edit,delete,join |  auth - login,logout,password change/reset,CSRF,session expired, ip session stolen, user tried to access unauthoprized page (leerlingen,docenten,admin) | sql - querys (maybe))
 
 // TODO: security - check all forms for csrf
 // TODO: agenda - improve ui (probaly wont do it)

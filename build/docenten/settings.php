@@ -26,7 +26,7 @@ $user = sql_query($query, true);
     </div>
     <div class="row">
         <div class="col s12">
-            <a href="/auth/change" class="waves-effect waves-light btn color-primary--background">Change Password</a>
+            <a href="/auth/change" class="waves-effect waves-light btn color-primary--background">Verander wachtwoord</a>
         </div>
     </div>
 </div>

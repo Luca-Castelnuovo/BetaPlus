@@ -33,10 +33,10 @@ $user = sql_query($query, true);
     </div>
     <div class="row">
         <div class="col s12 m3">
-            <a href="/general/upload/leerling_profile/" class="waves-effect waves-light btn color-primary--background">Change Profile Picture</a>
+            <a href="/general/upload/leerling_profile/" class="waves-effect waves-light btn color-primary--background">Verander profiel foto</a>
         </div>
         <div class="col s12 m3">
-            <a href="/auth/change" class="waves-effect waves-light btn color-primary--background">Change Password</a>
+            <a href="/auth/change" class="waves-effect waves-light btn color-primary--background">Verander wachtwoord</a>
         </div>
     </div>
 </div>

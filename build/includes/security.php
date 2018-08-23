@@ -13,7 +13,7 @@ function gen($length)
 
 
 //Clean user submitted data
-function clean_data($data, $editor = false)
+function clean_data($data, $editor = false, $mail = false)
 {
     $conn = sql_connect();
     $data = $conn->escape_string($data);
@@ -23,7 +23,9 @@ function clean_data($data, $editor = false)
         $data = trim($data);
     }
 
-    $data = htmlspecialchars($data);
+    if (!$mail) {
+        $data = htmlspecialchars($data);
+    }
 
     if (!$editor) {
         $data = stripslashes($data);
