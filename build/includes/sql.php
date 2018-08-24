@@ -3,8 +3,7 @@
 //Connect to database
 function sql_connect()
 {
-    // $config = config_load();
-    $config = ['db_host' => '192.168.1.7', 'db_user' => 'root', 'db_password' => 'eMMSrx8BcDmOAoivdGTiHa6tzDVjpany', 'db_name' => 'betasterren_db'];
+    $config = config_load();
     $conn = new mysqli($config['db_host'], $config['db_user'], $config['db_password'], $config['db_name']);
 
     if ($conn->connect_error) {

@@ -1,9 +1,11 @@
 <?php
 
 //Load configuration
-function config_load($config)
+function config_load()
 {
-    return parse_ini_file('/var/www/betasterren.lucacastelnuovo.nl/config.ini');
+    // TODO: enable function for production
+    //return parse_ini_file('/var/www/betasterren.lucacastelnuovo.nl/config.ini');
+    return ['api_client_id' => 'rqc4o57337jp9d9ilueflk6rwl5s48ra', 'db_host' => '192.168.1.7', 'db_user' => 'root', 'db_password' => 'test', 'db_name' => 'betasterren_db'];
 }
 
 function ip()
@@ -26,48 +28,6 @@ function redirect($to, $alert = null)
     !isset($alert) ?: alert_set($alert);
     header('location: ' . $to);
     exit;
-}
-
-
-//Send mails
-function mail_send($to, $subject, $body)
-{
-    $to = clean_data($to);
-    $subject = clean_data($subject);
-    $body = clean_data($body, false, true);
-
-    $request = ['to' => $to, 'subject' => $subject, 'body' => $body, 'from_name' => 'BetaSterren || HBL'];
-
-    request('POST', 'https://api.lucacastelnuovo.nl/mail/', $request);
-}
-
-//Make api request
-function request($method, $url, $data = false)
-{
-    $curl = curl_init();
-    switch ($method) {
-        case "POST":
-            curl_setopt($curl, CURLOPT_POST, 1);
-            if ($data) {
-                curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-            }
-            break;
-
-        case "PUT":
-            curl_setopt($curl, CURLOPT_PUT, 1);
-            break;
-
-        default:
-            if ($data) {
-                $url = sprintf("%s?%s", $url, http_build_query($data));
-            }
-    }
-
-    curl_setopt($curl, CURLOPT_URL, $url);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-    $result = curl_exec($curl);
-    curl_close($curl);
-    return json_decode($result, true);
 }
 
 

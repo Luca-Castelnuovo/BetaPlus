@@ -114,6 +114,13 @@
 		"oAP": "\/build\/auth\/old\/verify.php",
 		"oF": 0
 		},
+	"\/auth\/reset.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/auth\/reset.php",
+		"oF": 0
+		},
 	"\/build": {
 		"ft": 65536,
 		"oA": 1,
@@ -156,7 +163,7 @@
 		},
 	"\/favicon.png": {
 		"ft": 32768,
-		"iS": 31462,
+		"iS": 150953,
 		"oA": 0,
 		"oAP": "\/build\/favicon.png",
 		"oF": 0,
@@ -226,6 +233,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/build\/includes\/admin.php",
+		"oF": 0
+		},
+	"\/includes\/api.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/includes\/api.php",
 		"oF": 0
 		},
 	"\/includes\/generic.php": {
@@ -416,7 +430,7 @@
 "projectAttributes": {
 	"creationDate": 556208676,
 	"displayValue": "HBL-BetaSterren-V2",
-	"displayValueWasSetByUser": 0,
+	"displayValueWasSetByUser": 1,
 	"iconImageName": "meme-drunkArcher",
 	"iconImageWasSetByUser": 0,
 	"lastBuiltDate": 556746874
