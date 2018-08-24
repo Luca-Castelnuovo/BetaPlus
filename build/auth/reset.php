@@ -134,7 +134,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body class="bg-image">
     <div class="row">
-        <div class="col s12 m4 offset-m4">
+        <div class="col s12 m8 offset-m2 l4 offset-l4">
             <div class="card login">
                 <div class="card-action color-primary--background hover-disable white-text">
                     <h3>Nieuw Wachtwoord</h3>
