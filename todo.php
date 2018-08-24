@@ -1,8 +1,6 @@
 <?php
 
-// TODO: auth - forgot password
-// TODO: auth - (verify) register
-
+// TODO: registration form
 // TODO: log everything (ster opdracht - new,edit,delete,join |  auth - login,logout,password change/reset,CSRF,session expired, ip session stolen, user tried to access unauthoprized page (leerlingen,docenten,admin) | sql - querys (maybe))
 // TODO: security - check all forms for csrf
 
@@ -16,5 +14,6 @@
 // TODO: agenda - support for pdf
 // TODO: steropdrachten - support for pdf
 
+// TODO: transfer db to dell server
 // TODO: auto backup db
 // TODO: security - CSP policy - https://scotthelme.co.uk/content-security-policy-an-introduction/
