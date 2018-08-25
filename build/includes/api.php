@@ -10,11 +10,10 @@ function api_mail($to, $subject, $body)
 //Send mails
 function api_captcha($response_token)
 {
-    // TODO: finish recaptcha api
-    // if (!api_request('POST', 'https://api.lucacastelnuovo.nl/recaptch/', ['g-recaptcha-response' => $response_token])['status']) {
-    //     log_action('unknown', 'captcha_invalid');
-    //     redirect('', 'Please complete captcha');
-    // }
+    if (!api_request('POST', 'https://api.lucacastelnuovo.nl/recaptch/', ['g-recaptcha-response' => $response_token])['status']) {
+        log_action('unknown', 'captcha_invalid');
+        redirect('', 'Please complete captcha');
+    }
 }
 
 
@@ -27,7 +26,7 @@ function api_request($method, $url, $data = false)
             curl_setopt($curl, CURLOPT_POST, 1);
             if ($data) {
                 $config = config_load();
-                $data['client_id'] = $config['api_client_id'];
+                $data['api_key'] = $config['api_key'];
                 curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
             }
             break;

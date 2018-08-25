@@ -136,8 +136,13 @@ END;
 
     <!--Import Materialize JavaScript-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js"></script>
     <?php alert_display(); ?>
+    <!--Import Recaptcha JavaScript-->
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <!--Import Partciles.JS JavaScript-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+    <canvas class="background"></canvas>
+    <script src="https://cdn.lucacastelnuovo.nl/js/betasterren/particles.js"></script>
 </body>
 
 </html>

@@ -141,12 +141,27 @@ $color_secundary_darken: #4f0023;
 /**************/
 /* Login Page */
 /**************/
-.bg-image {
-    background: url("https://cdn.lucacastelnuovo.nl/images/backgrounds/7.jpg") no-repeat center center fixed;
-    background-size: cover;
-}
+// .bg-image {
+//     background: url("https://cdn.lucacastelnuovo.nl/images/backgrounds/7.jpg") no-repeat center center fixed;
+//     background-size: cover;
+// }
 
 .login {
     margin-top: 10rem;
     width: auto;
+}
+
+@media only screen and(max-width: 600px) {
+    .login {
+        margin-top: 0;
+    }
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
 }

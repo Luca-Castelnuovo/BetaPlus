@@ -3,9 +3,7 @@
 //Load configuration
 function config_load()
 {
-    // TODO: enable function for production
-    //return parse_ini_file('/var/www/betasterren.lucacastelnuovo.nl/config.ini');
-    return ['api_client_id' => 'rqc4o57337jp9d9ilueflk6rwl5s48ra', 'db_host' => '192.168.1.7', 'db_user' => 'root', 'db_password' => 'test', 'db_name' => 'betasterren_db'];
+    return parse_ini_file('/var/www/config.ini');
 }
 
 function ip()
