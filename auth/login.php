@@ -49,16 +49,16 @@ if ($userDocent->num_rows > 0) {
 
 if (password_verify($password, $user['password'])) {
     if ($user['failed_login'] > 4) {
-        log_action($_SESSION['id'], 'auth_denied_login_blocked');
-        redirect('/?reset', 'Uw account is geblokkeerd, contacteer AUB de administrator om uw account te deblokkeren');
+        log_action($user['id'] . ' ' . $user['class'], 'error: too many failed login attempts');
+        redirect('/?reset', 'Uw account is geblokkeerd door teveel mislukt inlogpogingen, contacteer AUB de administrator');
     } else {
         sql_query("UPDATE leerlingen SET failed_login='0' WHERE id='{$user['id']}'", false);
         sql_query("UPDATE docenten SET failed_login='0' WHERE id='{$user['id']}'", false);
     }
 
     if (!$user['active']) {
-        log_action($_SESSION['id'], 'auth_denied_login_inactive');
-        redirect('/?reset', 'Uw account is nog niet actief, klik op de link in  uw mail om uw account te activeren');
+        log_action($user['id'] . ' ' . $user['class'], 'error: account inactive');
+        redirect('/?reset', 'Uw account is gedactiveerd, contacteer AUB de administrator');
     }
 
     $_SESSION['logged_in'] = true;
@@ -75,7 +75,7 @@ if (password_verify($password, $user['password'])) {
     $return_to = $_SESSION['return_url'];
     unset($_SESSION['return_url']);
 
-    log_action($_SESSION['id'], 'auth_accept_login');
+    log_action($user['id'] . ' ' . $user['class'], 'success: login');
 
     if (!empty($return_to)) {
         redirect($return_to, 'U bent ingelogd');
@@ -83,5 +83,7 @@ if (password_verify($password, $user['password'])) {
         redirect('/general/home', 'U bent ingelogd');
     }
 } else {
+    $table = ($user['class'] == 'docenten') ? 'docenten' : 'leerlingen';
+    sql_query("UPDATE {$table} SET failed_login = failed_login + 1 WHERE id='{$user['id']}'", false);
     redirect('/?reset', 'Het is niet mogelijk om in te loggen met de ingevulde gegevens.');
 }

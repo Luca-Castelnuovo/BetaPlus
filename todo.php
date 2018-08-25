@@ -1,7 +1,8 @@
 <?php
 
+// TODO: update all log_action to include a priority 3 = high, 2 = medium, 1  = low - add priority column to logs table in production db and development db
+
 // TODO: registration form
-// TODO: log everything (ster opdracht - new,edit,delete,join |  auth - login,logout,password change/reset,CSRF,session expired, ip session stolen, user tried to access unauthoprized page (leerlingen,docenten,admin) | sql - querys (maybe))
 // TODO: security - check all forms for csrf
 
 // TODO: agenda - improve ui (probaly wont do it)

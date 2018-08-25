@@ -58,20 +58,6 @@
 		"oAP": "\/build\/auth\/login.php",
 		"oF": 0
 		},
-	"\/auth\/old\/forgot-confirm.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/auth\/old\/forgot-confirm.php",
-		"oF": 0
-		},
-	"\/auth\/old\/forgot.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/auth\/old\/forgot.php",
-		"oF": 0
-		},
 	"\/auth\/old\/new-user.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -84,20 +70,6 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/build\/auth\/old\/register.php",
-		"oF": 0
-		},
-	"\/auth\/old\/reset-password.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/auth\/old\/reset-password.php",
-		"oF": 0
-		},
-	"\/auth\/old\/reset.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/auth\/old\/reset.php",
 		"oF": 0
 		},
 	"\/auth\/old\/verify-register.php": {
@@ -440,7 +412,7 @@
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "meme-drunkArcher",
 	"iconImageWasSetByUser": 0,
-	"lastBuiltDate": 556812233
+	"lastBuiltDate": 556909466
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

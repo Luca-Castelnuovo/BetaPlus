@@ -60,7 +60,7 @@ END;
 
     api_mail($email, 'Nieuw wachtwoord aanvragen ||  BetaSterren', $body);
 
-    // TODO: log action
+    log_action($email, 'sucess: forgot password');
 
     redirect('/?reset', 'Check uw email for een reset link');
 }

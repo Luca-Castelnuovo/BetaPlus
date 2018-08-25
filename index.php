@@ -47,6 +47,7 @@
         }
 
         if (isset($_GET['logout'])) {
+            log_action($_SESSION['id'] . ' ' . $_SESSION['class'], 'success: logout');
             session_destroy();
             session_start();
             redirect('/', 'U bent uitgelogd');

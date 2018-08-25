@@ -11,8 +11,9 @@ function api_mail($to, $subject, $body)
 function api_captcha($response_token)
 {
     if (!api_request('POST', 'https://api.lucacastelnuovo.nl/recaptch/', ['g-recaptcha-response' => $response_token])['status']) {
-        log_action('unknown', 'captcha_invalid');
-        redirect('', 'Please complete captcha');
+        $user = isset($_SESSION) ? $user['id'] . ' ' . $user['class']: 'UNKNOWN';
+        log_action($user, 'error: captcha invalid');
+        redirect('', 'Klik AUB op de captcha');
     }
 }
 

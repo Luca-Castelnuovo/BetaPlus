@@ -13,6 +13,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         redirect('/ster-opdrachten/view/'.$id, 'U hebt geen toestemming om deze Ster Opdracht aan te passen');
     }
 
+    // TODO: implement log
+    //log_action($_SESSION['id'] . ' ' . $_SESSION['class'], 'success: steropdracht new');
+
+
+
+
     $project_name = clean_data($_POST['project_name']);
     $subject = clean_data($_POST['subject']);
     $content = clean_data($_POST['content'], true);
