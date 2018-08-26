@@ -20,6 +20,8 @@ function log_action($user, $action, $priority)
     $date = date('Y-m-d H:i:s', time());
     $ip = ip();
     $query = "INSERT INTO logs (date, user, action, ip, priority) VALUES ('{$date}', '{$user}', '{$action}', '{$ip}', '{$priority}')";
+    echo $query;
+    exit;
     sql_query($query, false);
 }
 

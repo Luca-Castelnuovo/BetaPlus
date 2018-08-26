@@ -99,7 +99,7 @@ function admin_log_list()
         user,
         action,
         ip,
-        priority
+        priority,
         date
     FROM
         logs

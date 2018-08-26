@@ -84,7 +84,7 @@ if (password_verify($password, $user['password'])) {
     $return_to = $_SESSION['return_url'];
     unset($_SESSION['return_url']);
 
-    log_action($user['id'] . ' ' . $user['class'], 'Login', 0);
+    log_action($user['first_name'] . ' ' . $user['last_name'], 'Login', 0);
 
     if (!empty($return_to)) {
         redirect($return_to, 'U bent ingelogd');
