@@ -17,6 +17,8 @@ $queryDocent =
         class,
         active,
         password,
+        first_name,
+        last_name,
         failed_login
     FROM
         docenten
@@ -29,6 +31,8 @@ $queryLeerling =
         class,
         active,
         password,
+        first_name,
+        last_name,
         failed_login,
         admin
     FROM
@@ -49,7 +53,7 @@ if ($userDocent->num_rows > 0) {
 
 if (password_verify($password, $user['password'])) {
     if ($user['failed_login'] > 4) {
-        log_action($user['id'] . ' ' . $user['class'], 'Too many failed login attempts', 2);
+        log_action($user['first_name'] . ' ' . $user['last_name'], 'Too many failed login attempts', 2);
         redirect('/?reset', 'Uw account is geblokkeerd door teveel mislukt inlogpogingen, contacteer AUB de administrator');
     } else {
         sql_query("UPDATE leerlingen SET failed_login='0' WHERE id='{$user['id']}'", false);
@@ -57,7 +61,7 @@ if (password_verify($password, $user['password'])) {
     }
 
     if (!$user['active']) {
-        log_action($user['id'] . ' ' . $user['class'], 'Account Inactive', 2);
+        log_action($user['first_name'] . ' ' . $user['last_name'], 'Account Inactive', 2);
         redirect('/?reset', 'Uw account is gedactiveerd, contacteer AUB de administrator');
     }
 
@@ -68,6 +72,8 @@ if (password_verify($password, $user['password'])) {
     $_SESSION['ip'] = ip();
     $_SESSION['id'] = $user['id'];
     $_SESSION['class'] = $user['class'];
+    $_SESSION['first_name'] = $user['first_name'];
+    $_SESSION['last_name'] = $user['last_name'];
 
     if (isset($user['admin'])) {
         $_SESSION['admin'] = $user['admin'];

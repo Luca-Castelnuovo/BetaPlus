@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         redirect('/ster-opdrachten/view/'.$id, 'U hebt geen toestemming om deze Ster Opdracht aan te passen');
     }
 
-    log_action($_SESSION['id'] . ' ' . $_SESSION['class'], 'SterOpdrachten edit', 0);
+    log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'SterOpdrachten edit', 0);
 
     $project_name = clean_data($_POST['project_name']);
     $subject = clean_data($_POST['subject']);
@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($_SESSION['id'] == $steropdracht['leerling_id']) {
         token_gen($id);
     } else {
-        log_action($_SESSION['id'] . ' ' . $_SESSION['class'], 'SterOpdrachten edit access denied', 1);
+        log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'SterOpdrachten edit access denied', 1);
         redirect('/ster-opdrachten/view/'.$id, 'U hebt geen toestemming om deze Ster Opdracht aan te passen');
     }
 
@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             sql_query($query, false);
 
-            log_action($_SESSION['id'] . ' ' . $_SESSION['class'], 'SterOpdrachten done', 1);
+            log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'SterOpdrachten done', 1);
             redirect('/ster-opdrachten/view/'.$id, 'Ster Opdracht klaar');
             break;
 
@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             sql_query($query, false);
 
-            log_action($_SESSION['id'] . ' ' . $_SESSION['class'], 'SterOpdrachten delete', 1);
+            log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'SterOpdrachten delete', 1);
             redirect('/ster-opdrachten/', 'Ster Opdracht verwijderd');
             break;
     }
