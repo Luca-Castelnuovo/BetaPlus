@@ -61,7 +61,7 @@ if ($result->num_rows > 0) {
             $mysqli->query($sql);
 
             $subject = 'Account Verificatie ( BetaSterren )';
-            $message = '<body>Beste BetaSterren leerling,<br><br><a href="https://betasterren.lucacastelnuovo.nl/login/verify?email&#61;' . $email . '&code&#61;' . $code . '" target="_blank" rel="noopener noreferrer">Verifieer je account door op deze link te klikken.</a><br><br><p><b>Deze link is 7 dagen geldig.</b></p></body>';
+            $message = '<body>Beste BetaSterren leerling,<br><br><a href="https://betasterren.hetbaarnschlyceum.nl/login/verify?email&#61;' . $email . '&code&#61;' . $code . '" target="_blank" rel="noopener noreferrer">Verifieer je account door op deze link te klikken.</a><br><br><p><b>Deze link is 7 dagen geldig.</b></p></body>';
             mail_send($email, $subject, $message);
             mail_alert('Er is een nieuwe gebruiker geregistreerd.' . $user_number);
 
