@@ -15,7 +15,7 @@ function head($title, $active_menu_item = null, $differen_menu_title = null, $ex
     <meta name="theme-color" content="#003d14">
 
     <title>{$title}</title>
-    <meta content="INSERT DESCRIPTION" name="description">
+    <meta content="BetaSterren" name="description">
     <meta content="Betasterren, Beta Sterren, Het Baarnsch Lyceum, beta+, beta hbl" name="keywords">
 
     <!-- Tells Google not to provide a translation for this document -->

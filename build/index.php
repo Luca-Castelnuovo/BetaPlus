@@ -11,7 +11,7 @@
     <meta name="theme-color" content="#003d14">
 
     <title>Login</title>
-    <meta content="INSERT DESCRIPTION" name="description">
+    <meta content="BetaSterren" name="description">
     <meta content="Betasterren, Beta Sterren, Het Baarnsch Lyceum, beta+, beta hbl" name="keywords">
 
     <!-- Tells Google not to provide a translation for this document -->
@@ -23,9 +23,9 @@
 
     <!-- Favicons/Icons -->
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="icon" sizes="192x192" href="https://betasterren.lucacastelnuovo.nl/favicon.png">
-    <link rel="apple-touch-icon" href="https://betasterren.lucacastelnuovo.nl/favicon.png">
-    <link rel="mask-icon" href="https://betasterren.lucacastelnuovo.nl/favicon.png" color="green">
+    <link rel="icon" sizes="192x192" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
+    <link rel="mask-icon" href="/favicon.png" color="green">
 
     <!--Import Materialize CSS-->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com/" crossorigin>

@@ -14,21 +14,21 @@ RewriteRule ^admin/process/([^/]*)/([^/]*)/([^/]*)/([^/]*)/([^/]*)$ /admin/proce
 # Ster Opdrachten #
 ###################
 
-#view
+#View
 RewriteRule ^ster-opdrachten/view/([^/]*)/$ /ster-opdrachten/view.php?id=$1 [L]
 RewriteRule ^ster-opdrachten/view/([^/]*)$ /ster-opdrachten/view.php?id=$1 [L]
 
 RewriteRule ^ster-opdrachten/view/([^/]*)/feedback$ /ster-opdrachten/view.php?id=$1&feedback [L]
 
-#edit
+#Edit
 RewriteRule ^ster-opdrachten/edit/([^/]*)/([^/]*)/$ /ster-opdrachten/edit.php?id=$1&type=$2 [L]
 RewriteRule ^ster-opdrachten/edit/([^/]*)/([^/]*)$ /ster-opdrachten/edit.php?id=$1&type=$2 [L]
 
-#process
+#Process
 RewriteRule ^ster-opdrachten/process/([^/]*)/([^/]*)/$ /ster-opdrachten/process.php?id=$1&type=$2 [L]
 RewriteRule ^ster-opdrachten/process/([^/]*)/([^/]*)$ /ster-opdrachten/process.php?id=$1&type=$2 [L]
 
-#join
+#Join
 RewriteRule ^ster-opdrachten/join/([^/]*)/([^/]*)/$ /ster-opdrachten/join.php?id=$1&type=$2 [L]
 RewriteRule ^ster-opdrachten/join/([^/]*)/([^/]*)$ /ster-opdrachten/join.php?id=$1&type=$2 [L]
 
@@ -63,11 +63,11 @@ RewriteCond %{REQUEST_FILENAME} !-f [OR]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ - [L]
 
-# block access to .pdf
+#Block access to .pdf
 <Files ~ "\.pdf$">
     Order allow,deny
     Deny from all
 </Files>
 
-#Error handling
+#Errors
 ErrorDocument 404 /general/error?code=404
