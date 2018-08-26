@@ -105,7 +105,6 @@ function token_val($identifier, $returnbool = false)
 function login()
 {
     if ($_SESSION['logged_in'] != 1) {
-        $_SESSION['return_url'] = $_SERVER['REQUEST_URI'];
         redirect('/?reset', 'Deze pagina is alleen zichtbaar als u ingelogd bent!');
     }
 

@@ -27,7 +27,7 @@ function admin_accounts_list($class)
         FROM
             leerlingen
         WHERE
-            class = '$class'
+            class = '{$class}'
         ORDER BY
             last_name";
     }
