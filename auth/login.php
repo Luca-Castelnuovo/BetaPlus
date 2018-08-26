@@ -49,7 +49,7 @@ if ($userDocent->num_rows > 0) {
 
 if (password_verify($password, $user['password'])) {
     if ($user['failed_login'] > 4) {
-        log_action($user['id'] . ' ' . $user['class'], 'error: too many failed login attempts');
+        log_action($user['id'] . ' ' . $user['class'], 'Too many failed login attempts', 2);
         redirect('/?reset', 'Uw account is geblokkeerd door teveel mislukt inlogpogingen, contacteer AUB de administrator');
     } else {
         sql_query("UPDATE leerlingen SET failed_login='0' WHERE id='{$user['id']}'", false);
@@ -57,7 +57,7 @@ if (password_verify($password, $user['password'])) {
     }
 
     if (!$user['active']) {
-        log_action($user['id'] . ' ' . $user['class'], 'error: account inactive');
+        log_action($user['id'] . ' ' . $user['class'], 'Account Inactive', 2);
         redirect('/?reset', 'Uw account is gedactiveerd, contacteer AUB de administrator');
     }
 
@@ -75,7 +75,7 @@ if (password_verify($password, $user['password'])) {
     $return_to = $_SESSION['return_url'];
     unset($_SESSION['return_url']);
 
-    log_action($user['id'] . ' ' . $user['class'], 'success: login');
+    log_action($user['id'] . ' ' . $user['class'], 'Login', 0);
 
     if (!empty($return_to)) {
         redirect($return_to, 'U bent ingelogd');

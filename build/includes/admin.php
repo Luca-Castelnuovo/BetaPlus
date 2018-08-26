@@ -99,6 +99,7 @@ function admin_log_list()
         user,
         action,
         ip,
+        priority
         date
     FROM
         logs
@@ -112,9 +113,10 @@ function admin_log_list()
         <table class="striped centered highlight responsive-table">
             <thead>
               <tr>
-                    <th>IP</th>
+                    <th>Priority</th>
                     <th>User</th>
                     <th>Action</th>
+                    <th>IP</th>
                     <th>Date</th>
               </tr>
             </thead>
@@ -124,9 +126,10 @@ END;
         while ($entry = $result->fetch_assoc()) {
             echo <<<END
             <tr>
-                <td>{$entry['ip']}</td>
+                <td>{$entry['priority']}</td>
                 <td>{$entry['user']}</td>
                 <td>{$entry['action']}</td>
+                <td>{$entry['ip']}</td>
                 <td>{$entry['date']}</td>
             </tr>
 END;
@@ -134,6 +137,7 @@ END;
         echo <<<END
         </tbody>
       </table>
+      <br />
       <a href="/admin/process/{$CSRFtoken}/log_clear/id/class/state" class="waves-effect waves-light btn color-primary--background" onclick="return confirm('Weet je het zeker?')">Clear Log</a>
 END;
     } else {

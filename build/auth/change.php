@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 id='{$_SESSION['id']}'";
 
             sql_query($query, false);
-            log_action($_SESSION['id'] . ' ' . $_SESSION['class'], 'success: password change');
+            log_action($_SESSION['id'] . ' ' . $_SESSION['class'], 'Password Changed', 0);
             redirect('/general/home', 'Uw wachtwoord is gewijzigd');
         } else {
             redirect('/auth/change', 'De nieuwe wachtwoorden komen niet overeen');

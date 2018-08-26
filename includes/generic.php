@@ -6,19 +6,23 @@ function config_load()
     return parse_ini_file('/var/www/config.ini');
 }
 
+
+//Get clients ip
 function ip()
 {
     return $_SERVER['REMOTE_ADDR'];
 }
 
+
 //Log actions
-function log_action($user, $action)
+function log_action($user, $action, $priority)
 {
     $date = date('Y-m-d H:i:s', time());
     $ip = ip();
-    $query = "INSERT INTO logs (date, user, action, ip) VALUES ('{$date}', '{$user}', '{$action}', '{$ip}')";
+    $query = "INSERT INTO logs (date, user, action, ip, priority) VALUES ('{$date}', '{$user}', '{$action}', '{$ip}', '{$priority}')";
     sql_query($query, false);
 }
+
 
 //Redirect and set alert if specified
 function redirect($to, $alert = null)
@@ -29,8 +33,7 @@ function redirect($to, $alert = null)
 }
 
 
-//ALERT SYSTEM
-
+//Alert system
 function alert_set($alert)
 {
     $_SESSION['alert'] = $alert;

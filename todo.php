@@ -1,6 +1,6 @@
 <?php
 
-// TODO: update all log_action to include a priority 3 = high, 2 = medium, 1  = low - add priority column to logs table in production db and development db
+// TODO: update all log_action to include a priority 3 = high, 2 = medium, 1  = low
 
 // TODO: registration form
 // TODO: security - check all forms for csrf

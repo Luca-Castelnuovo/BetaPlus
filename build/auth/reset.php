@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     sql_query($query, false);
 
-    log_action($token['user'], 'sucess: password reset');
+    log_action($token['user'], 'Reset Password', 1);
 
     redirect('/?reset', 'Uw wachtwoord is gewijzigd');
 } else {
@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         sql_query($query, false);
 
-        log_action('UNKNOWN', 'error: fake password reset');
+        log_action('UNKNOWN', 'Reset Password Fake', 2);
 
         redirect('/?reset', 'De administrator is op de hoogte gesteld');
     }
