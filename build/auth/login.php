@@ -61,6 +61,9 @@ if (password_verify($password, $user['password'])) {
         redirect('/?reset', 'Uw account is gedactiveerd, contacteer AUB de administrator');
     }
 
+    session_destroy();
+    session_start();
+
     $_SESSION['logged_in'] = true;
     $_SESSION['ip'] = ip();
     $_SESSION['id'] = $user['id'];

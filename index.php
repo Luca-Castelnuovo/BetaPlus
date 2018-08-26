@@ -52,8 +52,6 @@
             session_start();
             redirect('/', 'U bent uitgelogd');
         }
-
-        session_destroy();
     ?>
 </head>
 
