@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     csrf_val($_POST['CSRFtoken']);
     $id = clean_data($_POST['id']);
     $feedback = clean_data($_POST['feedback'], true);
-    $datetime = date('Y-m-d');
+    $datetime = current_date(false);
 
     $docent = sql_query("SELECT last_name FROM docenten WHERE id='{$_SESSION['id']}'", true);
 

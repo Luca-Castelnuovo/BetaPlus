@@ -3,8 +3,10 @@
 require($_SERVER['DOCUMENT_ROOT'] . "/init.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (!$_SESSION['register']) {
+    if (!$_SESSION['register_post']) {
         redirect('/general/home', 'U heeft geen toegang tot deze pagina');
+    } else {
+        unset($_SESSION['register_post']);
     }
 
     csrf_val($_POST['CSRFtoken']);
@@ -18,14 +20,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password2 = clean_data($_POST['password2']);
 
     if (empty($first_name) || empty($last_name) || empty($class) || empty($leerling_nummer) || empty($email) || empty($password) || empty($password2)) {
+        $_SESSION['register_get'] = true;
         redirect('/auth/register', 'Vul aub alle velden in');
     }
 
     if ($class != '4havo' || $class != '4vwo' || $class != '5havo' || $class != '5vwo' || $class != '6vwo') {
+        $_SESSION['register_get'] = true;
         redirect('/auth/register', 'Vul aub een klas in.');
     }
 
     if ($password !== $password2) {
+        $_SESSION['register_get'] = true;
         redirect('/auth/register', 'De wachtwoorden komen niet overeen');
     } else {
         $password = password_hash($password, PASSWORD_BCRYPT);
@@ -47,37 +52,54 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     redirect('/?reset', 'Uw account is aangemaakt');
 } else {
-    $ip = ip();
+    if (!$_SESSION['register_get']) {
+        $token = clean_data($_GET['token']);
 
-    $token = clean_data($_GET['token']);
+        $query =
+        "SELECT
+            used,
+            type,
+            created,
+            days_valid,
+            user
+        FROM
+            tokens
+        WHERE
+            token='{$token}'";
 
-    $query =
-    "SELECT
-        used,
-        type,
-        created,
-        days_valid,
-        user
-    FROM
-        tokens
-    WHERE
-        token='{$token}'";
+        $token = sql_query($query, true);
 
-    $token = sql_query($query, true);
+        if ($token['used']) {
+            redirect('/?reset', 'Deze link is al gebruikt of niet geldig');
+        }
 
-    if ($token['used']) {
-        redirect('/?reset', 'Deze link is al gebruikt of niet geldig');
+        if ($token['type'] != 'register') {
+            redirect('/?reset', 'Deze link is al gebruikt of niet geldig');
+        }
+
+        if (!($token['created'] >= $token['valid'])) {
+            redirect('/?reset', 'Deze link is al gebruikt of niet geldig');
+        }
+
+        $ip = ip();
+        $date = current_date(true);
+
+        $query =
+        "UPDATE
+            tokens
+        SET
+            used = '1',
+            use_ip = '{$ip}',
+            used_date = '{$date}'
+        WHERE
+            token='{$token}'";
+
+        sql_query($query, false);
+    } else {
+        unset($_SESSION['register_get']);
     }
 
-    if ($token['type'] != 'register') {
-        redirect('/?reset', 'Deze link is al gebruikt of niet geldig');
-    }
-
-    if (!($token['created'] >= $token['valid'])) {
-        redirect('/?reset', 'Deze link is al gebruikt of niet geldig');
-    }
-
-    $_SESSION['register'] = true;
+    $_SESSION['register_post'] = true;
 }
 
 ?>

@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $token = gen(128);
-    $date = date('Y-m-d H:i:s');
+    $date = current_date(true);
     $ip = ip();
 
     $query =
@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ('{$token}',
         'password_reset',
         '{$date}',
-        '7',
+        '1',
         '{$email}',
         '{$ip}',
         '{$aditional}')";

@@ -13,11 +13,21 @@ function ip()
     return $_SERVER['REMOTE_ADDR'];
 }
 
+//Get current date (and time)
+function current_date($andTime = false)
+{
+    if ($andTime) {
+        return date('Y-m-d H:i:s');
+    } else {
+        return date('Y-m-d');
+    }
+}
+
 
 //Log actions
 function log_action($user, $action, $priority)
 {
-    $date = date('Y-m-d H:i:s', time());
+    $date = current_date(true);
     $ip = ip();
     $query = "INSERT INTO logs (date, user, action, ip, priority) VALUES ('{$date}', '{$user}', '{$action}', '{$ip}', '{$priority}')";
     sql_query($query, false);

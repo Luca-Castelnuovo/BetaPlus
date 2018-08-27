@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $project_name = clean_data($_POST['project_name']);
     $subject = clean_data($_POST['subject']);
     $content = clean_data($_POST['content'], true);
-    $datetime = date('Y-m-d H:i:s');
+    $datetime = current_date(true);
 
     $query=
     "UPDATE

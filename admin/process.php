@@ -10,11 +10,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         case 'gen':
             switch ($_POST['gen']) {
                 case 'register':
+                    $token = gen(128);
+                    $current_date = current_date(true);
                     $user = clean_data($_POST['user']);
+                    $ip = ip();
+
                     $query =
                     "INSERT INTO
                         tokens
-                    ";
+                            ('token','type','created', 'days_valid','user','gen_ip')
+                    VALUES
+                        ('{$token}','register','$current_date', '7','$user','$ip')";
                     break;
 
                 default:
