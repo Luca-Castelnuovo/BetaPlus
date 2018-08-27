@@ -1,6 +1,5 @@
 <?php
 
-// TODO: auth - register system
 // TODO: security - check all forms for csrf
 
 // TODO: steropdracht - buddy implementation (join)
@@ -14,5 +13,7 @@
 // TODO: agenda - add item system
 // TODO: agenda - support for pdf
 // TODO: agenda - improve ui
+
+// TODO: admin 2fa - https://github.com/Yubico/php-u2flib-server - https://github.com/Yubico/php-u2flib-server
 
 // TODO: security - CSP policy - https://scotthelme.co.uk/content-security-policy-an-introduction/

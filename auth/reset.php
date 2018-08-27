@@ -13,7 +13,7 @@ $query =
     created,
     days_valid,
     user,
-    docent
+    additional
 FROM
     tokens
 WHERE
@@ -30,7 +30,7 @@ if ($token['type'] != 'password_reset') {
 }
 
 if (!($token['created'] >= $token['valid'])) {
-    redirect('/?reset', 'Deze link is al gebruikt of niet geldig2');
+    redirect('/?reset', 'Deze link is al gebruikt of niet geldig');
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

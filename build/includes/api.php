@@ -13,6 +13,7 @@ function api_captcha($response_token)
     if (!api_request('POST', 'https://api.lucacastelnuovo.nl/recaptch/', ['g-recaptcha-response' => $response_token])['status']) {
         $user = isset($_SESSION) ? $user['id'] . ' ' . $user['class']: 'UNKNOWN';
         log_action($user, 'Captcha Invalid', 0);
+        // TODO: check of deze redirect werkt
         redirect('', 'Klik AUB op de captcha');
     }
 }
