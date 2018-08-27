@@ -37,10 +37,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     csrf_val($_POST['CSRFtoken']);
 
     if ($_POST['password'] !== $_POST['password2']) {
-        redirect('/auth/reser?my=true&token=' . $token, 'De wachtwoorden komen niet overeen');
+        redirect('/auth/reset?my=true&token=' . $token, 'De wachtwoorden komen niet overeen');
     }
 
-    $class = $token['docent'] ? 'docenten' : 'leerlingen';
+    $class = $token['additional']['docent'] ? 'docenten' : 'leerlingen';
     $password_new = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
     $query =
@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         tokens
     SET
         used='1',
-        ip='{$ip}'
+        use_ip='{$ip}'
     WHERE
         token='{$token_get}'";
 
@@ -76,14 +76,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             tokens
         SET
             used='1',
-            type='password_reset fake request',
-            ip='{$ip}'
+            type='FAKE password_reset',
+            use_ip='{$ip}'
         WHERE
             token='{$token}' AND type='password_reset'";
 
         sql_query($query, false);
 
-        log_action('UNKNOWN', 'Reset Password Fake', 2);
+        log_action('UNKNOWN', 'FAKE Reset Password', 2);
 
         redirect('/?reset', 'De administrator is op de hoogte gesteld');
     }

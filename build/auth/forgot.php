@@ -34,8 +34,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         redirect('/?reset', 'Check uw email for een reset link');
     }
 
+    if ($userDocent->num_rows > 0) {
+        $aditional = ['docent' => '1'];
+    } else {
+        $aditional = ['docent' => '0'];
+    }
+
     $token = gen(128);
     $date = date('Y-m-d H:i:s');
+    $ip = ip();
 
     $query =
     "INSERT INTO
@@ -44,13 +51,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             type,
             created,
             days_valid,
-            user)
+            user,
+            gen_ip,
+            additional)
     VALUES
         ('{$token}',
         'password_reset',
         '{$date}',
         '7',
-        '{$email}')";
+        '{$email}',
+        '{$ip}',
+        '{$aditional}')";
 
     sql_query($query, false);
 
