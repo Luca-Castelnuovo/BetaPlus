@@ -277,6 +277,13 @@
 		"oAP": "\/build\/libs\/Parsedown.php",
 		"oF": 0
 		},
+	"\/LICENSE": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/LICENSE",
+		"oF": 0
+		},
 	"\/manifest.json": {
 		"ft": 524288,
 		"oA": 2,
