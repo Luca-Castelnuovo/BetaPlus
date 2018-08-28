@@ -3,7 +3,7 @@ require($_SERVER['DOCUMENT_ROOT'] . "/init.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     csrf_val($_POST['CSRFtoken']);
-    api_captcha($_POST['g-recaptcha-response']);
+    api_captcha($_POST['g-recaptcha-response'], '/auth/forgot');
 
     if (empty($_POST['email'])) {
         redirect('/auth/change', 'Vul aub alle velden in');
@@ -116,7 +116,7 @@ END;
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
-<body class="bg-image">
+<body>
     <div class="row">
         <div class="col s12 m8 offset-m2 l4 offset-l4">
             <div class="card login">

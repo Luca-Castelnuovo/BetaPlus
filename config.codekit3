@@ -16,6 +16,12 @@
 		"oAP": "\/build\/.htaccess",
 		"oF": 0
 		},
+	"\/.idea": {
+		"ft": 65536,
+		"oA": 1,
+		"oAP": "\/build\/.idea",
+		"oF": 0
+		},
 	"\/admin\/agenda.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -391,7 +397,7 @@
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "meme-drunkArcher",
 	"iconImageWasSetByUser": 0,
-	"lastBuiltDate": 557059504
+	"lastBuiltDate": 557152149
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

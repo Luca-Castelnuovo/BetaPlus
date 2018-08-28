@@ -115,7 +115,6 @@ END;
         $query = "UPDATE {$sql_table} SET {$set}='{$value}' WHERE id='{$user_id}'";
     }
 
-
     sql_query($query, false);
 
     redirect('/admin', 'Success');

@@ -3,21 +3,21 @@
 //Send mails
 function api_mail($to, $subject, $body)
 {
-    $request = ['to' => $to, 'subject' => $subject, 'body' => $body, 'from_name' => 'BetaSterren || HBL'];
-    api_request('POST', 'https://api.lucacastelnuovo.nl/mail/', $request);
+    $config = config_load();
+    api_request('POST', 'https://api.lucacastelnuovo.nl/mail/', ['api_key' => $config['api_key_mail'],'to' => $to, 'subject' => $subject, 'body' => $body, 'from_name' => 'BetaSterren || HBL']);
 }
 
 //Send mails
-function api_captcha($response_token)
+function api_captcha($response_token, $redirect)
 {
-    if (!api_request('POST', 'https://api.lucacastelnuovo.nl/recaptch/', ['g-recaptcha-response' => $response_token])['status']) {
-        $user = isset($_SESSION) ? $user['id'] . ' ' . $user['class']: 'UNKNOWN';
+    $config = config_load();
+    $request = api_request('POST', 'https://api.lucacastelnuovo.nl/recaptcha/', ['api_key' => $config['api_key_mail'], 'g-recaptcha-response' => $response_token]);
+    if (!$request['status']) {
+        $user = isset($_SESSION) ? $_SESSION['first_name'] . ' ' . $_SESSION['last_name'] : 'UNKNOWN';
         log_action($user, 'Captcha Invalid', 0);
-        // TODO: check of deze redirect werkt
-        redirect('', 'Klik AUB op de captcha');
+        redirect($redirect, 'Klik AUB op de captcha');
     }
 }
-
 
 //Make api request
 function api_request($method, $url, $data = false)
@@ -27,8 +27,6 @@ function api_request($method, $url, $data = false)
         case "POST":
             curl_setopt($curl, CURLOPT_POST, 1);
             if ($data) {
-                $config = config_load();
-                $data['api_key'] = $config['api_key'];
                 curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
             }
             break;

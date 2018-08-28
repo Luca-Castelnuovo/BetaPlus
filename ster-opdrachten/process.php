@@ -2,10 +2,6 @@
 
 require($_SERVER['DOCUMENT_ROOT'] . "/init.php");
 
-//go
-//nogo
-//abcd
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     login_docent();
     csrf_val($_POST['CSRFtoken']);
@@ -31,8 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo json_encode(['url' => '/general/toast?url=/ster-opdrachten/view/' . $id . '&alert=Feedback verstuurd']);
     exit;
 } else {
-    //// TODO: Setup CSRF
-    // csrf_val($_GET['CSRFtoken']);
+    csrf_val($_GET['CSRFtoken']);
     $id = clean_data($_GET['id']);
     $type = clean_data($_GET['type']);
 
@@ -44,13 +39,89 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     switch ($type) {
         case 'go':
-            // code...
+            $query =
+            "SELECT
+                leerling_id
+            FROM
+                steropdrachten
+            WHERE
+                id='{$id}'";
+
+            $steropdracht = sql_query($query, true);
+
+            $query =
+            "SELECT
+                email
+            FROM
+                leerlingen
+            WHERE
+                id='{$steropdracht['leerling_id']}'";
+
+            $leerling = sql_query($query, true);
+
+            $query =
+            "UPDATE
+                steropdrachten
+            SET
+                status = '2'
+            WHERE
+                id='{$id}' AND (status = '0' OR status = '1')";
+
+            sql_query($query, false);
+
+
+            $body = <<<END
+
+END;
+
+            api_mail($leerling['email'], 'Go voor een Ster Opdracht ||  BetaSterren', $body);
+
+            redirect('/general/home/', 'Go verstuurd');
             break;
         case 'nogo':
-            // code...
+            $query =
+            "SELECT
+                leerling_id
+            FROM
+                steropdrachten
+            WHERE
+                id='{$id}'";
+
+            $steropdracht = sql_query($query, true);
+
+            $query =
+            "SELECT
+                email
+            FROM
+                leerlingen
+            WHERE
+                id='{$steropdracht['leerling_id']}'";
+
+            $leerling = sql_query($query, true);
+
+
+            $query =
+            "UPDATE
+                steropdrachten
+            SET
+                status = '1'
+            WHERE
+                id='{$id}' AND status = '0'";
+
+            sql_query($query, false);
+
+            $body = <<<END
+
+END;
+
+            api_mail($leerling['email'], 'No Go voor een Ster Opdracht ||  BetaSterren', $body);
+
+            redirect('/general/home/', 'No Go verstuurd');
             break;
         case 'abcd':
-            // code...
+            api_mail($email, 'Nieuw wachtwoord verzoek ||  BetaSterren', $body);
+
+            redirect('/general/home/', 'Beoordeling verstuurd');
             break;
         case 'request_feedback':
             $query =
@@ -63,7 +134,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $steropdracht = sql_query($query, true);
 
-            login_leerling();
             if ($steropdracht['leerling_id'] == $_SESSION['id']) {
                 $query =
                 "UPDATE

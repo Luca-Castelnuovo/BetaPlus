@@ -15,17 +15,17 @@ WHERE
 
 $file = sql_query($query, true);
 
+if (empty($file['path'])) {
+    redirect('/general/error?code=404');
+    exit;
+}
+
 if (!$file["public"]) {
     login();
 }
 
 $path = "{$_SERVER['DOCUMENT_ROOT']}/files/{$file['path']}";
 
-if (file_exists($path)) {
-    header('Content-type: application/pdf');
-    header('Content-Disposition: inline; filename="' . $path . '"');
-    @readfile($path);
-} else {
-    redirect('/general/error?code=404');
-    // http_response_code(404);exit;
-}
+header('Content-type: application/pdf');
+header('Content-Disposition: inline; filename="' . $path . '"');
+@readfile($path);

@@ -56,7 +56,7 @@ END;
 </div>
 END;
     } else {
-        echo '<p>Er doen op dit moment geen steropdrachten in deze categorie.</p>';
+        echo '<p>Er doen op dit moment geen steropdrachten in deze categorie die een GO hebben gekregen.</p>';
     }
 }
 
@@ -119,12 +119,6 @@ END;
 
 function steropdrachten_list_docenten($type)
 {
-    //0 = go/no go
-    //1 = feedback requested
-    //2 = beoordeling (sterren, en abcd)
-    //3 = lopend
-    //4 = afgerond
-
     switch ($type) {
         case '0':
             //0 = go/no go

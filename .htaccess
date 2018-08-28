@@ -25,8 +25,8 @@ RewriteRule ^ster-opdrachten/edit/([^/]*)/([^/]*)/$ /ster-opdrachten/edit.php?id
 RewriteRule ^ster-opdrachten/edit/([^/]*)/([^/]*)$ /ster-opdrachten/edit.php?id=$1&type=$2 [L]
 
 #Process
-RewriteRule ^ster-opdrachten/process/([^/]*)/([^/]*)/$ /ster-opdrachten/process.php?id=$1&type=$2 [L]
-RewriteRule ^ster-opdrachten/process/([^/]*)/([^/]*)$ /ster-opdrachten/process.php?id=$1&type=$2 [L]
+RewriteRule ^ster-opdrachten/process/([^/]*)/([^/]*)/([^/]*)/$ /ster-opdrachten/process.php?id=$1&type=$2&CSRFtoken=$3 [L]
+RewriteRule ^ster-opdrachten/process/([^/]*)/([^/]*)/([^/]*)$ /ster-opdrachten/process.php?id=$1&type=$2&CSRFtoken=$3 [L]
 
 #Join
 RewriteRule ^ster-opdrachten/join/([^/]*)/([^/]*)/$ /ster-opdrachten/join.php?id=$1&type=$2 [L]

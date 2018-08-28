@@ -1564,10 +1564,7 @@ class Parsedown
 
         if (isset($Element['text'])) {
             $text = $Element['text'];
-        }
-        // very strongly consider an alternative if you're writing an
-        // extension
-        elseif (isset($Element['rawHtml'])) {
+        } elseif (isset($Element['rawHtml'])) {
             $text = $Element['rawHtml'];
 
             $allowRawHtmlInSafeMode = isset($Element['allowRawHtmlInSafeMode']) && $Element['allowRawHtmlInSafeMode'];
@@ -1614,7 +1611,6 @@ class Parsedown
                 isset($Element['autobreak'])
                 ? $Element['autobreak'] : isset($Element['name'])
             );
-            // (autobreak === false) covers both sides of an element
             $autoBreak = !$autoBreak ? $autoBreak : $autoBreakNext;
 
             $markup .= ($autoBreak ? "\n" : '') . $this->element($Element);

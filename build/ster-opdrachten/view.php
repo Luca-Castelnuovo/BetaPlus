@@ -86,7 +86,6 @@ $parsedown->setSafeMode(true);
                         </div>
                         <h1 class="center"><?= $steropdracht['project_name'] ?></h1>
                         <h6 class="center flow-text">
-                            <?php // TODO: implement rewriterule for leerling search query and add support for buddys?>
                             Door: <a href="/leerlingen/search/<?= $leerling['leerling_nummer'] ?>"><?= $leerling['first_name'] ?> <?= $leerling['last_name'] ?></a>
                         </h6>
                     </div>
@@ -100,7 +99,7 @@ $parsedown->setSafeMode(true);
         ?>
         <div class="row">
             <div class="col s12 m12 l6">
-                <a href="/ster-opdrachten/edit/<?= $id ?>/" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">edit</i>Edit Ster OPdracht</a>
+                <a href="/ster-opdrachten/edit/<?= $id ?>/" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">edit</i>Edit Ster Opdracht</a>
             </div>
             <div class="col s12 m12 l6">
                 <a href="/ster-opdrachten/process/<?= $id ?>/request_feedback" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">feedback</i>Vraag Feedback</a>
@@ -224,11 +223,11 @@ $parsedown->setSafeMode(true);
                 <?php
 } ?>
                 <div class="container">
-                    <?php $content = $steropdracht['content']; echo $parsedown->text($content); ?>
+                    <?php $content = str_replace('&gt; ', '> ', $steropdracht['content']); echo $parsedown->text($content); ?>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<?php footer("<script src=\"https://cdn.lucacastelnuovo.nl/js/ajax.js\"></script><script>document.querySelector('p').classList.add('flow-text');</script>"); ?>
+<?php footer("<script src=\"https://cdn.lucacastelnuovo.nl/js/ajax.js\"></script><script>document.querySelector('p').classList.add('flow-text');document.querySelector('.container ul').classList.add('browser-default');document.querySelector('.container ul li').classList.add('browser-default');</script>"); ?>

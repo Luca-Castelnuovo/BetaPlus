@@ -147,7 +147,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
-<body class="bg-image">
+<body>
     <div class="row">
         <div class="col s12 m8 offset-m2 l4 offset-l4">
             <div class="card login">
