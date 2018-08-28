@@ -169,28 +169,30 @@ END;
         while ($steropdracht = $result->fetch_assoc()) {
             $extra = null;
 
+            $CSRFtoken = csrf_gen();
+
             switch ($steropdracht['status']) {
                 case '0':
                     $extra = <<<END
                         <li class="btn waves-effect waves-light color-secondary--background">
-                            <a href="/ster-opdrachten/process/{$steropdracht['id']}/go">Go</a>
+                            <a href="/ster-opdrachten/process/{$steropdracht['id']}/go/{$CSRFtoken}">Go</a>
                         </li>
                         <li class="btn waves-effect waves-light color-secondary--background">
-                            <a href="/ster-opdrachten/process/{$steropdracht['id']}/nogo">No Go</a>
+                            <a href="/ster-opdrachten/process/{$steropdracht['id']}/nogo/{$CSRFtoken}">No Go</a>
                         </li>
 END;
                     break;
                 case '1':
                     $extra = <<<END
                         <li class="btn waves-effect waves-light color-secondary--background">
-                            <a href="/ster-opdrachten/process/{$steropdracht['id']}/go">Go</a>
+                            <a href="/ster-opdrachten/process/{$steropdracht['id']}/go/{$CSRFtoken}">Go</a>
                         </li>
 END;
                     break;
                 case '4':
                     $extra = <<<END
                         <li class="btn waves-effect waves-light color-secondary--background">
-                            <a href="/ster-opdrachten/process/{$steropdracht['id']}/abcd">Beoordeel Opdracht</a>
+                            <a href="/ster-opdrachten/abcd/{$steropdracht['id']}/abcd">Beoordeel Opdracht</a>
                         </li>
 END;
                     break;
