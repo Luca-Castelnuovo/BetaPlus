@@ -1,7 +1,5 @@
 <?php
 
-// TODO: steropdrachten - abcd
-
 // TODO: admin - add send register token to email form
 
 // TODO: steropdrachten - support for pdf

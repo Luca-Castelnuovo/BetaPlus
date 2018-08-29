@@ -32,6 +32,10 @@ RewriteRule ^ster-opdrachten/process/([^/]*)/([^/]*)/([^/]*)$ /ster-opdrachten/p
 RewriteRule ^ster-opdrachten/join/([^/]*)/([^/]*)/$ /ster-opdrachten/join.php?id=$1&type=$2 [L]
 RewriteRule ^ster-opdrachten/join/([^/]*)/([^/]*)$ /ster-opdrachten/join.php?id=$1&type=$2 [L]
 
+#ABCD
+RewriteRule ^ster-opdrachten/abcd/([^/]*)/$ /ster-opdrachten/abcd.php?id=$1 [L]
+RewriteRule ^ster-opdrachten/abcd/([^/]*)$ /ster-opdrachten/abcd.php?id=$1 [L]
+
 ###########
 # General #
 ###########
