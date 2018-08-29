@@ -1,6 +1,6 @@
 <?php
 
-// TODO: steropdrachten docenten go/ nogo / abcd
+// TODO: steropdrachten - abcd
 
 // TODO: admin - add send register token to email form
 
