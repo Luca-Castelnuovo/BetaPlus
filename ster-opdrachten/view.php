@@ -102,7 +102,7 @@ $parsedown->setSafeMode(true);
                 <a href="/ster-opdrachten/edit/<?= $id ?>/" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">edit</i>Edit Ster Opdracht</a>
             </div>
             <div class="col s12 m12 l6">
-                <a href="/ster-opdrachten/process/<?= $id ?>/request_feedback" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">feedback</i>Vraag Feedback</a>
+                <a href="/ster-opdrachten/process/<?= $id ?>/request_feedback/<?= csrf_gen() ?>" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">feedback</i>Vraag Feedback</a>
             </div>
         </div>
 
