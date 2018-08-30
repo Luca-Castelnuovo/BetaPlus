@@ -1,5 +1,7 @@
 <?php
 
+// TODO: steropdrachten - test Go (status_date en status_docent) / No Go (status_date en status_docent) / Feedback give (feedback_date en feedback_docent) / Feedback view
+
 // TODO: admin - add send register token to email form
 
 // TODO: steropdrachten - support for pdf
