@@ -11,7 +11,7 @@ function api_mail($to, $subject, $body)
 function api_captcha($response_token, $redirect)
 {
     $config = config_load();
-    $request = api_request('POST', 'https://api.lucacastelnuovo.nl/recaptcha/', ['api_key' => $config['api_key_mail'], 'g-recaptcha-response' => $response_token]);
+    $request = api_request('POST', 'https://api.lucacastelnuovo.nl/recaptcha/', ['api_key' => $config['api_key_recaptcha'], 'g-recaptcha-response' => $response_token]);
     if (!$request['status']) {
         $user = isset($_SESSION) ? $_SESSION['first_name'] . ' ' . $_SESSION['last_name'] : 'UNKNOWN';
         log_action($user, 'Captcha Invalid', 0);
