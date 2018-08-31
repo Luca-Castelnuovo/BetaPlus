@@ -1,10 +1,6 @@
 <?php
 
-// TODO: failed login doesn block
-
 // TODO: steropdrachten - view make buttons for docenten
-
-// TODO: admin - add send register token to email form
 
 // TODO: steropdrachten - support for pdf
 
