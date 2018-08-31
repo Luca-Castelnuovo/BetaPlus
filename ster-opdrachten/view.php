@@ -215,6 +215,13 @@ $parsedown->setSafeMode(true);
                                     <script>document.addEventListener('DOMContentLoaded', function() {var elems = document.querySelectorAll('.modal');var instances = M.Modal.init(elems, {});});</script>
                                 </tr>
                                 <?php
+                                if (isset($_GET['feedback'])) {
+                                    echo <<<END
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        setTimeout(function(){M.Modal.getInstance(document.querySelector('#feedback_view')).open();}, 100);
+                                    });
+END;
+                                }
     } ?>
                             </tbody>
                         </table>

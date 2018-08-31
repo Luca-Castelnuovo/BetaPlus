@@ -19,6 +19,7 @@ RewriteRule ^ster-opdrachten/view/([^/]*)/$ /ster-opdrachten/view.php?id=$1 [L]
 RewriteRule ^ster-opdrachten/view/([^/]*)$ /ster-opdrachten/view.php?id=$1 [L]
 
 RewriteRule ^ster-opdrachten/view/([^/]*)/feedback$ /ster-opdrachten/view.php?id=$1&feedback [L]
+RewriteRule ^ster-opdrachten/view/([^/]*)/feedback_view$ /ster-opdrachten/view.php?id=$1&feedback_view [L]
 
 #Edit
 RewriteRule ^ster-opdrachten/edit/([^/]*)/([^/]*)/$ /ster-opdrachten/edit.php?id=$1&type=$2 [L]
