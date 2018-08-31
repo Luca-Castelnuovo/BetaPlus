@@ -4,7 +4,7 @@
 function api_mail($to, $subject, $body)
 {
     $config = config_load();
-    api_request('POST', 'https://api.lucacastelnuovo.nl/mail/', ['api_key' => $config['api_key_mail'],'to' => $to, 'subject' => $subject, 'body' => $body, 'from_name' => 'BetaSterren || HBL']);
+    return api_request('POST', 'https://api.lucacastelnuovo.nl/mail/', ['api_key' => $config['api_key_mail'],'to' => $to, 'subject' => $subject, 'body' => $body, 'from_name' => 'BetaSterren || HBL']);
 }
 
 //Send mails

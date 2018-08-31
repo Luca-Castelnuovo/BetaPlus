@@ -71,9 +71,6 @@ END;
                                 <a href="/admin/process/{$CSRFtoken}/unblock/{$user['id']}/{$class}/">Unblock Password</a>
                             </li>
                             <li class="btn waves-effect waves-light color-secondary--background">
-                                <a href="/admin/process/{$CSRFtoken}/reset/{$user['id']}/{$class}/">Reset Password</a>
-                            </li>
-                            <li class="btn waves-effect waves-light disabled color-secondary--background">
                                 <a href="/admin/process/{$CSRFtoken}/delete/{$user['id']}/{$class}/">Delete User</a>
                             </li>
                         </ul>

@@ -40,8 +40,15 @@ head('Admin', 5);
             <div id="extra" class="col s12">
                 <div class="row">
                     <h3>Registration</h3>
-                    <a id="gen_register" class="waves-effect waves-light btn-large color-secondary--background"><i class="material-icons left">code</i>Generate registration link</a>
-                    <a id="gen_register_send" class="waves-effect waves-light btn-large color-secondary--background"><i class="material-icons left">code</i>Send registration link</a>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input placeholder="Email adres" id="gen_register_email" type="text" class="validate">
+                            <label for="gen_register_email">Email Adres</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <a id="gen_register" class="waves-effect waves-light btn-large color-secondary--background">Send Registration</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
                     <h3>Sessions</h3>
