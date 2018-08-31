@@ -46,6 +46,7 @@ head('Admin', 5);
                             <label for="gen_register_email">Email Adres</label>
                         </div>
                         <div class="input-field col s6">
+                            <input type="hidden" id="CSRFtoken" value="<?= csrf_gen() ?>">
                             <a id="gen_register" class="waves-effect waves-light btn-large color-secondary--background">Send Registration</a>
                         </div>
                     </div>
