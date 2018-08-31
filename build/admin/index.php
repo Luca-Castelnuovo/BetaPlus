@@ -14,7 +14,7 @@ head('Admin', 5);
                     <li class="tab col s3"><a class="active" href="#users">Users</a></li>
                     <li class="tab col s3"><a href="#logs">Logs</a></li>
                     <li class="tab col s3"><a href="#agenda">Agenda</a></li>
-                    <li class="tab col s3"><a href="#generate">Generate</a></li>
+                    <li class="tab col s3"><a href="#extra">Extra</a></li>
                 </ul>
             </div>
             <div id="users" class="col s12">
@@ -37,9 +37,16 @@ head('Admin', 5);
             <div id="agenda" class="col s12">
                 <h3>Agenda</h3>
             </div>
-            <div id="generate" class="col s12">
-                <h3>Registration</h3>
-                <a class="waves-effect waves-light btn-large color-secondary--background"><i class="material-icons left">code</i>Generate registration key</a>
+            <div id="extra" class="col s12">
+                <div class="row">
+                    <h3>Registration</h3>
+                    <a id="gen_register" class="waves-effect waves-light btn-large color-secondary--background"><i class="material-icons left">code</i>Generate registration link</a>
+                    <a id="gen_register_send" class="waves-effect waves-light btn-large color-secondary--background"><i class="material-icons left">code</i>Send registration link</a>
+                </div>
+                <div class="row">
+                    <h3>Sessions</h3>
+                    <a class="waves-effect waves-light btn-large color-secondary--background"><i class="material-icons left">code</i>Destroy all sessions</a>
+                </div>
             </div>
         </div>
     </div>

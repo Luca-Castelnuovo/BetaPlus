@@ -1,5 +1,7 @@
 <?php
 
+// TODO: failed login doesn block
+
 // TODO: steropdrachten - view make buttons for docenten
 
 // TODO: admin - add send register token to email form
@@ -17,5 +19,7 @@
 // TODO: transfer db to dell server
 
 // TODO: admin 2fa - https://github.com/Yubico/php-u2flib-server - https://github.com/Yubico/php-u2flib-server
+
+// TODO: create destroy all sessions btn
 
 // TODO: security - CSP policy - https://scotthelme.co.uk/content-security-policy-an-introduction/
