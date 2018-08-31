@@ -51,14 +51,14 @@ if ($userDocent->num_rows > 0) {
     redirect('/?reset', 'Het is niet mogelijk om in te loggen met de ingevulde gegevens.');
 }
 
+if ($user['failed_login'] > 4) {
+    log_action($user['first_name'] . ' ' . $user['last_name'], 'Too many failed login attempts', 2);
+    redirect('/?reset', 'Uw account is geblokkeerd door teveel mislukt inlogpogingen, contacteer AUB de administrator');
+}
+
 if (password_verify($password, $user['password'])) {
-    if ($user['failed_login'] > 4) {
-        log_action($user['first_name'] . ' ' . $user['last_name'], 'Too many failed login attempts', 2);
-        redirect('/?reset', 'Uw account is geblokkeerd door teveel mislukt inlogpogingen, contacteer AUB de administrator');
-    } else {
-        sql_query("UPDATE leerlingen SET failed_login='0' WHERE id='{$user['id']}'", false);
-        sql_query("UPDATE docenten SET failed_login='0' WHERE id='{$user['id']}'", false);
-    }
+    sql_query("UPDATE leerlingen SET failed_login='0' WHERE id='{$user['id']}'", false);
+    sql_query("UPDATE docenten SET failed_login='0' WHERE id='{$user['id']}'", false);
 
     if (!$user['active']) {
         log_action($user['first_name'] . ' ' . $user['last_name'], 'Account Inactive', 2);
