@@ -1,6 +1,14 @@
 RewriteEngine On
 
 
+##################
+# Authentication #
+##################
+
+#Register
+RewriteRule ^auth/register/([^/]*)/$ /auth/register.php?token=$1 [L]
+RewriteRule ^auth/register/([^/]*)$ /auth/register.php?token=$1 [L]
+
 ################
 # Admin Panel #
 ###############
