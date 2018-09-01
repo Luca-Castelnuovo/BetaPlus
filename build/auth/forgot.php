@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ip = ip();
 
     $query =
-    "INSERT INTO
+        "INSERT INTO
         tokens
             (token,
             type,
@@ -117,43 +117,45 @@ END;
 </head>
 
 <body>
-    <div class="row">
-        <div class="col s12 m8 offset-m2 l4 offset-l4">
-            <div class="card login">
-                <div class="card-action color-primary--background hover-disable white-text">
-                    <h3>Wachtwoord vergeten</h3>
-                </div>
-                <div class="card-content">
-                    <form action="/auth/forgot.php" method="post">
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <label for="email">Uw email adress</label>
-                                <input type="email" id="email" name="email" required="" />
-                            </div>
+<div class="row">
+    <div class="col s12 m8 offset-m2 l4 offset-l4">
+        <div class="card login">
+            <div class="card-action color-primary--background hover-disable white-text">
+                <h3>Wachtwoord vergeten</h3>
+            </div>
+            <div class="card-content">
+                <form action="/auth/forgot.php" method="post">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label for="email">Uw email adress</label>
+                            <input type="email" id="email" name="email" required=""/>
                         </div>
-                        <div class="row">
-                            <div class="g-recaptcha" data-sitekey="6LfdLGQUAAAAAOpA5HxwP6Q6Q2XfsA7s8qpDCRVG"></div>
-                        </div>
-                        <div class="row">
-                            <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>" />
-                            <button type="submit" class="waves-effect waves-light btn color-primary--background width-full">Vraag nieuw wachtwoord aan</button>
-                        </div>
-                        <a href="/" class="right">Terug naar login</a>
-                    </form>
-                </div>
+                    </div>
+                    <div class="row">
+                        <div class="g-recaptcha" data-sitekey="6LfdLGQUAAAAAOpA5HxwP6Q6Q2XfsA7s8qpDCRVG"></div>
+                    </div>
+                    <div class="row">
+                        <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>"/>
+                        <button type="submit" class="waves-effect waves-light btn color-primary--background width-full">
+                            Vraag nieuw wachtwoord aan
+                        </button>
+                    </div>
+                    <a href="/" class="right">Terug naar login</a>
+                </form>
             </div>
         </div>
     </div>
+</div>
 
-    <!--Import Materialize JavaScript-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-    <?php alert_display(); ?>
-    <!--Import Recaptcha JavaScript-->
-    <script src="https://www.google.com/recaptcha/api.js"></script>
-    <!--Import Partciles.JS JavaScript-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
-    <canvas class="background"></canvas>
-    <script src="https://cdn.lucacastelnuovo.nl/js/betasterren/particles.js"></script>
+<!--Import Materialize JavaScript-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+<?php alert_display(); ?>
+<!--Import Recaptcha JavaScript-->
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<!--Import Partciles.JS JavaScript-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+<canvas class="background"></canvas>
+<script src="https://cdn.lucacastelnuovo.nl/js/betasterren/particles.js"></script>
 </body>
 
 </html>

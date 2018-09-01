@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $query =
-    "INSERT INTO
+        "INSERT INTO
         leerlingen
             (leerling_nummer,
             email,
@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $token_get = clean_data($_GET['token']);
 
         $query =
-        "SELECT
+            "SELECT
             used,
             type,
             created,
@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $date = current_date(true);
 
         $query =
-        "UPDATE
+            "UPDATE
             tokens
         SET
             used = '1',
@@ -148,98 +148,100 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-    <div class="row">
-        <div class="col s12 m8 offset-m2 l4 offset-l4">
-            <div class="card login">
-                <div class="card-action color-primary--background hover-disable white-text">
-                    <h3>Nieuw Account</h3>
-                </div>
-                <div class="card-content">
-                    <form action="/auth/register.php" method="post">
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <label for="first_name">Voornaam</label>
-                                <input type="text" id="first_name" name="first_name" required />
-                            </div>
+<div class="row">
+    <div class="col s12 m8 offset-m2 l4 offset-l4">
+        <div class="card login">
+            <div class="card-action color-primary--background hover-disable white-text">
+                <h3>Nieuw Account</h3>
+            </div>
+            <div class="card-content">
+                <form action="/auth/register.php" method="post">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label for="first_name">Voornaam</label>
+                            <input type="text" id="first_name" name="first_name" required/>
                         </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <label for="last_name">Achternaam</label>
-                                <input type="text" id="last_name" name="last_name" required />
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label for="last_name">Achternaam</label>
+                            <input type="text" id="last_name" name="last_name" required/>
                         </div>
-                        <h4>Klas:</h4>
-                        <p>
-                            <label>
-                                <input name="class" type="radio" value="4havo" required />
-                                <span>4havo</span>
-                            </label>
-                        </p>
-                        <p>
-                            <label>
-                                <input name="class" type="radio" value="4vwo" required />
-                                <span>4vwo</span>
-                            </label>
-                        </p>
-                        <p>
-                            <label>
-                                <input name="class" type="radio" value="5havo" required />
-                                <span>5havo</span>
-                            </label>
-                        </p>
-                        <p>
-                            <label>
-                                <input name="class" type="radio" value="5vwo" required />
-                                <span>5vwo</span>
-                            </label>
-                        </p>
-                        <p>
-                            <label>
-                                <input name="class" type="radio" value="6vwo" required />
-                                <span>6vwo</span>
-                            </label>
-                        </p>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <label for="leerling_nummer">Leerling Nummer</label>
-                                <input type="number" id="leerling_nummer" name="leerling_nummer" required />
-                            </div>
+                    </div>
+                    <h4>Klas:</h4>
+                    <p>
+                        <label>
+                            <input name="class" type="radio" value="4havo" required/>
+                            <span>4havo</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input name="class" type="radio" value="4vwo" required/>
+                            <span>4vwo</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input name="class" type="radio" value="5havo" required/>
+                            <span>5havo</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input name="class" type="radio" value="5vwo" required/>
+                            <span>5vwo</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input name="class" type="radio" value="6vwo" required/>
+                            <span>6vwo</span>
+                        </label>
+                    </p>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label for="leerling_nummer">Leerling Nummer</label>
+                            <input type="number" id="leerling_nummer" name="leerling_nummer" required/>
                         </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" value="<?= $token['user'] ?>" required />
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" value="<?= $token['user'] ?>" required/>
                         </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <label for="password">Wachtwoord</label>
-                                <input type="password" id="password" name="password" required />
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label for="password">Wachtwoord</label>
+                            <input type="password" id="password" name="password" required/>
                         </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <label for="password2">Bevestig Wachtwoord</label>
-                                <input type="password" id="password2" name="password2" required />
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label for="password2">Bevestig Wachtwoord</label>
+                            <input type="password" id="password2" name="password2" required/>
                         </div>
-                        <div class="row">
-                            <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>" />
-                            <button type="submit" class="waves-effect waves-light btn color-primary--background width-full">Bevestig</button>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    <div class="row">
+                        <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>"/>
+                        <button type="submit" class="waves-effect waves-light btn color-primary--background width-full">
+                            Bevestig
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
 
-    <!--Import Materialize JavaScript-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-    <?php alert_display(); ?>
-    <!--Import Partciles.JS JavaScript-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
-    <canvas class="background"></canvas>
-    <script src="https://cdn.lucacastelnuovo.nl/js/betasterren/particles.js"></script>
+<!--Import Materialize JavaScript-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+<?php alert_display(); ?>
+<!--Import Partciles.JS JavaScript-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+<canvas class="background"></canvas>
+<script src="https://cdn.lucacastelnuovo.nl/js/betasterren/particles.js"></script>
 </body>
 
 </html>

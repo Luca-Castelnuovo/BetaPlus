@@ -47,12 +47,12 @@
       "src": "https://cdn.lucacastelnuovo.nl/images/betasterren/icons/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
-  },
-  {
-    "src": "favicon.png",
-    "sizes": "946x946",
-    "type": "image/png"
-  }
+    },
+    {
+      "src": "favicon.png",
+      "sizes": "946x946",
+      "type": "image/png"
+    }
   ],
   "splash_pages": null
 }

@@ -5,7 +5,7 @@ function steropdrachten_list($done)
     $status = $done ? ">= '3'" : "= '2'";
 
     $query =
-    "SELECT
+        "SELECT
         id,
         project_name,
         leerling_id,
@@ -65,7 +65,7 @@ function steropdrachten_list_my($done)
     $status = $done ? ">= '3'" : "BETWEEN '0' AND '2'";
 
     $query =
-    "SELECT
+        "SELECT
         id,
         project_name,
         leerling_id,
@@ -147,7 +147,7 @@ function steropdrachten_list_docenten($type)
     }
 
     $query =
-    "SELECT
+        "SELECT
         id,
         project_name,
         subject,

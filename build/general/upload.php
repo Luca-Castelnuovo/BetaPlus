@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     switch ($type) {
         case 'leerling_profile':
             $query =
-            "UPDATE
+                "UPDATE
                 leerlingen
             SET
                 profile_url='{$url}'
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
 
             $query =
-            "UPDATE
+                "UPDATE
                 steropdrachten
             SET
                 image_url='{$url}'
@@ -96,4 +96,4 @@ head('Upload', 5, 'Upload', '<link href="https://cdn.lucacastelnuovo.nl/css/beta
         </div>
     </div>
 </div>
-<?php footer('<script src="https://cdn.lucacastelnuovo.nl/js/ajax.js"></script><script src="https://cdn.lucacastelnuovo.nl/js/betasterren/imgur.php.4.js?response_url=/general/upload.php&type=' . clean_data($_GET['type']) . '&id=' . $id . '&client_id=b2c72661027878c"></script>');?>
+<?php footer('<script src="https://cdn.lucacastelnuovo.nl/js/ajax.js"></script><script src="https://cdn.lucacastelnuovo.nl/js/betasterren/imgur.php.4.js?response_url=/general/upload.php&type=' . clean_data($_GET['type']) . '&id=' . $id . '&client_id=b2c72661027878c"></script>'); ?>

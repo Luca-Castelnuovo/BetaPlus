@@ -15,8 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $leerling_id = $_SESSION['id'];
 
-    $query=
-    "INSERT INTO
+    $query =
+        "INSERT INTO
         steropdrachten
             (project_name,
             content,
@@ -44,66 +44,68 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <div class="section">
-        <div class="container">
-            <div class="row">
-                <div class="col s12">
-                    <div class="row">
-                        <form class="col s12" method="post" action="new.php">
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <input class="validate" id="project_name" name="project_name" type="text" required> <label for="project_name">Naam Ster Opdracht</label>
-                                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <div class="row">
+                    <form class="col s12" method="post" action="new.php">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input class="validate" id="project_name" name="project_name" type="text" required>
+                                <label for="project_name">Naam Ster Opdracht</label>
                             </div>
-                            <h5>Vak</h5>
-                            <p>
-                              <label>
-                                <input name="subject" type="radio" value="Biologie" required checked />
+                        </div>
+                        <h5>Vak</h5>
+                        <p>
+                            <label>
+                                <input name="subject" type="radio" value="Biologie" required checked/>
                                 <span>Biologie</span>
-                              </label>
-                            </p>
-                            <p>
-                              <label>
-                                <input name="subject" type="radio" value="Informatica" required />
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input name="subject" type="radio" value="Informatica" required/>
                                 <span>Informatica</span>
-                              </label>
-                            </p>
-                            <p>
-                              <label>
-                                <input name="subject" type="radio" value="Natuurkunde" required />
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input name="subject" type="radio" value="Natuurkunde" required/>
                                 <span>Natuurkunde</span>
-                              </label>
-                            </p>
-                            <p>
-                              <label>
-                                <input name="subject" type="radio" value="Scheikunde" required />
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input name="subject" type="radio" value="Scheikunde" required/>
                                 <span>Scheikunde</span>
-                              </label>
-                            </p>
-                            <p>
-                              <label>
-                                <input name="subject" type="radio" value="Wiskunde" required />
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input name="subject" type="radio" value="Wiskunde" required/>
                                 <span>Wiskunde</span>
-                              </label>
-                            </p>
-                            <p>
-                              <label>
-                                <input name="subject" type="radio" value="Overig" required />
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input name="subject" type="radio" value="Overig" required/>
                                 <span>Overig</span>
-                              </label>
-                            </p>
-                            <div class="row">
-                                <h5>Content Ster Opdracht</h5>
-                                <textarea name="content" id="simplemde" cols="30" rows="10"></textarea>
-                                <script>var simplemde = new SimpleMDE({ element: document.querySelector("#simplemde") });</script>
-                            </div>
-                            <button class="btn-large waves-effect waves-light color-primary--background" type="submit" name="action">Verstuur
-                                <i class="material-icons right">send</i>
-                            </button>
-                        </form>
-                    </div>
+                            </label>
+                        </p>
+                        <div class="row">
+                            <h5>Content Ster Opdracht</h5>
+                            <textarea name="content" id="simplemde" cols="30" rows="10"></textarea>
+                            <script>var simplemde = new SimpleMDE({element: document.querySelector("#simplemde")});</script>
+                        </div>
+                        <button class="btn-large waves-effect waves-light color-primary--background" type="submit"
+                                name="action">Verstuur
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 <?php footer(); ?>

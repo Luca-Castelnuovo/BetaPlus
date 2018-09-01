@@ -5,7 +5,7 @@ require($_SERVER['DOCUMENT_ROOT'] . '/init.php');
 $id = clean_data($_GET['random_id']);
 
 $query =
-"SELECT
+    "SELECT
     path,
     public
 FROM

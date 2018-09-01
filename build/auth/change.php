@@ -7,7 +7,7 @@ head('Verander wachtwoord', 5);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     csrf_val($_POST['CSRFtoken']);
-    if (empty($_POST['password_old']) || empty($_POST['password_new'])  || empty($_POST['password_new2'])) {
+    if (empty($_POST['password_old']) || empty($_POST['password_new']) || empty($_POST['password_new2'])) {
         redirect('/auth/change', 'Vul aub alle velden in');
     }
 
@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password_new = clean_data($_POST['password_new']);
     $password_new2 = clean_data($_POST['password_new2']);
 
-    $class = ($_SESSION['class'] == 'docent') ? 'docenten': 'leerlingen';
+    $class = ($_SESSION['class'] == 'docent') ? 'docenten' : 'leerlingen';
 
     $query =
         "SELECT
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $password = password_hash($password_new, PASSWORD_BCRYPT);
 
             $query =
-            "UPDATE
+                "UPDATE
                 {$class}
             SET
                 password = '{$password}'
@@ -62,24 +62,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="row">
                         <div class="input-field col s12">
                             <label for="password_old">Oud wachtwoord</label>
-                            <input type="password" id="password_old" name="password_old" required="" />
+                            <input type="password" id="password_old" name="password_old" required=""/>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
                             <label for="password_new">Nieuw wachtwoord</label>
-                            <input type="password" id="password_new" name="password_new" required="" />
+                            <input type="password" id="password_new" name="password_new" required=""/>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
                             <label for="password_new2">Bevestig wachtwoord</label>
-                            <input type="password" id="password_new2" name="password_new2" required="" />
+                            <input type="password" id="password_new2" name="password_new2" required=""/>
                         </div>
                     </div>
                     <div class="row">
-                        <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>" />
-                        <button type="submit" class="waves-effect waves-light btn color-primary--background width-full">Verstuur</button>
+                        <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>"/>
+                        <button type="submit" class="waves-effect waves-light btn color-primary--background width-full">
+                            Verstuur
+                        </button>
                     </div>
                 </form>
             </div>

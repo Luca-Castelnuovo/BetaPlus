@@ -33,21 +33,22 @@ switch ($error) {
 </head>
 
 <body>
-    <div class="section">
-        <div class="container">
-            <div class="row">
-                <div class="col s12">
-                    <h1><?= $error ?> Error</h1>
-                    <h3><?= $error_text ?></h3>
-                    <a href="<?= $goto_url ?>" class="waves-effect waves-light btn-large red accent-4">Ga naar <?= $goto ?></a>
-                </div>
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <h1><?= $error ?> Error</h1>
+                <h3><?= $error_text ?></h3>
+                <a href="<?= $goto_url ?>" class="waves-effect waves-light btn-large red accent-4">Ga
+                    naar <?= $goto ?></a>
             </div>
         </div>
     </div>
+</div>
 
 
-    <!--Import Materialize JavaScript-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+<!--Import Materialize JavaScript-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 </body>
 
 </html>

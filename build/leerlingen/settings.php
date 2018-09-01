@@ -6,7 +6,7 @@ login_leerling();
 head('Settings', 0);
 
 $query =
-"SELECT
+    "SELECT
     first_name,
     last_name,
     profile_url
@@ -22,7 +22,8 @@ $user = sql_query($query, true);
 <div class="section">
     <div class="row">
         <div class="col s12 m2">
-            <img src="<?= $user['profile_url'] ?>" alt="Profiel Foto" class="responsive-img" onerror="this.src='https://cdn.lucacastelnuovo.nl/images/betasterren/default_profile.png'">
+            <img src="<?= $user['profile_url'] ?>" alt="Profiel Foto" class="responsive-img"
+                 onerror="this.src='https://cdn.lucacastelnuovo.nl/images/betasterren/default_profile.png'">
         </div>
         <div class="col s0 m10"></div>
     </div>
@@ -33,10 +34,12 @@ $user = sql_query($query, true);
     </div>
     <div class="row">
         <div class="col s12 m3">
-            <a href="/general/upload/leerling_profile/" class="waves-effect waves-light btn color-primary--background">Verander profiel foto</a>
+            <a href="/general/upload/leerling_profile/" class="waves-effect waves-light btn color-primary--background">Verander
+                profiel foto</a>
         </div>
         <div class="col s12 m3">
-            <a href="/auth/change" class="waves-effect waves-light btn color-primary--background">Verander wachtwoord</a>
+            <a href="/auth/change" class="waves-effect waves-light btn color-primary--background">Verander
+                wachtwoord</a>
         </div>
     </div>
 </div>

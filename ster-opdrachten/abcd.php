@@ -7,7 +7,7 @@ login_docent();
 head('Beoordeling || Ster Opdrachten', 2, 'Beoordeling');
 
 $query =
-"SELECT
+    "SELECT
     project_name,
     status
     FROM
@@ -30,11 +30,13 @@ if ($steropdracht['status'] != 3) {
                 <h3>Beoordeling Ster Opdracht</h3>
             </div>
             <div class="card-content">
-                <form action="/ster-opdrachten/process/<?php echo $_GET['id'] ?>/abcd/<?php csrf_gen(); ?>" method="post">
+                <form action="/ster-opdrachten/process/<?php echo $_GET['id'] ?>/abcd/<?php csrf_gen(); ?>"
+                      method="post">
                     <div class="row">
                         <div class="input-field col s12">
                             <label for="project_name">Ster Opdracht</label>
-                            <input type="text" id="project_name" value="<?php echo $steropdracht['project_name']; ?>" readonly />
+                            <input type="text" id="project_name" value="<?php echo $steropdracht['project_name']; ?>"
+                                   readonly/>
                         </div>
                     </div>
                     <h4>Beoordeling</h4>
@@ -82,7 +84,9 @@ if ($steropdracht['status'] != 3) {
                         </label>
                     </p>
                     <div class="row">
-                        <button type="submit" class="waves-effect waves-light btn color-primary--background width-full">Verstuur</button>
+                        <button type="submit" class="waves-effect waves-light btn color-primary--background width-full">
+                            Verstuur
+                        </button>
                     </div>
                 </form>
             </div>

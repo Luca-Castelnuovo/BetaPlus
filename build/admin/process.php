@@ -1,5 +1,6 @@
 <?php
-$admin_require = true; require($_SERVER['DOCUMENT_ROOT'] . "/init.php");
+$admin_require = true;
+require($_SERVER['DOCUMENT_ROOT'] . "/init.php");
 
 login_admin();
 
@@ -19,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $ip = ip();
 
             $query =
-            "INSERT INTO
+                "INSERT INTO
                 tokens
                     ('token','type','created', 'days_valid','user','gen_ip')
             VALUES

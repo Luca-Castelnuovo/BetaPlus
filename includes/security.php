@@ -47,7 +47,7 @@ function csrf_gen()
 function csrf_val($post_token, $returnbool = false)
 {
     if (!isset($_SESSION['CSRFtoken'])) {
-        $user = isset($_SESSION) ? $_SESSION['first_name'] . ' ' . $_SESSION['last_name']: 'UNKNOWN';
+        $user = isset($_SESSION) ? $_SESSION['first_name'] . ' ' . $_SESSION['last_name'] : 'UNKNOWN';
         log_action($user, 'CSRF - session tkn not set', 1);
         if ($returnbool) {
             return false;
@@ -57,7 +57,7 @@ function csrf_val($post_token, $returnbool = false)
     }
 
     if (!(hash_equals($_SESSION['CSRFtoken'], $post_token))) {
-        $user = isset($_SESSION) ? $_SESSION['first_name'] . ' ' . $_SESSION['last_name']: 'UNKNOWN';
+        $user = isset($_SESSION) ? $_SESSION['first_name'] . ' ' . $_SESSION['last_name'] : 'UNKNOWN';
         log_action($user, 'CSRF - Post tkn not equal to session tkn', 2);
         if ($returnbool) {
             return false;

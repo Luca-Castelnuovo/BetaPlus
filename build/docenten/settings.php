@@ -6,7 +6,7 @@ login_docent();
 head('Settings', 0);
 
 $query =
-"SELECT
+    "SELECT
     first_name,
     last_name
 FROM
@@ -26,7 +26,8 @@ $user = sql_query($query, true);
     </div>
     <div class="row">
         <div class="col s12">
-            <a href="/auth/change" class="waves-effect waves-light btn color-primary--background">Verander wachtwoord</a>
+            <a href="/auth/change" class="waves-effect waves-light btn color-primary--background">Verander
+                wachtwoord</a>
         </div>
     </div>
 </div>

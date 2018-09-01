@@ -3,7 +3,7 @@
 function leerlingen_list($class)
 {
     $query =
-    "SELECT
+        "SELECT
         id,
         leerling_nummer,
         first_name,
@@ -53,7 +53,7 @@ END;
 function steropdrachten_list_individual_recent($leerling_id)
 {
     $query =
-    "SELECT
+        "SELECT
         id,
         project_name
     FROM

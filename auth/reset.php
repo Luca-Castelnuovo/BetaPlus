@@ -7,7 +7,7 @@ $ip = ip();
 $token_get = clean_data($_GET['token']);
 
 $query =
-"SELECT
+    "SELECT
     used,
     type,
     created,
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password_new = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
     $query =
-    "UPDATE
+        "UPDATE
         {$class}
     SET
         password='{$password_new}'
@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     sql_query($query, false);
 
     $query =
-    "UPDATE
+        "UPDATE
         tokens
     SET
         used='1',
@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!$my) {
         $query =
-        "UPDATE
+            "UPDATE
             tokens
         SET
             used='1',
@@ -133,43 +133,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-    <div class="row">
-        <div class="col s12 m8 offset-m2 l4 offset-l4">
-            <div class="card login">
-                <div class="card-action color-primary--background hover-disable white-text">
-                    <h3>Nieuw Wachtwoord</h3>
-                </div>
-                <div class="card-content">
-                    <form action="/auth/reset.php?token=<?= $token_get ?>" method="post">
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <label for="password">Wachtwoord</label>
-                                <input type="password" id="password" name="password" required autofocus />
-                            </div>
+<div class="row">
+    <div class="col s12 m8 offset-m2 l4 offset-l4">
+        <div class="card login">
+            <div class="card-action color-primary--background hover-disable white-text">
+                <h3>Nieuw Wachtwoord</h3>
+            </div>
+            <div class="card-content">
+                <form action="/auth/reset.php?token=<?= $token_get ?>" method="post">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label for="password">Wachtwoord</label>
+                            <input type="password" id="password" name="password" required autofocus/>
                         </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <label for="password2">Bevestig Wachtwoord</label>
-                                <input type="password" id="password2" name="password2" required />
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label for="password2">Bevestig Wachtwoord</label>
+                            <input type="password" id="password2" name="password2" required/>
                         </div>
-                        <div class="row">
-                            <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>" />
-                            <button type="submit" class="waves-effect waves-light btn color-primary--background width-full">Bevestig nieuw wachtwoord</button>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    <div class="row">
+                        <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>"/>
+                        <button type="submit" class="waves-effect waves-light btn color-primary--background width-full">
+                            Bevestig nieuw wachtwoord
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
 
-    <!--Import Materialize JavaScript-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-    <?php alert_display(); ?>
-    <!--Import Partciles.JS JavaScript-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
-    <canvas class="background"></canvas>
-    <script src="https://cdn.lucacastelnuovo.nl/js/betasterren/particles.js"></script>
+<!--Import Materialize JavaScript-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+<?php alert_display(); ?>
+<!--Import Partciles.JS JavaScript-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+<canvas class="background"></canvas>
+<script src="https://cdn.lucacastelnuovo.nl/js/betasterren/particles.js"></script>
 </body>
 
 </html>

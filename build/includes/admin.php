@@ -4,7 +4,7 @@ function admin_accounts_list($class)
 {
     if ($class === 'docenten') {
         $query =
-        "SELECT
+            "SELECT
             id,
             active,
             failed_login,
@@ -16,7 +16,7 @@ function admin_accounts_list($class)
             last_name";
     } else {
         $query =
-        "SELECT
+            "SELECT
             id,
             active,
             first_name,
@@ -92,7 +92,7 @@ END;
 function admin_log_list()
 {
     $query =
-    "SELECT
+        "SELECT
         user,
         action,
         ip,

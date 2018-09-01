@@ -39,61 +39,63 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <?php
-        if (isset($_GET['reset'])) {
-            $alert = $_SESSION['alert'];
-            session_destroy();
-            session_start();
-            redirect('/', $alert);
-        }
+    if (isset($_GET['reset'])) {
+        $alert = $_SESSION['alert'];
+        session_destroy();
+        session_start();
+        redirect('/', $alert);
+    }
 
-        if (isset($_GET['logout'])) {
-            log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'Logout', '0');
-            session_destroy();
-            session_start();
-            redirect('/', 'U bent uitgelogd');
-        }
+    if (isset($_GET['logout'])) {
+        log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'Logout', '0');
+        session_destroy();
+        session_start();
+        redirect('/', 'U bent uitgelogd');
+    }
     ?>
 </head>
 
 <body>
-    <div class="row">
-        <div class="col s12 m8 offset-m2 l4 offset-l4">
-            <div class="card login">
-                <div class="card-action color-primary--background hover-disable white-text">
-                    <h3>Login Form</h3>
-                </div>
-                <div class="card-content">
-                    <form action="/auth/login.php" method="post">
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <label for="username">Leerling nummer of email</label>
-                                <input type="text" id="username" name="username" required="" />
-                            </div>
+<div class="row">
+    <div class="col s12 m8 offset-m2 l4 offset-l4">
+        <div class="card login">
+            <div class="card-action color-primary--background hover-disable white-text">
+                <h3>Login Form</h3>
+            </div>
+            <div class="card-content">
+                <form action="/auth/login.php" method="post">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label for="username">Leerling nummer of email</label>
+                            <input type="text" id="username" name="username" required=""/>
                         </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <label for="password">Wachtwoord</label>
-                                <input type="password" id="password" name="password" required="" />
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label for="password">Wachtwoord</label>
+                            <input type="password" id="password" name="password" required=""/>
                         </div>
-                        <div class="row">
-                            <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>" />
-                            <button type="submit" class="waves-effect waves-light btn color-primary--background width-full">Login</button>
-                        </div>
-                        <a href="/auth/forgot" class="right">Wachtwoord vergeten?</a>
-                    </form>
-                </div>
+                    </div>
+                    <div class="row">
+                        <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>"/>
+                        <button type="submit" class="waves-effect waves-light btn color-primary--background width-full">
+                            Login
+                        </button>
+                    </div>
+                    <a href="/auth/forgot" class="right">Wachtwoord vergeten?</a>
+                </form>
             </div>
         </div>
     </div>
+</div>
 
-    <!--Import Materialize JavaScript-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-    <?php alert_display(); ?>
-    <!--Import Partciles.JS JavaScript-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
-    <canvas class="background"></canvas>
-    <script src="https://cdn.lucacastelnuovo.nl/js/betasterren/particles.js"></script>
+<!--Import Materialize JavaScript-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+<?php alert_display(); ?>
+<!--Import Partciles.JS JavaScript-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+<canvas class="background"></canvas>
+<script src="https://cdn.lucacastelnuovo.nl/js/betasterren/particles.js"></script>
 </body>
 
 </html>
