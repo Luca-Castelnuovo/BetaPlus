@@ -107,7 +107,7 @@ function admin_log_list()
     if ($result->num_rows > 0) {
         $CSRFtoken = csrf_gen();
         echo <<<END
-        <table class="striped centered highlight responsive-table">
+        <table class="striped centered responsive-table">
             <thead>
               <tr>
                     <th>Priority</th>

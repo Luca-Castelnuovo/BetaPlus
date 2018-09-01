@@ -94,12 +94,12 @@ $parsedown->setSafeMode(true);
                     </div>
                 </div>
                 <?php if ($steropdracht['leerling_id'] == $_SESSION['id'] || $_SESSION['class'] == 'docent') {
-                    ?>
+    ?>
                     <div class="container">
                         <div class="card-panel center">
                             <h3 class="center">Details</h3>
                             <?php if ($steropdracht['status'] <= 2 && $_SESSION['class'] != 'docent') {
-                                ?>
+        ?>
                                 <div class="row">
                                     <div class="col s12 m12 l6">
                                         <a href="/ster-opdrachten/edit/<?= $id ?>/"
@@ -115,8 +115,8 @@ $parsedown->setSafeMode(true);
 
 
                                 <?php
-                            } elseif ($steropdracht['status'] <= 2 && $_SESSION['class'] == 'docent') {
-                                ?>
+    } elseif ($steropdracht['status'] <= 2 && $_SESSION['class'] == 'docent') {
+        ?>
                                 <div class="row">
                                     <div class="col s12">
                                         <a href="#feedback"
@@ -154,14 +154,14 @@ $parsedown->setSafeMode(true);
                                             });
 
                                             <?php if (isset($_GET['feedback'])) {
-                                            ?>
+            ?>
                                             document.addEventListener('DOMContentLoaded', function () {
                                                 setTimeout(function () {
                                                     M.Modal.getInstance(document.querySelector('#feedback')).open();
                                                 }, 100);
                                             });
                                             <?php
-                                            } ?>
+        } ?>
 
                                             document.querySelector('#feedback_content_submit').addEventListener('click', function () {
                                                 $.ajax({
@@ -183,8 +183,8 @@ $parsedown->setSafeMode(true);
                                     </div>
                                 </div>
                                 <?php
-                            } ?>
-                            <table class="striped centered highlight responsive-table">
+    } ?>
+                            <table class="striped centered responsive-table">
                                 <thead>
                                 <tr>
                                     <th></th>
@@ -202,7 +202,7 @@ $parsedown->setSafeMode(true);
                                     <td><?= $steropdracht['status_date'] ?></td>
                                 </tr>
                                 <?php if ($steropdracht['status'] == 4) {
-                                    ?>
+        ?>
                                     <tr>
                                         <td>Cijfer</td>
                                         <td><span class="transform-uppercase bold"><?= $steropdracht['grade'] ?></span>
@@ -217,9 +217,9 @@ $parsedown->setSafeMode(true);
                                         <td><?= $steropdracht['grade_date'] ?></td>
                                     </tr>
                                     <?php
-                                } ?>
+    } ?>
                                 <?php if (!empty($steropdracht['feedback'])) {
-                                    ?>
+        ?>
                                     <tr>
                                         <td>Feedback</td>
                                         <td>
@@ -252,13 +252,13 @@ $parsedown->setSafeMode(true);
                                     </script>
 END;
                                     }
-                                } ?>
+    } ?>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                     <?php
-                } ?>
+} ?>
                 <div class="container">
                     <?php $content = str_replace('&gt; ', '> ', $steropdracht['content']);
                     echo $parsedown->text($content); ?>
