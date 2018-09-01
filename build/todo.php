@@ -1,6 +1,6 @@
 <?php
 
-// TODO: auth - register
+// TODO: auth - register doesnt work
 
 // TODO: steropdrachten - view make buttons for docenten
 
