@@ -1,7 +1,5 @@
 <?php
 
-// TODO: auth - register doesnt work
-
 // TODO: steropdrachten - view make buttons for docenten
 
 // TODO: steropdrachten - support for pdf
