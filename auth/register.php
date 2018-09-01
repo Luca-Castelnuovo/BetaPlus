@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     sql_query($query, false);
 
-    log_action($token['user'], 'Register', 2);
+    log_action($email, 'Register', 2);
 
     api_mail('lucacastelnuovo@hetbaarnschlyceum.nl', 'Nieuw account ||  BetaSterren', 'Iemand heeft een nieuw account aangemaakt');
 
