@@ -1,0 +1,78 @@
+RewriteEngine On
+
+
+################
+# Admin Panel #
+###############
+
+#Admin Panel
+RewriteRule ^admin/process/([^/]*)/([^/]*)/([^/]*)/([^/]*)/([^/]*)/$ /admin/process.php?CSRFtoken=$1&type=$2&id=$3&class=$4&state=$5 [L]
+RewriteRule ^admin/process/([^/]*)/([^/]*)/([^/]*)/([^/]*)/([^/]*)$ /admin/process.php?CSRFtoken=$1&type=$2&id=$3&class=$4&state=$5 [L]
+
+
+###################
+# Ster Opdrachten #
+###################
+
+#View
+RewriteRule ^ster-opdrachten/view/([^/]*)/$ /ster-opdrachten/view.php?id=$1 [L]
+RewriteRule ^ster-opdrachten/view/([^/]*)$ /ster-opdrachten/view.php?id=$1 [L]
+
+RewriteRule ^ster-opdrachten/view/([^/]*)/feedback$ /ster-opdrachten/view.php?id=$1&feedback [L]
+RewriteRule ^ster-opdrachten/view/([^/]*)/feedback_view$ /ster-opdrachten/view.php?id=$1&feedback_view [L]
+
+#Edit
+RewriteRule ^ster-opdrachten/edit/([^/]*)/([^/]*)/$ /ster-opdrachten/edit.php?id=$1&type=$2 [L]
+RewriteRule ^ster-opdrachten/edit/([^/]*)/([^/]*)$ /ster-opdrachten/edit.php?id=$1&type=$2 [L]
+
+#Process
+RewriteRule ^ster-opdrachten/process/([^/]*)/([^/]*)/([^/]*)/$ /ster-opdrachten/process.php?id=$1&type=$2&CSRFtoken=$3 [L]
+RewriteRule ^ster-opdrachten/process/([^/]*)/([^/]*)/([^/]*)$ /ster-opdrachten/process.php?id=$1&type=$2&CSRFtoken=$3 [L]
+
+#Join
+RewriteRule ^ster-opdrachten/join/([^/]*)/([^/]*)/$ /ster-opdrachten/join.php?id=$1&type=$2 [L]
+RewriteRule ^ster-opdrachten/join/([^/]*)/([^/]*)$ /ster-opdrachten/join.php?id=$1&type=$2 [L]
+
+#ABCD
+RewriteRule ^ster-opdrachten/abcd/([^/]*)/$ /ster-opdrachten/abcd.php?id=$1 [L]
+RewriteRule ^ster-opdrachten/abcd/([^/]*)$ /ster-opdrachten/abcd.php?id=$1 [L]
+
+###########
+# General #
+###########
+
+#Agenda
+RewriteRule ^general/pdf/([^/]*)/$ /general/pdf.php?random_id=$1 [L]
+RewriteRule ^general/pdf/([^/]*)$ /general/pdf.php?random_id=$1 [L]
+
+#Upload
+RewriteRule ^general/upload/([^/]*)/([^/]*)/$ /general/upload.php?type=$1&id=$2 [L]
+RewriteRule ^general/upload/([^/]*)/([^/]*)$ /general/upload.php?type=$1&id=$2 [L]
+
+##############
+# Leerlingen #
+##############
+
+#Search in Index
+RewriteRule ^leerlingen/search/([^/]*)/$ /leerlingen/index.php?search=$1 [L]
+RewriteRule ^leerlingen/search/([^/]*)$ /leerlingen/index.php?search=$1 [L]
+
+##########
+# Overig #
+##########
+
+# Remove .php extension
+RewriteCond %{DOCUMENT_ROOT}/$1\.php -f
+RewriteRule ^(.+?)/?$ /$1.php [L]
+RewriteCond %{REQUEST_FILENAME} !-f [OR]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ - [L]
+
+#Block access to .pdf
+<Files ~ "\.pdf$">
+    Order allow,deny
+    Deny from all
+</Files>
+
+#Errors
+ErrorDocument 404 /general/error?code=404
