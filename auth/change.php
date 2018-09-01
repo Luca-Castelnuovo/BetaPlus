@@ -61,19 +61,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <form action="/auth/change.php" method="post">
                     <div class="row">
                         <div class="input-field col s12">
-                            <label for="password_old">Oude wachtwoord</label>
+                            <label for="password_old">Oud wachtwoord</label>
                             <input type="password" id="password_old" name="password_old" required="" />
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <label for="password_new">Nieuwe wachtwoord</label>
+                            <label for="password_new">Nieuw wachtwoord</label>
                             <input type="password" id="password_new" name="password_new" required="" />
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <label for="password_new2">Bevestig Nieuwe wachtwoord</label>
+                            <label for="password_new2">Bevestig wachtwoord</label>
                             <input type="password" id="password_new2" name="password_new2" required="" />
                         </div>
                     </div>

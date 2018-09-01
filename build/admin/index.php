@@ -36,24 +36,28 @@ head('Admin', 5);
             </div>
             <div id="agenda" class="col s12">
                 <h3>Agenda</h3>
+                <h5>current agenda items</h5>
+                <h5>Input agenda form</h5>
             </div>
             <div id="extra" class="col s12">
                 <div class="row">
                     <h3>Registration</h3>
                     <div class="row">
-                        <div class="input-field col s6">
+                        <div class="input-field col s12 m6">
                             <input placeholder="Email adres" id="gen_register_email" type="text" class="validate">
                             <label for="gen_register_email">Email Adres</label>
                         </div>
-                        <div class="input-field col s6">
+                        <div class="input-field col s12 m6">
                             <input type="hidden" id="CSRFtoken" value="<?= csrf_gen() ?>">
                             <a id="gen_register" class="waves-effect waves-light btn-large color-secondary--background">Send Registration</a>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <h3>Sessions</h3>
-                    <a class="waves-effect waves-light btn-large color-secondary--background"><i class="material-icons left">code</i>Destroy all sessions</a>
+                    <div class="col s12">
+                        <h3>Sessions</h3>
+                        <a class="waves-effect waves-light btn-large color-secondary--background"><i class="material-icons left">code</i>Destroy all sessions</a>
+                    </div>
                 </div>
             </div>
         </div>
