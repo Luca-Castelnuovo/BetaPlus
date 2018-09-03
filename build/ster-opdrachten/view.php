@@ -119,17 +119,17 @@ $parsedown->setSafeMode(true);
                                         $CSRFtoken = csrf_gen();
                                         echo <<<END
                                         <div class="col s12 m12 l6">
-                                            <a href="/ster-opdrachten/process/{$id}/go/{$CSRFtoken}" class="waves-effect waves-light btn color-primary--background">Go</a>
+                                            <a href="/ster-opdrachten/process/{$id}/go/{$CSRFtoken}" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">check</i>Go</a>
                                         </div>
                                         <div class="col s12 m12 l6">
-                                            <a href="/ster-opdrachten/process/{$id}/nogo/{$CSRFtoken}" class="waves-effect waves-light btn color-primary--background">No Go</a>
+                                            <a href="/ster-opdrachten/process/{$id}/nogo/{$CSRFtoken}" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">close</i>No Go</a>
                                         </div>
 END;
                                     } elseif ($steropdracht['status'] = 1) {
                                         $CSRFtoken = csrf_gen();
                                         echo <<<END
                                         <div class="col s12">
-                                            <a href="/ster-opdrachten/process/{$id}/go/{$CSRFtoken}" class="waves-effect waves-light btn color-primary--background">Go</a>
+                                            <a href="/ster-opdrachten/process/{$id}/go/{$CSRFtoken}" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">check</i>Go</a>
                                         </div>
 END;
                                     } ?>
