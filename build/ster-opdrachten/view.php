@@ -133,6 +133,8 @@ END;
                                         </div>
 END;
                                     } ?>
+                                </div>
+                                <div class="row">
                                     <div class="col s12 m12 l6">
                                         <a href="#feedback" class="waves-effect waves-light btn color-primary--background modal-trigger"><i class="material-icons left">feedback</i>Geef Feedback</a>
                                         <div class="modal" id="feedback">
