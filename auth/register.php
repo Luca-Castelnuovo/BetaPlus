@@ -36,6 +36,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $password = password_hash($password, PASSWORD_BCRYPT);
     }
 
+    //check for existing leerling nummer
+    $query =
+    "SELECT
+        id
+    FROM
+        leerlingen
+    WHERE
+        leerling_nummer = '{$leerling_nummer}'";
+
+    $leerling_existing = sql_query($query, true);
+
+    if (isset($leerling_existing['id'])) {
+        $_SESSION['register_get'] = true;
+        redirect('/auth/register', 'Dit leerling nummer wordt al gebruikt');
+    }
+
     $query =
         "INSERT INTO
         leerlingen
@@ -52,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     log_action($email, 'Register', 2);
 
-    api_mail('lucacastelnuovo@hetbaarnschlyceum.nl', 'Nieuw account ||  BetaSterren', 'Iemand heeft een nieuw account aangemaakt');
+    api_mail('lucacastelnuovo@hetbaarnschlyceum.nl', 'Nieuw account ||  BetaSterren', $email . ' heeft een nieuw account aangemaakt');
 
     redirect('/?reset', 'Uw account is aangemaakt');
 } else {
