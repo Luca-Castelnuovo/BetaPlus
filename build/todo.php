@@ -1,9 +1,5 @@
 <?php
 
-// TODO: steropdrachten - view make buttons for docenten
-
-// TODO: auth - register - check if duplicate user number is blocked
-
 // TODO: steropdrachten - support for pdf
 
 // TODO: steropdracht - buddy implementation (join)

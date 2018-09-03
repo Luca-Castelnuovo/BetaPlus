@@ -55,10 +55,8 @@ head('Admin', 5);
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s12">
-                        <h3>Sessions</h3>
-                        <a class="waves-effect waves-light btn-large color-secondary--background"><i class="material-icons left">code</i>Destroy all sessions</a>
-                    </div>
+                    <h3>Sessions</h3>
+                    <a class="waves-effect waves-light btn-large color-secondary--background"><i class="material-icons left">code</i>Destroy all sessions</a>
                 </div>
             </div>
         </div>
