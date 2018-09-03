@@ -194,7 +194,8 @@ END;
                     sterren = '{$sterren}',
                     grade = '{$grade}',
                     grade_docent = '{$docent['last_name']}',
-                    grade_date = '{$date}'
+                    grade_date = '{$date}',
+                    status = '4'
                 WHERE
                     id='{$id}' AND status = '0'";
 
