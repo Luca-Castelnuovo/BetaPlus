@@ -6,6 +6,8 @@ login_docent();
 
 head('Beoordeling || Ster Opdrachten', 2, 'Beoordeling');
 
+$id = clean_data($_GET['id']);
+
 $query =
     "SELECT
         project_name,
@@ -30,7 +32,7 @@ if ($steropdracht['status'] != 3) {
                 <h3>Beoordeling Ster Opdracht</h3>
             </div>
             <div class="card-content">
-                <form action="/ster-opdrachten/process/<?php echo $_GET['id'] ?>/abcd/<?php csrf_gen(); ?>"
+                <form action="/ster-opdrachten/process/<?php echo $id ?>/abcd/<?php csrf_gen(); ?>"
                       method="post">
                     <div class="row">
                         <div class="input-field col s12">
