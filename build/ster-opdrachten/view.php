@@ -105,7 +105,7 @@ $parsedown->setSafeMode(true);
                                         <a href="/ster-opdrachten/edit/<?= $id ?>/" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">edit</i>Edit Ster Opdracht</a>
                                     </div>
                                     <div class="col s12 m12 l6">
-                                        <a href="/ster-opdrachten/process/<?= $id ?>/request_feedback/<?= csrf_gen() ?>" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">feedback</i>Vraag Feedback</a>
+                                        <a href="/ster-opdrachten/process/<?= $id ?>/request_feedback/<?= csrf_gen() ?>" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">feedback</i>Feedback Aanvragen</a>
                                     </div>
                                 </div>
 
@@ -119,17 +119,17 @@ $parsedown->setSafeMode(true);
                                         $CSRFtoken = csrf_gen();
                                         echo <<<END
                                         <div class="col s12 m12 l6">
-                                            <a href="/ster-opdrachten/process/{$id}/go/{$CSRFtoken}" class="waves-effect waves-light btn color-primary--background modal-trigger">Go</a>
+                                            <a href="/ster-opdrachten/process/{$id}/go/{$CSRFtoken}" class="waves-effect waves-light btn color-primary--background">Go</a>
                                         </div>
                                         <div class="col s12 m12 l6">
-                                            <a href="/ster-opdrachten/process/{$id}/go/{$CSRFtoken}" class="waves-effect waves-light btn color-primary--background modal-trigger">No Go</a>
+                                            <a href="/ster-opdrachten/process/{$id}/nogo/{$CSRFtoken}" class="waves-effect waves-light btn color-primary--background">No Go</a>
                                         </div>
 END;
                                     } elseif ($steropdracht['status'] = 1) {
                                         $CSRFtoken = csrf_gen();
                                         echo <<<END
                                         <div class="col s12">
-                                            <a href="/ster-opdrachten/process/{$steropdracht['id']}/go/{$CSRFtoken}" class="waves-effect waves-light btn color-primary--background modal-trigger">Go</a>
+                                            <a href="/ster-opdrachten/process/{$id}/go/{$CSRFtoken}" class="waves-effect waves-light btn color-primary--background">Go</a>
                                         </div>
 END;
                                     } ?>
