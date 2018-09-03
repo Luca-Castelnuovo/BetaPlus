@@ -181,8 +181,6 @@ END;
 
             $leerling = sql_query($query, true);
 
-            $docent = sql_query("SELECT last_name FROM docenten WHERE id='{$_SESSION['id']}'", true);
-
             $date = current_date(false);
             $grade = clean_data($_GET['grade']);
             $sterren = clean_data($_GET['sterren']);
@@ -193,11 +191,11 @@ END;
                 SET
                     sterren = '{$sterren}',
                     grade = '{$grade}',
-                    grade_docent = '{$docent['last_name']}',
+                    grade_docent = '{$_SESSION['last_name']}',
                     grade_date = '{$date}',
                     status = '4'
                 WHERE
-                    id='{$id}' AND status = '0'";
+                    id='{$id}' AND status = '3'";
 
             sql_query($query, false);
 

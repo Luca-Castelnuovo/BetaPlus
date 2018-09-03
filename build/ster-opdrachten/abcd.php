@@ -32,7 +32,7 @@ if ($steropdracht['status'] != 3) {
                 <h3>Beoordeling Ster Opdracht</h3>
             </div>
             <div class="card-content">
-                <form action="/ster-opdrachten/process/<?= $id ?>/abcd/<?= csrf_gen(); ?>" method="get">
+                <form action="/ster-opdrachten/process.php" method="get">
                     <div class="row">
                         <div class="input-field col s12">
                             <label for="project_name">Ster Opdracht</label>
@@ -84,6 +84,9 @@ if ($steropdracht['status'] != 3) {
                         </label>
                     </p>
                     <div class="row">
+                        <input type="hidden" name="CSRFtoken" value="<?= csrf_gen(); ?>">
+                        <input type="hidden" name="id" value="<?= $id ?>">
+                        <input type="hidden" name="type" value="abcd">
                         <button type="submit" class="waves-effect waves-light btn color-primary--background width-full">
                             Verstuur
                         </button>
