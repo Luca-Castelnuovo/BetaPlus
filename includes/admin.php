@@ -104,6 +104,7 @@ function admin_log_list()
         date DESC";
 
     $result = sql_query($query, false);
+
     if ($result->num_rows > 0) {
         $CSRFtoken = csrf_gen();
         echo <<<END
@@ -121,9 +122,27 @@ function admin_log_list()
             <tbody>
 END;
         while ($entry = $result->fetch_assoc()) {
+            switch ($entry['priority']) {
+                case '0':
+                    $priority = 'LOW';
+                    break;
+
+                case '1':
+                    $priority = 'MEDIUM';
+                    break;
+
+                case '2':
+                    $priority = 'HIGH';
+                    break;
+
+                default:
+                    $priority = 'unknown';
+                    break;
+            }
+
             echo <<<END
             <tr>
-                <td>{$entry['priority']}</td>
+                <td>{$priority}</td>
                 <td>{$entry['user']}</td>
                 <td>{$entry['action']}</td>
                 <td>{$entry['ip']}</td>
