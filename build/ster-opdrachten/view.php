@@ -128,12 +128,12 @@ END;
                                     } elseif ($steropdracht['status'] = 1) {
                                         $CSRFtoken = csrf_gen();
                                         echo <<<END
-                                        <div class="col s12">
+                                        <div class="col s12 m12 l6">
                                             <a href="/ster-opdrachten/process/{$id}/go/{$CSRFtoken}" class="waves-effect waves-light btn color-primary--background">Go</a>
                                         </div>
 END;
                                     } ?>
-                                    <div class="col s12">
+                                    <div class="col s12 m12 l6">
                                         <a href="#feedback" class="waves-effect waves-light btn color-primary--background modal-trigger"><i class="material-icons left">feedback</i>Geef Feedback</a>
                                         <div class="modal" id="feedback">
                                             <div class="modal-content">
