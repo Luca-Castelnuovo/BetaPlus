@@ -107,9 +107,7 @@ $parsedown->setSafeMode(true);
                                                     class="material-icons left">edit</i>Edit Ster Opdracht</a>
                                     </div>
                                     <div class="col s12 m12 l6">
-                                        <a href="/ster-opdrachten/process/<?= $id ?>/request_feedback/<?= csrf_gen() ?>"
-                                           class="waves-effect waves-light btn color-primary--background"><i
-                                                    class="material-icons left">feedback</i>Vraag Feedback</a>
+                                        <a href="/ster-opdrachten/process/<?= $id ?>/request_feedback/<?= csrf_gen() ?>" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">feedback</i>Vraag Feedback</a>
                                     </div>
                                 </div>
 
@@ -118,10 +116,25 @@ $parsedown->setSafeMode(true);
     } elseif ($steropdracht['status'] <= 2 && $_SESSION['class'] == 'docent') {
         ?>
                                 <div class="row">
+                                    <?php
+                                    if ($steropdracht['status'] = 0) {
+                                        echo <<<END
+                                        <div class="col s12">
+                                            <a href="/ster-opdrachten/process/{$steropdracht['id']}/go/{$CSRFtoken}" class="waves-effect waves-light btn color-primary--background modal-trigger">Go</a>
+                                        </div>
+                                        <div class="col s12">
+                                            <a href="/ster-opdrachten/process/{$steropdracht['id']}/go/{$CSRFtoken}" class="waves-effect waves-light btn color-primary--background modal-trigger">No Go</a>
+                                        </div>
+END;
+                                    } elseif ($steropdracht['status'] = 1) {
+                                        echo <<<END
+                                        <div class="col s12">
+                                            <a href="/ster-opdrachten/process/{$steropdracht['id']}/go/{$CSRFtoken}" class="waves-effect waves-light btn color-primary--background modal-trigger">Go</a>
+                                        </div>
+END;
+                                    } ?>
                                     <div class="col s12">
-                                        <a href="#feedback"
-                                           class="waves-effect waves-light btn color-primary--background modal-trigger"><i
-                                                    class="material-icons left">feedback</i>Geef Feedback</a>
+                                        <a href="#feedback" class="waves-effect waves-light btn color-primary--background modal-trigger"><i class="material-icons left">feedback</i>Geef Feedback</a>
                                         <div class="modal" id="feedback">
                                             <div class="modal-content">
                                                 <h4>Feedback</h4>
@@ -130,21 +143,16 @@ $parsedown->setSafeMode(true);
                                                         <div class="row"></div>
                                                         <div class="row">
                                                             <div class="input-field col s12">
-                                                                <input type="hidden" name="CSRFtoken"
-                                                                       value="<?= csrf_gen() ?>">
-                                                                <textarea class="materialize-textarea"
-                                                                          id="feedback_content"
-                                                                          type="text"><?= $steropdracht['feedback'] ?></textarea>
-                                                                <label for="feedback_content">Zet uw feedback
-                                                                    hier</label>
+                                                                <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>">
+                                                                <textarea class="materialize-textarea" id="feedback_content" type="text"><?= $steropdracht['feedback'] ?></textarea>
+                                                                <label for="feedback_content">Zet uw feedback hier</label>
                                                             </div>
                                                         </div>
                                                     </form>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
-                                                <a class="modal-close waves-effect waves-green btn-flat" href="#!"
-                                                   id="feedback_content_submit">Verstuur</a>
+                                                <a class="modal-close waves-effect waves-green btn-flat" href="#!" id="feedback_content_submit">Verstuur</a>
                                             </div>
                                         </div>
                                         <script>
@@ -154,14 +162,14 @@ $parsedown->setSafeMode(true);
                                             });
 
                                             <?php if (isset($_GET['feedback'])) {
-            ?>
+                                        ?>
                                             document.addEventListener('DOMContentLoaded', function () {
                                                 setTimeout(function () {
                                                     M.Modal.getInstance(document.querySelector('#feedback')).open();
                                                 }, 100);
                                             });
                                             <?php
-        } ?>
+                                    } ?>
 
                                             document.querySelector('#feedback_content_submit').addEventListener('click', function () {
                                                 $.ajax({
