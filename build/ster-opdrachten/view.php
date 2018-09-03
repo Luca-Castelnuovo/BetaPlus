@@ -116,6 +116,7 @@ $parsedown->setSafeMode(true);
                                 <div class="row">
                                     <?php
                                     if ($steropdracht['status'] = 0) {
+                                        $CSRFtoken = csrf_gen();
                                         echo <<<END
                                         <div class="col s12 m12 l6">
                                             <a href="/ster-opdrachten/process/{$steropdracht['id']}/go/{$CSRFtoken}" class="waves-effect waves-light btn color-primary--background modal-trigger">Go</a>
@@ -125,6 +126,7 @@ $parsedown->setSafeMode(true);
                                         </div>
 END;
                                     } elseif ($steropdracht['status'] = 1) {
+                                        $CSRFtoken = csrf_gen();
                                         echo <<<END
                                         <div class="col s12">
                                             <a href="/ster-opdrachten/process/{$steropdracht['id']}/go/{$CSRFtoken}" class="waves-effect waves-light btn color-primary--background modal-trigger">Go</a>
