@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $steropdracht = sql_query($query, true);
 
     if ($steropdracht['status'] >= 3) {
-        redirect('/ster-opdrachten/view/' . $id, 'Deze Ster Opdracht is klaar u kunt hem niet meer aanpassen');
+        redirect('/ster-opdrachten/view/' . $id, 'Deze Ster Opdracht is klaar, u kunt hem niet meer aanpassen');
     }
 
     if ($_SESSION['id'] == $steropdracht['leerling_id']) {

@@ -68,26 +68,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     redirect('/?reset', 'Uw wachtwoord is gewijzigd');
 } else {
-    $my = clean_data($_GET['my']);
-
-    if (!$my) {
-        $query =
-            "UPDATE
-                tokens
-            SET
-                used='1',
-                type='FAKE password_reset',
-                use_ip='{$ip}'
-            WHERE
-                token='{$token}' AND type='password_reset'";
-
-        sql_query($query, false);
-
-        log_action('UNKNOWN', 'FAKE Reset Password', 2);
-
-        redirect('/?reset', 'De administrator is op de hoogte gesteld');
-    }
-
     token_gen($token);
 }
 
