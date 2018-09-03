@@ -13,35 +13,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $query =
         "SELECT
-        leerling_id,
-        project_name
-        FROM
-        steropdrachten
-    WHERE
-        id='{$id}'";
+            leerling_id,
+            project_name
+            FROM
+            steropdrachten
+        WHERE
+            id='{$id}'";
 
     $steropdracht = sql_query($query, true);
 
     $query =
         "SELECT
-        email
-    FROM
-        leerlingen
-    WHERE
-        id='{$steropdracht['leerling_id']}'";
+            email
+        FROM
+            leerlingen
+        WHERE
+            id='{$steropdracht['leerling_id']}'";
 
     $leerling = sql_query($query, true);
 
     $query =
         "UPDATE
-        steropdrachten
-    SET
-        feedback = '{$feedback}',
-        feedback_docent = '{$docent['last_name']}',
-        feedback_date = '{$datetime}',
-        feedback_requested = '0'
-    WHERE
-        id = '{$id}'";
+            steropdrachten
+        SET
+            feedback = '{$feedback}',
+            feedback_docent = '{$docent['last_name']}',
+            feedback_date = '{$datetime}',
+            feedback_requested = '0'
+        WHERE
+            id = '{$id}'";
 
     sql_query($query, false);
 
@@ -69,22 +69,22 @@ END;
         case 'go':
             $query =
                 "SELECT
-                leerling_id,
-                project_name
-            FROM
-                steropdrachten
-            WHERE
-                id='{$id}'";
+                    leerling_id,
+                    project_name
+                FROM
+                    steropdrachten
+                WHERE
+                    id='{$id}'";
 
             $steropdracht = sql_query($query, true);
 
             $query =
                 "SELECT
-                email
-            FROM
-                leerlingen
-            WHERE
-                id='{$steropdracht['leerling_id']}'";
+                    email
+                FROM
+                    leerlingen
+                WHERE
+                    id='{$steropdracht['leerling_id']}'";
 
             $leerling = sql_query($query, true);
 
@@ -92,12 +92,12 @@ END;
 
             $query =
                 "UPDATE
-                steropdrachten
-            SET
-                status = '2',
-                status_docent = '{$docent['last_name']}'
-            WHERE
-                id='{$id}' AND (status = '0' OR status = '1')";
+                    steropdrachten
+                SET
+                    status = '2',
+                    status_docent = '{$docent['last_name']}'
+                WHERE
+                    id='{$id}' AND (status = '0' OR status = '1')";
 
             sql_query($query, false);
 
@@ -113,22 +113,22 @@ END;
         case 'nogo':
             $query =
                 "SELECT
-                leerling_id,
-                project_name
-            FROM
-                steropdrachten
-            WHERE
-                id='{$id}'";
+                    leerling_id,
+                    project_name
+                FROM
+                    steropdrachten
+                WHERE
+                    id='{$id}'";
 
             $steropdracht = sql_query($query, true);
 
             $query =
                 "SELECT
-                email
-            FROM
-                leerlingen
-            WHERE
-                id='{$steropdracht['leerling_id']}'";
+                    email
+                FROM
+                    leerlingen
+                WHERE
+                    id='{$steropdracht['leerling_id']}'";
 
             $leerling = sql_query($query, true);
 
@@ -136,12 +136,12 @@ END;
 
             $query =
                 "UPDATE
-                steropdrachten
-            SET
-                status = '1',
-                status_docent = '{$docent['last_name']}'
-            WHERE
-                id='{$id}' AND status = '0'";
+                    steropdrachten
+                SET
+                    status = '1',
+                    status_docent = '{$docent['last_name']}'
+                WHERE
+                    id='{$id}' AND status = '0'";
 
             sql_query($query, false);
 
@@ -157,13 +157,13 @@ END;
         case 'abcd':
             $query =
                 "SELECT
-                leerling_id,
-                project_name,
-                status
-            FROM
-                steropdrachten
-            WHERE
-                id='{$id}'";
+                    leerling_id,
+                    project_name,
+                    status
+                FROM
+                    steropdrachten
+                WHERE
+                    id='{$id}'";
 
             $steropdracht = sql_query($query, true);
 
@@ -173,11 +173,11 @@ END;
 
             $query =
                 "SELECT
-                email
-            FROM
-                leerlingen
-            WHERE
-                id='{$steropdracht['leerling_id']}'";
+                    email
+                FROM
+                    leerlingen
+                WHERE
+                    id='{$steropdracht['leerling_id']}'";
 
             $leerling = sql_query($query, true);
 
@@ -189,14 +189,14 @@ END;
 
             $query =
                 "UPDATE
-                steropdrachten
-            SET
-                sterren = '{$sterren}',
-                grade = '{$grade}',
-                grade_docent = '{$docent['last_name']}',
-                grade_date = '{$date}'
-            WHERE
-                id='{$id}' AND status = '0'";
+                    steropdrachten
+                SET
+                    sterren = '{$sterren}',
+                    grade = '{$grade}',
+                    grade_docent = '{$docent['last_name']}',
+                    grade_date = '{$date}'
+                WHERE
+                    id='{$id}' AND status = '0'";
 
             sql_query($query, false);
 
@@ -211,22 +211,23 @@ END;
         case 'request_feedback':
             $query =
                 "SELECT
-                leerling_id
-            FROM
-                steropdrachten
-            WHERE
-                id='{$id}'";
+                    leerling_id
+                FROM
+                    steropdrachten
+                WHERE
+                    id='{$id}'";
 
             $steropdracht = sql_query($query, true);
 
             if ($steropdracht['leerling_id'] == $_SESSION['id']) {
                 $query =
                     "UPDATE
-                    steropdrachten
-                SET
-                    feedback_requested = '1'
-                WHERE
-                    id='{$id}'";
+                        steropdrachten
+                    SET
+                        feedback_requested = '1'
+                    WHERE
+                        id='{$id}'";
+
                 sql_query($query, false);
                 redirect('/ster-opdrachten/view/' . $id . '/', 'Feedback aangevraagd');
             } else {

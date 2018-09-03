@@ -22,14 +22,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $query =
         "UPDATE
-        steropdrachten
-    SET
-        project_name = '{$project_name}',
-        content = '{$content}',
-        last_edited = '{$datetime}',
-        subject = '{$subject}'
-    WHERE
-        id = {$id}";
+            steropdrachten
+        SET
+            project_name = '{$project_name}',
+            content = '{$content}',
+            last_edited = '{$datetime}',
+            subject = '{$subject}'
+        WHERE
+            id = {$id}";
 
     sql_query($query, false);
 
@@ -37,14 +37,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 } else {
     $query =
         "SELECT
-        project_name,
-        content,
-        status,
-        leerling_id
-    FROM
-        steropdrachten
-    WHERE
-        id = {$id}";
+            project_name,
+            content,
+            status,
+            leerling_id
+        FROM
+            steropdrachten
+        WHERE
+            id = {$id}";
 
     $steropdracht = sql_query($query, true);
 
@@ -68,11 +68,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $query =
                 "UPDATE
-                steropdrachten
-            SET
-                status = '3'
-            WHERE
-                id='{$id}' AND status='2'";
+                    steropdrachten
+                SET
+                    status = '3'
+                WHERE
+                    id='{$id}' AND status='2'";
 
             sql_query($query, false);
 
@@ -83,9 +83,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         case 'delete':
             $query =
                 "DELETE FROM
-                steropdrachten
-            WHERE
-                id='{$id}'";
+                    steropdrachten
+                WHERE
+                    id='{$id}'";
 
             sql_query($query, false);
 

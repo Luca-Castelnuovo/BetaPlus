@@ -33,11 +33,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $query =
                 "UPDATE
-                {$class}
-            SET
-                password = '{$password}'
-            WHERE
-                id='{$_SESSION['id']}'";
+                    {$class}
+                SET
+                    password = '{$password}'
+                WHERE
+                    id='{$_SESSION['id']}'";
 
             sql_query($query, false);
             log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'Password Changed', 0);

@@ -6,12 +6,12 @@ $id = clean_data($_GET['random_id']);
 
 $query =
     "SELECT
-    path,
-    public
-FROM
-    files
-WHERE
-    random_id='{$id}'";
+        path,
+        public
+    FROM
+        files
+    WHERE
+        random_id='{$id}'";
 
 $file = sql_query($query, true);
 

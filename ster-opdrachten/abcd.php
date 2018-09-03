@@ -8,12 +8,12 @@ head('Beoordeling || Ster Opdrachten', 2, 'Beoordeling');
 
 $query =
     "SELECT
-    project_name,
-    status
-    FROM
-    steropdrachten
-WHERE
-    id='{$id}'";
+        project_name,
+        status
+        FROM
+        steropdrachten
+    WHERE
+        id='{$id}'";
 
 $steropdracht = sql_query($query, true);
 

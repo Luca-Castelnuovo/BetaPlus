@@ -54,14 +54,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             user,
             gen_ip,
             additional)
-    VALUES
-        ('{$token}',
-        'password_reset',
-        '{$date}',
-        '1',
-        '{$email}',
-        '{$ip}',
-        '{$aditional}')";
+        VALUES
+            ('{$token}',
+            'password_reset',
+            '{$date}',
+            '1',
+            '{$email}',
+            '{$ip}',
+            '{$aditional}')";
 
     sql_query($query, false);
 

@@ -38,12 +38,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     //check for existing leerling nummer
     $query =
-    "SELECT
-        id
-    FROM
-        leerlingen
-    WHERE
-        leerling_nummer = '{$leerling_nummer}'";
+        "SELECT
+            id
+        FROM
+            leerlingen
+        WHERE
+            leerling_nummer = '{$leerling_nummer}'";
 
     $leerling_existing = sql_query($query, true);
 
@@ -54,15 +54,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $query =
         "INSERT INTO
-        leerlingen
-            (leerling_nummer,
-            email,
-            password,
-            first_name,
-            last_name,
-            class)
-    VALUES
-        ('{$leerling_nummer}','{$email}','{$password}','{$first_name}','{$last_name}','{$class}')";
+            leerlingen
+                (leerling_nummer,
+                email,
+                password,
+                first_name,
+                last_name,
+                class)
+        VALUES
+            ('{$leerling_nummer}',
+            '{$email}',
+            '{$password}',
+            '{$first_name}',
+            '{$last_name}',
+            '{$class}')";
 
     sql_query($query, false);
 
@@ -77,15 +82,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $query =
             "SELECT
-            used,
-            type,
-            created,
-            days_valid,
-            user
-        FROM
-            tokens
-        WHERE
-            token='{$token_get}'";
+                used,
+                type,
+                created,
+                days_valid,
+                user
+            FROM
+                tokens
+            WHERE
+                token='{$token_get}'";
 
         $token = sql_query($query, true);
 
@@ -106,13 +111,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $query =
             "UPDATE
-            tokens
-        SET
-            used = '1',
-            use_ip = '{$ip}',
-            used_date = '{$date}'
-        WHERE
-            token='{$token_get}'";
+                tokens
+            SET
+                used = '1',
+                use_ip = '{$ip}',
+                used_date = '{$date}'
+            WHERE
+                token='{$token_get}'";
 
         sql_query($query, false);
     } else {

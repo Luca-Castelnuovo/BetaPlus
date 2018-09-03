@@ -5,31 +5,31 @@ function admin_accounts_list($class)
     if ($class === 'docenten') {
         $query =
             "SELECT
-            id,
-            active,
-            failed_login,
-            first_name,
-            last_name
-        FROM
-            docenten
-        ORDER BY
-            last_name";
+                id,
+                active,
+                failed_login,
+                first_name,
+                last_name
+            FROM
+                docenten
+            ORDER BY
+                last_name";
     } else {
         $query =
             "SELECT
-            id,
-            active,
-            first_name,
-            last_name,
-            utalent,
-            leerling_nummer,
-            profile_url
-        FROM
-            leerlingen
-        WHERE
-            class = '{$class}'
-        ORDER BY
-            last_name";
+                id,
+                active,
+                first_name,
+                last_name,
+                utalent,
+                leerling_nummer,
+                profile_url
+            FROM
+                leerlingen
+            WHERE
+                class = '{$class}'
+            ORDER BY
+                last_name";
     }
 
     $result = sql_query($query, false);
@@ -93,15 +93,15 @@ function admin_log_list()
 {
     $query =
         "SELECT
-        user,
-        action,
-        ip,
-        priority,
-        date
-    FROM
-        logs
-    ORDER BY
-        date DESC";
+            user,
+            action,
+            ip,
+            priority,
+            date
+        FROM
+            logs
+        ORDER BY
+            date DESC";
 
     $result = sql_query($query, false);
 

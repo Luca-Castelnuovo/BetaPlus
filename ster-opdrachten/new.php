@@ -17,22 +17,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $query =
         "INSERT INTO
-        steropdrachten
-            (project_name,
-            content,
-            created,
-            status_date,
-            last_edited,
-            leerling_id,
-            subject)
-    VALUES
-        ('{$project_name}',
-        '{$content}',
-        '{$datetime}',
-        '{$date}',
-        '{$datetime}',
-        '{$leerling_id}',
-        '{$subject}')";
+            steropdrachten
+                (project_name,
+                content,
+                created,
+                status_date,
+                last_edited,
+                leerling_id,
+                subject)
+        VALUES
+            ('{$project_name}',
+            '{$content}',
+            '{$datetime}',
+            '{$date}',
+            '{$datetime}',
+            '{$leerling_id}',
+            '{$subject}')";
 
     sql_query($query, false);
 

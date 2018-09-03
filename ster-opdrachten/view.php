@@ -7,27 +7,27 @@ $id = clean_data($_GET['id']);
 
 $query =
     "SELECT
-    leerling_id,
-    project_name,
-    subject,
-    content,
-    status,
-    status_docent,
-    status_date,
-    feedback,
-    feedback_docent,
-    feedback_date,
-    grade,
-    grade_docent,
-    grade_date,
-    sterren,
-    created,
-    last_edited,
-    image_url
-FROM
-    steropdrachten
-WHERE
-    id = '{$id}'";
+        leerling_id,
+        project_name,
+        subject,
+        content,
+        status,
+        status_docent,
+        status_date,
+        feedback,
+        feedback_docent,
+        feedback_date,
+        grade,
+        grade_docent,
+        grade_date,
+        sterren,
+        created,
+        last_edited,
+        image_url
+    FROM
+        steropdrachten
+    WHERE
+        id = '{$id}'";
 
 $steropdracht = sql_query($query, true);
 
@@ -37,13 +37,13 @@ head($steropdracht['project_name'] . ' || Ster Opdrachten', 2, $steropdracht['pr
 
 $query =
     "SELECT
-    first_name,
-    last_name,
-    leerling_nummer
-FROM
-    leerlingen
-WHERE
-    id = '{$steropdracht['leerling_id']}'";
+        first_name,
+        last_name,
+        leerling_nummer
+    FROM
+        leerlingen
+    WHERE
+        id = '{$steropdracht['leerling_id']}'";
 
 $leerling = sql_query($query, true);
 

@@ -8,16 +8,16 @@ $token_get = clean_data($_GET['token']);
 
 $query =
     "SELECT
-    used,
-    type,
-    created,
-    days_valid,
-    user,
-    additional
-FROM
-    tokens
-WHERE
-    token='{$token_get}'";
+        used,
+        type,
+        created,
+        days_valid,
+        user,
+        additional
+    FROM
+        tokens
+    WHERE
+        token='{$token_get}'";
 
 $token = sql_query($query, true);
 
@@ -45,22 +45,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $query =
         "UPDATE
-        {$class}
-    SET
-        password='{$password_new}'
-    WHERE
-        email='{$token['user']}'";
+            {$class}
+        SET
+            password='{$password_new}'
+        WHERE
+            email='{$token['user']}'";
 
     sql_query($query, false);
 
     $query =
         "UPDATE
-        tokens
-    SET
-        used='1',
-        use_ip='{$ip}'
-    WHERE
-        token='{$token_get}'";
+            tokens
+        SET
+            used='1',
+            use_ip='{$ip}'
+        WHERE
+            token='{$token_get}'";
 
     sql_query($query, false);
 
@@ -73,13 +73,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!$my) {
         $query =
             "UPDATE
-            tokens
-        SET
-            used='1',
-            type='FAKE password_reset',
-            use_ip='{$ip}'
-        WHERE
-            token='{$token}' AND type='password_reset'";
+                tokens
+            SET
+                used='1',
+                type='FAKE password_reset',
+                use_ip='{$ip}'
+            WHERE
+                token='{$token}' AND type='password_reset'";
 
         sql_query($query, false);
 

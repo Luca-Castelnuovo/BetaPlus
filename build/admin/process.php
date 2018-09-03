@@ -21,15 +21,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $query =
                 "INSERT INTO
-                tokens
-                    (token,
-                    type,
-                    created,
-                    days_valid,
-                    user,
-                    gen_ip)
-            VALUES
-                ('{$token}','register','$current_date', '7','$user','$ip')";
+                    tokens (
+                        token,
+                        type,
+                        created,
+                        days_valid,
+                        user,
+                        gen_ip
+                    )
+                VALUES
+                    (
+                        '{$token}',
+                        'register',
+                        '$current_date',
+                        '7',
+                        '$user',
+                        '$ip'
+                    )
+                ";
 
 
             $body = <<<END
@@ -89,7 +98,9 @@ END;
 
         case 'log_clear':
             $customQuery = true;
-            $query = "DELETE FROM logs";
+            $query =
+            "DELETE FROM
+                logs";
             break;
 
         default:
@@ -98,7 +109,13 @@ END;
     }
 
     if (!$customQuery) {
-        $query = "UPDATE {$sql_table} SET {$set}='{$value}' WHERE id='{$user_id}'";
+        $query =
+        "UPDATE
+            {$sql_table}
+        SET
+            {$set}='{$value}'
+        WHERE
+            id='{$user_id}'";
     }
 
     sql_query($query, false);

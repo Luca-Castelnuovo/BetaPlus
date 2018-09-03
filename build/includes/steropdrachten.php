@@ -6,17 +6,17 @@ function steropdrachten_list($done)
 
     $query =
         "SELECT
-        id,
-        project_name,
-        leerling_id,
-        image_url,
-        status
-    FROM
-        steropdrachten
-    WHERE
-        status {$status}
-    ORDER BY
-        created DESC";
+            id,
+            project_name,
+            leerling_id,
+            image_url,
+            status
+        FROM
+            steropdrachten
+        WHERE
+            status {$status}
+        ORDER BY
+            created DESC";
 
     $result = sql_query($query, false);
     if ($result->num_rows > 0) {
@@ -66,17 +66,17 @@ function steropdrachten_list_my($done)
 
     $query =
         "SELECT
-        id,
-        project_name,
-        leerling_id,
-        image_url,
-        status
-    FROM
-        steropdrachten
-    WHERE
-        status {$status} AND leerling_id='{$_SESSION['id']}'
-    ORDER BY
-        created DESC";
+            id,
+            project_name,
+            leerling_id,
+            image_url,
+            status
+        FROM
+            steropdrachten
+        WHERE
+            status {$status} AND leerling_id='{$_SESSION['id']}'
+        ORDER BY
+            created DESC";
 
     $result = sql_query($query, false);
     if ($result->num_rows > 0) {
@@ -148,17 +148,17 @@ function steropdrachten_list_docenten($type)
 
     $query =
         "SELECT
-        id,
-        project_name,
-        subject,
-        image_url,
-        status
-    FROM
-        steropdrachten
-    WHERE
-        status {$status}
-    ORDER BY
-        created ASC";
+            id,
+            project_name,
+            subject,
+            image_url,
+            status
+        FROM
+            steropdrachten
+        WHERE
+            status {$status}
+        ORDER BY
+            created ASC";
 
     $result = sql_query($query, false);
     if ($result->num_rows > 0) {

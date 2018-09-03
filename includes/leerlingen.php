@@ -4,18 +4,18 @@ function leerlingen_list($class)
 {
     $query =
         "SELECT
-        id,
-        leerling_nummer,
-        first_name,
-        last_name,
-        utalent,
-        profile_url
-    FROM
-        leerlingen
-    WHERE
-        class = '$class' AND active = '1'
-    ORDER BY
-        last_name";
+            id,
+            leerling_nummer,
+            first_name,
+            last_name,
+            utalent,
+            profile_url
+        FROM
+            leerlingen
+        WHERE
+            class = '$class' AND active = '1'
+        ORDER BY
+            last_name";
 
     $result = sql_query($query, false);
     if ($result->num_rows > 0) {

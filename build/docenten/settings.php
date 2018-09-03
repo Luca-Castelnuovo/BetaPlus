@@ -7,12 +7,12 @@ head('Settings', 0);
 
 $query =
     "SELECT
-    first_name,
-    last_name
-FROM
-    docenten
-WHERE
-    id='{$_SESSION['id']}'";
+        first_name,
+        last_name
+    FROM
+        docenten
+    WHERE
+        id='{$_SESSION['id']}'";
 
 $user = sql_query($query, true);
 

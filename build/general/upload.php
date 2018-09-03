@@ -20,11 +20,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         case 'leerling_profile':
             $query =
                 "UPDATE
-                leerlingen
-            SET
-                profile_url='{$url}'
-            WHERE
-                id = '{$_SESSION['id']}'";
+                    leerlingen
+                SET
+                    profile_url='{$url}'
+                WHERE
+                    id = '{$_SESSION['id']}'";
 
             sql_query($query, false);
             echo json_encode(['status' => true, 'url' => '/general/toast?url=/leerlingen/settings&alert=Profiel foto aangepast']);
@@ -39,11 +39,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $query =
                 "UPDATE
-                steropdrachten
-            SET
-                image_url='{$url}'
-            WHERE
-                id = '{$id}'";
+                    steropdrachten
+                SET
+                    image_url='{$url}'
+                WHERE
+                    id = '{$id}'";
 
             sql_query($query, false);
             echo json_encode(['status' => true, 'url' => '/general/toast?url=/ster-opdrachten/view/' . $id . '/&alert=Cover foto aangepast']);

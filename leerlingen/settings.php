@@ -7,13 +7,13 @@ head('Settings', 0);
 
 $query =
     "SELECT
-    first_name,
-    last_name,
-    profile_url
-FROM
-    leerlingen
-WHERE
-    id='{$_SESSION['id']}'";
+        first_name,
+        last_name,
+        profile_url
+    FROM
+        leerlingen
+    WHERE
+        id='{$_SESSION['id']}'";
 
 $user = sql_query($query, true);
 
