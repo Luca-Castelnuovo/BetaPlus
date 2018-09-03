@@ -42,25 +42,25 @@ if ($steropdracht['status'] != 3) {
                     <h4>Beoordeling</h4>
                     <p>
                         <label>
-                            <input name="grade" type="radio" value="a" required/>
+                            <input name="grade" type="radio" value="A" required/>
                             <span>A</span>
                         </label>
                     </p>
                     <p>
                         <label>
-                            <input name="grade" type="radio" value="b" required/>
+                            <input name="grade" type="radio" value="B" required/>
                             <span>B</span>
                         </label>
                     </p>
                     <p>
                         <label>
-                            <input name="grade" type="radio" value="c" required/>
+                            <input name="grade" type="radio" value="C" required/>
                             <span>C</span>
                         </label>
                     </p>
                     <p>
                         <label>
-                            <input name="grade" type="radio" value="d" required/>
+                            <input name="grade" type="radio" value="D" required/>
                             <span>D</span>
                         </label>
                     </p>
