@@ -192,7 +192,7 @@ END;
                 case '3':
                     $extra = <<<END
                         <li class="btn waves-effect waves-light color-secondary--background">
-                            <a href="/ster-opdrachten/abcd/{$steropdracht['id']}/abcd">Beoordeel Opdracht</a>
+                            <a href="/ster-opdrachten/abcd/{$steropdracht['id']}">Beoordeel Opdracht</a>
                         </li>
 END;
                     break;
