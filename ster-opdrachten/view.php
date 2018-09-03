@@ -102,9 +102,7 @@ $parsedown->setSafeMode(true);
         ?>
                                 <div class="row">
                                     <div class="col s12 m12 l6">
-                                        <a href="/ster-opdrachten/edit/<?= $id ?>/"
-                                           class="waves-effect waves-light btn color-primary--background"><i
-                                                    class="material-icons left">edit</i>Edit Ster Opdracht</a>
+                                        <a href="/ster-opdrachten/edit/<?= $id ?>/" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">edit</i>Edit Ster Opdracht</a>
                                     </div>
                                     <div class="col s12 m12 l6">
                                         <a href="/ster-opdrachten/process/<?= $id ?>/request_feedback/<?= csrf_gen() ?>" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">feedback</i>Vraag Feedback</a>
@@ -119,10 +117,10 @@ $parsedown->setSafeMode(true);
                                     <?php
                                     if ($steropdracht['status'] = 0) {
                                         echo <<<END
-                                        <div class="col s12">
+                                        <div class="col s12 m12 l6">
                                             <a href="/ster-opdrachten/process/{$steropdracht['id']}/go/{$CSRFtoken}" class="waves-effect waves-light btn color-primary--background modal-trigger">Go</a>
                                         </div>
-                                        <div class="col s12">
+                                        <div class="col s12 m12 l6">
                                             <a href="/ster-opdrachten/process/{$steropdracht['id']}/go/{$CSRFtoken}" class="waves-effect waves-light btn color-primary--background modal-trigger">No Go</a>
                                         </div>
 END;
