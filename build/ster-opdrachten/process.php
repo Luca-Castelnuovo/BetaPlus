@@ -184,8 +184,8 @@ END;
             $docent = sql_query("SELECT last_name FROM docenten WHERE id='{$_SESSION['id']}'", true);
 
             $date = current_date(false);
-            $grade = clean_data($_POST['grade']);
-            $sterren = clean_data($_POST['sterren']);
+            $grade = clean_data($_GET['grade']);
+            $sterren = clean_data($_GET['sterren']);
 
             $query =
                 "UPDATE
