@@ -12,7 +12,7 @@ $query =
         buddy_id,
         project_name
     FROM
-        leerlingen
+        steropdrachten
     WHERE
         id='{$id}'";
 
