@@ -1,10 +1,7 @@
 <?php
 require($_SERVER['DOCUMENT_ROOT'] . "/init.php");
-
 login();
-
 $id = clean_data($_GET['id']);
-
 $query =
     "SELECT
         leerling_id,
@@ -28,13 +25,9 @@ $query =
         steropdrachten
     WHERE
         id = '{$id}'";
-
 $steropdracht = sql_query($query, true);
-
 $steropdracht ?: redirect('/ster-opdrachten/', 'Deze Ster Opdracht bestaat niet');
-
 head($steropdracht['project_name'] . ' || Ster Opdrachten', 2, $steropdracht['project_name']);
-
 $query =
     "SELECT
         first_name,
@@ -44,9 +37,7 @@ $query =
         leerlingen
     WHERE
         id = '{$steropdracht['leerling_id']}'";
-
 $leerling = sql_query($query, true);
-
 switch ($steropdracht['status']) {
     case 0:
         $status = 'Niet Beoordeeld';
@@ -63,16 +54,13 @@ switch ($steropdracht['status']) {
     case 4:
         $status = 'Becijferd';
         break;
-
     default:
         $status = 'Unknown';
         break;
 }
-
 require($_SERVER['DOCUMENT_ROOT'] . "/libs/Parsedown.php");
 $parsedown = new Parsedown();
 $parsedown->setSafeMode(true);
-
 ?>
 
 <div class="section">
@@ -88,8 +76,7 @@ $parsedown->setSafeMode(true);
                         </div>
                         <h1 class="center"><?= $steropdracht['project_name'] ?></h1>
                         <h6 class="center flow-text">
-                            Door: <a
-                                    href="/leerlingen/search/<?= $leerling['leerling_nummer'] ?>"><?= $leerling['first_name'] ?> <?= $leerling['last_name'] ?></a>
+                            Door: <a href="/leerlingen/search/<?= $leerling['leerling_nummer'] ?>"><?= $leerling['first_name'] ?> <?= $leerling['last_name'] ?></a>
                         </h6>
                     </div>
                 </div>
@@ -162,7 +149,6 @@ END;
                                                 var elems = document.querySelectorAll('.modal');
                                                 var instances = M.Modal.init(elems, {});
                                             });
-
                                             <?php if (isset($_GET['feedback'])) {
                                         ?>
                                             document.addEventListener('DOMContentLoaded', function () {
@@ -172,7 +158,6 @@ END;
                                             });
                                             <?php
                                     } ?>
-
                                             document.querySelector('#feedback_content_submit').addEventListener('click', function () {
                                                 $.ajax({
                                                     type: "POST",
@@ -297,16 +282,16 @@ END;
                                 </table>
                             </div>
                         </div>
-                    <div class="container">
-                        <?php $content = str_replace('&gt; ', '> ', $steropdracht['content']);
-                        echo $parsedown->text($content); ?>
                     </div>
+                    <?php
+} ?>
+                <div class="container">
+                    <?php $content = str_replace('&gt; ', '> ', $steropdracht['content']);
+                    echo $parsedown->text($content); ?>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<?php // TODO: check even og het aantal divs klopt ?>
 
 <?php footer("<script src=\"https://cdn.lucacastelnuovo.nl/js/ajax.js\"></script><script>document.querySelector('p').classList.add('flow-text');document.querySelector('.container ul').classList.add('browser-default');document.querySelector('.container ul li').classList.add('browser-default');</script>"); ?>
