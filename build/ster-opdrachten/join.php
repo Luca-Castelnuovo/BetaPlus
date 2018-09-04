@@ -11,6 +11,8 @@ $query =
         status,
         buddy_id,
         project_name
+    FROM
+        leerlingen
     WHERE
         id='{$id}'";
 
