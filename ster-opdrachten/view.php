@@ -70,6 +70,19 @@ $parsedown = new Parsedown();
 $parsedown->setSafeMode(true);
 
 $CSRFtoken = csrf_gen();
+
+if ($steropdracht['leerling_id'] == $_SESSION['id'] || $steropdracht['buddy_id'] == $_SESSION['id']) {
+    $show = true;
+    $show_leerling = true;
+} elseif ($_SESSION['class'] == 'docent') {
+    $show = true;
+    $show_leerling = false;
+} else {
+    $show = false;
+    $show_leerling = false;
+}
+
+
 ?>
 
 <div class="container">
@@ -85,7 +98,7 @@ $CSRFtoken = csrf_gen();
         </div>
     </div>
 
-    <?php if ($steropdracht['leerling_id'] == $_SESSION['id'] || $_SESSION['class'] == 'docent') {
+    <?php if ($show) {
     ?>
         <div class="section">
             <div class="card-panel center">
@@ -277,11 +290,15 @@ END;
     <div class="section">
         <div class="card-panel center">
             <h3 class="center">Bestanden</h3>
-            <div class="row">
-                <div class="col s12">
-                    <a href="/ster-opdrachten/files/add/<?= $id ?>" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">attach_file</i>Bestand Toevoegen</a>
+            <?php if ($show_leerling) {
+        ?>
+                <div class="row">
+                    <div class="col s12">
+                        <a href="/ster-opdrachten/files/add/<?= $id ?>" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">attach_file</i>Bestand Toevoegen</a>
+                    </div>
                 </div>
-            </div>
+            <?php
+    } ?>
             <div class="row">
                 <table class="striped centered responsive-table">
                     <thead>
