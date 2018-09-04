@@ -38,8 +38,8 @@ RewriteRule ^ster-opdrachten/process/([^/]*)/([^/]*)/([^/]*)/$ /ster-opdrachten/
 RewriteRule ^ster-opdrachten/process/([^/]*)/([^/]*)/([^/]*)$ /ster-opdrachten/process.php?id=$1&type=$2&CSRFtoken=$3 [L]
 
 #Join
-RewriteRule ^ster-opdrachten/join/([^/]*)/([^/]*)/$ /ster-opdrachten/join.php?id=$1&type=$2 [L]
-RewriteRule ^ster-opdrachten/join/([^/]*)/([^/]*)$ /ster-opdrachten/join.php?id=$1&type=$2 [L]
+RewriteRule ^ster-opdrachten/join/([^/]*)/([^/]*)/$ /ster-opdrachten/join.php?id=$1&request_id=$2 [L]
+RewriteRule ^ster-opdrachten/join/([^/]*)/([^/]*)$ /ster-opdrachten/join.php?id=$1&request_id=$2 [L]
 
 #ABCD
 RewriteRule ^ster-opdrachten/abcd/([^/]*)/$ /ster-opdrachten/abcd.php?id=$1 [L]

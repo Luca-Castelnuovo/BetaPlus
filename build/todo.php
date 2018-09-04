@@ -12,8 +12,14 @@
 // TODO: agenda - support for pdf
 // TODO: agenda - improve ui
 
-// TODO: admin 2fa - https://github.com/Yubico/php-u2flib-server - https://github.com/Yubico/php-u2flib-server
+// TODO: filter in admin panel for logs - https://www.w3schools.com/howto/howto_js_filter_table.asp - https://stackoverflow.com/questions/51187477/how-to-filter-a-html-table-using-simple-javascript - https://codepen.io/chriscoyier/pen/tIuBL
+// (SEARCH FIELD) - low  / medium / high
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ = layout
+
+// TODO: ga de hele website af voor log actions
 
 // TODO: create destroy all sessions btn
+
+// TODO: admin 2fa - https://github.com/Yubico/php-u2flib-server - https://github.com/Yubico/php-u2flib-server
 
 // TODO: security - CSP policy - https://scotthelme.co.uk/content-security-policy-an-introduction/

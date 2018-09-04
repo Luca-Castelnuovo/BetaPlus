@@ -5,6 +5,12 @@ login_leerling();
 
 $id = clean_data($_GET['id']);
 
+if (!isset($_GET['request_id'])) {
+    redirect('/ster-opdrachten/view/' . $id, 'Deze link is niet geldig');
+} else {
+    $request_id = clean_data($_GET['request_id']);
+}
+
 $query =
     "SELECT
         leerling_id,
@@ -20,12 +26,6 @@ $steropdracht = sql_query($query, true);
 
 if ($steropdracht['status'] >= 3) {
     redirect('/ster-opdrachten/view/' . $id, 'Deze Ster Opdracht is klaar, u kunt hem niet meer aanpassen');
-}
-
-if (!isset($_GET['request_id'])) {
-    redirect('/ster-opdrachten/view/' . $id, 'Deze link is niet geldig');
-} else {
-    $request_id = clean_data($_GET['request_id']);
 }
 
 if ($_SESSION['id'] == $steropdracht['id']) {
