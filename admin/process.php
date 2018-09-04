@@ -92,15 +92,25 @@ END;
             break;
 
         case 'delete':
-            //TODO: create delete process (delete account and delete steropdrachten)
-            redirect('/admin', 'Delete function not yet implemented!');
+            $customQuery = true;
+            $query =
+                "DELETE FROM
+                    leerlingen
+                WHERE
+                    id = '{$user_id}'";
+            sql_query($query, false);
+            $query =
+                "DELETE FROM
+                    steropdrachten
+                WHERE
+                    leerling_id = '{$user_id}'";
             break;
 
         case 'log_clear':
             $customQuery = true;
             $query =
-            "DELETE FROM
-                logs";
+                "DELETE FROM
+                    logs";
             break;
 
         default:
