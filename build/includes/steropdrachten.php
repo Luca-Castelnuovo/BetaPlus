@@ -56,7 +56,7 @@ END;
 </div>
 END;
     } else {
-        echo '<p>Er doen op dit moment geen steropdrachten in deze categorie die een GO hebben gekregen.</p>';
+        echo '<p>Er zijn op dit moment geen steropdrachten in deze categorie.</p>';
     }
 }
 
