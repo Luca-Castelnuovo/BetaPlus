@@ -271,12 +271,13 @@ END;
 
                                     <tr>
                                         <td>ABCD.pdf</td>
-                                        <td>KLIK HIER</td>
+                                        <td><a class="waves-effect waves-light btn color-secondary--background modal-trigger" href="/general/pdf/file_id">Open Bestand</a></td>
                                         <td>datum zonder tijd</td>
+                                        </div>
                                     </tr>
                                     <tr>
                                         <td>Hypothese.pdf</td>
-                                        <td>KLIK HIER</td>
+                                        <td><a class="waves-effect waves-light btn color-secondary--background modal-trigger" href="/general/pdf/file_id2">Open Bestand</a></td>
                                         <td>datum zonder tijd</td>
                                     </tr>
                                 </table>
