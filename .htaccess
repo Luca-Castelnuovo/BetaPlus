@@ -39,7 +39,7 @@ RewriteRule ^ster-opdrachten/process/([^/]*)/([^/]*)/([^/]*)$ /ster-opdrachten/p
 
 #Join
 RewriteRule ^ster-opdrachten/join/([^/]*)/([^/]*)/([^/]*)/$ /ster-opdrachten/join.php?id=$1&request_id=$2&accept=$3 [L]
-RewriteRule ^ster-opdrachten/join/([^/]*)/([^/]*)([^/]*)$ /ster-opdrachten/join.php?id=$1&request_id=$2&accept=$3 [L]
+RewriteRule ^ster-opdrachten/join/([^/]*)/([^/]*)/([^/]*)$ /ster-opdrachten/join.php?id=$1&request_id=$2&accept=$3 [L]
 
 #ABCD
 RewriteRule ^ster-opdrachten/abcd/([^/]*)/$ /ster-opdrachten/abcd.php?id=$1 [L]
