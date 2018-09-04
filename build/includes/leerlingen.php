@@ -13,7 +13,7 @@ function leerlingen_list($class)
         FROM
             leerlingen
         WHERE
-            class = '$class' AND active = '1'
+            class = '{$class}' AND active = '1'
         ORDER BY
             last_name";
 
