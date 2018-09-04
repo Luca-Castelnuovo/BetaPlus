@@ -133,6 +133,12 @@ END;
                                     <a href="/ster-opdrachten/process/{$id}/go/{$CSRFtoken}" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">check</i>Go</a>
                                 </div>
 END;
+                        } elseif ($steropdracht['status'] == 3) {
+                            echo <<<END
+                                <div class="col s12">
+                                    <a href="/ster-opdrachten/abcd/{$id}" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">check</i>Beoordeel</a>
+                                </div>
+END;
                         } ?>
                     </div>
                     <div class="row">
@@ -311,12 +317,12 @@ END;
                     <tbody>
                         <tr>
                             <td>ABCD.pdf</td>
-                            <td><a class="waves-effect waves-light btn color-secondary--background modal-trigger" href="/general/pdf/file_id">Open Bestand</a></td>
+                            <td><a class="waves-effect waves-light btn color-secondary--background modal-trigger" target="_blank" href="/general/pdf/file_id">Open Bestand</a></td>
                             <td>datum zonder tijd</td>
                         </tr>
                         <tr>
                             <td>Hypothese.pdf</td>
-                            <td><a class="waves-effect waves-light btn color-secondary--background modal-trigger" href="/general/pdf/file_id2">Open Bestand</a></td>
+                            <td><a class="waves-effect waves-light btn color-secondary--background modal-trigger" target="_blank" href="/general/pdf/file_id2">Open Bestand</a></td>
                             <td>datum zonder tijd</td>
                         </tr>
                     </tbody>

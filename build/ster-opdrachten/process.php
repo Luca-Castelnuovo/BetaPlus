@@ -205,7 +205,7 @@ END;
 
             api_mail($leerling['email'], 'Beoordeling Ster Opdracht ||  BetaSterren', $body);
 
-            redirect('/general/home/', 'Beoordeling verstuurd');
+            redirect('/ster-opdrachten/view/' . $id . '/', 'Beoordeling verstuurd');
             break;
         case 'request_feedback':
             $query =
