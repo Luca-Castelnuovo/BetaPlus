@@ -63,9 +63,11 @@ if ($_SESSION['id'] == $steropdracht['id']) {
 END;
 
         api_mail($leerling['email'], 'Je bent toegevoegd aan een Ster Opdracht ||  BetaSterren', $body);
-    }
 
-    redirect('/ster-opdrachten/view/' . $id, 'Success');
+        redirect('/ster-opdrachten/view/' . $id, 'Verzoek geaccepteerd');
+    } else {
+        redirect('/ster-opdrachten/view/' . $id, 'Verzoek afgewezen');
+    }
 } else {
     $query =
         "SELECT
