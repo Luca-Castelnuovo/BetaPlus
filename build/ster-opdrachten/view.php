@@ -266,16 +266,47 @@ END;
                                 </tbody>
                             </table>
                         </div>
+                        <div class="card-panel center">
+                            <h3 class="center">Bestanden</h3>
+                            <div class="row">
+                                <div class="col s12">
+                                    <a href="/ster-opdrachten/files/add/<?= $id ?>" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">attach_file</i>Bestand Toevoegen</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <table class="striped centered responsive-table">
+                                    <thead>
+                                    <tr>
+                                        <th>Bestandsnaam</th>
+                                        <th>Bekijk</th>
+                                        <th>Datum</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <tr>
+                                        <td>ABCD.pdf</td>
+                                        <td>KLIK HIER</td>
+                                        <td>datum zonder tijd</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hypothese.pdf</td>
+                                        <td>KLIK HIER</td>
+                                        <td>datum zonder tijd</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    <div class="container">
+                        <?php $content = str_replace('&gt; ', '> ', $steropdracht['content']);
+                        echo $parsedown->text($content); ?>
                     </div>
-                    <?php
-} ?>
-                <div class="container">
-                    <?php $content = str_replace('&gt; ', '> ', $steropdracht['content']);
-                    echo $parsedown->text($content); ?>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<?php // TODO: check even og het aantal divs klopt ?>
 
 <?php footer("<script src=\"https://cdn.lucacastelnuovo.nl/js/ajax.js\"></script><script>document.querySelector('p').classList.add('flow-text');document.querySelector('.container ul').classList.add('browser-default');document.querySelector('.container ul li').classList.add('browser-default');</script>"); ?>
