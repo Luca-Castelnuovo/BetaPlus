@@ -4,6 +4,8 @@
 
 // TODO: auth - register doesnt insert token into db (check sql query)
 
+// TODO: all emails shoulkd have '' around ster opdracht naam '{$steropdracht['project_name']}'
+
 // TODO: steropdrachten - support for pdf
 
 // TODO: steropdrachten - counter met totaal aantal sterren
@@ -21,6 +23,8 @@
 // TODO: ga de hele website af voor log actions
 
 // TODO: create destroy all sessions btn
+
+// TODO: remember me function
 
 // TODO: admin 2fa - https://github.com/Yubico/php-u2flib-server - https://github.com/Yubico/php-u2flib-server
 
