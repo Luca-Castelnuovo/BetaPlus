@@ -5,6 +5,10 @@ require($_SERVER['DOCUMENT_ROOT'] . "/init.php");
 login_admin();
 
 head('Admin', 5);
+
+//for the send registration link js
+$_SESSION['toast_set'] = true;
+
 ?>
 
 <div class="section">
