@@ -16,7 +16,7 @@ switch ($error) {
         break;
 
     default:
-        $error_text = 'Oeps er is iets fout gegaan';
+        $error_text = 'Oeps er ging iets fout';
         break;
 }
 
