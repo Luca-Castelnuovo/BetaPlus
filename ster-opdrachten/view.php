@@ -105,7 +105,7 @@ $CSRFtoken = csrf_gen();
         ?>
                     <div class="row">
                         <?php
-                        if ($steropdracht['status'] = 0) {
+                        if ($steropdracht['status'] == 0) {
                             echo <<<END
                                 <div class="col s12 m12 l6">
                                     <a href="/ster-opdrachten/process/{$id}/go/{$CSRFtoken}" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">check</i>Go</a>
@@ -114,7 +114,7 @@ $CSRFtoken = csrf_gen();
                                     <a href="/ster-opdrachten/process/{$id}/nogo/{$CSRFtoken}" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">close</i>No Go</a>
                                 </div>
 END;
-                        } elseif ($steropdracht['status'] = 1) {
+                        } elseif ($steropdracht['status'] == 1) {
                             echo <<<END
                                 <div class="col s12">
                                     <a href="/ster-opdrachten/process/{$id}/go/{$CSRFtoken}" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">check</i>Go</a>
