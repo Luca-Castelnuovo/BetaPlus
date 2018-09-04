@@ -86,7 +86,7 @@ END;
         FROM
             leerlingen
         WHERE
-            id='{$id}'";
+            id='{$steropdracht['leerling_id']}'";
 
     $owner = sql_query($query, true);
 

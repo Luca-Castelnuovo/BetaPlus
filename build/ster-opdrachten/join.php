@@ -86,7 +86,7 @@ END;
         FROM
             leerlingen
         WHERE
-            id='{$id}'";
+            id='{$steropdracht['leerling_id']}'";
 
     $owner = sql_query($query, true);
 
@@ -97,6 +97,6 @@ END;
     if (api_mail($owner['email'], 'Iemand wil meedoen aan je Ster Opdracht ||  BetaSterren', $body)) {
         redirect('/ster-opdrachten/view/' . $id, 'Verzoek verstuurd');
     } else {
-        redirect('/ster-opdrachten/view/' . $id, 'Oeps er ging iets fout');
+        redirect('/ster-opdrachten/view/' . $id, 'Oeps verstuurd');
     }
 }
