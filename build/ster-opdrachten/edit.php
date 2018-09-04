@@ -154,7 +154,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <script>var simplemde = new SimpleMDE({element: document.querySelector("#simplemde")});</script>
                         </div>
                         <div class="row">
-                            <?php if ($steropdracht['status'] < 2) {
+                            <?php if (!($steropdracht['status'] < 2)) {
     ?>
                                 <div class="col s12 m4">
                                     <a href="/ster-opdrachten/edit/<?= $id ?>/done" class="waves-effect waves-light btn-small color-secondary--background" onclick="return confirm('Weet je het zeker?')"><i class="material-icons left">done</i>Ster Opdracht klaar</a>
