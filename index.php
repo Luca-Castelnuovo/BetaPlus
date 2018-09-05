@@ -77,6 +77,12 @@
                         </div>
                     </div>
                     <div class="row">
+                        <label>
+                            <input type="checkbox" class="filled-in" name="remember" value="true" />
+                            <span>Remember Me</span>
+                        </label>
+                    </div>
+                    <div class="row">
                         <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>"/>
                         <button type="submit" class="waves-effect waves-light btn color-primary--background width-full">
                             Login
