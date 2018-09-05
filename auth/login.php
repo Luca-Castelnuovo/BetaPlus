@@ -79,12 +79,16 @@ if (password_verify($password, $user['password'])) {
         $_SESSION['admin'] = $user['admin'];
     }
 
+    if (isset($_POST['remember'])) {
+        $_SESSION['remember'] = true;
+    }
+
     session_regenerate_id(true);
+
+    log_action($user['first_name'] . ' ' . $user['last_name'], 'Login', 0);
 
     $return_url = $_SESSION['return_url'];
     unset($_SESSION['return_url']);
-
-    log_action($user['first_name'] . ' ' . $user['last_name'], 'Login', 0);
 
     if (!empty($return_url)) {
         redirect($return_url, 'U bent ingelogd');

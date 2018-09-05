@@ -108,13 +108,6 @@ function login()
         redirect('/?reset', 'Deze pagina is alleen zichtbaar als u ingelogd bent!');
     }
 
-    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) {
-        log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'Session Expired', 0);
-        redirect('/?reset', 'Uw sessie is verlopen');
-    } else {
-        $_SESSION['LAST_ACTIVITY'] = time();
-    }
-
     if (!isset($_SESSION['CREATED'])) {
         $_SESSION['CREATED'] = time();
     } elseif (time() - $_SESSION['CREATED'] > 600) {
@@ -122,9 +115,18 @@ function login()
         $_SESSION['CREATED'] = time();
     }
 
-    if ($_SESSION['ip'] != ip()) {
-        log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'Session IP doesnt match client IP', 2);
-        redirect('/?reset', 'Uw sessie is verlopen');
+    if (!$_SESSION['remember']) {
+        if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) {
+            log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'Session Expired', 0);
+            redirect('/?reset', 'Uw sessie is verlopen');
+        } else {
+            $_SESSION['LAST_ACTIVITY'] = time();
+        }
+
+        if ($_SESSION['ip'] != ip()) {
+            log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'Session IP doesnt match client IP', 2);
+            redirect('/?reset', 'Uw sessie is verlopen');
+        }
     }
 }
 
