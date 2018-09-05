@@ -1,7 +1,5 @@
 <?php
 
-// TODO: remember me system
-
 // TODO: steropdrachten - buddy system
 
 // TODO: auth - register doesnt insert token into db (check sql query)

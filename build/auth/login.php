@@ -65,6 +65,8 @@ if (password_verify($password, $user['password'])) {
         redirect('/?reset', 'Uw account is niet actief, contacteer AUB de administrator');
     }
 
+    $return_url = $_SESSION['return_url'];
+
     session_destroy();
     session_start();
 
@@ -81,15 +83,13 @@ if (password_verify($password, $user['password'])) {
 
     if (isset($_POST['remember'])) {
         $_SESSION['remember'] = true;
+        log_action($user['first_name'] . ' ' . $user['last_name'], 'Login Remember Me', 2);
+    } else {
+        log_action($user['first_name'] . ' ' . $user['last_name'], 'Login', 0);
     }
 
     session_regenerate_id(true);
-
-    log_action($user['first_name'] . ' ' . $user['last_name'], 'Login', 0);
-
-    $return_url = $_SESSION['return_url'];
-    unset($_SESSION['return_url']);
-
+    
     if (!empty($return_url)) {
         redirect($return_url, 'U bent ingelogd');
     } else {
