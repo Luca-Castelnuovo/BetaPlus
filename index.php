@@ -41,8 +41,10 @@
     <?php
     if (isset($_GET['reset'])) {
         $alert = $_SESSION['alert'];
+        $return_url = $_SESSION['return_url'];
         session_destroy();
         session_start();
+        $_SESSION['return_url'] = $return_url;
         redirect('/', $alert);
     }
 

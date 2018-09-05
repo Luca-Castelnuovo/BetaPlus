@@ -81,13 +81,13 @@ if (password_verify($password, $user['password'])) {
 
     session_regenerate_id(true);
 
-    $return_to = $_SESSION['return_url'];
+    $return_url = $_SESSION['return_url'];
     unset($_SESSION['return_url']);
 
     log_action($user['first_name'] . ' ' . $user['last_name'], 'Login', 0);
 
-    if (!empty($return_to)) {
-        redirect($return_to, 'U bent ingelogd');
+    if (!empty($return_url)) {
+        redirect($return_url, 'U bent ingelogd');
     } else {
         redirect('/general/home', 'U bent ingelogd');
     }

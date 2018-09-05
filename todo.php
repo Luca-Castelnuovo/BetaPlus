@@ -6,7 +6,7 @@
 
 // TODO: auth - register doesnt insert token into db (check sql query)
 
-// TODO: all emails shoulkd have '' around ster opdracht naam '{$steropdracht['project_name']}'
+// TODO: all emails should have '' around ster opdracht naam '{$steropdracht['project_name']}'
 
 // TODO: steropdrachten - support for pdf
 
