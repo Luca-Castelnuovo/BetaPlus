@@ -54,6 +54,11 @@
         session_start();
         redirect('/', 'U bent uitgelogd');
     }
+
+    if ($_SESSION['logged_in']) {
+        redirect('/general/home');
+    }
+
     ?>
 </head>
 
