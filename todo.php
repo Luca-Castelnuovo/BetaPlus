@@ -24,8 +24,6 @@
 
 // TODO: create destroy all sessions btn
 
-// TODO: remember me function
-
 // TODO: admin 2fa - https://github.com/Yubico/php-u2flib-server - https://github.com/Yubico/php-u2flib-server
 
 // TODO: security - CSP policy - https://scotthelme.co.uk/content-security-policy-an-introduction/
