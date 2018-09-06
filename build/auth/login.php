@@ -123,7 +123,7 @@ if (isset($_COOKIE['rememberme'])) {
         $cookie = $user['id'] . ':' . $token;
         $mac = hash_hmac('sha256', $cookie, 'SECRET_KEY');
         $cookie .= ':' . $mac;
-        setcookie('rememberme', $cookie);
+        setcookie('rememberme', $cookie, time()+31536000);
 
         log_action($user['first_name'] . ' ' . $user['last_name'], 'Login Remember Me', 2);
     } else {
