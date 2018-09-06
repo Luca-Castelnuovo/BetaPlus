@@ -22,7 +22,10 @@ if (isset($_COOKIE['rememberme'])) {
             redirect('/?reset', 'Het is niet mogelijk om in te loggen met de ingevulde gegevens.1');
         }
         if (!hash_equals($token_sql['token'], $token)) {
-            redirect('/?reset', 'Het is niet mogelijk om in te loggen met de ingevulde gegevens.2');
+            var_dump($token_sql);
+            var_dump($token);
+            exit;
+            // redirect('/?reset', 'Het is niet mogelijk om in te loggen met de ingevulde gegevens.');
         }
     } else {
         redirect('/?reset', 'Het is niet mogelijk om in te loggen met de ingevulde gegevens.3');
@@ -74,7 +77,7 @@ if (isset($_COOKIE['rememberme'])) {
     } elseif ($userLeerling->num_rows > 0) {
         $user = $userLeerling->fetch_assoc();
     } else {
-        redirect('/?reset', 'Het is niet mogelijk om in te loggen met de ingevulde gegevens.4');
+        redirect('/?reset', 'Het is niet mogelijk om in te loggen met de ingevulde gegevens.');
     }
 
     if ($user['failed_login'] > 4) {
@@ -85,7 +88,7 @@ if (isset($_COOKIE['rememberme'])) {
     if (!password_verify($password, $user['password'])) {
         $table = ($user['class'] == 'docenten') ? 'docenten' : 'leerlingen';
         sql_query("UPDATE {$table} SET failed_login = failed_login + 1 WHERE id='{$user['id']}'", false);
-        redirect('/?reset', 'Het is niet mogelijk om in te loggen met de ingevulde gegevens.5');
+        redirect('/?reset', 'Het is niet mogelijk om in te loggen met de ingevulde gegevens.');
     }
 
     sql_query("UPDATE leerlingen SET failed_login='0' WHERE id='{$user['id']}'", false);
