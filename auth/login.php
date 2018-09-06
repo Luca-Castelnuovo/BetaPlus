@@ -20,14 +20,10 @@ if (isset($_COOKIE['rememberme'])) {
         $token_sql = sql_query($query, true);
 
         if (!hash_equals(hash_hmac('sha256', $user . ':' . $token, 'SECRET_KEY'), $mac)) {
-            redirect('/?reset', 'Het is niet mogelijk om in te loggen met de ingevulde gegevens.1');
+            redirect('/?reset', 'Het is niet mogelijk om in te loggen met de ingevulde gegevens.');
         }
         if (!hash_equals($token_sql['token'], $token)) {
-            var_dump($query);
-            var_dump($token_sql);
-            var_dump($token);
-            exit;
-            // redirect('/?reset', 'Het is niet mogelijk om in te loggen met de ingevulde gegevens.');
+            redirect('/?reset', 'Het is niet mogelijk om in te loggen met de ingevulde gegevens.');
         }
     } else {
         redirect('/?reset', 'Het is niet mogelijk om in te loggen met de ingevulde gegevens.3');
