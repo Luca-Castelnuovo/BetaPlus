@@ -57,6 +57,10 @@
         redirect('/', 'U bent uitgelogd');
     }
 
+    if ($_SESSION['logged_in']) {
+        redirect('/general/home');
+    }
+
     if (isset($_COOKIE['rememberme'])) {
         redirect('/auth/login');
     }

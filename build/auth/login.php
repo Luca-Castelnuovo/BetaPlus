@@ -5,24 +5,17 @@ require($_SERVER['DOCUMENT_ROOT'] . "/init.php");
 csrf_val($_POST['CSRFtoken']);
 
 if (isset($_COOKIE['rememberme'])) {
-    function fetchTokenByUserName($user)
-    {
-        $query =
-        "SELECT
-            token,
-            created,
-            days_valid
-        FROM
-            tokens
-        WHERE
-            user='{$user}' AND type = 'remember_me'";
+    $query =
+    "SELECT
+        token,
+        created,
+        days_valid
+    FROM
+        tokens
+    WHERE
+        user='{$user}' AND type = 'remember_me'";
 
-        $token = sql_query($query, true);
-
-        // TODO: add check for valid within 30 days
-
-        return $token['token'];
-    }
+    $token = sql_query($query, true);
 
     $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
     if ($cookie) {
@@ -30,8 +23,7 @@ if (isset($_COOKIE['rememberme'])) {
         if (!hash_equals(hash_hmac('sha256', $user . ':' . $token, 'SECRET_KEY'), $mac)) {
             redirect('/?reset', 'Het is niet mogelijk om in te loggen met de ingevulde gegevens.');
         }
-        $usertoken = fetchTokenByUserName($user);
-        if (!hash_equals($usertoken, $token)) {
+        if (!hash_equals($token['token'], $token)) {
             redirect('/?reset', 'Het is niet mogelijk om in te loggen met de ingevulde gegevens.');
         }
     } else {
