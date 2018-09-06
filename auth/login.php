@@ -20,12 +20,18 @@ if (isset($_COOKIE['rememberme'])) {
         $token_sql = sql_query($query, true);
 
         if (!hash_equals(hash_hmac('sha256', $user . ':' . $token, 'SECRET_KEY'), $mac)) {
+            unset($_COOKIE['rememberme']);
+            setcookie('rememberme', null, -1, '/');
             redirect('/?reset', 'Het is niet mogelijk om in te loggen met de ingevulde gegevens.');
         }
         if (!hash_equals($token_sql['token'], $token)) {
+            unset($_COOKIE['rememberme']);
+            setcookie('rememberme', null, -1, '/');
             redirect('/?reset', 'Het is niet mogelijk om in te loggen met de ingevulde gegevens.');
         }
     } else {
+        unset($_COOKIE['rememberme']);
+        setcookie('rememberme', null, -1, '/');
         redirect('/?reset', 'Het is niet mogelijk om in te loggen met de ingevulde gegevens.3');
     }
 } else {
