@@ -15,7 +15,7 @@ if (isset($_COOKIE['rememberme'])) {
     WHERE
         user='{$user}' AND type = 'remember_me'";
 
-    $token = sql_query($query, true);
+    $token_sql = sql_query($query, true);
 
     $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
     if ($cookie) {
@@ -23,7 +23,7 @@ if (isset($_COOKIE['rememberme'])) {
         if (!hash_equals(hash_hmac('sha256', $user . ':' . $token, 'SECRET_KEY'), $mac)) {
             redirect('/?reset', 'Het is niet mogelijk om in te loggen met de ingevulde gegevens.');
         }
-        if (!hash_equals($token['token'], $token)) {
+        if (!hash_equals($token_sql['token'], $token)) {
             redirect('/?reset', 'Het is niet mogelijk om in te loggen met de ingevulde gegevens.');
         }
     } else {
