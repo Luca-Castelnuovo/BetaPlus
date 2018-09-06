@@ -3,21 +3,22 @@
 require($_SERVER['DOCUMENT_ROOT'] . "/init.php");
 
 if (isset($_COOKIE['rememberme'])) {
-    $query =
-    "SELECT
-        token,
-        created,
-        days_valid
-    FROM
-        tokens
-    WHERE
-        user='{$user}' AND type = 'remember_me'";
-
-    $token_sql = sql_query($query, true);
-
     $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
     if ($cookie) {
         list($user, $token, $mac) = explode(':', $cookie);
+
+        $query =
+        "SELECT
+            token,
+            created,
+            days_valid
+        FROM
+            tokens
+        WHERE
+            user='{$user}' AND type = 'remember_me'";
+
+        $token_sql = sql_query($query, true);
+
         if (!hash_equals(hash_hmac('sha256', $user . ':' . $token, 'SECRET_KEY'), $mac)) {
             redirect('/?reset', 'Het is niet mogelijk om in te loggen met de ingevulde gegevens.1');
         }
