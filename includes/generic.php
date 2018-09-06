@@ -37,7 +37,6 @@ function log_action($user, $action, $priority)
 //Redirect and set alert if specified
 function redirect($to, $alert = null)
 {
-    $_SESSION['return_url'] = $_SERVER['REQUEST_URI'];
     !isset($alert) ?: alert_set($alert);
     header('location: ' . $to);
     exit;
