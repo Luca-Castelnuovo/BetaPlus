@@ -2,8 +2,6 @@
 
 require($_SERVER['DOCUMENT_ROOT'] . "/init.php");
 
-csrf_val($_POST['CSRFtoken']);
-
 if (isset($_COOKIE['rememberme'])) {
     $query =
     "SELECT
@@ -30,6 +28,8 @@ if (isset($_COOKIE['rememberme'])) {
         redirect('/?reset', 'Het is niet mogelijk om in te loggen met de ingevulde gegevens.');
     }
 } else {
+    csrf_val($_POST['CSRFtoken']);
+
     if (empty($_POST['username']) || empty($_POST['password'])) {
         redirect('https://sd.keepcalm-o-matic.co.uk/i-w600/keep-calm-and-don-t-hack-me.jpg');
     }
