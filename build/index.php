@@ -50,13 +50,15 @@
 
     if (isset($_GET['logout'])) {
         log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'Logout', '0');
+        unset($_COOKIE['rememberme']);
+        setcookie('rememberme', null, -1, '/');
         session_destroy();
         session_start();
         redirect('/', 'U bent uitgelogd');
     }
 
-    if ($_SESSION['logged_in']) {
-        redirect('/general/home');
+    if (isset($_COOKIE['rememberme'])) {
+        redirect('/auth/login');
     }
 
     ?>
