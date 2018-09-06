@@ -22,6 +22,7 @@ if (isset($_COOKIE['rememberme'])) {
             redirect('/?reset', 'Het is niet mogelijk om in te loggen met de ingevulde gegevens.1');
         }
         if (!hash_equals($token_sql['token'], $token)) {
+            var_dump($query);
             var_dump($token_sql);
             var_dump($token);
             exit;
