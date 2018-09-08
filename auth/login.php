@@ -75,7 +75,7 @@ if (isset($_POST['remember'])) {
     "DELETE FROM
         tokens
     WHERE
-        user='{$user['id']}' AND type = 'remember_me'";
+        created < NOW() - INTERVAL 30 DAY AND type = 'remember_me'";
 
     sql_query($query, false);
 

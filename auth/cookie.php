@@ -24,7 +24,9 @@ LIMIT
 
 $token_sql = sql_query($query, true);
 
-//check if token within 30 days
+if (!($token['created'] >= $token['valid'])) {
+    redirect('/?reset', 'Na 30 dagen moet u opnieuw inloggen');
+}
 
 $config = config_load();
 
