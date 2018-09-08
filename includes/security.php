@@ -52,7 +52,7 @@ function csrf_val($post_token, $returnbool = false)
         if ($returnbool) {
             return false;
         } else {
-            redirect('/?reset', 'CSRF error!');
+            redirect('/general/home', 'CSRF error!');
         }
     }
 
@@ -62,7 +62,7 @@ function csrf_val($post_token, $returnbool = false)
         if ($returnbool) {
             return false;
         } else {
-            redirect('/?reset', 'CSRF error!');
+            redirect('/general/home', 'CSRF error!');
         }
     } else {
         unset($_SESSION['CSRFtoken']);
@@ -106,7 +106,7 @@ function login()
 {
     if ($_SESSION['logged_in'] != 1) {
         $_SESSION['return_url'] = $_SERVER['REQUEST_URI'];
-        redirect('/?reset', 'Deze pagina is alleen zichtbaar als u ingelogd bent!');
+        redirect('/?reset&preserveremember', 'Deze pagina is alleen zichtbaar als u ingelogd bent!');
     }
 
     if (!isset($_SESSION['CREATED'])) {
@@ -118,14 +118,14 @@ function login()
 
     if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) {
         log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'Session Expired', 0);
-        redirect('/?reset', 'Uw sessie is verlopen');
+        redirect('/?reset&preserveremember', 'Uw sessie is verlopen');
     } else {
         $_SESSION['LAST_ACTIVITY'] = time();
     }
 
     if ($_SESSION['ip'] != ip()) {
         log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'Session IP doesnt match client IP', 2);
-        redirect('/?reset', 'Uw sessie is verlopen');
+        redirect('/?reset&preserveremember', 'Uw sessie is verlopen');
     }
 }
 

@@ -55,7 +55,7 @@ $query =
     FROM
         {$table}
     WHERE
-        email='{$username}'";
+        id='{$user}'";
 
 $user = sql_query($query, true);
 

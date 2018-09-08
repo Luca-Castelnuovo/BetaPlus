@@ -39,9 +39,18 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <?php
-    if (isset($_GET['reset'])) {
+    if (isset($_GET['reset']) && isset($_GET['preserveremember'])) {
         $alert = $_SESSION['alert'];
         $return_url = $_SESSION['return_url'];
+        session_destroy();
+        session_start();
+        $_SESSION['return_url'] = $return_url;
+        redirect('/', $alert);
+    } elseif (isset($_GET['reset'])) {
+        $alert = $_SESSION['alert'];
+        $return_url = $_SESSION['return_url'];
+        unset($_COOKIE['REMEMBERME']);
+        setcookie('REMEMBERME', null, time() - 3600, "/", "betasterren.hetbaarnschlyceum.nl");
         session_destroy();
         session_start();
         $_SESSION['return_url'] = $return_url;
