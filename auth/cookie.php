@@ -26,10 +26,10 @@ $config = config_load();
 
 if (!hash_equals(hash_hmac('sha512', $user . ':' . $token, $config['hmac_key']), $mac)) {
     echo 'cookie hash key doesnt match' . '<br />';
-    echo $user . '<br />';
-    echo $token . '<br />';
-    echo $config['hmac_key'] . '<br />';
-    echo $mac;
+    echo 'user' . $user . '<br />';
+    echo 'token' . $token . '<br />';
+    echo 'config' . $config['hmac_key'] . '<br />';
+    echo 'mac' . $mac;
     exit;
     // redirect('/?logout');
 }
