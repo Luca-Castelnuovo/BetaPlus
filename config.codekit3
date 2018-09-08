@@ -44,6 +44,13 @@
 		"oAP": "\/build\/auth\/change.php",
 		"oF": 0
 		},
+	"\/auth\/cookie.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/auth\/cookie.php",
+		"oF": 0
+		},
 	"\/auth\/forgot.php": {
 		"cB": 0,
 		"ft": 8192,

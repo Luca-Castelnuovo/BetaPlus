@@ -2,134 +2,106 @@
 
 require($_SERVER['DOCUMENT_ROOT'] . "/init.php");
 
-if (isset($_COOKIE['rememberme'])) {
-    $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
-    if ($cookie) {
-        list($user, $token, $mac) = explode(':', $cookie);
+csrf_val($_POST['CSRFtoken']);
 
-        $query =
-        "SELECT
-            token,
-            created,
-            days_valid
-        FROM
-            tokens
-        WHERE
-            user='{$user}' AND type = 'remember_me'";
+if (empty($_POST['username']) || empty($_POST['password'])) {
+    redirect('https://sd.keepcalm-o-matic.co.uk/i-w600/keep-calm-and-don-t-hack-me.jpg');
+}
 
-        $token_sql = sql_query($query, true);
+$username = clean_data($_POST['username']);
+$password = clean_data($_POST['password']);
 
-        if (!hash_equals(hash_hmac('sha256', $user . ':' . $token, 'SECRET_KEY'), $mac)) {
-            redirect('/?logout');
-        }
-        if (!hash_equals($token_sql['token'], $token)) {
-            redirect('/?logout');
-        }
-    } else {
-        redirect('/?logout');
-    }
+$queryDocent =
+    "SELECT
+        id,
+        class,
+        active,
+        password,
+        first_name,
+        last_name,
+        failed_login
+    FROM
+        docenten
+    WHERE
+        email='{$username}'";
+
+$queryLeerling =
+    "SELECT
+        id,
+        class,
+        active,
+        password,
+        first_name,
+        last_name,
+        failed_login,
+        admin
+    FROM
+        leerlingen
+    WHERE
+        email='{$username}' OR leerling_nummer='{$username}'";
+
+$userDocent = sql_query($queryDocent, false);
+$userLeerling = sql_query($queryLeerling, false);
+
+if ($userDocent->num_rows > 0) {
+    $user = $userDocent->fetch_assoc();
+} elseif ($userLeerling->num_rows > 0) {
+    $user = $userLeerling->fetch_assoc();
 } else {
-    csrf_val($_POST['CSRFtoken']);
+    redirect('/?reset', 'Het is niet mogelijk om in te loggen met de ingevulde gegevens.');
+}
 
-    if (empty($_POST['username']) || empty($_POST['password'])) {
-        redirect('https://sd.keepcalm-o-matic.co.uk/i-w600/keep-calm-and-don-t-hack-me.jpg');
-    }
+if ($user['failed_login'] > 4) {
+    log_action($user['first_name'] . ' ' . $user['last_name'], 'Too many failed login attempts', 2);
+    redirect('/?reset', 'Uw account is geblokkeerd door teveel mislukt inlogpogingen, contacteer AUB de administrator');
+}
 
-    $username = clean_data($_POST['username']);
-    $password = clean_data($_POST['password']);
+if (!password_verify($password, $user['password'])) {
+    $table = ($user['class'] == 'docenten') ? 'docenten' : 'leerlingen';
+    sql_query("UPDATE {$table} SET failed_login = failed_login + 1 WHERE id='{$user['id']}'", false);
+    redirect('/?reset', 'Het is niet mogelijk om in te loggen met de ingevulde gegevens.');
+}
 
-    $queryDocent =
-        "SELECT
-            id,
-            class,
-            active,
-            password,
-            first_name,
-            last_name,
-            failed_login
-        FROM
-            docenten
-        WHERE
-            email='{$username}'";
+sql_query("UPDATE leerlingen SET failed_login='0' WHERE id='{$user['id']}'", false);
+sql_query("UPDATE docenten SET failed_login='0' WHERE id='{$user['id']}'", false);
 
-    $queryLeerling =
-        "SELECT
-            id,
-            class,
-            active,
-            password,
-            first_name,
-            last_name,
-            failed_login,
-            admin
-        FROM
-            leerlingen
-        WHERE
-            email='{$username}' OR leerling_nummer='{$username}'";
+if (!$user['active']) {
+    log_action($user['first_name'] . ' ' . $user['last_name'], 'Account Inactive', 2);
+    redirect('/?reset', 'Uw account is niet actief, contacteer AUB de administrator');
+}
 
-    $userDocent = sql_query($queryDocent, false);
-    $userLeerling = sql_query($queryLeerling, false);
+if (isset($_POST['remember'])) {
+    $token = gen(256);
+    $date = current_date(true);
+    $ip = ip();
 
-    if ($userDocent->num_rows > 0) {
-        $user = $userDocent->fetch_assoc();
-    } elseif ($userLeerling->num_rows > 0) {
-        $user = $userLeerling->fetch_assoc();
-    } else {
-        redirect('/?reset', 'Het is niet mogelijk om in te loggen met de ingevulde gegevens.');
-    }
+    $query =
+        "INSERT INTO
+        tokens
+            (token,
+            type,
+            created,
+            days_valid,
+            user,
+            gen_ip)
+        VALUES
+            ('{$token}',
+            'remember_me',
+            '{$date}',
+            '30',
+            '{$user['id']}',
+            '{$ip}')";
 
-    if ($user['failed_login'] > 4) {
-        log_action($user['first_name'] . ' ' . $user['last_name'], 'Too many failed login attempts', 2);
-        redirect('/?reset', 'Uw account is geblokkeerd door teveel mislukt inlogpogingen, contacteer AUB de administrator');
-    }
+    sql_query($query, false);
 
-    if (!password_verify($password, $user['password'])) {
-        $table = ($user['class'] == 'docenten') ? 'docenten' : 'leerlingen';
-        sql_query("UPDATE {$table} SET failed_login = failed_login + 1 WHERE id='{$user['id']}'", false);
-        redirect('/?reset', 'Het is niet mogelijk om in te loggen met de ingevulde gegevens.');
-    }
+    $cookie = $user['id'] . ':' . $token;
+    $mac = hash_hmac('sha256', $cookie, 'SECRET_KEY');
+    $cookie .= ':' . $mac;
+    setcookie('rememberme', $cookie, time()+2592000);
 
-    sql_query("UPDATE leerlingen SET failed_login='0' WHERE id='{$user['id']}'", false);
-    sql_query("UPDATE docenten SET failed_login='0' WHERE id='{$user['id']}'", false);
-
-    if (!$user['active']) {
-        log_action($user['first_name'] . ' ' . $user['last_name'], 'Account Inactive', 2);
-        redirect('/?reset', 'Uw account is niet actief, contacteer AUB de administrator');
-    }
-
-    if (isset($_POST['remember'])) {
-        $token = gen(256);
-        $date = current_date(true);
-        $ip = ip();
-
-        $query =
-            "INSERT INTO
-            tokens
-                (token,
-                type,
-                created,
-                days_valid,
-                user,
-                gen_ip)
-            VALUES
-                ('{$token}',
-                'remember_me',
-                '{$date}',
-                '30',
-                '{$user['id']}',
-                '{$ip}')";
-
-        sql_query($query, false);
-
-        $cookie = $user['id'] . ':' . $token;
-        $mac = hash_hmac('sha256', $cookie, 'SECRET_KEY');
-        $cookie .= ':' . $mac;
-        setcookie('rememberme', $cookie, time()+2592000);
-
-        log_action($user['first_name'] . ' ' . $user['last_name'], 'Login Remember Me', 2);
-    } else {
-        log_action($user['first_name'] . ' ' . $user['last_name'], 'Login', 0);
-    }
+    log_action($user['first_name'] . ' ' . $user['last_name'], 'Login Remember Me', 2);
+} else {
+    log_action($user['first_name'] . ' ' . $user['last_name'], 'Login', 0);
 }
 
 $return_url = $_SESSION['return_url'];

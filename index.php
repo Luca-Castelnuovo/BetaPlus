@@ -62,7 +62,7 @@
     }
 
     if (isset($_COOKIE['rememberme'])) {
-        redirect('/test');
+        redirect('/auth/cookie');
     }
 
     ?>
