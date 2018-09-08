@@ -25,12 +25,21 @@ $token_sql = sql_query($query, true);
 $config = config_load();
 
 if (!hash_equals(hash_hmac('sha512', $user . ':' . $token, $config['hmac_key']), $mac)) {
-    echo 'cookie hash key doesnt match';
+    echo 'cookie hash key doesnt match' . '<br />';
+    echo $user . '<br />';
+    echo $token . '<br />';
+    echo $config['hmac_key'] . '<br />';
+    echo $mac;
+    exit;
     // redirect('/?logout');
 }
 if (!hash_equals($token_sql['token'], $token)) {
-    echo 'token db doesnt match token cookie';
+    echo 'token db doesnt match token cookie' . '<br />';
+    echo $token_sql['token'] . '<br />';
+    echo $token;
+    exit;
     // redirect('/?logout');
 }
 
 echo 'success';
+exit;
