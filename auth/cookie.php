@@ -6,32 +6,31 @@ if (!isset($_COOKIE['REMEMBERME'])) {
     redirect('/?logout');
 }
 
-$cookie = isset($_COOKIE['REMEMBERME']) ? $_COOKIE['REMEMBERME'] : '';
-if ($cookie) {
-    list($user, $token, $mac) = explode(':', $cookie);
+list($user, $token, $mac) = explode(':', $_COOKIE['REMEMBERME']);
 
-    $query =
-    "SELECT
-        token,
-        created,
-        days_valid
-    FROM
-        tokens
-    WHERE
-        user='{$user}' AND type = 'remember_me'";
+$user = clean_data($user);
 
-    $token_sql = sql_query($query, true);
+$query =
+"SELECT
+    token,
+    created,
+    days_valid
+FROM
+    tokens
+WHERE
+    user='{$user}' AND type = 'remember_me'";
 
-    $config = config_load();
+$token_sql = sql_query($query, true);
 
-    if (!hash_equals(hash_hmac('sha512', $user . ':' . $token, $config['hmac_key']), $mac)) {
-        redirect('/?logout');
-    }
-    if (!hash_equals($token_sql['token'], $token)) {
-        redirect('/?logout');
-    }
+$config = config_load();
 
-    echo 'success';
-} else {
-    redirect('/?logout');
+if (!hash_equals(hash_hmac('sha512', $user . ':' . $token, $config['hmac_key']), $mac)) {
+    echo 'cookie hash key doesnt match';
+    // redirect('/?logout');
 }
+if (!hash_equals($token_sql['token'], $token)) {
+    echo 'token db doesnt match token cookie';
+    // redirect('/?logout');
+}
+
+echo 'success';
