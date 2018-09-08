@@ -3,7 +3,9 @@
 require($_SERVER['DOCUMENT_ROOT'] . "/init.php");
 
 if (!isset($_COOKIE['REMEMBERME'])) {
-    redirect('/?logout');
+    echo '2';
+    exit;
+    // redirect('/?logout');
 }
 
 list($user, $leerling, $token, $mac) = explode(':', $_COOKIE['REMEMBERME']);
@@ -29,10 +31,14 @@ $token_sql = sql_query($query, true);
 $config = config_load();
 
 if (!hash_equals(hash_hmac('sha512', $user . ':' . $leerling . ':'. $token, $config['hmac_key']), $mac)) {
-    redirect('/?logout');
+    echo '3';
+    exit;
+    // redirect('/?logout');
 }
 if (!hash_equals($token_sql['token'], $token)) {
-    redirect('/?logout');
+    echo '4';
+    exit;
+    // redirect('/?logout');
 }
 
 $table = ($leerling == 1) ? 'leerlingen' : 'docenten';
@@ -55,12 +61,16 @@ $user = sql_query($query, true);
 
 if ($user['failed_login'] > 4) {
     log_action($user['first_name'] . ' ' . $user['last_name'], 'Too many failed login attempts', 2);
-    redirect('/?reset', 'Uw account is geblokkeerd door teveel mislukt inlogpogingen, contacteer AUB de administrator');
+    echo '5';
+    exit;
+    // redirect('/?reset', 'Uw account is geblokkeerd door teveel mislukt inlogpogingen, contacteer AUB de administrator');
 }
 
 if (!$user['active']) {
     log_action($user['first_name'] . ' ' . $user['last_name'], 'Account Inactive', 2);
-    redirect('/?reset', 'Uw account is niet actief, contacteer AUB de administrator');
+    echo '6';
+    exit;
+    // redirect('/?reset', 'Uw account is niet actief, contacteer AUB de administrator');
 }
 
 sql_query("UPDATE leerlingen SET failed_login='0' WHERE id='{$user['id']}' AND class='{$user['class']}'", false);
@@ -87,7 +97,11 @@ if (isset($user['admin'])) {
 session_regenerate_id(true);
 
 if (!empty($return_url)) {
-    redirect($return_url, 'U bent ingelogd');
+    echo '7';
+    exit;
+// redirect($return_url, 'U bent ingelogd');
 } else {
-    redirect('/general/home', 'U bent ingelogd');
+    echo '8';
+    exit;
+    // redirect('/general/home', 'U bent ingelogd');
 }
