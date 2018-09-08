@@ -99,7 +99,7 @@ if (isset($_POST['remember'])) {
     $cookie = $user['id'] . ':' . $token;
     $mac = hash_hmac('sha512', $cookie, $config['hmac_key']);
     $cookie .= ':' . $mac;
-    setcookie('rememberme', $cookie, time()+2592000, "/", "betasterren.hetbaarnschlyceum.nl");
+    setcookie('REMEMBERME', $cookie, time()+2592000, "/", "betasterren.hetbaarnschlyceum.nl");
 
     log_action($user['first_name'] . ' ' . $user['last_name'], 'Login Remember Me', 2);
 } else {

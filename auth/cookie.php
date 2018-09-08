@@ -2,11 +2,11 @@
 
 require($_SERVER['DOCUMENT_ROOT'] . "/init.php");
 
-if (!isset($_COOKIE['rememberme'])) {
+if (!isset($_COOKIE['REMEMBERME'])) {
     redirect('/?logout');
 }
 
-$cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
+$cookie = isset($_COOKIE['REMEMBERME']) ? $_COOKIE['REMEMBERME'] : '';
 if ($cookie) {
     list($user, $token, $mac) = explode(':', $cookie);
 
