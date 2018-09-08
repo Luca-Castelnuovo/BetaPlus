@@ -35,8 +35,8 @@ if (!hash_equals(hash_hmac('sha512', $user . ':' . $token, $config['hmac_key']),
 }
 if (!hash_equals($token_sql['token'], $token)) {
     echo 'token db doesnt match token cookie' . '<br />';
-    echo $token_sql['token'] . '<br />';
-    echo $token;
+    echo 'sql' . $token_sql['token'] . '<br />';
+    echo 'token' . $token;
     exit;
     // redirect('/?logout');
 }
