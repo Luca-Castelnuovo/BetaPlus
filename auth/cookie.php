@@ -28,7 +28,7 @@ $token_sql = sql_query($query, true);
 
 $config = config_load();
 
-if (!hash_equals(hash_hmac('sha512', $user . ':' . $token, $config['hmac_key']), $mac)) {
+if (!hash_equals(hash_hmac('sha512', $user . ':' . $leerling . ':'. $token, $config['hmac_key']), $mac)) {
     redirect('/?logout');
 }
 if (!hash_equals($token_sql['token'], $token)) {
