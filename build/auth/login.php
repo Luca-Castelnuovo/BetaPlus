@@ -62,13 +62,13 @@ if (!password_verify($password, $user['password'])) {
     redirect('/?reset', 'Het is niet mogelijk om in te loggen met de ingevulde gegevens.');
 }
 
-sql_query("UPDATE leerlingen SET failed_login='0' WHERE id='{$user['id']}'", false);
-sql_query("UPDATE docenten SET failed_login='0' WHERE id='{$user['id']}'", false);
-
 if (!$user['active']) {
     log_action($user['first_name'] . ' ' . $user['last_name'], 'Account Inactive', 2);
     redirect('/?reset', 'Uw account is niet actief, contacteer AUB de administrator');
 }
+
+sql_query("UPDATE leerlingen SET failed_login='0' WHERE id='{$user['id']}' AND class='{$user['class']}'", false);
+sql_query("UPDATE docenten SET failed_login='0' WHERE id='{$user['id']}' AND class='{$user['class']}'", false);
 
 if (isset($_POST['remember'])) {
     $query =
@@ -104,12 +104,14 @@ if (isset($_POST['remember'])) {
 
     $config = config_load();
 
-    $cookie = $user['id'] . ':' . $token;
+    $cookie_user = ($user['class'] == 'class') ? 0 : 1;
+
+    $cookie = $user['id'] . ':' . $cookie_user . ':'. $token;
     $mac = hash_hmac('sha512', $cookie, $config['hmac_key']);
     $cookie .= ':' . $mac;
     setcookie('REMEMBERME', $cookie, time()+2592000, "/", "betasterren.hetbaarnschlyceum.nl");
 
-    log_action($user['first_name'] . ' ' . $user['last_name'], 'Login Remember Me', 2);
+    log_action($user['first_name'] . ' ' . $user['last_name'], 'Login set Remember', 2);
 } else {
     log_action($user['first_name'] . ' ' . $user['last_name'], 'Login', 0);
 }
