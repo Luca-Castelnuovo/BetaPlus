@@ -94,8 +94,10 @@ if (isset($_POST['remember'])) {
 
     sql_query($query, false);
 
+    $config = config_load();
+
     $cookie = $user['id'] . ':' . $token;
-    $mac = hash_hmac('sha256', $cookie, 'SECRET_KEY');
+    $mac = hash_hmac('sha512', $cookie, $config['hmac_key']);
     $cookie .= ':' . $mac;
     setcookie('rememberme', $cookie, time()+2592000, "/", "betasterren.hetbaarnschlyceum.nl");
 
