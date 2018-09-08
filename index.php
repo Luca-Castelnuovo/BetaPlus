@@ -51,7 +51,7 @@
     if (isset($_GET['logout'])) {
         log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'Logout', '0');
         unset($_COOKIE['rememberme']);
-        setcookie('rememberme', null, -1, "/", "betasterren.hetbaarnschlyceum.nl");
+        setcookie('rememberme', null, time() - 3600, "/", "betasterren.hetbaarnschlyceum.nl");
         session_destroy();
         session_start();
         redirect('/', 'U bent uitgelogd');
