@@ -71,6 +71,14 @@ if (!$user['active']) {
 }
 
 if (isset($_POST['remember'])) {
+    $query =
+    "DELETE FROM
+        tokens
+    WHERE
+        user='{$user['id']}' AND type = 'remember_me'";
+
+    sql_query($query, false);
+
     $token = gen(256);
     $date = current_date(true);
     $ip = ip();

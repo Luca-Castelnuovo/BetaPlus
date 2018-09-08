@@ -18,28 +18,28 @@ $query =
 FROM
     tokens
 WHERE
-    user='{$user}' AND type = 'remember_me'";
+    user='{$user}' AND type = 'remember_me'
+LIMIT
+    1";
 
 $token_sql = sql_query($query, true);
+
+//check if token within 30 days
 
 $config = config_load();
 
 if (!hash_equals(hash_hmac('sha512', $user . ':' . $token, $config['hmac_key']), $mac)) {
-    echo 'cookie hash key doesnt match' . '<br />';
-    echo 'user  ' . $user . '<br />';
-    echo 'token  ' . $token . '<br />';
-    echo 'config  ' . $config['hmac_key'] . '<br />';
-    echo 'mac  ' . $mac;
-    exit;
-    // redirect('/?logout');
+    redirect('/?logout');
 }
 if (!hash_equals($token_sql['token'], $token)) {
-    echo 'token db doesnt match token cookie' . '<br />';
-    echo 'sql  ' . $token_sql['token'] . '<br />';
-    echo 'token  ' . $token;
-    exit;
-    // redirect('/?logout');
+    redirect('/?logout');
 }
+
+echo 'user  ' . $user . '<br />';
+echo 'token  ' . $token . '<br />';
+echo 'sql  ' . $token_sql['token'] . '<br />';
+echo 'config  ' . $config['hmac_key'] . '<br />';
+echo 'mac  ' . $mac;
 
 echo 'success';
 exit;

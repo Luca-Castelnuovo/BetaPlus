@@ -186,13 +186,6 @@
 		"oAP": "\/build\/general\/upload.php",
 		"oF": 0
 		},
-	"\/includes\/admin.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/includes\/admin.php",
-		"oF": 0
-		},
 	"\/includes\/api.php": {
 		"cB": 0,
 		"ft": 8192,
