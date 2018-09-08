@@ -72,10 +72,10 @@ sql_query("UPDATE docenten SET failed_login='0' WHERE id='{$user['id']}' AND cla
 
 if (isset($_POST['remember'])) {
     $query =
-    "DELETE FROM
-        tokens
-    WHERE
-        created < NOW() - INTERVAL 30 DAY AND type = 'remember_me'";
+        "DELETE FROM
+            tokens
+        WHERE
+            created < NOW() - INTERVAL 30 DAY AND type = 'remember_me'";
 
     sql_query($query, false);
 
