@@ -5,6 +5,18 @@ login_leerling();
 
 head('Settings', 0);
 
+if (isset($_GET['logout'])) {
+    $query =
+        "DELETE FROM
+            tokens
+        WHERE
+            user = '{$_SESSION['id']}' AND type = 'remember_me'";
+
+    sql_query($query, false);
+
+    redirect('/leerlingen/settings', 'U bent overal uitgelogd');
+}
+
 $query =
     "SELECT
         first_name,
@@ -33,13 +45,14 @@ $user = sql_query($query, true);
         </div>
     </div>
     <div class="row">
-        <div class="col s12 m3">
-            <a href="/general/upload/leerling_profile/" class="waves-effect waves-light btn color-primary--background">Verander
-                profiel foto</a>
+        <div class="col s12 m4">
+            <a href="/general/upload/leerling_profile/" class="waves-effect waves-light btn color-primary--background">Verander profiel foto</a>
         </div>
-        <div class="col s12 m3">
-            <a href="/auth/change" class="waves-effect waves-light btn color-primary--background">Verander
-                wachtwoord</a>
+        <div class="col s12 m4">
+            <a href="/auth/change" class="waves-effect waves-light btn color-primary--background">Verander wachtwoord</a>
+        </div>
+        <div class="col s12 m4">
+            <a href="/leerlingen/settings?logout" class="waves-effect waves-light btn color-primary--background">Log uw account overal uit</a>
         </div>
     </div>
 </div>

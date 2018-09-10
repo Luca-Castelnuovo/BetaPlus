@@ -101,7 +101,9 @@ function admin_log_list()
         FROM
             logs
         ORDER BY
-            date DESC";
+            date DESC
+        LIMIT
+            250";
 
     $result = sql_query($query, false);
 

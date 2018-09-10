@@ -2,7 +2,7 @@
 
 // TODO: steropdrachten - buddy system
 
-// TODO: auth - register doesnt insert token into db (check sql query)
+// TODO: add logout everywhere btn (should delete all remember me tokens)
 
 // TODO: all emails should have '' around ster opdracht naam '{$steropdracht['project_name']}'
 
@@ -21,8 +21,6 @@
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ = layout
 
 // TODO: ga de hele website af voor log actions
-
-// TODO: create destroy all sessions btn
 
 // TODO: admin 2fa - https://github.com/Yubico/php-u2flib-server - https://github.com/Yubico/php-u2flib-server
 
