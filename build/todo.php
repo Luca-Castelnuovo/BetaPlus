@@ -2,8 +2,6 @@
 
 // TODO: steropdrachten - buddy system
 
-// TODO: all emails should have '' around ster opdracht naam '{$steropdracht['project_name']}'
-
 // TODO: steropdrachten - support for pdf
 
 // TODO: steropdrachten - counter met totaal aantal sterren
