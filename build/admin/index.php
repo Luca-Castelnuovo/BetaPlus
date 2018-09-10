@@ -60,7 +60,7 @@ $_SESSION['toast_set'] = true;
                 </div>
                 <div class="row">
                     <h3>Sessions</h3>
-                    <a class="waves-effect waves-light btn-large color-secondary--background"><i class="material-icons left">code</i>Destroy all sessions</a>
+                    <a href="/admin/process/<?= csrf_gen() ?>/remember///" class="waves-effect waves-light btn-large color-secondary--background"><i class="material-icons left">code</i>Destroy all sessions</a>
                 </div>
             </div>
         </div>

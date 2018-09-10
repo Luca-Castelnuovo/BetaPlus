@@ -2,8 +2,6 @@
 
 // TODO: steropdrachten - buddy system
 
-// TODO: add logout everywhere btn (should delete all remember me tokens)
-
 // TODO: all emails should have '' around ster opdracht naam '{$steropdracht['project_name']}'
 
 // TODO: steropdrachten - support for pdf

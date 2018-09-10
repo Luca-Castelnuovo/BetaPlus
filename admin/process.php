@@ -114,6 +114,15 @@ END;
                     logs";
             break;
 
+        case 'remember':
+        $customQuery = true;
+        $query =
+            "DELETE FROM
+                tokens
+            WHERE
+                type = 'remember_me'";
+            break;
+
         default:
             redirect('/admin', 'Wrong type was passed!');
             break;
