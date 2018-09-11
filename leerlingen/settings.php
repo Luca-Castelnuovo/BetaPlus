@@ -45,13 +45,13 @@ $user = sql_query($query, true);
         </div>
     </div>
     <div class="row">
-        <div class="col s12 mt5">
+        <div class="col s12 margin-top-5">
             <a href="/general/upload/leerling_profile/" class="waves-effect waves-light btn color-primary--background">Verander profiel foto</a>
         </div>
-        <div class="col s12 mt5">
+        <div class="col s12 margin-top-5">
             <a href="/auth/change" class="waves-effect waves-light btn color-primary--background">Verander wachtwoord</a>
         </div>
-        <div class="col s12 mt5">
+        <div class="col s12 margin-top-5">
             <a href="/leerlingen/settings?logout" class="waves-effect waves-light btn color-primary--background">Log uw account overal uit</a>
         </div>
     </div>
