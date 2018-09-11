@@ -57,14 +57,6 @@ RewriteRule ^general/pdf/([^/]*)$ /general/pdf.php?random_id=$1 [L]
 RewriteRule ^general/upload/([^/]*)/([^/]*)/$ /general/upload.php?type=$1&id=$2 [L]
 RewriteRule ^general/upload/([^/]*)/([^/]*)$ /general/upload.php?type=$1&id=$2 [L]
 
-##############
-# Leerlingen #
-##############
-
-#Search in Index
-RewriteRule ^leerlingen/search/([^/]*)/$ /leerlingen/index.php?search=$1 [L]
-RewriteRule ^leerlingen/search/([^/]*)$ /leerlingen/index.php?search=$1 [L]
-
 ##########
 # Overig #
 ##########

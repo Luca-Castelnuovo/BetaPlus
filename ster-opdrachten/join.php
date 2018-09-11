@@ -13,6 +13,7 @@ if (!isset($_GET['request_id'])) {
 
 $query =
     "SELECT
+        id,
         leerling_id,
         status,
         buddy_id,

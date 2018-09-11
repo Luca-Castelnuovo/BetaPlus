@@ -93,7 +93,7 @@ if ($steropdracht['leerling_id'] == $_SESSION['id'] || $steropdracht['buddy_id']
             </div>
             <h1 class="center"><?= $steropdracht['project_name'] ?></h1>
             <h6 class="center flow-text">
-                Door: <a href="/leerlingen/search/<?= $leerling['leerling_nummer'] ?>"><?= $leerling['first_name'] ?> <?= $leerling['last_name'] ?></a>
+                Door: <?= $leerling['first_name'] ?> <?= $leerling['last_name'] ?>
             </h6>
         </div>
     </div>
