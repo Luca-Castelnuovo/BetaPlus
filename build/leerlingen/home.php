@@ -13,7 +13,7 @@ head('Home', 0);
             <div class="col s12">
                 <a href="/ster-opdrachten/new" class="waves-effect waves-light btn-large color-secondary--background"><i
                             class="material-icons left">add_circle_outline</i>Nieuwe Ster Opdracht</a>
-                <?php steropdrachten_counter(); ?>
+                <?php echo 'Aantal behaalde Sterren: ' . steropdrachten_counter(); ?>
                 <h3>Mijn lopende Ster Opdrachten</h3>
                 <?php steropdrachten_list_my(0); ?>
                 <h3>Mijn afgeronde Ster Opdrachten</h3>
