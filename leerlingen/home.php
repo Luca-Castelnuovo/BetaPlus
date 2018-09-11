@@ -19,7 +19,8 @@ head('Home', 0);
                 <h3>Mijn afgeronde Ster Opdrachten</h3>
                 <?php steropdrachten_list_my(1); ?>
             </div>
-        </div>
+        </div
+        >
     </div>
 </div>
 
