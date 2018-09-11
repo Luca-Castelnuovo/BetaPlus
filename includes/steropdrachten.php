@@ -243,5 +243,6 @@ function steropdrachten_counter()
             steropdrachten
         WHERE leerling_id = '{$_SESSION['id']}'";
 
-    echo sql_query($query, false);
+    $aantal = sql_query($query, false);
+    echo $aantal['SUM(sterren)'];
 }
