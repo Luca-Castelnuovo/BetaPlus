@@ -37,13 +37,11 @@ if ($_SESSION['id'] == $steropdracht['leerling_id']) {
     }
 
     if ($_GET['accept']) {
-        array_push($steropdracht['buddy_id'], $request_id);
-
         $query =
             "UPDATE
                 steropdrachten
             SET
-                buddy_id = '{$steropdracht['buddy_id']}'
+                buddy_id = '{$request_id}'
             WHERE
                 id='{$request_id}'";
 
