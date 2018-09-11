@@ -12,8 +12,6 @@
 // TODO: agenda - support for pdf
 // TODO: agenda - improve ui
 
-// TODO: ga de hele website af voor log actions
-
-// TODO: admin 2fa - https://github.com/Yubico/php-u2flib-server - https://github.com/Yubico/php-u2flib-server
+// TODO: security - ga de hele website af voor log actions
 
 // TODO: security - CSP policy - https://scotthelme.co.uk/content-security-policy-an-introduction/

@@ -115,9 +115,9 @@ END;
             break;
 
         case 'remember':
-        $customQuery = true;
-        $query =
-            "DELETE FROM
+            $customQuery = true;
+            $query =
+                "DELETE FROM
                 tokens
             WHERE
                 type = 'remember_me'";
@@ -130,7 +130,7 @@ END;
 
     if (!$customQuery) {
         $query =
-        "UPDATE
+            "UPDATE
             {$sql_table}
         SET
             {$set}='{$value}'

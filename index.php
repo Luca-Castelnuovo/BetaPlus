@@ -100,7 +100,7 @@
                     </div>
                     <div class="row">
                         <label>
-                            <input type="checkbox" class="filled-in" name="remember" value="true" />
+                            <input type="checkbox" class="filled-in" name="remember" value="true"/>
                             <span>Remember Me</span>
                         </label>
                     </div>

@@ -38,10 +38,12 @@ $user = sql_query($query, true);
     </div>
     <div class="row">
         <div class="col s12 margin-top-5">
-            <a href="/auth/change" class="waves-effect waves-light btn color-primary--background">Verander wachtwoord</a>
+            <a href="/auth/change" class="waves-effect waves-light btn color-primary--background">Verander
+                wachtwoord</a>
         </div>
         <div class="col s12 margin-top-5">
-            <a href="/docenten/settings?logout" class="waves-effect waves-light btn color-primary--background">Log uw account overal uit</a>
+            <a href="/docenten/settings?logout" class="waves-effect waves-light btn color-primary--background">Log uw
+                account overal uit</a>
         </div>
     </div>
 </div>

@@ -187,6 +187,195 @@ class Parsedown
     #
     # Fenced Code
 
+    protected function elements(array $Elements)
+    {
+        $markup = '';
+
+        $autoBreak = true;
+
+        foreach ($Elements as $Element) {
+            if (empty($Element)) {
+                continue;
+            }
+
+            $autoBreakNext = (
+            isset($Element['autobreak'])
+                ? $Element['autobreak'] : isset($Element['name'])
+            );
+            $autoBreak = !$autoBreak ? $autoBreak : $autoBreakNext;
+
+            $markup .= ($autoBreak ? "\n" : '') . $this->element($Element);
+            $autoBreak = $autoBreakNext;
+        }
+
+        $markup .= $autoBreak ? "\n" : '';
+
+        return $markup;
+    }
+
+    protected function element(array $Element)
+    {
+        if ($this->safeMode) {
+            $Element = $this->sanitiseElement($Element);
+        }
+
+        # identity map if element has no handler
+        $Element = $this->handle($Element);
+
+        $hasName = isset($Element['name']);
+
+        $markup = '';
+
+        if ($hasName) {
+            $markup .= '<' . $Element['name'];
+
+            if (isset($Element['attributes'])) {
+                foreach ($Element['attributes'] as $name => $value) {
+                    if ($value === null) {
+                        continue;
+                    }
+
+                    $markup .= " $name=\"" . self::escape($value) . '"';
+                }
+            }
+        }
+
+        $permitRawHtml = false;
+
+        if (isset($Element['text'])) {
+            $text = $Element['text'];
+        } elseif (isset($Element['rawHtml'])) {
+            $text = $Element['rawHtml'];
+
+            $allowRawHtmlInSafeMode = isset($Element['allowRawHtmlInSafeMode']) && $Element['allowRawHtmlInSafeMode'];
+            $permitRawHtml = !$this->safeMode || $allowRawHtmlInSafeMode;
+        }
+
+        $hasContent = isset($text) || isset($Element['element']) || isset($Element['elements']);
+
+        if ($hasContent) {
+            $markup .= $hasName ? '>' : '';
+
+            if (isset($Element['elements'])) {
+                $markup .= $this->elements($Element['elements']);
+            } elseif (isset($Element['element'])) {
+                $markup .= $this->element($Element['element']);
+            } else {
+                if (!$permitRawHtml) {
+                    $markup .= self::escape($text, true);
+                } else {
+                    $markup .= $text;
+                }
+            }
+
+            $markup .= $hasName ? '</' . $Element['name'] . '>' : '';
+        } elseif ($hasName) {
+            $markup .= ' />';
+        }
+
+        return $markup;
+    }
+
+    protected function sanitiseElement(array $Element)
+    {
+        static $goodAttribute = '/^[a-zA-Z0-9][a-zA-Z0-9-_]*+$/';
+        static $safeUrlNameToAtt = array(
+            'a' => 'href',
+            'img' => 'src',
+        );
+
+        if (!isset($Element['name'])) {
+            unset($Element['attributes']);
+            return $Element;
+        }
+
+        if (isset($safeUrlNameToAtt[$Element['name']])) {
+            $Element = $this->filterUnsafeUrlInAttribute($Element, $safeUrlNameToAtt[$Element['name']]);
+        }
+
+        if (!empty($Element['attributes'])) {
+            foreach ($Element['attributes'] as $att => $val) {
+                # filter out badly parsed attribute
+                if (!preg_match($goodAttribute, $att)) {
+                    unset($Element['attributes'][$att]);
+                } # dump onevent attribute
+                elseif (self::striAtStart($att, 'on')) {
+                    unset($Element['attributes'][$att]);
+                }
+            }
+        }
+
+        return $Element;
+    }
+
+    #
+    # Header
+
+    protected function filterUnsafeUrlInAttribute(array $Element, $attribute)
+    {
+        foreach ($this->safeLinksWhitelist as $scheme) {
+            if (self::striAtStart($Element['attributes'][$attribute], $scheme)) {
+                return $Element;
+            }
+        }
+
+        $Element['attributes'][$attribute] = str_replace(':', '%3A', $Element['attributes'][$attribute]);
+
+        return $Element;
+    }
+
+    #
+    # List
+
+    protected static function striAtStart($string, $needle)
+    {
+        $len = strlen($needle);
+
+        if ($len > strlen($string)) {
+            return false;
+        } else {
+            return strtolower(substr($string, 0, $len)) === strtolower($needle);
+        }
+    }
+
+    protected function handle(array $Element)
+    {
+        if (isset($Element['handler'])) {
+            if (!isset($Element['nonNestables'])) {
+                $Element['nonNestables'] = array();
+            }
+
+            if (is_string($Element['handler'])) {
+                $function = $Element['handler'];
+                $argument = $Element['text'];
+                unset($Element['text']);
+                $destination = 'rawHtml';
+            } else {
+                $function = $Element['handler']['function'];
+                $argument = $Element['handler']['argument'];
+                $destination = $Element['handler']['destination'];
+            }
+
+            $Element[$destination] = $this->{$function}($argument, $Element['nonNestables']);
+
+            if ($destination === 'handler') {
+                $Element = $this->handle($Element);
+            }
+
+            unset($Element['handler']);
+        }
+
+        return $Element;
+    }
+
+    protected static function escape($text, $allowQuotes = false)
+    {
+        return htmlspecialchars($text, $allowQuotes ? ENT_NOQUOTES : ENT_QUOTES, 'UTF-8');
+    }
+
+    #
+    # Quote
+
     protected function lineElements($text, $nonNestables = array())
     {
         $Elements = array();
@@ -295,6 +484,9 @@ class Parsedown
         return $Inline;
     }
 
+    #
+    # Rule
+
     /**
      * Replace occurrences $regexp with $Elements in $text. Return an array of
      * elements representing the replacement.
@@ -323,7 +515,23 @@ class Parsedown
     }
 
     #
-    # Header
+    # Setext
+
+    protected function extractElement(array $Component)
+    {
+        if (!isset($Component['element'])) {
+            if (isset($Component['markup'])) {
+                $Component['element'] = array('rawHtml' => $Component['markup']);
+            } elseif (isset($Component['hidden'])) {
+                $Component['element'] = array();
+            }
+        }
+
+        return $Component['element'];
+    }
+
+    #
+    # Markup
 
     public function parse($text)
     {
@@ -331,9 +539,6 @@ class Parsedown
 
         return $markup;
     }
-
-    #
-    # List
 
     public function text($text)
     {
@@ -347,6 +552,9 @@ class Parsedown
 
         return $markup;
     }
+
+    #
+    # Reference
 
     protected function textElements($text)
     {
@@ -364,206 +572,6 @@ class Parsedown
 
         # iterate through lines to identify blocks
         return $this->linesElements($lines);
-    }
-
-    protected function lines(array $lines)
-    {
-        return $this->elements($this->linesElements($lines));
-    }
-
-    #
-    # Quote
-
-    protected function elements(array $Elements)
-    {
-        $markup = '';
-
-        $autoBreak = true;
-
-        foreach ($Elements as $Element) {
-            if (empty($Element)) {
-                continue;
-            }
-
-            $autoBreakNext = (
-            isset($Element['autobreak'])
-                ? $Element['autobreak'] : isset($Element['name'])
-            );
-            $autoBreak = !$autoBreak ? $autoBreak : $autoBreakNext;
-
-            $markup .= ($autoBreak ? "\n" : '') . $this->element($Element);
-            $autoBreak = $autoBreakNext;
-        }
-
-        $markup .= $autoBreak ? "\n" : '';
-
-        return $markup;
-    }
-
-    protected function element(array $Element)
-    {
-        if ($this->safeMode) {
-            $Element = $this->sanitiseElement($Element);
-        }
-
-        # identity map if element has no handler
-        $Element = $this->handle($Element);
-
-        $hasName = isset($Element['name']);
-
-        $markup = '';
-
-        if ($hasName) {
-            $markup .= '<' . $Element['name'];
-
-            if (isset($Element['attributes'])) {
-                foreach ($Element['attributes'] as $name => $value) {
-                    if ($value === null) {
-                        continue;
-                    }
-
-                    $markup .= " $name=\"" . self::escape($value) . '"';
-                }
-            }
-        }
-
-        $permitRawHtml = false;
-
-        if (isset($Element['text'])) {
-            $text = $Element['text'];
-        } elseif (isset($Element['rawHtml'])) {
-            $text = $Element['rawHtml'];
-
-            $allowRawHtmlInSafeMode = isset($Element['allowRawHtmlInSafeMode']) && $Element['allowRawHtmlInSafeMode'];
-            $permitRawHtml = !$this->safeMode || $allowRawHtmlInSafeMode;
-        }
-
-        $hasContent = isset($text) || isset($Element['element']) || isset($Element['elements']);
-
-        if ($hasContent) {
-            $markup .= $hasName ? '>' : '';
-
-            if (isset($Element['elements'])) {
-                $markup .= $this->elements($Element['elements']);
-            } elseif (isset($Element['element'])) {
-                $markup .= $this->element($Element['element']);
-            } else {
-                if (!$permitRawHtml) {
-                    $markup .= self::escape($text, true);
-                } else {
-                    $markup .= $text;
-                }
-            }
-
-            $markup .= $hasName ? '</' . $Element['name'] . '>' : '';
-        } elseif ($hasName) {
-            $markup .= ' />';
-        }
-
-        return $markup;
-    }
-
-    #
-    # Rule
-
-    protected function sanitiseElement(array $Element)
-    {
-        static $goodAttribute = '/^[a-zA-Z0-9][a-zA-Z0-9-_]*+$/';
-        static $safeUrlNameToAtt = array(
-            'a' => 'href',
-            'img' => 'src',
-        );
-
-        if (!isset($Element['name'])) {
-            unset($Element['attributes']);
-            return $Element;
-        }
-
-        if (isset($safeUrlNameToAtt[$Element['name']])) {
-            $Element = $this->filterUnsafeUrlInAttribute($Element, $safeUrlNameToAtt[$Element['name']]);
-        }
-
-        if (!empty($Element['attributes'])) {
-            foreach ($Element['attributes'] as $att => $val) {
-                # filter out badly parsed attribute
-                if (!preg_match($goodAttribute, $att)) {
-                    unset($Element['attributes'][$att]);
-                } # dump onevent attribute
-                elseif (self::striAtStart($att, 'on')) {
-                    unset($Element['attributes'][$att]);
-                }
-            }
-        }
-
-        return $Element;
-    }
-
-    #
-    # Setext
-
-    protected function filterUnsafeUrlInAttribute(array $Element, $attribute)
-    {
-        foreach ($this->safeLinksWhitelist as $scheme) {
-            if (self::striAtStart($Element['attributes'][$attribute], $scheme)) {
-                return $Element;
-            }
-        }
-
-        $Element['attributes'][$attribute] = str_replace(':', '%3A', $Element['attributes'][$attribute]);
-
-        return $Element;
-    }
-
-    #
-    # Markup
-
-    protected static function striAtStart($string, $needle)
-    {
-        $len = strlen($needle);
-
-        if ($len > strlen($string)) {
-            return false;
-        } else {
-            return strtolower(substr($string, 0, $len)) === strtolower($needle);
-        }
-    }
-
-    protected function handle(array $Element)
-    {
-        if (isset($Element['handler'])) {
-            if (!isset($Element['nonNestables'])) {
-                $Element['nonNestables'] = array();
-            }
-
-            if (is_string($Element['handler'])) {
-                $function = $Element['handler'];
-                $argument = $Element['text'];
-                unset($Element['text']);
-                $destination = 'rawHtml';
-            } else {
-                $function = $Element['handler']['function'];
-                $argument = $Element['handler']['argument'];
-                $destination = $Element['handler']['destination'];
-            }
-
-            $Element[$destination] = $this->{$function}($argument, $Element['nonNestables']);
-
-            if ($destination === 'handler') {
-                $Element = $this->handle($Element);
-            }
-
-            unset($Element['handler']);
-        }
-
-        return $Element;
-    }
-
-    #
-    # Reference
-
-    protected static function escape($text, $allowQuotes = false)
-    {
-        return htmlspecialchars($text, $allowQuotes ? ENT_NOQUOTES : ENT_QUOTES, 'UTF-8');
     }
 
     #
@@ -707,27 +715,10 @@ class Parsedown
     # ~
     #
 
-    protected function extractElement(array $Component)
-    {
-        if (!isset($Component['element'])) {
-            if (isset($Component['markup'])) {
-                $Component['element'] = array('rawHtml' => $Component['markup']);
-            } elseif (isset($Component['hidden'])) {
-                $Component['element'] = array();
-            }
-        }
-
-        return $Component['element'];
-    }
-
     protected function isBlockContinuable($Type)
     {
         return method_exists($this, 'block' . $Type . 'Continue');
     }
-
-    #
-    # Inline Elements
-    #
 
     protected function paragraphContinue($Line, array $Block)
     {
@@ -740,7 +731,9 @@ class Parsedown
         return $Block;
     }
 
-    # ~
+    #
+    # Inline Elements
+    #
 
     protected function paragraph($Line)
     {
@@ -755,6 +748,13 @@ class Parsedown
                 ),
             ),
         );
+    }
+
+    # ~
+
+    protected function lines(array $lines)
+    {
+        return $this->elements($this->linesElements($lines));
     }
 
     #

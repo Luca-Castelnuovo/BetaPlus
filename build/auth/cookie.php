@@ -11,7 +11,7 @@ list($user, $leerling, $token, $mac) = explode(':', $_COOKIE['REMEMBERME']);
 $user = clean_data($user);
 
 $query =
-"SELECT
+    "SELECT
     id,
     token,
     created,
@@ -47,7 +47,7 @@ if ($tokens_sql->num_rows > 0) {
             $valid_date = $token_sql['id'];
         }
 
-        if (hash_equals(hash_hmac('sha512', $user . ':' . $leerling . ':'. $token, $config['hmac_key']), $mac)) {
+        if (hash_equals(hash_hmac('sha512', $user . ':' . $leerling . ':' . $token, $config['hmac_key']), $mac)) {
             $valid_hmac = $token_sql['id'];
         }
 

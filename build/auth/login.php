@@ -106,10 +106,10 @@ if (isset($_POST['remember'])) {
 
     $cookie_user = ($user['class'] == 'class') ? 0 : 1;
 
-    $cookie = $user['id'] . ':' . $cookie_user . ':'. $token;
+    $cookie = $user['id'] . ':' . $cookie_user . ':' . $token;
     $mac = hash_hmac('sha512', $cookie, $config['hmac_key']);
     $cookie .= ':' . $mac;
-    setcookie('REMEMBERME', $cookie, time()+2592000, "/", "betasterren.hetbaarnschlyceum.nl");
+    setcookie('REMEMBERME', $cookie, time() + 2592000, "/", "betasterren.hetbaarnschlyceum.nl");
 
     log_action($user['first_name'] . ' ' . $user['last_name'], 'Login set Remember', 2);
 } else {

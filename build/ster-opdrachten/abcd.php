@@ -36,7 +36,8 @@ if ($steropdracht['status'] != 3) {
                     <div class="row">
                         <div class="input-field col s12">
                             <label for="project_name">Ster Opdracht</label>
-                            <input type="text" id="project_name" value="<?= $steropdracht['project_name']; ?>" readonly/>
+                            <input type="text" id="project_name" value="<?= $steropdracht['project_name']; ?>"
+                                   readonly/>
                         </div>
                     </div>
                     <h4>Beoordeling</h4>
