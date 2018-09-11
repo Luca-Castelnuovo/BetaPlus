@@ -71,7 +71,8 @@ $query =
         password,
         first_name,
         last_name,
-        failed_login
+        failed_login,
+        admin
     FROM
         {$table}
     WHERE
