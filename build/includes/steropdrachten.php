@@ -233,3 +233,15 @@ END;
         echo '<p>Er doen op dit moment geen steropdrachten in deze categorie.</p>';
     }
 }
+
+function steropdrachten_counter()
+{
+    $query =
+        "SELECT
+            SUM(sterren)
+        FROM
+            steropdrachten
+        WHERE leerling_id = '{$_SESSION['id']}'";
+
+    return sql_query($query, false);
+}
