@@ -243,5 +243,5 @@ function steropdrachten_counter()
             steropdrachten
         WHERE leerling_id = '{$_SESSION['id']}'";
 
-    return sql_query($query, false);
+    echo sql_query($query, false);
 }
