@@ -29,7 +29,7 @@ if ($steropdracht['status'] >= 3) {
     redirect('/ster-opdrachten/view/' . $id, 'Deze Ster Opdracht is klaar, u kunt hem niet meer aanpassen');
 }
 
-if ($_SESSION['id'] == $steropdracht['id']) {
+if ($_SESSION['id'] == $steropdracht['leerling_id']) {
     if (!isset($_GET['accept'])) {
         redirect('/ster-opdrachten/view/' . $id, 'Deze link is niet geldig');
     } else {
