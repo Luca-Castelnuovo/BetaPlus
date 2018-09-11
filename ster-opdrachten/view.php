@@ -110,19 +110,19 @@ if ($steropdracht['leerling_id'] == $_SESSION['id'] || $steropdracht['buddy_id']
             <h1 class="center"><?= $steropdracht['project_name'] ?></h1>
             <h6 class="center flow-text">
                 Door: <?= $leerling['first_name'] ?> <?= $leerling['last_name'] ?><?php if (isset($steropdracht['buddy_id'])) {
-                    echo ' ' . $leerling['first_name'] . ' ' . $leerling['last_name'];
-                } ?>
+    echo ' en ' . $leerling['first_name'] . ' ' . $leerling['last_name'];
+} ?>
             </h6>
         </div>
     </div>
 
     <?php if ($show) {
-        ?>
+    ?>
         <div class="section">
             <div class="card-panel center">
                 <h3 class="center">Details</h3>
                 <?php if ($steropdracht['status'] <= 2 && $_SESSION['class'] != 'docent') {
-                    ?>
+        ?>
                     <div class="row">
                         <div class="col s12 m12 l6">
                             <a href="/ster-opdrachten/edit/<?= $id ?>/"
@@ -136,8 +136,8 @@ if ($steropdracht['leerling_id'] == $_SESSION['id'] || $steropdracht['buddy_id']
                         </div>
                     </div>
                     <?php
-                } elseif ($steropdracht['status'] <= 2 && $_SESSION['class'] == 'docent') {
-                    ?>
+    } elseif ($steropdracht['status'] <= 2 && $_SESSION['class'] == 'docent') {
+        ?>
                     <div class="row">
                         <?php
                         if ($steropdracht['status'] == 0) {
@@ -196,14 +196,14 @@ END;
                                     var instances = M.Modal.init(elems, {});
                                 });
                                 <?php if (isset($_GET['feedback'])) {
-                                ?>
+                            ?>
                                 document.addEventListener('DOMContentLoaded', function () {
                                     setTimeout(function () {
                                         M.Modal.getInstance(document.querySelector('#feedback')).open();
                                     }, 100);
                                 });
                                 <?php
-                                } ?>
+                        } ?>
                                 document.querySelector('#feedback_content_submit').addEventListener('click', function () {
                                     $.ajax({
                                         type: "POST",
@@ -224,7 +224,7 @@ END;
                         </div>
                     </div>
                     <?php
-                } ?>
+    } ?>
                 <table class="striped centered responsive-table">
                     <thead>
                     <tr>
@@ -248,7 +248,7 @@ END;
                         </td>
                     </tr>
                     <?php if ($steropdracht['status'] == 4) {
-                        ?>
+        ?>
                         <tr>
                             <td>Cijfer</td>
                             <td><span class="transform-uppercase bold"><?= $steropdracht['grade'] ?></span>
@@ -273,9 +273,9 @@ END;
                             </td>
                         </tr>
                         <?php
-                    } ?>
+    } ?>
                     <?php if (!empty($steropdracht['feedback'])) {
-                        ?>
+        ?>
                         <tr>
                             <td>Feedback</td>
                             <td>
@@ -305,7 +305,7 @@ END;
                             </script>
                         </tr>
                     <?php if (isset($_GET['feedback_view'])) {
-                    ?>
+            ?>
                         <script>
                             document.addEventListener('DOMContentLoaded', function () {
                                 setTimeout(function () {
@@ -314,20 +314,20 @@ END;
                             });
                         </script>
                         <?php
-                    } ?>
+        } ?>
                         <?php
-                    } ?>
+    } ?>
                     </tbody>
                 </table>
             </div>
         </div>
         <?php
-    } ?>
+} ?>
     <div class="section">
         <div class="card-panel center">
             <h3 class="center">Bestanden</h3>
             <?php if ($show_leerling) {
-                ?>
+        ?>
                 <div class="row">
                     <div class="col s12">
                         <a href="/ster-opdrachten/files/add/<?= $id ?>"
@@ -336,7 +336,7 @@ END;
                     </div>
                 </div>
                 <?php
-            } ?>
+    } ?>
             <div class="row">
                 <table class="striped centered responsive-table">
                     <thead>

@@ -118,6 +118,7 @@ function login()
 
     if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) {
         log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'Session Expired', 0);
+        $_SESSION['return_url'] = $_SERVER['REQUEST_URI'];
         redirect('/?reset&preserveremember', 'Uw sessie is verlopen');
     } else {
         $_SESSION['LAST_ACTIVITY'] = time();
@@ -125,6 +126,7 @@ function login()
 
     if ($_SESSION['ip'] != ip()) {
         log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'Session IP doesnt match client IP', 2);
+        $_SESSION['return_url'] = $_SERVER['REQUEST_URI'];
         redirect('/?reset&preserveremember', 'Uw sessie is verlopen');
     }
 }
