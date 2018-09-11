@@ -43,7 +43,7 @@ if ($_SESSION['id'] == $steropdracht['leerling_id']) {
             SET
                 buddy_id = '{$request_id}'
             WHERE
-                id='{$request_id}'";
+                id='{$id}'";
 
         sql_query($query, false);
 
