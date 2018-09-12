@@ -321,6 +321,16 @@ END;
                 </table>
             </div>
         </div>
+        <?php if ($steropdracht['status'] == 3 && !$steropdracht['abcd']) { ?>
+        <div class="section">
+            <div class="card-panel center">
+                <h3 class="center">ABCD</h3>
+                <p>Stap 1: <a class="waves-effect waves-light btn color-primary--background" href="/files/overig/abcd.docx">Download ABCD template</a></p>
+                <p>Stap 2: Vul ABCD template in</p>
+                <p>Stap 3: Sla bestand op als pdf</p>
+                <p>Stap 4: <a class="waves-effect waves-light btn color-primary--background" href="/ster-opdrachten/files/<?= $id ?>/abcd">Upload ABCD pdf</a></p>
+            </div>
+        </div>
         <?php
 } ?>
     <div class="section">
