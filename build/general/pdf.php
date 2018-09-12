@@ -2,12 +2,13 @@
 
 require($_SERVER['DOCUMENT_ROOT'] . '/init.php');
 
+login();
+
 $id = clean_data($_GET['random_id']);
 
 $query =
     "SELECT
-        path,
-        public
+        path
     FROM
         files
     WHERE
@@ -18,10 +19,6 @@ $file = sql_query($query, true);
 if (empty($file['path'])) {
     redirect('/general/error?code=404');
     exit;
-}
-
-if (!$file["public"]) {
-    login();
 }
 
 $path = "{$_SERVER['DOCUMENT_ROOT']}/files/{$file['path']}";
