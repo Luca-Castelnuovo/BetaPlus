@@ -246,3 +246,50 @@ function steropdrachten_counter()
     $aantal = sql_query($query, true);
     echo $aantal['SUM(sterren)'];
 }
+
+function steropdrachten_files($id)
+{
+    $query =
+        "SELECT
+            name,
+            random_id,
+            created
+        FROM
+            files
+        WHERE
+            steropdracht_id = '{$id}'";
+
+    $files = sql_query($query, false);
+
+    if ($files->num_rows > 0) {
+        echo <<<END
+        <table class="striped centered responsive-table">
+            <thead>
+              <tr>
+                    <th>Bestandsnaam</th>
+                    <th>Bekijk</th>
+                    <th>Datum</th>
+              </tr>
+            </thead>
+
+            <tbody>
+END;
+        while ($file = $files->fetch_assoc()) {
+            $created = date('Y-m-d', strtotime($file['created']));
+
+            echo <<<END
+            <tr>
+                <td>{$file['name']}</td>
+                <td><a class="waves-effect waves-light btn color-secondary--background modal-trigger" target="_blank" href="/general/pdf/{$file['random_id']}">Open Bestand</a></td>
+                <td>{$created}</td>
+            </tr>
+END;
+        }
+        echo <<<END
+        </tbody>
+      </table>
+END;
+    } else {
+        echo 'Deze Ster Opdracht heeft geen bestanden.';
+    }
+}

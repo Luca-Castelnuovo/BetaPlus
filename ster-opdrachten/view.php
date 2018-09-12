@@ -321,7 +321,8 @@ END;
                 </table>
             </div>
         </div>
-        <?php if ($steropdracht['status'] == 3 && !$steropdracht['abcd']) { ?>
+        <?php if ($steropdracht['status'] == 3 && !$steropdracht['abcd'] && $show_leerling) {
+        ?>
         <div class="section">
             <div class="card-panel center">
                 <h3 class="center">ABCD</h3>
@@ -331,6 +332,8 @@ END;
                 <p>Stap 4: <a class="waves-effect waves-light btn color-primary--background" href="/ster-opdrachten/files/<?= $id ?>/abcd">Upload ABCD pdf</a></p>
             </div>
         </div>
+    <?php
+    } ?>
         <?php
 } ?>
     <div class="section">
@@ -348,29 +351,7 @@ END;
                 <?php
     } ?>
             <div class="row">
-                <table class="striped centered responsive-table">
-                    <thead>
-                    <tr>
-                        <th>Bestandsnaam</th>
-                        <th>Bekijk</th>
-                        <th>Datum</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>ABCD.pdf</td>
-                        <td><a class="waves-effect waves-light btn color-secondary--background modal-trigger"
-                               target="_blank" href="/general/pdf/file_id">Open Bestand</a></td>
-                        <td>datum zonder tijd</td>
-                    </tr>
-                    <tr>
-                        <td>Hypothese.pdf</td>
-                        <td><a class="waves-effect waves-light btn color-secondary--background modal-trigger"
-                               target="_blank" href="/general/pdf/file_id2">Open Bestand</a></td>
-                        <td>datum zonder tijd</td>
-                    </tr>
-                    </tbody>
-                </table>
+                <?php steropdrachten_files($id); ?>
             </div>
         </div>
     </div>
