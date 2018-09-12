@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         case 'done':
 
             if ($steropdracht['status'] < 2) {
-                redirect('/ster-opdrachten/view/' . $id, 'Ster Opdracht heeft geen Go en kan dus niet klaar zijn');
+                redirect('/ster-opdrachten/view/' . $id, 'Ster Opdracht heeft geen GO en kan dus niet klaar zijn');
             }
 
             $query =
@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             sql_query($query, false);
 
             log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'SterOpdrachten done', 1);
-            redirect('/ster-opdrachten/view/' . $id, 'Ster Opdracht klaar');
+            redirect('/ster-opdrachten/view/' . $id, 'Ster Opdracht klaar, vul aub ABCD\'tje in');
             break;
 
         case 'delete':
@@ -160,7 +160,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </div>
                         <div class="row">
                             <?php if (!($steropdracht['status'] < 2)) {
-                                ?>
+    ?>
                                 <div class="col s12 m4">
                                     <a href="/ster-opdrachten/edit/<?= $id ?>/done"
                                        class="waves-effect waves-light btn-small color-secondary--background"
@@ -168,7 +168,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         Opdracht klaar</a>
                                 </div>
                                 <?php
-                            } ?>
+} ?>
                             <div class="col s12 m4">
                                 <a href="/ster-opdrachten/edit/<?= $id ?>/delete"
                                    class="waves-effect waves-light btn-small color-secondary--background"

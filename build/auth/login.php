@@ -5,7 +5,7 @@ require($_SERVER['DOCUMENT_ROOT'] . "/init.php");
 csrf_val($_POST['CSRFtoken']);
 
 if (empty($_POST['username']) || empty($_POST['password'])) {
-    redirect('https://sd.keepcalm-o-matic.co.uk/i-w600/keep-calm-and-don-t-hack-me.jpg');
+    redirect('https://cdn.lucacastelnuovo.nl/images/dont-hack.png');
 }
 
 $username = clean_data($_POST['username']);

@@ -130,6 +130,13 @@
 		"oT": 1,
 		"q": 90
 		},
+	"\/files\/overig\/abcd.docx": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/files\/overig\/abcd.docx",
+		"oF": 0
+		},
 	"\/files\/overig\/jaarschema.pdf": {
 		"cB": 0,
 		"ft": 8192,
@@ -331,18 +338,11 @@
 		"oAP": "\/build\/ster-opdrachten\/edit.php",
 		"oF": 0
 		},
-	"\/ster-opdrachten\/files\/add.php": {
+	"\/ster-opdrachten\/files.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/ster-opdrachten\/files\/add.php",
-		"oF": 0
-		},
-	"\/ster-opdrachten\/files\/edit.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/ster-opdrachten\/files\/edit.php",
+		"oAP": "\/build\/ster-opdrachten\/files.php",
 		"oF": 0
 		},
 	"\/ster-opdrachten\/index.php": {

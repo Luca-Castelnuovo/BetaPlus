@@ -330,7 +330,7 @@ END;
         ?>
                 <div class="row">
                     <div class="col s12">
-                        <a href="/ster-opdrachten/files/add/<?= $id ?>"
+                        <a href="/ster-opdrachten/files/<?= $id ?>/add"
                            class="waves-effect waves-light btn color-primary--background"><i
                                     class="material-icons left">attach_file</i>Bestand Toevoegen</a>
                     </div>
@@ -365,8 +365,10 @@ END;
         </div>
     </div>
     <div class="section">
-        <?php $content = str_replace('&gt; ', '> ', $steropdracht['content']);
-        echo $parsedown->text($content); ?>
+        <div class="card-panel center">
+            <?php $content = str_replace('&gt; ', '> ', $steropdracht['content']);
+            echo $parsedown->text($content); ?>
+        </div>
     </div>
 </div>
 
