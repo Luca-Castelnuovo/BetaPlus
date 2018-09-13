@@ -77,52 +77,52 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     redirect('/?reset', 'Uw account is aangemaakt');
 } else {
-    // if (!$_SESSION['register_get']) {
-    //     $token_get = clean_data($_GET['token']);
-    //
-    //     $query =
-    //         "SELECT
-    //             used,
-    //             type,
-    //             created,
-    //             days_valid,
-    //             user
-    //         FROM
-    //             tokens
-    //         WHERE
-    //             token='{$token_get}'";
-    //
-    //     $token = sql_query($query, true);
-    //
-    //     if ($token['used']) {
-    //         redirect('/?reset', 'Deze link is al gebruikt of niet geldig');
-    //     }
-    //
-    //     if ($token['type'] != 'register') {
-    //         redirect('/?reset', 'Deze link is al gebruikt of niet geldig');
-    //     }
-    //
-    //     if (!($token['created'] >= $token['valid'])) {
-    //         redirect('/?reset', 'Deze link is al gebruikt of niet geldig');
-    //     }
-    //
-    //     $ip = ip();
-    //     $date = current_date(true);
-    //
-    //     $query =
-    //         "UPDATE
-    //             tokens
-    //         SET
-    //             used = '1',
-    //             use_ip = '{$ip}',
-    //             used_date = '{$date}'
-    //         WHERE
-    //             token='{$token_get}'";
-    //
-    //     sql_query($query, false);
-    // } else {
-    //     unset($_SESSION['register_get']);
-    // }
+    if (!$_SESSION['register_get']) {
+        $token_get = clean_data($_GET['token']);
+
+        $query =
+            "SELECT
+                used,
+                type,
+                created,
+                days_valid,
+                user
+            FROM
+                tokens
+            WHERE
+                token='{$token_get}'";
+
+        $token = sql_query($query, true);
+
+        if ($token['used']) {
+            redirect('/?reset', 'Deze link is al gebruikt of niet geldig');
+        }
+
+        if ($token['type'] != 'register') {
+            redirect('/?reset', 'Deze link is al gebruikt of niet geldig');
+        }
+
+        if (!($token['created'] >= $token['valid'])) {
+            redirect('/?reset', 'Deze link is al gebruikt of niet geldig');
+        }
+
+        $ip = ip();
+        $date = current_date(true);
+
+        $query =
+            "UPDATE
+                tokens
+            SET
+                used = '1',
+                use_ip = '{$ip}',
+                used_date = '{$date}'
+            WHERE
+                token='{$token_get}'";
+
+        sql_query($query, false);
+    } else {
+        unset($_SESSION['register_get']);
+    }
 
     $_SESSION['register_post'] = true;
 }

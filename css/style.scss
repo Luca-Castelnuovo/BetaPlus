@@ -96,6 +96,10 @@ $color_secundary_darken: #4f0023;
       }
     }
   }
+
+  &.card-image img {
+      max-height: 12rem;
+  }
 }
 
 //Responsive cards
@@ -161,7 +165,7 @@ $color_secundary_darken: #4f0023;
 /**************/
 
 .login {
-  margin-top: 10rem;
+  margin-top: 5rem;
   width: auto;
 }
 
