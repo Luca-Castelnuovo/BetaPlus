@@ -40,7 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             project_name,
             content,
             status,
-            leerling_id
+            leerling_id,
+            buddy_id
         FROM
             steropdrachten
         WHERE
@@ -48,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $steropdracht = sql_query($query, true);
 
-    if ($_SESSION['id'] == $steropdracht['leerling_id']) {
+    if ($_SESSION['id'] == $steropdracht['leerling_id'] || $_SESSION['id'] == $steropdracht['buddy_id']) {
         token_gen($id);
     } else {
         log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'SterOpdrachten edit access denied', 1);

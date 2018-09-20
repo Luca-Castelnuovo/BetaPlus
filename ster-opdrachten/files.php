@@ -50,27 +50,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $query =
         "INSERT INTO
             files
-                (project_name,
-                content,
-                created,
-                status_date,
-                last_edited,
-                leerling_id,
-                subject)
+                (file_name,
+                random_id)
         VALUES
-            ('{$project_name}',
-            '{$content}',
-            '{$datetime}',
-            '{$date}',
-            '{$datetime}',
-            '{$leerling_id}',
-            '{$subject}')";
+            ('{$file_name}',
+            '{$random_id}')";
 
     sql_query($query, false);
 
-    log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'SterOpdrachten new', 0);
-
-    redirect('/leerlingen/home', 'Ster Opdracht toegevoegd');
+    redirect('/ster-opdrachten/view/' . $id, 'Bestand toegevoegd');
 } else {
     if ($_SESSION['id'] == $steropdracht['leerling_id'] || $_SESSION['id'] == $steropdracht['buddy_id']) {
         token_gen($id);
