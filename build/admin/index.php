@@ -1,13 +1,10 @@
 <?php
 $admin_require = true;
-require($_SERVER['DOCUMENT_ROOT'] . "/init.php");
+require($_SERVER['DOCUMENT_ROOT'] . '/init.php');
 
 login_admin();
 
 head('Admin', 5);
-
-//for the send registration link js
-$_SESSION['toast_set'] = true;
 
 ?>
 

@@ -1,6 +1,6 @@
 <?php
 
-require($_SERVER['DOCUMENT_ROOT'] . "/init.php");
+require($_SERVER['DOCUMENT_ROOT'] . '/init.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!$_SESSION['register_post']) {
