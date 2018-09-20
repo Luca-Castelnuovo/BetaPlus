@@ -10,51 +10,62 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         redirect('/ster-opdrachten/view/' . $id, 'U hebt geen toestemming om deze Ster Opdracht aan te passen');
     }
 
-    // Simple validation (max file size 2MB and only two allowed mime types)
-    $validator = new FileUpload\Validator\Simple('2M', ['application/pdf', 'application/x-pdf']);
+    // // Simple validation (max file size 2MB and only two allowed mime types)
+    // $validator = new FileUpload\Validator\Simple('2M', ['application/pdf', 'application/x-pdf']);
+    //
+    // // Simple path resolver, where uploads will be put
+    // $pathresolver = new FileUpload\PathResolver\Simple($_SERVER['DOCUMENT_ROOT'] .  '/files/ster-opdrachten');
+    //
+    // // The machine's filesystem
+    // $filesystem = new FileUpload\FileSystem\Simple();
+    //
+    // // FileUploader itself
+    // $fileupload = new FileUpload\FileUpload($_FILES['files'], $_SERVER);
+    //
+    // // Adding it all together. Note that you can use multiple validators or none at all
+    // $fileupload->setPathResolver($pathresolver);
+    // $fileupload->setFileSystem($filesystem);
+    // $fileupload->addValidator($validator);
+    //
+    // // Doing the deed
+    // list($files, $headers) = $fileupload->processAll();
+    //
+    // // Outputting it, for example like this
+    // foreach ($headers as $header => $value) {
+    //     header($header . ': ' . $value);
+    // }
+    //
+    // echo json_encode(['files' => $files]);
+    //
+    // foreach ($files as $file) {
+    //     //Remeber to check if the upload was completed
+    //     if ($file->completed) {
+    //         echo $file->getRealPath();
+    //
+    //         // Call any method on an SplFileInfo instance
+    //         var_dump($file->isFile());
+    //     }
+    // }
 
-    // Simple path resolver, where uploads will be put
-    $pathresolver = new FileUpload\PathResolver\Simple($_SERVER['DOCUMENT_ROOT'] .  '/files/ster-opdrachten');
-
-    // The machine's filesystem
-    $filesystem = new FileUpload\FileSystem\Simple();
-
-    // FileUploader itself
-    $fileupload = new FileUpload\FileUpload($_FILES['files'], $_SERVER);
-
-    // Adding it all together. Note that you can use multiple validators or none at all
-    $fileupload->setPathResolver($pathresolver);
-    $fileupload->setFileSystem($filesystem);
-    $fileupload->addValidator($validator);
-
-    // Doing the deed
-    list($files, $headers) = $fileupload->processAll();
-
-    // Outputting it, for example like this
-    foreach ($headers as $header => $value) {
-        header($header . ': ' . $value);
-    }
-
-    echo json_encode(['files' => $files]);
-
-    foreach ($files as $file) {
-        //Remeber to check if the upload was completed
-        if ($file->completed) {
-            echo $file->getRealPath();
-
-            // Call any method on an SplFileInfo instance
-            var_dump($file->isFile());
-        }
-    }
+    $name = clean_data($_POST['name']);
+    $path = 'steropdrachten/' .  gen(64);
+    $random_id = gen(64);
+    $created = current_date(true);
 
     $query =
         "INSERT INTO
             files
-                (file_name,
-                random_id)
+                (steropdracht_id,
+                name,
+                path,
+                random_id,
+                created)
         VALUES
-            ('{$file_name}',
-            '{$random_id}')";
+            ('{$id}',
+            '{$name}',
+            '{$path}',
+            '{$random_id}',
+            '{$created}')";
 
     sql_query($query, false);
 
@@ -66,15 +77,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         redirect('/ster-opdrachten/view/' . $id, 'U hebt geen toestemming om deze Ster Opdracht aan te passen');
     }
 
-    $query =
-    "SELECT
-        project_name
-    FROM
-        steropdrachten
-    WHERE
-        id='{$id}'";
+    if ($_GET['type'] == 'delete') {
+        if (!token_val($id, true)) {
+            redirect('/ster-opdrachten/view/' . $id, 'U hebt geen toestemming om deze Ster Opdracht aan te passen');
+        }
 
-    $steropdrachten = sql_query($query, true);
+        //php delete file
+        //php delete from db
+
+        redirect('/ster-opdrachten/view/' . $id, 'Bestand verwijderd');
+    }
 }
 head('Bestanden || Ster Opdrachten', 2, 'Bestanden');
 
@@ -88,8 +100,8 @@ head('Bestanden || Ster Opdrachten', 2, 'Bestanden');
                     <form class="col s12" method="post" action="files.php?id=<?= $id ?>">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input type="text" value="<?= $steropdracht['project_name'] ?>" readonly>
-                                <label for="project_name">Naam Ster Opdracht</label>
+                                <input class="validate" id="name" name="name" type="text" required>
+                                <label for="name">Bestandsnaam</label>
                             </div>
                         </div>
                         <div class="row">

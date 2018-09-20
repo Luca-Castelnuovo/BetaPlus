@@ -45,6 +45,10 @@ RewriteRule ^ster-opdrachten/join/([^/]*)/([^/]*)/([^/]*)$ /ster-opdrachten/join
 RewriteRule ^ster-opdrachten/abcd/([^/]*)/$ /ster-opdrachten/abcd.php?id=$1 [L]
 RewriteRule ^ster-opdrachten/abcd/([^/]*)$ /ster-opdrachten/abcd.php?id=$1 [L]
 
+#Files
+RewriteRule ^ster-opdrachten/files/([^/]*)/([^/]*)/$ /ster-opdrachten/files.php?id=$1&type=$2 [L]
+RewriteRule ^ster-opdrachten/files/([^/]*)/([^/]*)$ /ster-opdrachten/files.php?id=$1&type=$2 [L]
+
 ###########
 # General #
 ###########
