@@ -67,4 +67,4 @@ head('Admin', 5);
         </div>
     </div>
 </div>
-<?php footer("<script>var instance = M.Tabs.init(document.querySelector('.tabs'), {});</script><script src='https://cdn.lucacastelnuovo.nl/js/ajax.js'></script><script src='https://cdn.lucacastelnuovo.nl/js/betasterren/gen.5.js'></script>"); ?>
+<?php footer("<script>var instance = M.Tabs.init(document.querySelector('.tabs'), {});</script><script src='https://cdn.lucacastelnuovo.nl/js/ajax.js'></script><script src='https://cdn.lucacastelnuovo.nl/js/betasterren/gen.6.js'></script>"); ?>
