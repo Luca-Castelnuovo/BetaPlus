@@ -1,6 +1,6 @@
 <?php
 $admin_require = true;
-require($_SERVER['DOCUMENT_ROOT'] . "/init.php");
+require($_SERVER['DOCUMENT_ROOT'] . '/init.php');
 
 login_admin();
 

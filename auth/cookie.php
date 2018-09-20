@@ -1,6 +1,6 @@
 <?php
 
-require($_SERVER['DOCUMENT_ROOT'] . "/init.php");
+require($_SERVER['DOCUMENT_ROOT'] . '/init.php');
 
 if (!isset($_COOKIE['REMEMBERME'])) {
     redirect('/?logout');

@@ -1,4 +1,4 @@
-<?php require($_SERVER['DOCUMENT_ROOT'] . "/init.php"); ?>
+<?php require($_SERVER['DOCUMENT_ROOT'] . '/init.php'); ?>
 
 <!DOCTYPE html>
 <html lang="nl">
