@@ -96,8 +96,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             redirect('/ster-opdrachten/view/' . $id, 'U hebt geen toestemming om deze Ster Opdracht aan te passen');
         }
 
-        //php delete file
-        //php delete from db
+        $file_id = clean_data($_GET['file_id']);
+
+        $query =
+        "SELECT
+            path
+        FROM
+            files
+        WHERE
+            id='{$file_id}'";
+
+        $file = sql_query($query, true);
+
+        unlink($_SERVER['DOCUMENT_ROOT'] . '/files/' . $file['path']);
+
+        $query =
+        "DELETE FROM
+            files
+        WHERE
+            id='{$file_id}'";
+
+        sql_query($query, false);
 
         redirect('/ster-opdrachten/view/' . $id, 'Bestand verwijderd');
     }
@@ -111,7 +130,7 @@ head('Bestanden || Ster Opdrachten', 2, 'Bestanden');
         <div class="row">
             <div class="col s12">
                 <div class="row">
-                    <form class="col s12" method="post" action="files.php?id=<?= $id ?>">
+                    <form class="col s12" method="post" action="/ster-opdrachten/files/<?= $id ?>">
                         <div class="row">
                             <div class="input-field col s12">
                                 <input class="validate" id="name" name="name" type="text" required>
