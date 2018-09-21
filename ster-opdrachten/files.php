@@ -71,6 +71,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     redirect('/ster-opdrachten/view/' . $id, 'Bestand toegevoegd');
 } else {
+    $query =
+        "SELECT
+            leerling_id,
+            buddy_id
+        FROM
+            steropdrachten
+        WHERE
+            id='{$id}'";
+
     if ($_SESSION['id'] == $steropdracht['leerling_id'] || $_SESSION['id'] == $steropdracht['buddy_id']) {
         token_gen($id);
     } else {
