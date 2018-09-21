@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
 
-    if (!empty($_FILES['file'])) {
+    if (empty($_FILES['file'])) {
         redirect('/ster-opdrachten/files/' . $id);
     }
 
