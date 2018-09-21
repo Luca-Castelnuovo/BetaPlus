@@ -342,7 +342,7 @@ END;
         ?>
                 <div class="row">
                     <div class="col s12">
-                        <a href="/ster-opdrachten/files/<?= $id ?>/add"
+                        <a href="/ster-opdrachten/files/<?= $id ?>"
                            class="waves-effect waves-light btn color-primary--background"><i
                                     class="material-icons left">attach_file</i>Bestand Toevoegen</a>
                     </div>

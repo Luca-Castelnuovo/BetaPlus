@@ -10,7 +10,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         redirect('/ster-opdrachten/view/' . $id, 'U hebt geen toestemming om deze Ster Opdracht aan te passen');
     }
 
-
     if (empty($_FILES['file'])) {
         redirect('/ster-opdrachten/files/' . $id);
     }
@@ -120,14 +119,8 @@ head('Bestanden || Ster Opdrachten', 2, 'Bestanden');
                             </div>
                         </div>
                         <div class="row">
-                            <div class="file-field input-field">
-                                <div class="btn">
-                                    <span>File</span>
-                                    <input type="file" name="file" accept=".pdf" required>
-                                </div>
-                                <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text">
-                                </div>
+                            <div class="input-field col s12">
+                                <input name="file" type="file" accept=".pdf" required>
                             </div>
                         </div>
                         <button class="btn-large waves-effect waves-light color-primary--background" type="submit" name="action">Verstuur <i class="material-icons right">send</i>
