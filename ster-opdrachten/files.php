@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     //Load Upload lib
-    require($_SERVER['DOCUMENT_ROOT'] . '/lib/Upload.php');
+    require($_SERVER['DOCUMENT_ROOT'] . '/libs/Upload.php');
 
     //
     $upload = Upload::factory($_SERVER['DOCUMENT_ROOT'] . '/files/steropdrachten');
