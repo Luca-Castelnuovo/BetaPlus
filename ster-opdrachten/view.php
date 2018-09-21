@@ -110,7 +110,7 @@ if ($steropdracht['leerling_id'] == $_SESSION['id'] || $steropdracht['buddy_id']
             <h1 class="center"><?= $steropdracht['project_name'] ?></h1>
             <h6 class="center flow-text">
                 Door: <?= $leerling['first_name'] ?> <?= $leerling['last_name'] ?><?php if (isset($steropdracht['buddy_id'])) {
-    echo ' en ' . $leerling['first_name'] . ' ' . $leerling['last_name'];
+    echo ' en ' . $buddy['first_name'] . ' ' . $buddy['last_name'];
 } ?>
             </h6>
         </div>

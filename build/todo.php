@@ -1,7 +1,5 @@
 <?php
 
-// TODO: steropdrachten - add/delete file system
-
 // TODO: agenda - add item system
 // TODO: agenda - support for pdf
 // TODO: agenda - improve ui
