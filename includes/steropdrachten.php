@@ -262,23 +262,19 @@ function steropdrachten_files($id, $show, $show_leerling)
 
     $files = sql_query($query, false);
 
-    if ($show) {
-        $date_th = '<th>Datum</th>';
-        $date_td = "<td><a class=\"waves-effect waves-light btn color-secondary--background modal-trigger\" target=\"_blank\" href=\"/general/pdf/{$file['random_id']}/delete/{$file['id']}\">Verwijder Bestand</a></td>";
-    } else {
-        $date_th = null;
-        $date_td = null;
-    }
-
-    if ($show_leerling) {
-        $delete_th = '<th>Datum</th>';
-        $delete_td = "<td>{$created}</td>";
-    } else {
-        $delete_th = null;
-        $delete_td = null;
-    }
-
     if ($files->num_rows > 0) {
+        if ($show) {
+            $date_th = '<th>Datum</th>';
+        } else {
+            $date_th = null;
+        }
+
+        if ($show_leerling) {
+            $delete_th = '<th>Datum</th>';
+        } else {
+            $delete_th = null;
+        }
+
         echo <<<END
         <table class="striped centered responsive-table">
             <thead>
@@ -294,6 +290,18 @@ function steropdrachten_files($id, $show, $show_leerling)
 END;
         while ($file = $files->fetch_assoc()) {
             $created = date('Y-m-d', strtotime($file['created']));
+
+            if ($show) {
+                $date_td = "<td><a class=\"waves-effect waves-light btn color-secondary--background modal-trigger\" target=\"_blank\" href=\"/general/pdf/{$file['random_id']}/delete/{$file['id']}\">Verwijder Bestand</a></td>";
+            } else {
+                $date_td = null;
+            }
+
+            if ($show_leerling) {
+                $delete_td = "<td>{$created}</td>";
+            } else {
+                $delete_td = null;
+            }
 
             echo <<<END
             <tr>
