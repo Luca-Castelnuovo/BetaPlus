@@ -111,7 +111,7 @@ head('Bestanden || Ster Opdrachten', 2, 'Bestanden');
         <div class="row">
             <div class="col s12">
                 <div class="row">
-                    <form class="col s12" method="post" action="/ster-opdrachten/files/<?= $id ?>">
+                    <form class="col s12" method="post" action="/ster-opdrachten/files/<?= $id ?>" enctype="multipart/form-data">
                         <div class="row">
                             <div class="input-field col s12">
                                 <input class="validate" id="name" name="name" type="text" required>
@@ -119,8 +119,14 @@ head('Bestanden || Ster Opdrachten', 2, 'Bestanden');
                             </div>
                         </div>
                         <div class="row">
-                            <div class="input-field col s12">
-                                <input name="file" type="file" accept=".pdf" required>
+                            <div class="file-field input-field">
+                                <div class="btn">
+                                    <span>File</span>
+                                    <input type="file" name="file" accept=".pdf" required>
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text">
+                                </div>
                             </div>
                         </div>
                         <button class="btn-large waves-effect waves-light color-primary--background" type="submit" name="action">Verstuur <i class="material-icons right">send</i>
