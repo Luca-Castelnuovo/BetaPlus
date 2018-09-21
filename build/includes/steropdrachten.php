@@ -270,7 +270,7 @@ function steropdrachten_files($id, $show, $show_leerling)
         }
 
         if ($show_leerling) {
-            $delete_th = '<th>Datum</th>';
+            $delete_th = '<th>Verwijder</th>';
         } else {
             $delete_th = null;
         }
@@ -292,15 +292,15 @@ END;
             $created = date('Y-m-d', strtotime($file['created']));
 
             if ($show) {
-                $date_td = "<td><a class=\"waves-effect waves-light btn color-secondary--background modal-trigger\" target=\"_blank\" href=\"/ster-opdrachten/files/{$id}/delete/{$file['id']}\">Verwijder Bestand</a></td>";
+                $delete_td = "<td><a class=\"waves-effect waves-light btn color-secondary--background modal-trigger\" target=\"_blank\" href=\"/ster-opdrachten/files/{$id}/delete/{$file['id']}\" onclick=\"return confirm('Weet je het zeker?')\">Verwijder Bestand</a></td>";
             } else {
                 $date_td = null;
             }
 
             if ($show_leerling) {
-                $delete_td = "<td>{$created}</td>";
+                $date_td = "<td>{$created}</td>";
             } else {
-                $delete_td = null;
+                $date_td = null;
             }
 
             echo <<<END
