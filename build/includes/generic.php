@@ -75,12 +75,12 @@ function agenda()
         while ($item = $items->fetch_assoc()) {
             echo <<<END
             <div class="col s12 m6 l4 xl4">
-                <div class="card small center">
-                    <div class="card-content white-text">
+                <div class="card">
+                    <div class="card-content">
                       <span class="card-title">{$item['title']}</span>
+                      <p>{$item['date']}</p>
                     </div>
                     <div class="card-action">
-                        <a href="javascript:void(0)" target="_blank">{$item['date']}</a>
                         <a href="{$item['link']}" target="_blank">Link</a>
                     </div>
                 </div>
