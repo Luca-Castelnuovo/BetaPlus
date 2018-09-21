@@ -292,7 +292,7 @@ END;
             $created = date('Y-m-d', strtotime($file['created']));
 
             if ($show) {
-                $date_td = "<td><a class=\"waves-effect waves-light btn color-secondary--background modal-trigger\" target=\"_blank\" href=\"/general/pdf/{$file['random_id']}/delete/{$file['id']}\">Verwijder Bestand</a></td>";
+                $date_td = "<td><a class=\"waves-effect waves-light btn color-secondary--background modal-trigger\" target=\"_blank\" href=\"/ster-opdrachten/files/{$id}/delete/{$file['id']}\">Verwijder Bestand</a></td>";
             } else {
                 $date_td = null;
             }
