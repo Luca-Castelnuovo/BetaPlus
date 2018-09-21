@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     require($_SERVER['DOCUMENT_ROOT'] . '/libs/Upload.php');
 
     //Upload file
-    $upload = Upload::factory($_SERVER['DOCUMENT_ROOT'] . '/files/steropdrachten');
+    $upload = Upload::factory('/files/steropdrachten');
     $upload->file($_FILES['file']);
 
     //set max. file size (in mb)
@@ -27,33 +27,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //set allowed mime types
     $upload->set_allowed_mime_types(array('application/pdf'));
 
+    //set file name
+    $file = gen(64) . '.pdf';
+    $upload->set_filename($file);
+
     $results = $upload->upload();
 
-    var_dump($results);
+    if (!$results['status']) {
+        redirect('/ster-opdrachten/view/' . $id, 'Bestand toevoegen mislukt');
+    }
 
-// $name = clean_data($_POST['name']);
-    // $path = 'steropdrachten/' .  gen(64);
-    // $random_id = gen(64);
-    // $created = current_date(true);
-    //
-    // $query =
-    //     "INSERT INTO
-    //         files
-    //             (steropdracht_id,
-    //             name,
-    //             path,
-    //             random_id,
-    //             created)
-    //     VALUES
-    //         ('{$id}',
-    //         '{$name}',
-    //         '{$path}',
-    //         '{$random_id}',
-    //         '{$created}')";
-    //
-    // sql_query($query, false);
-    //
-    // redirect('/ster-opdrachten/view/' . $id, 'Bestand toegevoegd');
+    $name = clean_data($_POST['name']);
+    $path = 'steropdrachten/' . $file;
+    $random_id = gen(64);
+    $created = current_date(true);
+
+    $query =
+        "INSERT INTO
+            files
+                (steropdracht_id,
+                name,
+                path,
+                random_id,
+                created)
+        VALUES
+            ('{$id}',
+            '{$name}',
+            '{$path}',
+            '{$random_id}',
+            '{$created}')";
+
+    sql_query($query, false);
+
+    redirect('/ster-opdrachten/view/' . $id, 'Bestand toegevoegd');
 } else {
     $query =
         "SELECT
