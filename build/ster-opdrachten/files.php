@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //Load Upload lib
     require($_SERVER['DOCUMENT_ROOT'] . '/libs/Upload.php');
 
-    //
+    //Upload file
     $upload = Upload::factory($_SERVER['DOCUMENT_ROOT'] . '/files/steropdrachten');
     $upload->file($_FILES['file']);
 
@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         redirect('/ster-opdrachten/view/' . $id, 'U hebt geen toestemming om deze Ster Opdracht aan te passen');
     }
 
-    if ($_GET['type'] == 'delete') {
+    if (isset($_GET['delete'])) {
         if (!token_val($id, true)) {
             redirect('/ster-opdrachten/view/' . $id, 'U hebt geen toestemming om deze Ster Opdracht aan te passen');
         }
