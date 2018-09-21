@@ -109,7 +109,7 @@ if ($steropdracht['leerling_id'] == $_SESSION['id'] || $steropdracht['buddy_id']
             </div>
             <h1 class="center"><?= $steropdracht['project_name'] ?></h1>
             <h6 class="center flow-text">
-                Door: <?= $leerling['first_name'] ?> <?= $leerling['last_name'] ?><?php if (isset($steropdracht['buddy_id'])) {
+                Door: <?= $leerling['first_name'] ?> <?= $leerling['last_name'] ?><?php if (!empty($steropdracht['buddy_id'])) {
     echo ' en ' . $buddy['first_name'] . ' ' . $buddy['last_name'];
 } ?>
             </h6>
