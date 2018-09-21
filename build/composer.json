@@ -1,6 +1,0 @@
-{
-  "require" : {
-    "erusev\/parsedown" : "^1.7",
-    "samayo\/bulletproof" : "4.0.1"
-  }
-}

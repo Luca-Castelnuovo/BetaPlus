@@ -67,7 +67,9 @@ function agenda()
         FROM
             agenda
         WHERE
-            DATE(date) >= DATE(NOW())";
+            DATE(date) >= DATE(NOW())
+        ORDER BY
+            date ASC";
 
     $items = sql_query($query, false);
 
