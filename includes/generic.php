@@ -80,9 +80,15 @@ function agenda()
                       <span class="card-title">{$item['title']}</span>
                       <p>{$item['date']}</p>
                     </div>
+END;
+            if (!empty($item['link'])) {
+                echo <<<END
                     <div class="card-action">
-                        <a href="{$item['link']}" target="_blank">Link</a>
+                            <a href="{$item['link']}" target="_blank">Link</a>
                     </div>
+END;
+            }
+            echo <<<END
                 </div>
             </div>
 END;
