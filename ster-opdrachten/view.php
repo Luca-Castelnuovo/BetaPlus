@@ -37,8 +37,7 @@ head($steropdracht['project_name'] . ' || Ster Opdrachten', 2, $steropdracht['pr
 $query =
     "SELECT
         first_name,
-        last_name,
-        leerling_nummer
+        last_name
     FROM
         leerlingen
     WHERE
@@ -49,8 +48,7 @@ $leerling = sql_query($query, true);
 $query =
     "SELECT
         first_name,
-        last_name,
-        leerling_nummer
+        last_name
     FROM
         leerlingen
     WHERE
