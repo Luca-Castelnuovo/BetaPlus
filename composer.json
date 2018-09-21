@@ -1,0 +1,6 @@
+{
+    "require": {
+        "erusev/parsedown": "^1.7",
+        "gargron/fileupload": "^1.4"
+    }
+}

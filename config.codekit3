@@ -37,6 +37,13 @@
 		"oAP": "\/build\/admin\/process.php",
 		"oF": 0
 		},
+	"\/agenda.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/agenda.html",
+		"oF": 0
+		},
 	"\/auth\/change.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -83,6 +90,21 @@
 		"ft": 65536,
 		"oA": 1,
 		"oAP": "\/build\/build",
+		"oF": 0
+		},
+	"\/composer.json": {
+		"ft": 524288,
+		"oA": 0,
+		"oAP": "\/build\/composer.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 0
+		},
+	"\/composer.lock": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/composer.lock",
 		"oF": 0
 		},
 	"\/css\/style.scss": {
@@ -284,20 +306,6 @@
 		"oAP": "\/build\/leerlingen\/settings.php",
 		"oF": 0
 		},
-	"\/libs\/Parsedown.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/libs\/Parsedown.php",
-		"oF": 0
-		},
-	"\/LICENSE": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/LICENSE",
-		"oF": 0
-		},
 	"\/manifest.json": {
 		"ft": 524288,
 		"oA": 2,
@@ -373,13 +381,6 @@
 		"oAP": "\/build\/ster-opdrachten\/process.php",
 		"oF": 0
 		},
-	"\/ster-opdrachten\/review.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/ster-opdrachten\/review.php",
-		"oF": 0
-		},
 	"\/ster-opdrachten\/view.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -392,6 +393,12 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/build\/todo.php",
+		"oF": 0
+		},
+	"\/vendor": {
+		"ft": 65536,
+		"oA": 1,
+		"oAP": "\/build\/vendor",
 		"oF": 0
 		}
 	},

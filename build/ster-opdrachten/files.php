@@ -10,6 +10,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         redirect('/ster-opdrachten/view/' . $id, 'U hebt geen toestemming om deze Ster Opdracht aan te passen');
     }
 
+    //Load Composer's autoloader
+    require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
+
     // Simple validation (max file size 2MB and only two allowed mime types)
     $validator = new FileUpload\Validator\Simple('2M', ['application/pdf', 'application/x-pdf']);
 

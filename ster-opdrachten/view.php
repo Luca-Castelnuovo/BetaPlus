@@ -77,7 +77,9 @@ switch ($steropdracht['status']) {
         break;
 }
 
-require($_SERVER['DOCUMENT_ROOT'] . "/libs/Parsedown.php");
+//Load Composer's autoloader
+require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
+
 $parsedown = new Parsedown();
 $parsedown->setSafeMode(true);
 

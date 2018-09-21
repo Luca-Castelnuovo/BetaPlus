@@ -262,7 +262,7 @@ class FileUpload
                     // $this->fileContainer is empty at this point
                     // $upload['tmp_name'] is also empty
                     // So we create a File instance from $upload['name']
-                    $file = new File($upload['name'], basename($upload['name']));
+                    $file = new File($upload['name']);
                     $file->error = $this->getMessage($upload['error']);
                     $file->errorCode = $upload['error'];
                     $this->files[] = $file;
@@ -307,7 +307,7 @@ class FileUpload
      */
     protected function process($tmp_name, $name, $size, $type, $error, $index = 0, $content_range = null)
     {
-        $this->fileContainer = $file = new File($tmp_name, $name);
+        $this->fileContainer = $file = new File($tmp_name);
         $file->name = $this->getFilename($name, $type, $index, $content_range, $tmp_name);
         $file->size = $this->fixIntegerOverflow(intval($size));
         $completed = false;
@@ -350,6 +350,8 @@ class FileUpload
                     // Yay, upload is complete!
                     $completed = true;
                 } else {
+                    $file->size = $file_size;
+
                     if (!$content_range) {
                         // The file is incomplete and it's not a chunked upload, abort
                         $this->filesystem->unlink($file_path);
@@ -357,7 +359,7 @@ class FileUpload
                     }
                 }
 
-                $file = new File($file_path, $name);
+                $file = new $file($file_path);
                 $file->completed = $completed;
                 $file->size = $file_size;
 
