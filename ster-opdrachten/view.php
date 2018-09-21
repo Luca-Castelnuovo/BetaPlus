@@ -78,7 +78,7 @@ switch ($steropdracht['status']) {
 }
 
 //Load Parsedown lib
-require($_SERVER['DOCUMENT_ROOT'] . '/libs/Upload.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/libs/Parsedown.php');
 $parsedown = new Parsedown();
 $parsedown->setSafeMode(true);
 
