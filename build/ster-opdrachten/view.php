@@ -350,7 +350,7 @@ END;
                 <?php
     } ?>
             <div class="row">
-                <?php steropdrachten_files($id); ?>
+                <?php steropdrachten_files($id, $show, $show_leerling); ?>
             </div>
         </div>
     </div>
