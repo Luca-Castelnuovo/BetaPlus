@@ -10,47 +10,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         redirect('/ster-opdrachten/view/' . $id, 'U hebt geen toestemming om deze Ster Opdracht aan te passen');
     }
 
-    //Load Composer's autoloader
-    require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 
-    // Simple validation (max file size 2MB and only two allowed mime types)
-    $validator = new FileUpload\Validator\Simple('2M', ['application/pdf', 'application/x-pdf']);
-
-    // Simple path resolver, where uploads will be put
-    $pathresolver = new FileUpload\PathResolver\Simple($_SERVER['DOCUMENT_ROOT'] .  '/files/ster-opdrachten');
-
-    // The machine's filesystem
-    $filesystem = new FileUpload\FileSystem\Simple();
-
-    // FileUploader itself
-    $fileupload = new FileUpload\FileUpload($_FILES['file'], $_SERVER);
-
-    // Adding it all together. Note that you can use multiple validators or none at all
-    $fileupload->setPathResolver($pathresolver);
-    $fileupload->setFileSystem($filesystem);
-    $fileupload->addValidator($validator);
-
-    // Doing the deed
-    list($files, $headers) = $fileupload->processAll();
-
-    // Outputting it, for example like this
-    foreach ($headers as $header => $value) {
-        header($header . ': ' . $value);
+    if (!empty($_FILES['file'])) {
+        redirect('/ster-opdrachten/files/' . $id);
     }
 
-    echo json_encode(['files' => $files]);
+    //Load Upload lib
+    require($_SERVER['DOCUMENT_ROOT'] . '/lib/Upload.php');
 
-    foreach ($files as $file) {
-        //Remeber to check if the upload was completed
-        if ($file->completed) {
-            echo $file->getRealPath();
+    //
+    $upload = Upload::factory($_SERVER['DOCUMENT_ROOT'] . '/files/steropdrachten');
+    $upload->file($_FILES['file']);
 
-            // Call any method on an SplFileInfo instance
-            var_dump($file->isFile());
-        }
-    }
+    //set max. file size (in mb)
+    $upload->set_max_file_size(2);
 
-    // $name = clean_data($_POST['name']);
+    //set allowed mime types
+    $upload->set_allowed_mime_types(array('application/pdf'));
+
+    $results = $upload->upload();
+
+    var_dump($results);
+
+// $name = clean_data($_POST['name']);
     // $path = 'steropdrachten/' .  gen(64);
     // $random_id = gen(64);
     // $created = current_date(true);

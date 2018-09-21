@@ -92,21 +92,6 @@
 		"oAP": "\/build\/build",
 		"oF": 0
 		},
-	"\/composer.json": {
-		"ft": 524288,
-		"oA": 0,
-		"oAP": "\/build\/composer.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 0
-		},
-	"\/composer.lock": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/composer.lock",
-		"oF": 0
-		},
 	"\/css\/style.scss": {
 		"aP": 1,
 		"bl": 0,
@@ -306,6 +291,20 @@
 		"oAP": "\/build\/leerlingen\/settings.php",
 		"oF": 0
 		},
+	"\/libs\/Parsedown.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/libs\/Parsedown.php",
+		"oF": 0
+		},
+	"\/libs\/Upload.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/build\/libs\/Upload.php",
+		"oF": 0
+		},
 	"\/manifest.json": {
 		"ft": 524288,
 		"oA": 2,
@@ -386,12 +385,6 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/build\/ster-opdrachten\/view.php",
-		"oF": 0
-		},
-	"\/vendor": {
-		"ft": 65536,
-		"oA": 1,
-		"oAP": "\/build\/vendor",
 		"oF": 0
 		}
 	},

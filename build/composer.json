@@ -1,6 +1,6 @@
 {
   "require" : {
     "erusev\/parsedown" : "^1.7",
-    "gargron\/fileupload" : "^1.4"
+    "samayo\/bulletproof" : "4.0.1"
   }
 }

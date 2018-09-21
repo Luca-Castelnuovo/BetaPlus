@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b7270ff4ff7473dfde3c542b3ed23d1",
+    "content-hash": "f2f5dc94f82e2a2a07fc7a7a855cad2e",
     "packages": [
         {
             "name": "erusev/parsedown",
@@ -53,34 +53,50 @@
             "time": "2018-03-08T01:11:30+00:00"
         },
         {
-            "name": "gargron/fileupload",
-            "version": "v1.4.5",
+            "name": "samayo/bulletproof",
+            "version": "v4.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Gargron/fileupload.git",
-                "reference": "fd2b79c9b868b9987925e098f5562231e691ce7d"
+                "url": "https://github.com/samayo/bulletproof.git",
+                "reference": "4e485530522c0f3af81eba3955f1c459401cdd54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Gargron/fileupload/zipball/fd2b79c9b868b9987925e098f5562231e691ce7d",
-                "reference": "fd2b79c9b868b9987925e098f5562231e691ce7d",
+                "url": "https://api.github.com/repos/samayo/bulletproof/zipball/4e485530522c0f3af81eba3955f1c459401cdd54",
+                "reference": "4e485530522c0f3af81eba3955f1c459401cdd54",
                 "shasum": ""
             },
+            "require": {
+                "ext-exif": "*",
+                "php": ">=5.3.0"
+            },
             "require-dev": {
-                "phpunit/phpunit": "3.7.*"
+                "phpunit/phpunit": "^6"
             },
             "type": "library",
             "autoload": {
-                "psr-0": {
-                    "FileUpload\\": "src/"
-                }
+                "classmap": [
+                    "src/"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
-            "description": "File uploading library capable of handling large/chunked/multiple file uploads",
-            "time": "2017-05-19T17:43:52+00:00"
+            "authors": [
+                {
+                    "name": "samayo"
+                }
+            ],
+            "description": "A simple and secure PHP image uploader",
+            "homepage": "http://github.com/samayo/bulletproof",
+            "keywords": [
+                "Simple",
+                "image",
+                "security",
+                "upload"
+            ],
+            "time": "2018-06-23T22:16:47+00:00"
         }
     ],
     "packages-dev": [],
