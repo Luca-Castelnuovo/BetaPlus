@@ -27,10 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //set allowed mime types
     $upload->set_allowed_mime_types(array('application/pdf'));
 
-    //set file name
-    $file = gen(64) . '.pdf';
-    $upload->set_filename($file);
-
     $results = $upload->upload();
 
     if (!$results['status']) {
@@ -38,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $name = clean_data($_POST['name']);
-    $path = 'steropdrachten/' . $file;
+    $path = 'steropdrachten/' . $results['filename'];
     $random_id = gen(64);
     $created = current_date(true);
 
@@ -135,8 +131,9 @@ head('Bestanden || Ster Opdrachten', 2, 'Bestanden');
                                 </div>
                             </div>
                         </div>
-                        <button class="btn-large waves-effect waves-light color-primary--background" type="submit" name="action">Verstuur <i class="material-icons right">send</i>
-                        </button>
+                        <div class="row">
+                            <button class="btn-large waves-effect waves-light color-primary--background" type="submit" name="action">Verstuur <i class="material-icons right">send</i></button>
+                        </div>
                     </form>
                 </div>
             </div>
