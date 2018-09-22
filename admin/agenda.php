@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             '{$link}',
             '$date')";
 
-    sql_query($query, true);
+    sql_query($query, false);
 
     redirect('/general/agenda', 'Item toegevoegd');
 }
