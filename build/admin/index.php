@@ -34,6 +34,8 @@ head('Admin', 5);
             </div>
             <div id="logs" class="col s12">
                 <?php admin_log_list(); ?>
+                <script>(function(document) {
+!function(r){"use strict";var t=function(a){var n;function e(t){n=t.target;var e=r.getElementsByClassName(n.getAttribute("data-table"));a.forEach.call(e,function(t){a.forEach.call(t.tBodies,function(t){a.forEach.call(t.rows,o)})})}function o(t){var e=t.textContent.toLowerCase(),a=n.value.toLowerCase();t.style.display=-1===e.indexOf(a)?"none":"table-row"}return{init:function(){var t=r.getElementsByClassName("light-table-filter");a.forEach.call(t,function(t){t.oninput=e})}}}(Array.prototype);r.addEventListener("readystatechange",function(){"complete"===r.readyState&&t.init()})}(document);</script>
             </div>
             <div id="extra" class="col s12">
                 <div class="row">
