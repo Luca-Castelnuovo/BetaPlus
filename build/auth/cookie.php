@@ -93,7 +93,7 @@ if (!$user['active']) {
 sql_query("UPDATE leerlingen SET failed_login='0' WHERE id='{$user['id']}' AND class='{$user['class']}'", false);
 sql_query("UPDATE docenten SET failed_login='0' WHERE id='{$user['id']}' AND class='{$user['class']}'", false);
 
-log_action($user['first_name'] . ' ' . $user['last_name'], 'Login use Remember', 2);
+log_action($user['first_name'] . ' ' . $user['last_name'], 'Login with cookie', 0);
 
 $return_url = $_SESSION['return_url'];
 

@@ -59,6 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     sql_query($query, false);
 
+    log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'SterOpdrachten bestand toegevoegd', 0);
+
     redirect('/ster-opdrachten/view/' . $id, 'Bestand toegevoegd');
 } else {
     $query =

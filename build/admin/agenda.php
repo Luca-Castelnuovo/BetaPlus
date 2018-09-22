@@ -35,6 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     sql_query($query, false);
 
+    log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'Agenda item toegevoed', 0);
+
     redirect('/general/agenda', 'Item toegevoegd');
 }
 
