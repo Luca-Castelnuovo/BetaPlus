@@ -190,19 +190,19 @@ $color_secundary_darken: #4f0023;
 /**********************/
 
 //text input
-input:not(.browser-default):focus:not([readonly]) {
+input:not(.browser-default):not([readonly]) {
     border-color: $color_primary;
     box-shadow: 0 1px 0 0 $color_primary;
 }
 
 //text input validation
-input.invalid:not(.browser-default):focus:not([readonly]) {
+input.invalid:not(.browser-default):not([readonly]) {
     border-color: $color_secundary;
     box-shadow: 0 1px 0 0 $color_secundary;
 }
 
 //text input validation
-input.valid:not(.browser-default):focus:not([readonly]) {
+input.valid:not(.browser-default):not([readonly]) {
     border-color: $color_primary;
     box-shadow: 0 1px 0 0 $color_primary;
 }
