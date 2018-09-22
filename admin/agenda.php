@@ -22,8 +22,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
             </div>
             <div class="row">
-                <input class="datepicker" id="date" type="text">
-                <label for="date">Datum</label>
+                <div class="input-field col s12">
+                    <input class="datepicker" id="date" type="text">
+                    <label for="date">Datum</label>
+                </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
