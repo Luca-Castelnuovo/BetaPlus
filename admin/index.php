@@ -35,7 +35,40 @@ head('Admin', 5);
             <div id="logs" class="col s12">
                 <?php admin_log_list(); ?>
                 <script>(function(document) {
-!function(r){"use strict";var t=function(a){var n;function e(t){n=t.target;var e=r.getElementsByClassName(n.getAttribute("data-table"));a.forEach.call(e,function(t){a.forEach.call(t.tBodies,function(t){a.forEach.call(t.rows,o)})})}function o(t){var e=t.textContent.toLowerCase(),a=n.value.toLowerCase();t.style.display=-1===e.indexOf(a)?"none":"table-row"}return{init:function(){var t=r.getElementsByClassName("light-table-filter");a.forEach.call(t,function(t){t.oninput=e})}}}(Array.prototype);r.addEventListener("readystatechange",function(){"complete"===r.readyState&&t.init()})}(document);</script>
+    'use strict';
+    var LightTableFilter = (function(Arr) {
+        var _input;
+
+        function _onInputEvent(e) {
+            _input = e.target;
+            var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+            Arr.forEach.call(tables, function(table) {
+                Arr.forEach.call(table.tBodies, function(tbody) {
+                    Arr.forEach.call(tbody.rows, _filter);
+                });
+            });
+        }
+
+        function _filter(row) {
+            var text = row.textContent.toLowerCase(),
+                val = _input.value.toLowerCase();
+            row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+        }
+        return {
+            init: function() {
+                var inputs = document.getElementsByClassName('light-table-filter');
+                Arr.forEach.call(inputs, function(input) {
+                    input.oninput = _onInputEvent;
+                });
+            }
+        };
+    })(Array.prototype);
+    document.addEventListener('readystatechange', function() {
+        if (document.readyState === 'complete') {
+            LightTableFilter.init();
+        }
+    });
+})(document);</script>
             </div>
             <div id="extra" class="col s12">
                 <div class="row">
