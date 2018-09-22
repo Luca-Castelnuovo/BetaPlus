@@ -1,9 +1,17 @@
 <?php
 require($_SERVER['DOCUMENT_ROOT'] . '/init.php');
 
-login_admin();
+login_docent();
 
-head('Agenda Panel', 5);
+if (!empty($_GET['id'])) {
+    $id = clean_data($_GET['id']);
+
+    $query =
+        "DELETE FROM
+            agenda
+        WHERE
+            id='{$id}'";
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     csrf_val($_POST['CSRFtoken']);
@@ -30,6 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     redirect('/general/agenda', 'Item toegevoegd');
 }
 
+head('Agenda Panel', 5);
+
 ?>
 
 <div class="section">
@@ -51,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="row">
                 <div class="input-field col s12">
                     <input id="link" name="link" type="text">
-                    <label for="link">Link</label>
+                    <label for="link">Link (optioneel)</label>
                 </div>
             </div>
             <div class="row">
@@ -61,15 +71,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
     </div>
 </div>
-
-<!-- <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('.datepicker');
-        var instances = M.Datepicker.init(elems, {
-            format: 'yyyy-mm-dd',
-            firstDay: 1
-        });
-    });
-</script> -->
 
 <?php footer('<script>document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll(".datepicker");M.Datepicker.init(e,{format:"yyyy-mm-dd",firstDay:1})});</script>'); ?>

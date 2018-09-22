@@ -72,6 +72,7 @@ function agenda()
 {
     $query =
         "SELECT
+            id,
             title,
             link,
             date
@@ -94,12 +95,16 @@ function agenda()
                       <p>{$item['date']}</p>
                     </div>
 END;
-            if (!empty($item['link'])) {
-                echo <<<END
-                    <div class="card-action">
-                            <a href="{$item['link']}" target="_blank">Link</a>
-                    </div>
-END;
+            if (!empty($item['link']) || $_SESSION['class'] == 'docent') {
+                echo '<div class="card-action">';
+                if (!empty($item['link'])) {
+                    echo "<a href=\"{$item['link']}\" target=\"_blank\">Link</a>";
+                }
+
+                if ($_SESSION['class'] == 'docent') {
+                    echo "<a href=\"/admin/agenda/{$item['id']}\" onclick=\"return confirm('Weet u het zeker?')\">Verwijder</a>";
+                }
+                echo '</div>';
             }
             echo <<<END
                 </div>
