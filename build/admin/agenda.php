@@ -5,17 +5,59 @@ login_docent();
 
 head('Agenda Panel', 5);
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    csrf_val($_POST['CSRFtoken']);
+}
+
 ?>
 
 <div class="section">
     <div class="container">
-        <div class="row">
-            <div class="col s12">
-                <h3>Dit moet nog gedaan worden</h3>
-                <?php // TODO: agenda input form?>
+        <form method="post" action="agenda.php">
+            <h3>Nieuw Item</h3>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input class="validate" id="title" name="title" type="text" required>
+                    <label for="title">Titel item</label>
+                </div>
             </div>
-        </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input class="validate" id="link" name="link" type="text" required>
+                    <label for="link">Link</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>PDF</span>
+                        <input type="file" name="file" accept=".pdf" required>
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <input id="date" type="text" class="datepicker">
+                <label for="date">Datum</label>
+            </div>
+            <div class="row">
+                <input name="CSRFtoken" type="text" value="<?= csrf_gen() ?>">
+                <button class="btn-large waves-effect waves-light color-primary--background" type="submit" name="action">Verstuur <i class="material-icons right">send</i></button>
+            </div>
+        </form>
     </div>
 </div>
 
-<?php footer(); ?>
+<!-- <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.datepicker');
+        var instances = M.Datepicker.init(elems, {
+            format: 'yyyy-mm-dd',
+            firstDay: 1
+        });
+    });
+</script> -->
+
+<?php footer('document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll(".datepicker");M.Datepicker.init(e,{format:"yyyy-mm-dd",firstDay:1})});'); ?>
