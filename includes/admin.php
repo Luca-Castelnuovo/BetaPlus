@@ -111,7 +111,7 @@ function admin_log_list()
         $CSRFtoken = csrf_gen();
         echo <<<END
         <div class="row margin-top-5">
-            <div class="col s6"><input type="search" id="filter" class="light-table-filter" data-table="order-table" placeholder="Filter"></div>
+            <div class="col s12"><input type="search" id="filter" class="light-table-filter" data-table="order-table" placeholder="Filter"></div>
         </div>
         <table class="striped centered responsive-table order order-table">
             <thead>
