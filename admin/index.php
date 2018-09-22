@@ -13,9 +13,8 @@ head('Admin', 5);
         <div class="row">
             <div class="col s12">
                 <ul class="tabs tabs-fixed-width z-depth-1">
-                    <li class="tab col s3"><a class="active" href="#users">Users</a></li>
-                    <li class="tab col s3"><a href="#logs">Logs</a></li>
-                    <li class="tab col s3"><a href="#agenda">Agenda</a></li>
+                    <li class="tab col s3"><a class="active" href="#logs">Logs</a></li>
+                    <li class="tab col s3"><a href="#users">Users</a></li>
                     <li class="tab col s3"><a href="#extra">Extra</a></li>
                 </ul>
             </div>
@@ -35,11 +34,6 @@ head('Admin', 5);
             </div>
             <div id="logs" class="col s12">
                 <?php admin_log_list(); ?>
-            </div>
-            <div id="agenda" class="col s12">
-                <h3>Agenda</h3>
-                <h5>current agenda items</h5>
-                <h5>Input agenda form</h5>
             </div>
             <div id="extra" class="col s12">
                 <div class="row">
