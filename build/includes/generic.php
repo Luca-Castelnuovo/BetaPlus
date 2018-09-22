@@ -57,6 +57,17 @@ function alert_display()
     }
 }
 
+//Check if required vars are not empty
+function is_empty($vars, $redirect)
+{
+    foreach ($vars as $var) {
+        if (empty($var)) {
+            redirect($redirect, 'Vul AUB alle vakjes in');
+        }
+    }
+}
+
+//Output agenda items
 function agenda()
 {
     $query =
