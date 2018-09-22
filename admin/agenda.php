@@ -22,25 +22,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
             </div>
             <div class="row">
+                <input class="datepicker" id="date" type="text">
+                <label for="date">Datum</label>
+            </div>
+            <div class="row">
                 <div class="input-field col s12">
-                    <input class="validate" id="link" name="link" type="text" required>
+                    <input class="validate" id="link" name="link" type="text">
                     <label for="link">Link</label>
                 </div>
-            </div>
-            <div class="row">
-                <div class="file-field input-field">
-                    <div class="btn">
-                        <span>PDF</span>
-                        <input type="file" name="file" accept=".pdf" required>
-                    </div>
-                    <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <input id="date" type="text" class="datepicker">
-                <label for="date">Datum</label>
             </div>
             <div class="row">
                 <input name="CSRFtoken" type="hidden" value="<?= csrf_gen() ?>">
@@ -50,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </div>
 
-<!-- <script type="text/javascript">
+<!-- <script>
     document.addEventListener('DOMContentLoaded', function() {
         var elems = document.querySelectorAll('.datepicker');
         var instances = M.Datepicker.init(elems, {
