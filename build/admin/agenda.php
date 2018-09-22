@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $link = clean_data($_POST['link']);
     $date = clean_data($_POST['date']);
 
-    is_empty([$title, $link], '/admin/agenda');
+    is_empty([$title, $date], '/admin/agenda');
 
     $query =
         "INSERT INTO
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input class="datepicker" id="date" type="text">
+                    <input class="datepicker" name="date" id="date" type="text">
                     <label for="date">Datum</label>
                 </div>
             </div>
