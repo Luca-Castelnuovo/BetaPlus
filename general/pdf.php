@@ -6,7 +6,7 @@ login();
 
 $id = clean_data($_GET['random_id']);
 
-is_empty([$token_get], '/general/home', 'Deze link is niet geldig');
+is_empty([$id], '/general/home', 'Deze link is niet geldig');
 
 $query =
     "SELECT
