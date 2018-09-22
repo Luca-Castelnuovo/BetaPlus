@@ -6,6 +6,8 @@ $ip = ip();
 
 $token_get = clean_data($_GET['token']);
 
+is_empty([$token_get], '/?reset', 'Deze link is al gebruikt of niet geldig');
+
 $query =
     "SELECT
         used,

@@ -63,14 +63,12 @@ END;
 } else {
     csrf_val($_GET['CSRFtoken']);
 
-    if (empty($_GET['type']) || empty($_GET['id']) || empty($_GET['class'])) {
-        redirect('/admin', 'Not all required vars were passed!');
-    }
-
     $type = clean_data($_GET['type']);
     $user_id = clean_data($_GET['id']);
     $user_class = clean_data($_GET['class']);
     $state = clean_data($_GET['state']) ?? 0;
+
+    is_empty([$type, $user_id, $user_class], '/admin');
 
     $sql_table = ($user_class === 'docent') ? 'docenten' : 'leerlingen';
 

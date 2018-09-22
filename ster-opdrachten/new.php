@@ -13,6 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $datetime = current_date(true);
     $subject = clean_data($_POST['subject']);
 
+    is_empty([$project_name, $subject], '/leerlingen/home');
+
     $leerling_id = $_SESSION['id'];
 
     $query =

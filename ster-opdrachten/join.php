@@ -4,12 +4,10 @@ require($_SERVER['DOCUMENT_ROOT'] . '/init.php');
 login_leerling();
 
 $id = clean_data($_GET['id']);
+$request_id = clean_data($_GET['request_id']);
 
-if (!isset($_GET['request_id'])) {
-    redirect('/ster-opdrachten/view/' . $id, 'Deze link is niet geldig');
-} else {
-    $request_id = clean_data($_GET['request_id']);
-}
+is_empty([$id], '/ster-opdrachten/', 'Deze link is niet geldig');
+is_empty([$request_id], '/ster-opdrachten/view/' . $id, 'Deze link is niet geldig');
 
 $query =
     "SELECT

@@ -5,6 +5,8 @@ login_leerling();
 
 $id = clean_data($_GET['id']);
 
+is_empty([$id], '/ster-opdrachten/', 'Deze link is niet geldig');
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!token_val($id, true)) {
         redirect('/ster-opdrachten/view/' . $id, 'U hebt geen toestemming om deze Ster Opdracht aan te passen');
@@ -37,6 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $path = 'steropdrachten/' . $results['filename'];
     $random_id = gen(64);
     $created = current_date(true);
+
+    is_empty([$name], '/ster-opdrachten/files/' . $id);
 
     $query =
         "INSERT INTO

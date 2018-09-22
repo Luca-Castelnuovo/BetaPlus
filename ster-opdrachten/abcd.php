@@ -8,6 +8,8 @@ head('Beoordeling || Ster Opdrachten', 2, 'Beoordeling');
 
 $id = clean_data($_GET['id']);
 
+is_empty([$id], '/general/home', 'Deze link is niet geldig');
+
 $query =
     "SELECT
         project_name,
@@ -20,7 +22,7 @@ $query =
 $steropdracht = sql_query($query, true);
 
 if ($steropdracht['status'] != 3) {
-    redirect('/general/home/', 'Ster Opdracht niet af en kan dus niet worden beoordeeld');
+    redirect('/ster-opdrachten/view/' . $id, 'Ster Opdracht niet af en kan dus niet worden beoordeeld');
 }
 
 ?>

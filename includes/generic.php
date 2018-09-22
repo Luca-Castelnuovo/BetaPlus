@@ -58,11 +58,12 @@ function alert_display()
 }
 
 //Check if required vars are not empty
-function is_empty($vars, $redirect)
+function is_empty($vars, $redirect, $alert = null)
 {
     foreach ($vars as $var) {
         if (empty($var)) {
-            redirect($redirect, 'Vul AUB alle vakjes in');
+            $alert = isset($alert) ? $alert : 'Vul aub alle velden in';
+            redirect($redirect, $alert);
         }
     }
 }
