@@ -110,7 +110,12 @@ function admin_log_list()
     if ($result->num_rows > 0) {
         $CSRFtoken = csrf_gen();
         echo <<<END
-        <input type="search" class="light-table-filter" data-table="order-table" placeholder="Filter">
+        <div class="row">
+            <div class="col s6"><input type="search" id="filter" class="light-table-filter" data-table="order-table" placeholder="Filter"></div>
+            <div class="col s2"><a onclick="filter('low')" href="#" class="waves-effect waves-light btn color-primary--background">Low</a></div>
+            <div class="col s2"><a onclick="filter('medium')" href="#" class="waves-effect waves-light btn color-tertiary--background">Medium</a></div>
+            <div class="col s2"><a onclick="filter('high')" href="#" class="waves-effect waves-light btn color-secundary--background">High</a></div>
+        </div>
         <table class="striped centered responsive-table order order-table">
             <thead>
               <tr>

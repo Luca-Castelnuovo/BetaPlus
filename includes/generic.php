@@ -99,11 +99,11 @@ END;
             if (!empty($item['link']) || $_SESSION['class'] == 'docent') {
                 echo '<div class="card-action">';
                 if (!empty($item['link'])) {
-                    echo "<a href=\"{$item['link']}\" target=\"_blank\">Link</a>";
+                    echo "<a href=\"{$item['link']}\" class=\"waves-effect waves-light btn color-primary--background\" target=\"_blank\">Link</a>";
                 }
 
                 if ($_SESSION['class'] == 'docent') {
-                    echo "<a href=\"/admin/agenda/{$item['id']}\" onclick=\"return confirm('Weet u het zeker?')\">Verwijder</a>";
+                    echo "<a href=\"/admin/agenda/{$item['id']}\" class=\"waves-effect waves-light btn color-secundary--background\" onclick=\"return confirm('Weet u het zeker?')\">Verwijder</a>";
                 }
                 echo '</div>';
             }

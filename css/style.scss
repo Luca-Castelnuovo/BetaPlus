@@ -2,46 +2,64 @@
 /* VARIABLES */
 /*************/
 $color_primary: #003d14;
+$color_primary_darken: #00270d;
+
 $color_secundary: #7a0036;
 $color_secundary_darken: #4f0023;
+
+$color_tertiary: #FAA817;
+$color_tertiary_darken: #ae7003;
 
 
 /***********/
 /* COLORS */
 /***********/
 
-.color-primary {
-    color: $color_primary !important;
+.color {
+    &-primary{
+        color: $color_primary !important;
 
-    &--background {
-        background-color: $color_primary !important;
+        &--background {
+            background-color: $color_primary !important;
 
-        &:hover:not(.nav-wrapper):not(.hover-disable) {
+            &:hover:not(.nav-wrapper):not(.hover-disable) {
+                background-color: $color_secundary !important;
+            }
+        }
+
+        &--border {
+            border-color: $color_primary !important;
+
+            &:hover:not(.hover-disable) {
+                border-color: $color_secundary !important;
+            }
+        }
+    }
+
+    &-secondary{
+        color: $color_secundary !important;
+
+        &--background {
             background-color: $color_secundary !important;
+
+            &:hover:not(.hover-disable) {
+                background-color: $color_secundary_darken !important;
+            }
         }
     }
 
-    &--border {
-        border-color: $color_primary !important;
+    &-tertiary{
+        color: $color_tertiary !important;
 
-        &:hover:not(.hover-disable) {
-            border-color: $color_secundary !important;
-        }
-    }
-}
+        &--background {
+            background-color: $color_tertiary !important;
 
-.color-secondary {
-    color: $color_secundary !important;
-
-    &--background {
-        background-color: $color_secundary !important;
-
-        &:hover:not(.hover-disable) {
-            background-color: $color_secundary_darken !important;
+            &:hover:not(.hover-disable) {
+                background-color: $color_tertiary_darken !important;
+            }
         }
     }
 }
-
 
 /********/
 /* GRID */
