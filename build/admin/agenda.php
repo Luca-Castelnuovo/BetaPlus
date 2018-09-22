@@ -1,7 +1,7 @@
 <?php
 require($_SERVER['DOCUMENT_ROOT'] . '/init.php');
 
-login_docent();
+login_admin();
 
 head('Agenda Panel', 5);
 
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label for="date">Datum</label>
             </div>
             <div class="row">
-                <input name="CSRFtoken" type="text" value="<?= csrf_gen() ?>">
+                <input name="CSRFtoken" type="hidden" value="<?= csrf_gen() ?>">
                 <button class="btn-large waves-effect waves-light color-primary--background" type="submit" name="action">Verstuur <i class="material-icons right">send</i></button>
             </div>
         </form>
@@ -60,4 +60,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     });
 </script> -->
 
-<?php footer('document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll(".datepicker");M.Datepicker.init(e,{format:"yyyy-mm-dd",firstDay:1})});'); ?>
+<?php footer('<script>document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll(".datepicker");M.Datepicker.init(e,{format:"yyyy-mm-dd",firstDay:1})});</script>'); ?>
