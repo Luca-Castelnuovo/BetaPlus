@@ -11,6 +11,9 @@ if (!empty($_GET['id'])) {
             agenda
         WHERE
             id='{$id}'";
+
+    sql_query($query, false);
+    redirect('/general/agenda', 'Item verwijderd');
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
