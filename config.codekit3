@@ -1,5 +1,5 @@
 {
-"AAInfo": "This is a CodeKit 3 project config file. MODIFYING THE CONTENTS OF THIS FILE IS A POOR LIFE DECISION. Doing so will cause CodeKit to crash and\/or corrupt your project. I know it looks like JSON, but it is *not*. Many numbers in this file are 64-bit long long bitFlags, which JSON does not support. These numbers *cannot* be treated as discrete values and if you attempt to parse this file as standard JSON with any public JSON parser, these values will be corrupted. This file is not backwards-compatible with CodeKit 1 or 2. For more information, see https:\/\/codekitapp.com\/",
+"AAInfo": "This is a CodeKit 3 project config file. MODIFYING THE CONTENTS OF THIS FILE IS A POOR LIFE DECISION. Doing so will cause CodeKit to crash and/or corrupt your project. I know it looks like JSON, but it is *not*. Many numbers in this file are 64-bit long long bitFlags, which JSON does not support. These numbers *cannot* be treated as discrete values and if you attempt to parse this file as standard JSON with any public JSON parser, these values will be corrupted. This file is not backwards-compatible with CodeKit 1 or 2. For more information, see https://codekitapp.com/",
 "buildSteps": [
 	{
 		"name": "Process All Remaining Files and Folders",
@@ -7,85 +7,85 @@
 		"uuidString": "8DF05E1E-2083-499E-BBCE-4A929C52B4CD"
 		}
 	],
-"creatorBuild": "26680",
+"creatorBuild": "28795",
 "files": {
-	"\/.htaccess": {
+	"/.htaccess": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/.htaccess",
+		"oAP": "/build/.htaccess",
 		"oF": 0
 		},
-	"\/admin\/agenda.php": {
+	"/admin/agenda.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/admin\/agenda.php",
+		"oAP": "/build/admin/agenda.php",
 		"oF": 0
 		},
-	"\/admin\/index.php": {
+	"/admin/index.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/admin\/index.php",
+		"oAP": "/build/admin/index.php",
 		"oF": 0
 		},
-	"\/admin\/process.php": {
+	"/admin/process.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/admin\/process.php",
+		"oAP": "/build/admin/process.php",
 		"oF": 0
 		},
-	"\/auth\/change.php": {
+	"/auth/change.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/auth\/change.php",
+		"oAP": "/build/auth/change.php",
 		"oF": 0
 		},
-	"\/auth\/cookie.php": {
+	"/auth/cookie.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/auth\/cookie.php",
+		"oAP": "/build/auth/cookie.php",
 		"oF": 0
 		},
-	"\/auth\/forgot.php": {
+	"/auth/forgot.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/auth\/forgot.php",
+		"oAP": "/build/auth/forgot.php",
 		"oF": 0
 		},
-	"\/auth\/login.php": {
+	"/auth/login.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/auth\/login.php",
+		"oAP": "/build/auth/login.php",
 		"oF": 0
 		},
-	"\/auth\/register.php": {
+	"/auth/register.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/auth\/register.php",
+		"oAP": "/build/auth/register.php",
 		"oF": 0
 		},
-	"\/auth\/reset.php": {
+	"/auth/reset.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/auth\/reset.php",
+		"oAP": "/build/auth/reset.php",
 		"oF": 0
 		},
-	"\/build": {
+	"/build": {
 		"ft": 65536,
 		"oA": 1,
-		"oAP": "\/build\/build",
+		"oAP": "/build/build",
 		"oF": 0
 		},
-	"\/css\/style.scss": {
+	"/css/style.scss": {
 		"aP": 1,
 		"bl": 0,
 		"dP": 10,
@@ -93,360 +93,353 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "\/build\/css\/style.css",
+		"oAP": "/build/css/style.css",
 		"oF": 0,
 		"oS": 3,
 		"uL": 1
 		},
-	"\/docenten\/home.php": {
+	"/docenten/home.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/docenten\/home.php",
+		"oAP": "/build/docenten/home.php",
 		"oF": 0
 		},
-	"\/docenten\/settings.php": {
+	"/docenten/settings.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/docenten\/settings.php",
+		"oAP": "/build/docenten/settings.php",
 		"oF": 0
 		},
-	"\/favicon.ico": {
+	"/favicon.ico": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/favicon.ico",
+		"oAP": "/build/favicon.ico",
 		"oF": 0
 		},
-	"\/favicon.png": {
+	"/favicon.png": {
 		"ft": 32768,
 		"iS": 150953,
 		"oA": 0,
-		"oAP": "\/build\/favicon.png",
+		"oAP": "/build/favicon.png",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 1,
 		"oT": 1,
 		"q": 90
 		},
-	"\/files\/overig\/abcd.docx": {
+	"/files/overig/abcd.docx": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/files\/overig\/abcd.docx",
+		"oAP": "/build/files/overig/abcd.docx",
 		"oF": 0
 		},
-	"\/files\/overig\/jaarschema.pdf": {
+	"/files/overig/jaarschema.pdf": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/files\/overig\/jaarschema.pdf",
+		"oAP": "/build/files/overig/jaarschema.pdf",
 		"oF": 0
 		},
-	"\/general\/agenda.php": {
+	"/general/agenda.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/general\/agenda.php",
+		"oAP": "/build/general/agenda.php",
 		"oF": 0
 		},
-	"\/general\/error.php": {
+	"/general/error.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/general\/error.php",
+		"oAP": "/build/general/error.php",
 		"oF": 0
 		},
-	"\/general\/home.php": {
+	"/general/home.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/general\/home.php",
+		"oAP": "/build/general/home.php",
 		"oF": 0
 		},
-	"\/general\/pdf.php": {
+	"/general/pdf.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/general\/pdf.php",
+		"oAP": "/build/general/pdf.php",
 		"oF": 0
 		},
-	"\/general\/settings.php": {
+	"/general/settings.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/general\/settings.php",
+		"oAP": "/build/general/settings.php",
 		"oF": 0
 		},
-	"\/general\/toast.php": {
+	"/general/toast.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/general\/toast.php",
+		"oAP": "/build/general/toast.php",
 		"oF": 0
 		},
-	"\/general\/upload.php": {
+	"/general/upload.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/general\/upload.php",
+		"oAP": "/build/general/upload.php",
 		"oF": 0
 		},
-	"\/includes\/admin.php": {
+	"/includes/admin.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/includes\/admin.php",
+		"oAP": "/build/includes/admin.php",
 		"oF": 0
 		},
-	"\/includes\/api.php": {
+	"/includes/api.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/includes\/api.php",
+		"oAP": "/build/includes/api.php",
 		"oF": 0
 		},
-	"\/includes\/generic.php": {
+	"/includes/generic.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/includes\/generic.php",
+		"oAP": "/build/includes/generic.php",
 		"oF": 0
 		},
-	"\/includes\/leerlingen.php": {
+	"/includes/leerlingen.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/includes\/leerlingen.php",
+		"oAP": "/build/includes/leerlingen.php",
 		"oF": 0
 		},
-	"\/includes\/security.php": {
+	"/includes/security.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/includes\/security.php",
+		"oAP": "/build/includes/security.php",
 		"oF": 0
 		},
-	"\/includes\/sql.php": {
+	"/includes/sql.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/includes\/sql.php",
+		"oAP": "/build/includes/sql.php",
 		"oF": 0
 		},
-	"\/includes\/steropdrachten.php": {
+	"/includes/steropdrachten.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/includes\/steropdrachten.php",
+		"oAP": "/build/includes/steropdrachten.php",
 		"oF": 0
 		},
-	"\/includes\/template.php": {
+	"/includes/template.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/includes\/template.php",
+		"oAP": "/build/includes/template.php",
 		"oF": 0
 		},
-	"\/index.php": {
+	"/index.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/index.php",
+		"oAP": "/build/index.php",
 		"oF": 0
 		},
-	"\/init.php": {
+	"/init.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/init.php",
+		"oAP": "/build/init.php",
 		"oF": 0
 		},
-	"\/leerlingen\/home.php": {
+	"/leerlingen/home.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/leerlingen\/home.php",
+		"oAP": "/build/leerlingen/home.php",
 		"oF": 0
 		},
-	"\/leerlingen\/index.php": {
+	"/leerlingen/index.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/leerlingen\/index.php",
+		"oAP": "/build/leerlingen/index.php",
 		"oF": 0
 		},
-	"\/leerlingen\/settings.php": {
+	"/leerlingen/settings.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/leerlingen\/settings.php",
+		"oAP": "/build/leerlingen/settings.php",
 		"oF": 0
 		},
-	"\/libs\/FileUpload\/File.php": {
+	"/libs/FileUpload/File.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/libs\/FileUpload\/File.php",
+		"oAP": "/build/libs/FileUpload/File.php",
 		"oF": 0
 		},
-	"\/libs\/FileUpload\/FileNameGenerator\/Custom.php": {
+	"/libs/FileUpload/FileNameGenerator/Custom.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/libs\/FileUpload\/FileNameGenerator\/Custom.php",
+		"oAP": "/build/libs/FileUpload/FileNameGenerator/Custom.php",
 		"oF": 0
 		},
-	"\/libs\/FileUpload\/FileNameGenerator\/FileNameGenerator.php": {
+	"/libs/FileUpload/FileNameGenerator/FileNameGenerator.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/libs\/FileUpload\/FileNameGenerator\/FileNameGenerator.php",
+		"oAP": "/build/libs/FileUpload/FileNameGenerator/FileNameGenerator.php",
 		"oF": 0
 		},
-	"\/libs\/FileUpload\/FileNameGenerator\/MD5.php": {
+	"/libs/FileUpload/FileNameGenerator/MD5.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/libs\/FileUpload\/FileNameGenerator\/MD5.php",
+		"oAP": "/build/libs/FileUpload/FileNameGenerator/MD5.php",
 		"oF": 0
 		},
-	"\/libs\/FileUpload\/FileNameGenerator\/Random.php": {
+	"/libs/FileUpload/FileNameGenerator/Random.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/libs\/FileUpload\/FileNameGenerator\/Random.php",
+		"oAP": "/build/libs/FileUpload/FileNameGenerator/Random.php",
 		"oF": 0
 		},
-	"\/libs\/FileUpload\/FileNameGenerator\/Simple.php": {
+	"/libs/FileUpload/FileNameGenerator/Simple.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/libs\/FileUpload\/FileNameGenerator\/Simple.php",
+		"oAP": "/build/libs/FileUpload/FileNameGenerator/Simple.php",
 		"oF": 0
 		},
-	"\/libs\/FileUpload\/FileNameGenerator\/Slug.php": {
+	"/libs/FileUpload/FileNameGenerator/Slug.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/libs\/FileUpload\/FileNameGenerator\/Slug.php",
+		"oAP": "/build/libs/FileUpload/FileNameGenerator/Slug.php",
 		"oF": 0
 		},
-	"\/libs\/FileUpload\/FileSystem\/FileSystem.php": {
+	"/libs/FileUpload/FileSystem/FileSystem.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/libs\/FileUpload\/FileSystem\/FileSystem.php",
+		"oAP": "/build/libs/FileUpload/FileSystem/FileSystem.php",
 		"oF": 0
 		},
-	"\/libs\/FileUpload\/FileSystem\/Mock.php": {
+	"/libs/FileUpload/FileSystem/Mock.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/libs\/FileUpload\/FileSystem\/Mock.php",
+		"oAP": "/build/libs/FileUpload/FileSystem/Mock.php",
 		"oF": 0
 		},
-	"\/libs\/FileUpload\/FileSystem\/Simple.php": {
+	"/libs/FileUpload/FileSystem/Simple.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/libs\/FileUpload\/FileSystem\/Simple.php",
+		"oAP": "/build/libs/FileUpload/FileSystem/Simple.php",
 		"oF": 0
 		},
-	"\/libs\/FileUpload\/FileUpload.php": {
+	"/libs/FileUpload/FileUpload.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/libs\/FileUpload\/FileUpload.php",
+		"oAP": "/build/libs/FileUpload/FileUpload.php",
 		"oF": 0
 		},
-	"\/libs\/FileUpload\/FileUploadFactory.php": {
+	"/libs/FileUpload/FileUploadFactory.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/libs\/FileUpload\/FileUploadFactory.php",
+		"oAP": "/build/libs/FileUpload/FileUploadFactory.php",
 		"oF": 0
 		},
-	"\/libs\/FileUpload\/PathResolver\/PathResolver.php": {
+	"/libs/FileUpload/PathResolver/PathResolver.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/libs\/FileUpload\/PathResolver\/PathResolver.php",
+		"oAP": "/build/libs/FileUpload/PathResolver/PathResolver.php",
 		"oF": 0
 		},
-	"\/libs\/FileUpload\/PathResolver\/Simple.php": {
+	"/libs/FileUpload/PathResolver/Simple.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/libs\/FileUpload\/PathResolver\/Simple.php",
+		"oAP": "/build/libs/FileUpload/PathResolver/Simple.php",
 		"oF": 0
 		},
-	"\/libs\/FileUpload\/Util.php": {
+	"/libs/FileUpload/Util.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/libs\/FileUpload\/Util.php",
+		"oAP": "/build/libs/FileUpload/Util.php",
 		"oF": 0
 		},
-	"\/libs\/FileUpload\/Validator\/DimensionValidator.php": {
+	"/libs/FileUpload/Validator/DimensionValidator.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/libs\/FileUpload\/Validator\/DimensionValidator.php",
+		"oAP": "/build/libs/FileUpload/Validator/DimensionValidator.php",
 		"oF": 0
 		},
-	"\/libs\/FileUpload\/Validator\/MimeTypeValidator.php": {
+	"/libs/FileUpload/Validator/MimeTypeValidator.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/libs\/FileUpload\/Validator\/MimeTypeValidator.php",
+		"oAP": "/build/libs/FileUpload/Validator/MimeTypeValidator.php",
 		"oF": 0
 		},
-	"\/libs\/FileUpload\/Validator\/Simple.php": {
+	"/libs/FileUpload/Validator/Simple.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/libs\/FileUpload\/Validator\/Simple.php",
+		"oAP": "/build/libs/FileUpload/Validator/Simple.php",
 		"oF": 0
 		},
-	"\/libs\/FileUpload\/Validator\/SizeValidator.php": {
+	"/libs/FileUpload/Validator/SizeValidator.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/libs\/FileUpload\/Validator\/SizeValidator.php",
+		"oAP": "/build/libs/FileUpload/Validator/SizeValidator.php",
 		"oF": 0
 		},
-	"\/libs\/FileUpload\/Validator\/Validator.php": {
+	"/libs/FileUpload/Validator/Validator.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/libs\/FileUpload\/Validator\/Validator.php",
+		"oAP": "/build/libs/FileUpload/Validator/Validator.php",
 		"oF": 0
 		},
-	"\/libs\/Parsedown.php": {
+	"/libs/Parsedown.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/libs\/Parsedown.php",
+		"oAP": "/build/libs/Parsedown.php",
 		"oF": 0
 		},
-	"\/LICENSE": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/build\/LICENSE",
-		"oF": 0
-		},
-	"\/manifest.json": {
+	"/manifest.json": {
 		"ft": 524288,
 		"oA": 2,
-		"oAP": "\/build\/manifest.json",
+		"oAP": "/build/manifest.json",
 		"oF": 1,
 		"oO": 0,
 		"oS": 0
 		},
-	"\/README.md": {
+	"/README.md": {
 		"cB": 0,
 		"cS": 0,
 		"eF": 1,
@@ -455,7 +448,7 @@
 		"eSQ": 1,
 		"ft": 4096,
 		"oA": 1,
-		"oAP": "\/build\/README.html",
+		"oAP": "/build/README.html",
 		"oF": 0,
 		"oFM": 0,
 		"oS": 0,
@@ -464,74 +457,74 @@
 		"rFN": 0,
 		"uCM": 0
 		},
-	"\/ster-opdrachten\/abcd.php": {
+	"/ster-opdrachten/abcd.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/ster-opdrachten\/abcd.php",
+		"oAP": "/build/ster-opdrachten/abcd.php",
 		"oF": 0
 		},
-	"\/ster-opdrachten\/edit.php": {
+	"/ster-opdrachten/edit.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/ster-opdrachten\/edit.php",
+		"oAP": "/build/ster-opdrachten/edit.php",
 		"oF": 0
 		},
-	"\/ster-opdrachten\/files.php": {
+	"/ster-opdrachten/files.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/ster-opdrachten\/files.php",
+		"oAP": "/build/ster-opdrachten/files.php",
 		"oF": 0
 		},
-	"\/ster-opdrachten\/index.php": {
+	"/ster-opdrachten/index.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/ster-opdrachten\/index.php",
+		"oAP": "/build/ster-opdrachten/index.php",
 		"oF": 0
 		},
-	"\/ster-opdrachten\/join.php": {
+	"/ster-opdrachten/join.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/ster-opdrachten\/join.php",
+		"oAP": "/build/ster-opdrachten/join.php",
 		"oF": 0
 		},
-	"\/ster-opdrachten\/new.php": {
+	"/ster-opdrachten/new.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/ster-opdrachten\/new.php",
+		"oAP": "/build/ster-opdrachten/new.php",
 		"oF": 0
 		},
-	"\/ster-opdrachten\/process.php": {
+	"/ster-opdrachten/process.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/ster-opdrachten\/process.php",
+		"oAP": "/build/ster-opdrachten/process.php",
 		"oF": 0
 		},
-	"\/ster-opdrachten\/review.php": {
+	"/ster-opdrachten/review.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/ster-opdrachten\/review.php",
+		"oAP": "/build/ster-opdrachten/review.php",
 		"oF": 0
 		},
-	"\/ster-opdrachten\/view.php": {
+	"/ster-opdrachten/view.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/ster-opdrachten\/view.php",
+		"oAP": "/build/ster-opdrachten/view.php",
 		"oF": 0
 		},
-	"\/todo.php": {
+	"/todo.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/build\/todo.php",
+		"oAP": "/build/todo.php",
 		"oF": 0
 		}
 	},
@@ -545,148 +538,101 @@
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "meme-drunkArcher",
 	"iconImageWasSetByUser": 0,
-	"lastBuiltDate": 559148849
+	"lastBuiltDate": 559406907.82320702
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
 	"alwaysUseExternalServer": 0,
 	"animateCSSInjections": 1,
 	"autoBuildNewItems": 1,
-	"autoprefixerBrowserString": "> 1%, last 2 versions, Firefox ESR, Opera 12.1",
 	"autoprefixerEnableIEGrid": 0,
+	"babel7PresetType": 1,
+	"babelAllowRCFiles": 0,
 	"babelAuxiliaryCommentAfter": "",
 	"babelAuxiliaryCommentBefore": "",
-	"babelConfigFileHandlingType": 0,
+	"babelConfigType": 0,
 	"babelCustomPluginsList": "",
 	"babelCustomPresetsList": "",
 	"babelInsertModuleIDs": 0,
 	"babelModuleID": "",
 	"babelNoComments": 0,
 	"babelPlugins": {
+		"arrow-functions": {
+			"active": 0
+			},
 		"async-generator-functions": {
 			"active": 0
 			},
 		"async-to-generator": {
 			"active": 0
 			},
-		"async-to-module-method": {
+		"block-scoped-functions": {
+			"active": 0
+			},
+		"block-scoping": {
 			"active": 0
 			},
 		"class-properties": {
 			"active": 0
 			},
+		"classes": {
+			"active": 0
+			},
+		"computed-properties": {
+			"active": 0
+			},
 		"decorators": {
 			"active": 0
 			},
-		"decorators-legacy": {
+		"destructuring": {
 			"active": 0
 			},
 		"do-expressions": {
 			"active": 0
 			},
-		"es2015-arrow-functions": {
+		"dotall-regex": {
 			"active": 0
 			},
-		"es2015-block-scoped-functions": {
-			"active": 0
-			},
-		"es2015-block-scoping": {
-			"active": 0
-			},
-		"es2015-classes": {
-			"active": 0
-			},
-		"es2015-computed-properties": {
-			"active": 0
-			},
-		"es2015-constants": {
-			"active": 0
-			},
-		"es2015-destructuring": {
-			"active": 0
-			},
-		"es2015-duplicate-keys": {
-			"active": 0
-			},
-		"es2015-for-of": {
-			"active": 0
-			},
-		"es2015-function-name": {
-			"active": 0
-			},
-		"es2015-literals": {
-			"active": 0
-			},
-		"es2015-modules-amd": {
-			"active": 0
-			},
-		"es2015-modules-commonjs": {
-			"active": 0
-			},
-		"es2015-modules-systemjs": {
-			"active": 0
-			},
-		"es2015-modules-umd": {
-			"active": 0
-			},
-		"es2015-object-super": {
-			"active": 0
-			},
-		"es2015-parameters": {
-			"active": 0
-			},
-		"es2015-shorthand-properties": {
-			"active": 0
-			},
-		"es2015-spread": {
-			"active": 0
-			},
-		"es2015-sticky-regex": {
-			"active": 0
-			},
-		"es2015-template-literals": {
-			"active": 0
-			},
-		"es2015-typeof-symbol": {
-			"active": 0
-			},
-		"es2015-unicode-regex": {
-			"active": 0
-			},
-		"es3-member-expression-literals": {
-			"active": 0
-			},
-		"es3-property-literals": {
-			"active": 0
-			},
-		"es5-property-mutators": {
-			"active": 0
-			},
-		"eval": {
+		"duplicate-keys": {
 			"active": 0
 			},
 		"exponentiation-operator": {
 			"active": 0
 			},
-		"export-extensions": {
+		"export-default-from": {
+			"active": 0
+			},
+		"export-namespace-from": {
 			"active": 0
 			},
 		"external-helpers": {
 			"active": 0
 			},
-		"flow-comments": {
+		"flow-strip-types": {
 			"active": 0
 			},
-		"flow-strip-types": {
+		"for-of": {
 			"active": 0
 			},
 		"function-bind": {
 			"active": 0
 			},
-		"inline-environment-variables": {
+		"function-name": {
+			"active": 0
+			},
+		"function-sent": {
+			"active": 0
+			},
+		"instanceof": {
 			"active": 0
 			},
 		"jscript": {
+			"active": 0
+			},
+		"literals": {
+			"active": 0
+			},
+		"logical-assignment-operators": {
 			"active": 0
 			},
 		"member-expression-literals": {
@@ -698,7 +644,28 @@
 		"minify-booleans": {
 			"active": 0
 			},
+		"modules-amd": {
+			"active": 0
+			},
+		"modules-commonjs": {
+			"active": 0
+			},
+		"modules-systemjs": {
+			"active": 0
+			},
+		"modules-umd": {
+			"active": 0
+			},
+		"new-target": {
+			"active": 0
+			},
 		"node-env-inline": {
+			"active": 0
+			},
+		"nullish-coalescing-operator": {
+			"active": 0
+			},
+		"numeric-separator": {
 			"active": 0
 			},
 		"object-assign": {
@@ -710,7 +677,25 @@
 		"object-set-prototype-of-to-assign": {
 			"active": 0
 			},
+		"object-super": {
+			"active": 0
+			},
+		"optional-catch-binding": {
+			"active": 0
+			},
+		"optional-chaining": {
+			"active": 0
+			},
+		"parameters": {
+			"active": 0
+			},
+		"pipeline-operator": {
+			"active": 0
+			},
 		"property-literals": {
+			"active": 0
+			},
+		"property-mutators": {
 			"active": 0
 			},
 		"proto-to-assign": {
@@ -746,53 +731,46 @@
 		"remove-debugger": {
 			"active": 0
 			},
+		"reserved-words": {
+			"active": 0
+			},
 		"runtime": {
+			"active": 0
+			},
+		"shorthand-properties": {
 			"active": 0
 			},
 		"simplify-comparison-operators": {
 			"active": 0
 			},
+		"spread": {
+			"active": 0
+			},
+		"sticky-regex": {
+			"active": 0
+			},
 		"strict-mode": {
 			"active": 0
 			},
-		"syntax-async-generators": {
+		"template-literals": {
 			"active": 0
 			},
-		"syntax-class-properties": {
+		"throw-expressions": {
 			"active": 0
 			},
-		"syntax-decorators": {
-			"active": 0
-			},
-		"syntax-do-expressions": {
-			"active": 0
-			},
-		"syntax-export-extensions": {
-			"active": 0
-			},
-		"syntax-flow": {
-			"active": 0
-			},
-		"syntax-function-bind": {
-			"active": 0
-			},
-		"syntax-function-sent": {
-			"active": 0
-			},
-		"syntax-jsx": {
-			"active": 0
-			},
-		"syntax-object-rest-spread": {
-			"active": 0
-			},
-		"undeclared-variables-check": {
+		"typeof-symbol": {
 			"active": 0
 			},
 		"undefined-to-void": {
 			"active": 0
+			},
+		"unicode-property-regex": {
+			"active": 0
+			},
+		"unicode-regex": {
+			"active": 0
 			}
 		},
-	"babelPresetType": 193,
 	"babelRetainLines": 0,
 	"bowerAbbreviatedPath": "assets",
 	"bowerAutoCreateInfoFile": 1,
@@ -801,6 +779,7 @@
 	"bowerSaveDevDependencies": 0,
 	"bowerUseExactVersion": 1,
 	"browserRefreshDelay": 0,
+	"browserslistString": ">0.2%, last 2 versions, Firefox ESR, not dead",
 	"buildFolderActive": 1,
 	"buildFolderName": "build",
 	"cleanBuild": 1,
@@ -1158,6 +1137,10 @@
 			"active": 0,
 			"optionString": "'always', {exceptAfterSingleLine: false}"
 			},
+		"max-classes-per-file": {
+			"active": 0,
+			"optionString": "1"
+			},
 		"max-depth": {
 			"active": 0,
 			"optionString": "{'max': 4}"
@@ -1169,6 +1152,10 @@
 		"max-lines": {
 			"active": 0,
 			"optionString": "{'max': 300, 'skipBlankLines': true, 'skipComments': true}"
+			},
+		"max-lines-per-function": {
+			"active": 0,
+			"optionString": "{'max': 50, 'skipBlankLines': true, 'skipComments': true, 'IIFEs': false}"
 			},
 		"max-nested-callbacks": {
 			"active": 0,
@@ -1214,6 +1201,10 @@
 			"active": 0,
 			"optionString": ""
 			},
+		"no-async-promise-executor": {
+			"active": 0,
+			"optionString": ""
+			},
 		"no-await-in-loop": {
 			"active": 0,
 			"optionString": ""
@@ -1232,10 +1223,6 @@
 			},
 		"no-case-declarations": {
 			"active": 1,
-			"optionString": ""
-			},
-		"no-catch-shadow": {
-			"active": 0,
 			"optionString": ""
 			},
 		"no-class-assign": {
@@ -1434,9 +1421,13 @@
 			"active": 0,
 			"optionString": "{'ignore': [], 'ignoreArrayIndexes': true, 'enforceConst': false, 'detectObjects': false}"
 			},
+		"no-misleading-character-class": {
+			"active": 0,
+			"optionString": ""
+			},
 		"no-mixed-operators": {
 			"active": 0,
-			"optionString": "{'groups': [['+', '-', '*', '\/', '%', '**'], ['&', '|', '^', '~', '<<', '>>', '>>>'], ['==', '!=', '===', '!==', '>', '>=', '<', '<='], ['&&', '||'], ['in', 'instanceof']], 'allowSamePrecedence': true}"
+			"optionString": "{'groups': [['+', '-', '*', '/', '%', '**'], ['&', '|', '^', '~', '<<', '>>', '>>>'], ['==', '!=', '===', '!==', '>', '>=', '<', '<='], ['&&', '||'], ['in', 'instanceof']], 'allowSamePrecedence': true}"
 			},
 		"no-mixed-requires": {
 			"active": 0,
@@ -1790,6 +1781,10 @@
 			"active": 0,
 			"optionString": ""
 			},
+		"prefer-object-spread": {
+			"active": 0,
+			"optionString": ""
+			},
 		"prefer-promise-reject-errors": {
 			"active": 0,
 			"optionString": "{'allowEmptyReject': false}"
@@ -1818,6 +1813,10 @@
 			"active": 0,
 			"optionString": "'always'"
 			},
+		"require-atomic-updates": {
+			"active": 0,
+			"optionString": ""
+			},
 		"require-await": {
 			"active": 0,
 			"optionString": ""
@@ -1825,6 +1824,10 @@
 		"require-jsdoc": {
 			"active": 0,
 			"optionString": "{'require': {'FunctionDeclaration': true, 'MethodDefinition': false, 'ClassDeclaration': false, 'ArrowFunctionExpression': false}}"
+			},
+		"require-unicode-regexp": {
+			"active": 0,
+			"optionString": ""
 			},
 		"require-yield": {
 			"active": 1,
@@ -1880,7 +1883,7 @@
 			},
 		"spaced-comment": {
 			"active": 0,
-			"optionString": "'always', {'line': {'markers': ['\/'], 'exceptions': ['-', '+']}, 'block': {'markers': ['!'], 'exceptions': ['*'], 'balanced': false}}"
+			"optionString": "'always', {'line': {'markers': ['/'], 'exceptions': ['-', '+']}, 'block': {'markers': ['!'], 'exceptions': ['*'], 'balanced': false}}"
 			},
 		"strict": {
 			"active": 0,
@@ -1940,7 +1943,7 @@
 			}
 		},
 	"esLintSourceType": 0,
-	"externalServerAddress": "http:\/\/localhost:8888",
+	"externalServerAddress": "http://localhost:8888",
 	"gitIgnoreBuildFolder": 0,
 	"hideConfigFile": 0,
 	"jsCheckerReservedNamesString": "",
@@ -2335,7 +2338,6 @@
 		"escapeHTMLCharacters": 0,
 		"noEscapeInAttributes": 0,
 		"outputFormat": 2,
-		"outputStyle": 0,
 		"shouldRunCacheBuster": 0,
 		"useCDATA": 0,
 		"useDoubleQuotes": 0,
@@ -2354,7 +2356,7 @@
 	"languageDefaultsJS": {
 		"autoOutputAction": 0,
 		"autoOutputPathFilenamePattern": "*.js",
-		"autoOutputPathRelativePath": "\/min",
+		"autoOutputPathRelativePath": "/min",
 		"autoOutputPathReplace1": "",
 		"autoOutputPathReplace2": "",
 		"autoOutputPathStyle": 0,
@@ -2386,19 +2388,19 @@
 		"allowInsecureImports": 0,
 		"autoOutputAction": 0,
 		"autoOutputPathFilenamePattern": "*.css",
-		"autoOutputPathRelativePath": "..\/css",
+		"autoOutputPathRelativePath": "../css",
 		"autoOutputPathReplace1": "less",
 		"autoOutputPathReplace2": "css",
 		"autoOutputPathStyle": 0,
 		"createSourceMap": 0,
-		"disableJavascript": 0,
+		"enableJavascript": 0,
 		"ieCompatibility": 1,
+		"mathStyle": 0,
 		"outputStyle": 0,
-		"relativeURLS": 0,
+		"rewriteURLStyle": 0,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
 		"strictImports": 0,
-		"strictMath": 0,
 		"strictUnits": 0
 		},
 	"languageDefaultsMARKDOWN": {
@@ -2454,7 +2456,7 @@
 	"languageDefaultsSASS": {
 		"autoOutputAction": 0,
 		"autoOutputPathFilenamePattern": "*.css",
-		"autoOutputPathRelativePath": "..\/css",
+		"autoOutputPathRelativePath": "../css",
 		"autoOutputPathReplace1": "sass",
 		"autoOutputPathReplace2": "css",
 		"autoOutputPathStyle": 0,
@@ -2483,7 +2485,7 @@
 	"languageDefaultsSTYLUS": {
 		"autoOutputAction": 0,
 		"autoOutputPathFilenamePattern": "*.css",
-		"autoOutputPathRelativePath": "..\/css",
+		"autoOutputPathRelativePath": "../css",
 		"autoOutputPathReplace1": "stylus",
 		"autoOutputPathReplace2": "css",
 		"autoOutputPathStyle": 0,
@@ -2507,37 +2509,67 @@
 	"languageDefaultsTS": {
 		"autoOutputAction": 0,
 		"autoOutputPathFilenamePattern": "*.js",
-		"autoOutputPathRelativePath": "\/js",
+		"autoOutputPathRelativePath": "/js",
 		"autoOutputPathReplace1": "",
 		"autoOutputPathReplace2": "",
 		"autoOutputPathStyle": 0,
 		"createDeclarationFile": 0,
 		"createSourceMap": 0,
-		"jsxMode": 0,
 		"minifyOutput": 1,
 		"moduleResolutionType": 0,
 		"moduleType": 2,
-		"noImplicitAny": 0,
-		"preserveConstEnums": 0,
 		"removeComments": 0,
-		"suppressImplicitAnyIndexErrors": 0,
 		"targetECMAVersion": 0
 		},
 	"languageDefaultsUserDefined": [
 		],
 	"overrideExternalServerCSS": 0,
 	"previewPathAddition": "",
-	"skippedFoldersString": "log, _logs, logs, _cache, cache, .idea, \/storage\/framework\/sessions, node_modules, .git, vendor, tmp",
+	"skippedFoldersString": "log, _logs, logs, _cache, cache, .idea, /storage/framework/sessions, node_modules, .git, vendor, tmp",
 	"sourceFolderName": "source",
 	"susyVersion": 3,
+	"tsAllowSyntheticDefaultImports": 0,
+	"tsAllowUnreachableCode": 0,
+	"tsAllowUnusedLabels": 0,
+	"tsAlwaysStrict": 0,
+	"tsDownlevelIteration": 0,
+	"tsEmitBOM": 0,
+	"tsEmitDecoratorMetadata": 0,
+	"tsESModuleInterop": 0,
+	"tsForceConsistentCasingInFileNames": 0,
+	"tsImportHelpers": 0,
+	"tsIsolatedModules": 0,
+	"tsJSXFactory": "React.createElement",
+	"tsKeyofStringsOnly": 0,
+	"tsNoEmitHelpers": 0,
+	"tsNoFallthroughCasesInSwitch": 0,
+	"tsNoImplicitAny": 0,
+	"tsNoImplicitReturns": 0,
+	"tsNoImplicitThis": 0,
+	"tsNoImplicitUseStrict": 0,
+	"tsNoLib": 0,
+	"tsNoResolve": 0,
+	"tsNoStrictGenericChecks": 0,
+	"tsNoUnusedLocals": 0,
+	"tsNoUnusedParameters": 0,
+	"tsPreserveConstEnums": 0,
+	"tsPreserveSymlinks": 0,
+	"tsResolveJsonModule": 0,
+	"tsSkipLibCheck": 0,
+	"tsStrictFunctionTypes": 0,
+	"tsStrictNullChecks": 0,
+	"tsStrictPropertyInitialization": 0,
+	"tsStripInternal": 0,
+	"tsSuppressExcessPropertyErrors": 0,
+	"tsSuppressImplicitAnyIndexErrors": 0,
 	"uglifyDefinesString": "",
 	"uglifyFlags2": {
 		"ascii-only": {
-			"active": 0,
+			"active": false,
 			"flagValue": -1
 			},
 		"bare-returns": {
-			"active": 0,
+			"active": false,
 			"flagValue": -1
 			},
 		"booleans": {
@@ -2545,11 +2577,11 @@
 			"flagValue": -1
 			},
 		"bracketize": {
-			"active": 0,
+			"active": false,
 			"flagValue": -1
 			},
 		"cascade": {
-			"active": 1,
+			"active": true,
 			"flagValue": -1
 			},
 		"comments": {
@@ -2601,7 +2633,7 @@
 			"flagValue": -1
 			},
 		"indent-level": {
-			"active": 0,
+			"active": false,
 			"flagValue": 4
 			},
 		"indent-start": {
@@ -2609,7 +2641,7 @@
 			"flagValue": 0
 			},
 		"inline-script": {
-			"active": 0,
+			"active": false,
 			"flagValue": -1
 			},
 		"join_vars": {
@@ -2633,7 +2665,7 @@
 			"flagValue": -1
 			},
 		"max-line-len": {
-			"active": 1,
+			"active": true,
 			"flagValue": 32000
 			},
 		"negate_iife": {
@@ -2649,11 +2681,11 @@
 			"flagValue": -1
 			},
 		"quote-keys": {
-			"active": 0,
+			"active": false,
 			"flagValue": -1
 			},
 		"screw-ie8": {
-			"active": 1,
+			"active": true,
 			"flagValue": -1
 			},
 		"semicolons": {
@@ -2665,15 +2697,15 @@
 			"flagValue": -1
 			},
 		"sort": {
-			"active": 0,
+			"active": false,
 			"flagValue": -1
 			},
 		"space-colon": {
-			"active": 1,
+			"active": true,
 			"flagValue": -1
 			},
 		"support-ie8": {
-			"active": 0,
+			"active": false,
 			"flagValue": -1
 			},
 		"toplevel": {
