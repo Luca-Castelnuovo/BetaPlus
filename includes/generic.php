@@ -89,7 +89,7 @@ function agenda()
     if ($items->num_rows > 0) {
         while ($item = $items->fetch_assoc()) {
             echo <<<END
-            <div class="col s12 m6 l4 xl4">
+            <div class="col s12">
                 <div class="card">
                     <div class="card-content">
                       <span class="card-title">{$item['title']}</span>
