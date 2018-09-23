@@ -127,6 +127,7 @@ head('Bestanden || Ster Opdrachten', 2, 'Bestanden');
                             </div>
                         </div>
                         <div class="row">
+                            <p>Alleen pdfs worden onddersteund.</p>
                             <div class="file-field input-field">
                                 <div class="btn">
                                     <span>File</span>
