@@ -54,6 +54,8 @@ RewriteRule ^ster-opdrachten/files/([^/]*)$ /ster-opdrachten/files.php?id=$1 [L]
 RewriteRule ^ster-opdrachten/files/([^/]*)/delete/([^/]*)/$ /ster-opdrachten/files.php?id=$1&delete&file_id=$2 [L]
 RewriteRule ^ster-opdrachten/files/([^/]*)/delete/([^/]*)$ /ster-opdrachten/files.php?id=$1&delete&file_id=$2 [L]
 
+RewriteRule ^ster-opdrachten/files/([^/]*)/abcd$ /ster-opdrachten/files.php?id=$1&abcd [L]
+
 ###########
 # General #
 ###########
