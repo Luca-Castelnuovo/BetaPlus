@@ -2,184 +2,245 @@
 /* VARIABLES */
 /*************/
 $color_primary: #003d14;
+$color_primary_darken: #00270d;
+
 $color_secundary: #7a0036;
 $color_secundary_darken: #4f0023;
+
+$color_tertiary: #FAA817;
+$color_tertiary_darken: #ae7003;
+
+
 /***********/
 /* COLORS */
 /***********/
-.color-primary {
-  color: $color_primary !important;
 
-  &--background {
-    background-color: $color_primary !important;
+.color {
+    &-primary{
+        color: $color_primary !important;
 
-    &:hover:not(.nav-wrapper):not(.hover-disable) {
-      background-color: $color_secundary !important;
+        &--background {
+            background-color: $color_primary !important;
+
+            &:hover:not(.nav-wrapper):not(.hover-disable) {
+                background-color: $color_secundary !important;
+            }
+        }
+
+        &--border {
+            border-color: $color_primary !important;
+
+            &:hover:not(.hover-disable) {
+                border-color: $color_secundary !important;
+            }
+        }
     }
-  }
 
-  &--border {
-    border-color: $color_primary !important;
+    &-secondary{
+        color: $color_secundary !important;
 
-    &:hover:not(.hover-disable) {
-      border-color: $color_secundary !important;
+        &--background {
+            background-color: $color_secundary !important;
+
+            &:hover:not(.hover-disable) {
+                background-color: $color_secundary_darken !important;
+            }
+        }
     }
-  }
-}
 
-.color-secondary {
-  color: $color_secundary !important;
+    &-tertiary{
+        color: $color_tertiary !important;
 
-  &--background {
-    background-color: $color_secundary !important;
+        &--background {
+            background-color: $color_tertiary !important;
 
-    &:hover:not(.hover-disable) {
-      background-color: $color_secundary_darken !important;
+            &:hover:not(.hover-disable) {
+                background-color: $color_tertiary_darken !important;
+            }
+        }
     }
-  }
 }
 
 /********/
 /* GRID */
 /********/
+
 .col {
-  &.s12 {
-    @media only screen and (max-width: 600px) {
-      margin-top: 5px;
+    &.s12 {
+        @media only screen and (max-width: 600px) {
+            margin-top: 5px;
+        }
     }
-  }
 
-  &.m12 {
-    @media only screen and (min-width: 601px) and (max-width: 992px) {
-      margin-top: 5px;
+    &.m12 {
+        @media only screen and (min-width: 601px) and (max-width: 992px) {
+            margin-top: 5px;
+        }
     }
-  }
 
-  &.l12 {
-    @media only screen and (min-width: 993px) and (max-width: 1200px) {
-      margin-top: 5px;
+    &.l12 {
+        @media only screen and (min-width: 993px) and (max-width: 1200px) {
+            margin-top: 5px;
+        }
     }
-  }
 
-  &.xl12 {
-    @media only screen and (min-width: 1201px) {
-      margin-top: 5px;
+    &.xl12 {
+        @media only screen and (min-width: 1201px) {
+            margin-top: 5px;
+        }
     }
-  }
 }
+
 
 /**********/
 /* NAVBAR */
 /**********/
+
 .brand-logo {
-  padding-left: 15px !important;
+    padding-left: 15px !important;
 }
+
 
 /*********/
 /* CARDS */
 /*********/
+
 .card {
-  height: auto !important;
-  width: 250px;
+    height: auto !important;
+    width: 250px;
 
-  &-reveal {
-    overflow-y: hidden !important;
+    &-reveal {
+        overflow-y: hidden !important;
 
-    &--links li {
-      width: 100%;
-      margin-bottom: 10px;
+        &--links li {
+            width: 100%;
+            margin-bottom: 10px;
 
-      a {
-        display: block;
-        color: inherit;
-        text-decoration: inherit;
-      }
+            a {
+                display: block;
+                color: inherit;
+                text-decoration: inherit;
+            }
+        }
     }
-  }
 
-  &.card-image img {
-      max-height: 12rem;
-  }
+    &.card-image img {
+        max-height: 12rem;
+    }
 }
 
 //Responsive cards
 @media only screen and(max-width: 1500px) {
-  .card {
-    width: 220px;
-  }
+    .card {
+        width: 220px;
+    }
 }
-
 @media only screen and(max-width: 1250px) {
-  .card {
-    width: 200px;
-  }
+    .card {
+        width: 200px;
+    }
 }
-
 @media only screen and(max-width: 992px) {
-  .card {
-    width: 300px;
-  }
+    .card {
+        width: 300px;
+    }
 }
-
 @media only screen and(max-width: 725px) {
-  .card {
-    width: 250px;
-  }
+    .card {
+        width: 250px;
+    }
+}
+@media only screen and(max-width: 256px) {
+    .card {
+        width: 170px;
+    }
 }
 
-@media only screen and(max-width: 256px) {
-  .card {
-    width: 170px;
-  }
-}
 
 /**********/
 /* HELPER */
 /**********/
+
 .bold {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 .transform {
-  &-uppercase {
-    text-transform: uppercase;
-  }
+    &-uppercase {
+        text-transform: uppercase;
+    }
 }
 
 .width {
-  &-full {
-    width: 100%;
-  }
+    &-full {
+        width: 100%;
+    }
 }
 
 .margin {
-  &-top {
-    &-5 {
-      margin-top: 5px;
+    &-top {
+        &-5 {
+            margin-top: 5px;
+        }
     }
-  }
 }
+
 
 /**************/
 /* Login Page */
 /**************/
 
 .login {
-  margin-top: 5rem;
-  width: auto;
+    margin-top: 5rem;
+    width: auto;
 }
-
 @media only screen and(max-width: 600px) {
-  .login {
-    margin-top: 0;
-  }
+    .login {
+        margin-top: 0;
+    }
 }
 
 .background {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: -1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
+
+
+/**********************/
+/* Framework override */
+/**********************/
+
+input {
+    &:not(.browser-default):focus:not([readonly]) {
+        border-color: $color_primary !important;
+        box-shadow: 0 1px 0 0 $color_primary !important;
+    }
+
+    &.invalid:not(.browser-default) {
+        &:not([readonly]) {
+            border-color: $color_secundary;
+            box-shadow: 0 1px 0 0 $color_secundary;
+        }
+
+        &:focus:not([readonly]) {
+            border-color: $color_secundary;
+            box-shadow: 0 1px 0 0 $color_secundary;
+        }
+    }
+
+    &.valid:not(.browser-default) {
+        &:not([readonly]) {
+            border-color: $color_primary;
+            box-shadow: 0 1px 0 0 $color_primary;
+        }
+
+        &:focus:not([readonly]) {
+            border-color: $color_primary;
+            box-shadow: 0 1px 0 0 $color_primary;
+        }
+    }
 }

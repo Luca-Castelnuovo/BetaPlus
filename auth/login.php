@@ -111,7 +111,7 @@ if (isset($_POST['remember'])) {
     $cookie .= ':' . $mac;
     setcookie('REMEMBERME', $cookie, time() + 2592000, "/", "betasterren.hetbaarnschlyceum.nl");
 
-    log_action($user['first_name'] . ' ' . $user['last_name'], 'Login set Remember', 2);
+    log_action($user['first_name'] . ' ' . $user['last_name'], 'Login set cookie', 0);
 } else {
     log_action($user['first_name'] . ' ' . $user['last_name'], 'Login', 0);
 }

@@ -89,26 +89,30 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <label for="username">Leerling nummer of email</label>
-                            <input type="text" id="username" name="username" required=""/>
+                            <input type="text" id="username" name="username" class="validate" required/>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
                             <label for="password">Wachtwoord</label>
-                            <input type="password" id="password" name="password" required=""/>
+                            <input type="password" id="password" name="password" class="validate" required />
                         </div>
                     </div>
                     <div class="row">
-                        <label>
-                            <input type="checkbox" class="filled-in" name="remember" value="true"/>
-                            <span>Remember Me</span>
-                        </label>
+                        <div class="col s12">
+                            <label>
+                                <input type="checkbox" class="filled-in" name="remember" value="true"/>
+                                <span>Remember Me</span>
+                            </label>
+                        </div>
                     </div>
                     <div class="row">
-                        <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>"/>
-                        <button type="submit" class="waves-effect waves-light btn color-primary--background width-full">
-                            Login
-                        </button>
+                        <div class="col s12">
+                            <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>"/>
+                            <button type="submit" class="waves-effect waves-light btn color-primary--background width-full">
+                                Login
+                            </button>
+                        </div>
                     </div>
                     <a href="/auth/forgot" class="right">Wachtwoord vergeten?</a>
                 </form>

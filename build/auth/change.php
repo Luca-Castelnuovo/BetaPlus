@@ -7,13 +7,12 @@ head('Verander wachtwoord', 5);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     csrf_val($_POST['CSRFtoken']);
-    if (empty($_POST['password_old']) || empty($_POST['password_new']) || empty($_POST['password_new2'])) {
-        redirect('/auth/change', 'Vul aub alle velden in');
-    }
 
     $password_old = clean_data($_POST['password_old']);
     $password_new = clean_data($_POST['password_new']);
     $password_new2 = clean_data($_POST['password_new2']);
+
+    is_empty([$password_old, $password_new, $password_new2], '/auth/change');
 
     $class = ($_SESSION['class'] == 'docent') ? 'docenten' : 'leerlingen';
 

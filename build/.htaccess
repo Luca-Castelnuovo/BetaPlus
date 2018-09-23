@@ -17,6 +17,8 @@ RewriteRule ^auth/register/([^/]*)$ /auth/register.php?token=$1 [L]
 RewriteRule ^admin/process/([^/]*)/([^/]*)/([^/]*)/([^/]*)/([^/]*)/$ /admin/process.php?CSRFtoken=$1&type=$2&id=$3&class=$4&state=$5 [L]
 RewriteRule ^admin/process/([^/]*)/([^/]*)/([^/]*)/([^/]*)/([^/]*)$ /admin/process.php?CSRFtoken=$1&type=$2&id=$3&class=$4&state=$5 [L]
 
+#Agenda
+RewriteRule ^admin/agenda/([^/]*)$ /admin/agenda.php?id=$1 [L]
 
 ###################
 # Ster Opdrachten #
@@ -44,6 +46,15 @@ RewriteRule ^ster-opdrachten/join/([^/]*)/([^/]*)/([^/]*)$ /ster-opdrachten/join
 #ABCD
 RewriteRule ^ster-opdrachten/abcd/([^/]*)/$ /ster-opdrachten/abcd.php?id=$1 [L]
 RewriteRule ^ster-opdrachten/abcd/([^/]*)$ /ster-opdrachten/abcd.php?id=$1 [L]
+
+#Files
+RewriteRule ^ster-opdrachten/files/([^/]*)/$ /ster-opdrachten/files.php?id=$1 [L]
+RewriteRule ^ster-opdrachten/files/([^/]*)$ /ster-opdrachten/files.php?id=$1 [L]
+
+RewriteRule ^ster-opdrachten/files/([^/]*)/delete/([^/]*)/$ /ster-opdrachten/files.php?id=$1&delete&file_id=$2 [L]
+RewriteRule ^ster-opdrachten/files/([^/]*)/delete/([^/]*)$ /ster-opdrachten/files.php?id=$1&delete&file_id=$2 [L]
+
+RewriteRule ^ster-opdrachten/files/([^/]*)/abcd$ /ster-opdrachten/files.php?id=$1&abcd [L]
 
 ###########
 # General #

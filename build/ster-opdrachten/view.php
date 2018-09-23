@@ -37,8 +37,7 @@ head($steropdracht['project_name'] . ' || Ster Opdrachten', 2, $steropdracht['pr
 $query =
     "SELECT
         first_name,
-        last_name,
-        leerling_nummer
+        last_name
     FROM
         leerlingen
     WHERE
@@ -49,8 +48,7 @@ $leerling = sql_query($query, true);
 $query =
     "SELECT
         first_name,
-        last_name,
-        leerling_nummer
+        last_name
     FROM
         leerlingen
     WHERE
@@ -79,7 +77,8 @@ switch ($steropdracht['status']) {
         break;
 }
 
-require($_SERVER['DOCUMENT_ROOT'] . "/libs/Parsedown.php");
+//Load Parsedown lib
+require($_SERVER['DOCUMENT_ROOT'] . '/libs/Parsedown.php');
 $parsedown = new Parsedown();
 $parsedown->setSafeMode(true);
 
@@ -109,8 +108,8 @@ if ($steropdracht['leerling_id'] == $_SESSION['id'] || $steropdracht['buddy_id']
             </div>
             <h1 class="center"><?= $steropdracht['project_name'] ?></h1>
             <h6 class="center flow-text">
-                Door: <?= $leerling['first_name'] ?> <?= $leerling['last_name'] ?><?php if (isset($steropdracht['buddy_id'])) {
-    echo ' en ' . $leerling['first_name'] . ' ' . $leerling['last_name'];
+                Door: <?= $leerling['first_name'] ?> <?= $leerling['last_name'] ?><?php if (!empty($steropdracht['buddy_id'])) {
+    echo ' en ' . $buddy['first_name'] . ' ' . $buddy['last_name'];
 } ?>
             </h6>
         </div>
@@ -343,7 +342,7 @@ END;
         ?>
                 <div class="row">
                     <div class="col s12">
-                        <a href="/ster-opdrachten/files/<?= $id ?>/add"
+                        <a href="/ster-opdrachten/files/<?= $id ?>"
                            class="waves-effect waves-light btn color-primary--background"><i
                                     class="material-icons left">attach_file</i>Bestand Toevoegen</a>
                     </div>
@@ -351,7 +350,7 @@ END;
                 <?php
     } ?>
             <div class="row">
-                <?php steropdrachten_files($id); ?>
+                <?php steropdrachten_files($id, $show, $show_leerling); ?>
             </div>
         </div>
     </div>
@@ -363,4 +362,4 @@ END;
     </div>
 </div>
 
-<?php footer("<script src=\"https://cdn.lucacastelnuovo.nl/js/ajax.js\"></script><script>document.querySelector('p').classList.add('flow-text');document.querySelector('.container ul').classList.add('browser-default');document.querySelector('.container ul li').classList.add('browser-default');</script>"); ?>
+<?php footer("<script src=\"https://cdn.lucacastelnuovo.nl/js/ajax.js\"></script><script>for(var p=document.querySelectorAll(\"p\"),i=0;i<p.length;i++)p[i].classList.add(\"flow-text\");for(var ul=document.querySelectorAll(\".container ul\"),i=0;i<ul.length;i++)ul[i].classList.add(\"browser-default\");for(var li=document.querySelectorAll(\".container ul li\"),i=0;i<li.length;i++)li[i].classList.add(\"browser-default\");</script>"); ?>

@@ -45,6 +45,5 @@ function api_request($method, $url, $data = false)
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
     $result = curl_exec($curl);
     curl_close($curl);
-    echo $result;exit;
     return json_decode($result, true);
 }

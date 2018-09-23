@@ -9,6 +9,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $feedback = clean_data($_POST['feedback'], true);
     $datetime = current_date(false);
 
+    if (empty($id) || empty($feedback)) {
+        $_SESSION['toast_set'] = true;
+        echo json_encode(['url' => '/general/toast?url=/ster-opdrachten/view/' . $id . '&alert=Oeps er ging iets fout']);
+        exit;
+    }
+
     $docent = sql_query("SELECT last_name FROM docenten WHERE id='{$_SESSION['id']}'", true);
 
     $query =

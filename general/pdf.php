@@ -6,6 +6,8 @@ login();
 
 $id = clean_data($_GET['random_id']);
 
+is_empty([$id], '/general/home', 'Deze link is niet geldig');
+
 $query =
     "SELECT
         path
@@ -18,7 +20,6 @@ $file = sql_query($query, true);
 
 if (empty($file['path'])) {
     redirect('/general/error?code=404');
-    exit;
 }
 
 $path = "{$_SERVER['DOCUMENT_ROOT']}/files/{$file['path']}";

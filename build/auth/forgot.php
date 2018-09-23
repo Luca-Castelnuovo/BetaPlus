@@ -3,13 +3,12 @@ require($_SERVER['DOCUMENT_ROOT'] . '/init.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     csrf_val($_POST['CSRFtoken']);
+
     api_captcha($_POST['g-recaptcha-response'], '/auth/forgot');
 
-    if (empty($_POST['email'])) {
-        redirect('/auth/change', 'Vul aub alle velden in');
-    }
-
     $email = clean_data($_POST['email']);
+
+    is_empty([$email], '/auth/forgot');
 
     $queryDocent =
         "SELECT

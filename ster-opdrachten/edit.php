@@ -8,6 +8,8 @@ head('Edit || Ster Opdrachten', 2, 'Edit', '<link rel="stylesheet" href="https:/
 
 $id = clean_data($_GET['id']);
 
+is_empty([$id], '/ster-opdrachten/', 'Deze link is niet geldig');
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!token_val($id, true)) {
         redirect('/ster-opdrachten/view/' . $id, 'U hebt geen toestemming om deze Ster Opdracht aan te passen');
@@ -19,6 +21,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $subject = clean_data($_POST['subject']);
     $content = clean_data($_POST['content'], true);
     $datetime = current_date(true);
+
+    is_empty([$project_name,$subject,$content], '/ster-opdrachten/edit/' . $id);
 
     $query =
         "UPDATE

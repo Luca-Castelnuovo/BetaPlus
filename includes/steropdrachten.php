@@ -247,10 +247,11 @@ function steropdrachten_counter()
     echo $aantal['SUM(sterren)'];
 }
 
-function steropdrachten_files($id)
+function steropdrachten_files($id, $show, $show_leerling)
 {
     $query =
         "SELECT
+            id,
             name,
             random_id,
             created
@@ -262,13 +263,26 @@ function steropdrachten_files($id)
     $files = sql_query($query, false);
 
     if ($files->num_rows > 0) {
+        if ($show) {
+            $date_th = '<th>Datum</th>';
+        } else {
+            $date_th = null;
+        }
+
+        if ($show_leerling) {
+            $delete_th = '<th>Verwijder</th>';
+        } else {
+            $delete_th = null;
+        }
+
         echo <<<END
         <table class="striped centered responsive-table">
             <thead>
               <tr>
                     <th>Bestandsnaam</th>
                     <th>Bekijk</th>
-                    <th>Datum</th>
+                    {$delete_th}
+                    {$date_th}
               </tr>
             </thead>
 
@@ -277,11 +291,24 @@ END;
         while ($file = $files->fetch_assoc()) {
             $created = date('Y-m-d', strtotime($file['created']));
 
+            if ($show) {
+                $delete_td = "<td><a class=\"waves-effect waves-light btn color-secondary--background modal-trigger\" target=\"_blank\" href=\"/ster-opdrachten/files/{$id}/delete/{$file['id']}\" onclick=\"return confirm('Weet je het zeker?')\">Verwijder Bestand</a></td>";
+            } else {
+                $date_td = null;
+            }
+
+            if ($show_leerling) {
+                $date_td = "<td>{$created}</td>";
+            } else {
+                $date_td = null;
+            }
+
             echo <<<END
             <tr>
                 <td>{$file['name']}</td>
                 <td><a class="waves-effect waves-light btn color-secondary--background modal-trigger" target="_blank" href="/general/pdf/{$file['random_id']}">Open Bestand</a></td>
-                <td>{$created}</td>
+                {$delete_td}
+                {$date_td}
             </tr>
 END;
         }
