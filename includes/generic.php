@@ -92,8 +92,8 @@ function agenda()
             <div class="col s12">
                 <div class="card">
                     <div class="card-content">
-                      <span class="card-title">{$item['title']}</span>
-                      <p>{$item['date']}</p>
+                        <p>{$item['date']}</p>
+                        <span class="card-title">{$item['title']}</span>
                     </div>
 END;
             if (!empty($item['link']) || $_SESSION['class'] == 'docent') {
