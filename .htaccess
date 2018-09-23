@@ -18,7 +18,7 @@ RewriteRule ^admin/process/([^/]*)/([^/]*)/([^/]*)/([^/]*)/([^/]*)/$ /admin/proc
 RewriteRule ^admin/process/([^/]*)/([^/]*)/([^/]*)/([^/]*)/([^/]*)$ /admin/process.php?CSRFtoken=$1&type=$2&id=$3&class=$4&state=$5 [L]
 
 #Agenda
-RewriteRule ^auth/agenda/([^/]*)$ /auth/agenda.php?id=$1 [L]
+RewriteRule ^auth/agenda/([^/]*)$ /admin/agenda.php?id=$1 [L]
 
 ###################
 # Ster Opdrachten #

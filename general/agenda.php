@@ -13,6 +13,8 @@ head('Agenda', 5);
             <?php if ($_SESSION['class'] == 'docent') {
     echo '<a href="/admin/agenda" class="waves-effect waves-light btn color-secondary--background">Voeg agendaitem toe</a>';
 } ?>
+        </div>
+        <div class="row">
             <?php agenda(); ?>
         </div>
     </div>
