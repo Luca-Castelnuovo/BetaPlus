@@ -2,8 +2,6 @@
 
 require($_SERVER['DOCUMENT_ROOT'] . '/init.php');
 
-$ip = ip();
-
 $token_get = clean_data($_GET['token']);
 
 is_empty([$token_get], '/?reset', 'Deze link is al gebruikt of niet geldig');
@@ -57,11 +55,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     sql_query($query, false);
 
     $query =
-        "UPDATE
+        "DELETE FROM
             tokens
-        SET
-            used='1',
-            use_ip='{$ip}'
         WHERE
             token='{$token_get}'";
 
