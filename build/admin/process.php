@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         created,
                         days_valid,
                         user,
-                        gen_ip
+                        ip
                     )
                 VALUES
                     (

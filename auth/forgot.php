@@ -34,9 +34,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if ($userDocent->num_rows > 0) {
-        $aditional = ['docent' => '1'];
+        $aditional = json_encode(['docent' => '1']);
     } else {
-        $aditional = ['docent' => '0'];
+        $aditional = json_encode(['docent' => '0']);
     }
 
     $token = gen(128);
@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             created,
             days_valid,
             user,
-            gen_ip,
+            ip,
             additional)
         VALUES
             ('{$token}',

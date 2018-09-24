@@ -42,7 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         redirect('/auth/reset?my=true&token=' . $token, 'De wachtwoorden komen niet overeen');
     }
 
-    $class = $token['additional']['docent'] ? 'docenten' : 'leerlingen';
+    $additional = json_decode($token['additional']);
+    $class = $additional['docent'] ? 'docenten' : 'leerlingen';
     $password_new = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
     $query =

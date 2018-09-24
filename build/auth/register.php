@@ -108,16 +108,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             redirect('/?reset', 'Deze link is al gebruikt of niet geldig');
         }
 
-        $ip = ip();
-        $date = current_date(true);
-
         $query =
-            "UPDATE
+            "DELETE FROM
                 tokens
-            SET
-                used = '1',
-                use_ip = '{$ip}',
-                used_date = '{$date}'
             WHERE
                 token='{$token_get}'";
 
