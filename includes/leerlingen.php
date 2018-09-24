@@ -30,7 +30,7 @@ END;
                     <div class="card-image waves-effect waves-block waves-light">
                         <img class="activator responsive-img" src="{$student['profile_url']}" onerror="this.src='https://cdn.lucacastelnuovo.nl/images/betasterren/default_profile.png'">
                     </div>
-                    <div class="card-content"><span class="card-title activator grey-text text-darken-4 center">{$student['first_name']} {$student['last_name']}</span></div>
+                    <div class="card-content"><span class="card-title activator grey-text text-darken-4 center truncate">{$student['first_name']} {$student['last_name']}</span></div>
                     <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">Recente Opdrachten<i class="material-icons right">close</i></span>
 END;
