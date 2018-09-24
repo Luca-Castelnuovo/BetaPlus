@@ -292,13 +292,13 @@ END;
         while ($file = $files->fetch_assoc()) {
             $created = date('Y-m-d', strtotime($file['created']));
 
-            if ($show) {
+            if ($show_leerling) {
                 $delete_td = "<td><a class=\"waves-effect waves-light btn color-secondary--background modal-trigger\" target=\"_blank\" href=\"/ster-opdrachten/files/{$id}/delete/{$file['id']}\" onclick=\"return confirm('Weet je het zeker?')\">Verwijder Bestand</a></td>";
             } else {
-                $date_td = null;
+                $delete_td = null;
             }
 
-            if ($show_leerling) {
+            if ($show) {
                 $date_td = "<td>{$created}</td>";
             } else {
                 $date_td = null;

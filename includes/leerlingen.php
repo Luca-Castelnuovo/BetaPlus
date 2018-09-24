@@ -58,7 +58,7 @@ function steropdrachten_list_individual_recent($leerling_id)
     FROM
         steropdrachten
     WHERE
-        leerling_id='{$leerling_id}' AND status >= '2'
+        (leerling_id='{$leerling_id}' OR buddy_id = '{$leerling_id}') AND status >= '2'
     ORDER BY
         created DESC
     LIMIT 3";
