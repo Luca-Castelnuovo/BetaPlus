@@ -58,7 +58,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         "DELETE FROM
             tokens
         WHERE
-            token='{$token_get}'";
+            token='{$token_get}' AND type = 'password_reset'";
+
+    sql_query($query, false);
+
+    $query =
+        "SELECT
+            id
+        FROM
+            {$class}
+        WHERE
+            email = '{$token['user']}'";
+
+    $user = sql_query($query, true);
+
+    $query =
+        "DELETE FROM
+            tokens
+        WHERE
+            user='{$user['id']}' AND type = 'remember_me'";
 
     sql_query($query, false);
 

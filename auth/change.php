@@ -39,6 +39,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     id='{$_SESSION['id']}'";
 
             sql_query($query, false);
+
+            $query =
+                "DELETE FROM
+                    tokens
+                WHERE
+                    user='{$_SESSION['id']}' AND type = 'remember_me'";
+
+            sql_query($query, false);
+
             log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'Password Changed', 0);
             redirect('/general/home', 'Uw wachtwoord is gewijzigd');
         } else {
