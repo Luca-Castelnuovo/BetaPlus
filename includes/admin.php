@@ -59,7 +59,7 @@ END;
                     <div class="card-image waves-effect waves-block waves-light">
                         <img class="activator responsive-img" src="{$user['profile_url']}" onerror="this.src='https://cdn.lucacastelnuovo.nl/images/betasterren/default_profile.png'">
                     </div>
-                    <div class="card-content"><span class="card-title activator grey-text text-darken-4 center">{$user['first_name']} {$user['last_name']}</span></div>
+                    <div class="card-content"><span class="card-title activator grey-text text-darken-4 center truncate">{$user['first_name']} {$user['last_name']}</span></div>
                     <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">Opties<i class="material-icons right">close</i></span>
                         <ul class="align-center card-reveal--links">
