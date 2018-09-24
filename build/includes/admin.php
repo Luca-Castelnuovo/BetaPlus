@@ -21,7 +21,6 @@ function admin_accounts_list($class)
                 active,
                 first_name,
                 last_name,
-                utalent,
                 leerling_nummer,
                 profile_url
             FROM
@@ -44,15 +43,6 @@ END;
             $opposite_enable_disable_state_binary = $user['active'] ? 0 : 1;
             $opposite_enable_disable_state_text = $user['active'] ? 'Disable' : 'Enable';
 
-            if ($class === 'docenten') {
-                $utalent = null;
-                $user['leerling_nummer'] = null;
-            } else {
-                $opposite_utalent_state_binary = $user['utalent'] ? 0 : 1;
-                $opposite_utalent_state_text = $user['utalent'] ? 'Disable' : 'Enable';
-                $utalent = "<li class=\"btn waves-effect waves-light color-secondary--background\"><a href=\"/admin/process/{$CSRFtoken}/utalent/{$user['id']}/{$class}/{$opposite_utalent_state_binary}\">{$opposite_utalent_state_text} Utalent</a></li>";
-            }
-
             echo <<<END
             <div class="col s12 m6 l4 xl3">
                 <div class="card medium hoverable">
@@ -66,7 +56,6 @@ END;
                             <li class="btn waves-effect waves-light color-secondary--background">
                                 <a href="/admin/process/{$CSRFtoken}/active/{$user['id']}/{$class}/{$opposite_enable_disable_state_binary}">{$opposite_enable_disable_state_text} User</a>
                             </li>
-                            {$utalent}
                             <li class="btn waves-effect waves-light color-secondary--background">
                                 <a href="/admin/process/{$CSRFtoken}/unblock/{$user['id']}/{$class}/">Unblock Password</a>
                             </li>

@@ -82,10 +82,6 @@ END;
             $set = 'active';
             break;
 
-        case 'utalent':
-            $set = 'utalent';
-            break;
-
         case 'unblock':
             $set = 'failed_login';
             $value = 0;

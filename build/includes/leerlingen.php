@@ -8,7 +8,6 @@ function leerlingen_list($class)
             leerling_nummer,
             first_name,
             last_name,
-            utalent,
             profile_url
         FROM
             leerlingen
