@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $aditional = json_encode(['docent' => '0']);
     }
 
-    $token = gen(128);
+    $token = gen(256);
     $date = current_date(true);
     $ip = ip();
 
