@@ -70,7 +70,7 @@ END;
                             <li class="btn waves-effect waves-light color-secondary--background">
                                 <a href="/admin/process/{$CSRFtoken}/unblock/{$user['id']}/{$class}/">Unblock Password</a>
                             </li>
-                            <li class="btn waves-effect waves-light color-secondary--background disabled">
+                            <li class="btn waves-effect waves-light color-secondary--background">
                                 <a href="/admin/process/{$CSRFtoken}/delete/{$user['id']}/{$class}/" onclick="return confirm('Weet je het zeker?')">Delete User</a>
                             </li>
                         </ul>
