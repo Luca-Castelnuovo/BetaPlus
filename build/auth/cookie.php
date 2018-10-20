@@ -40,7 +40,7 @@ if ($tokens_sql->num_rows > 0) {
             $valid_hash = true;
         }
 
-        if (hash_equals(hash_hmac('sha512', $user . ':' . $leerling . ':' . $tokens_sql['token'], $config['hmac_key']), $mac)) {
+        if (hash_equals(hash_hmac('sha512', $user . ':' . $leerling . ':' . $token_sql['token'], $config['hmac_key']), $mac)) {
             $valid_hmac = true;
         }
 
