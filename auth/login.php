@@ -67,18 +67,17 @@ if (!$user['active']) {
     redirect('/?reset', 'Uw account is niet actief, contacteer AUB de administrator');
 }
 
-sql_query("UPDATE leerlingen SET failed_login='0' WHERE id='{$user['id']}' AND class='{$user['class']}'", false);
-sql_query("UPDATE docenten SET failed_login='0' WHERE id='{$user['id']}' AND class='{$user['class']}'", false);
+sql_query("UPDATE {$table} SET failed_login='0' WHERE id='{$user['id']}' AND class='{$user['class']}'", false);
+
+$query =
+    "DELETE FROM
+        tokens
+    WHERE
+        created < NOW() - INTERVAL 30 DAY AND type = 'remember_me'";
+
+sql_query($query, false);
 
 if (isset($_POST['remember'])) {
-    $query =
-        "DELETE FROM
-            tokens
-        WHERE
-            created < NOW() - INTERVAL 30 DAY AND type = 'remember_me'";
-
-    sql_query($query, false);
-
     $token = gen(256);
     $date = current_date(true);
     $ip = ip();
@@ -109,7 +108,7 @@ if (isset($_POST['remember'])) {
     $cookie = $user['id'] . ':' . $cookie_user . ':' . $token;
     $mac = hash_hmac('sha512', $cookie, $config['hmac_key']);
     $cookie .= ':' . $mac;
-    setcookie('REMEMBERME', $cookie, time() + 2592000, "/", "betasterren.hetbaarnschlyceum.nl");
+    setcookie('REMEMBERME', $cookie, time() + 2592000, "/", "betasterren.hetbaarnschlyceum.nl", true, true);
 
     log_action($user['first_name'] . ' ' . $user['last_name'], 'Login set cookie', 0);
 } else {
