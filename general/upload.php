@@ -96,4 +96,4 @@ head('Upload', 5, 'Upload', '<link href="https://cdn.lucacastelnuovo.nl/css/beta
         </div>
     </div>
 </div>
-<?php footer('<script src="https://cdn.lucacastelnuovo.nl/js/ajax.js"></script><script src="https://cdn.lucacastelnuovo.nl/js/betasterren/imgur.php.4.js?response_url=/general/upload.php&type=' . clean_data($_GET['type']) . '&id=' . $id . '&client_id=b2c72661027878c"></script>'); ?>
+<?php $config = config_load(); footer('<script src="https://cdn.lucacastelnuovo.nl/js/ajax.js"></script><script src="https://cdn.lucacastelnuovo.nl/js/betasterren/imgur.php.4.js?response_url=/general/upload.php&type=' . clean_data($_GET['type']) . '&id=' . $id . '&client_id=' . $config['imgur_key'] . '"></script>'); ?>

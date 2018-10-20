@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     log_action($email, 'Register', 2);
 
-    api_mail('lucacastelnuovo@hetbaarnschlyceum.nl', 'Nieuw account ||  BetaSterren', $email . ' heeft een nieuw account aangemaakt');
+    api_mail('HBL@betasterren.lucacastelnuovo.nl', 'Nieuw account ||  BetaSterren', $email . ' heeft een nieuw account aangemaakt');
 
     redirect('/?reset', 'Uw account is aangemaakt');
 } else {

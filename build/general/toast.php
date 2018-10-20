@@ -6,5 +6,5 @@ login();
 if ($_SESSION['toast_set']) {
     redirect(clean_data($_GET['url']), clean_data($_GET['alert']));
 } else {
-    redirect('/general/home', 'Oeps er ging iets fout');
+    redirect('/general/home');
 }
