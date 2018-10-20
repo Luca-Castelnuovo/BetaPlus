@@ -101,7 +101,8 @@ END;
                     steropdrachten
                 SET
                     status = '2',
-                    status_docent = '{$docent['last_name']}'
+                    status_docent = '{$docent['last_name']}',
+                    docent_id = '{$_SESSION['id']}'
                 WHERE
                     id='{$id}' AND (status = '0' OR status = '1')";
 
@@ -145,7 +146,8 @@ END;
                     steropdrachten
                 SET
                     status = '1',
-                    status_docent = '{$docent['last_name']}'
+                    status_docent = '{$docent['last_name']}',
+                    docent_id = '{$_SESSION['id']}'
                 WHERE
                     id='{$id}' AND status = '0'";
 
