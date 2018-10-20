@@ -59,8 +59,13 @@
 
     if (isset($_GET['logout'])) {
         log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'Logout', '0');
-        unset($_COOKIE['REMEMBERME']);
-        setcookie('REMEMBERME', null, time() - 3600, "/", "betasterren.hetbaarnschlyceum.nl");
+        if (isset($_COOKIE['REMEMBERME'])) {
+            list($user, $leerling, $token, $mac) = explode(':', $_COOKIE['REMEMBERME']);
+            $query = "DELETE FROM token WHERE user='{$user}' AND token='{$token}' AND type = 'remember_me'";
+            sql_query($query, false);
+            unset($_COOKIE['REMEMBERME']);
+            setcookie('REMEMBERME', null, time() - 3600, "/", "betasterren.hetbaarnschlyceum.nl");
+        }
         session_destroy();
         session_start();
         redirect('/', 'U bent uitgelogd');
