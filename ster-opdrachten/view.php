@@ -357,7 +357,7 @@ END;
     </div>
     <div class="section">
         <div class="card-panel center">
-            <?php $content = str_replace('&gt; ', '> ', $steropdracht['content']);
+            <?php $content = str_replace('&gt;', '>', $steropdracht['content']);
             echo $parsedown->text($content); ?>
         </div>
     </div>
