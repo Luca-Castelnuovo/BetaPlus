@@ -12,14 +12,13 @@ $user = clean_data($user);
 
 $query =
     "SELECT
-    id,
-    token,
-    created,
-    days_valid
-FROM
-    tokens
-WHERE
-    user='{$user}' AND token='{$token}' AND type = 'remember_me'";
+        token,
+        created,
+        days_valid
+    FROM
+        tokens
+    WHERE
+        user='{$user}' AND token='{$token}' AND type = 'remember_me'";
 
 $tokens_sql = sql_query($query, false);
 
@@ -33,7 +32,7 @@ if ($tokens_sql->num_rows > 0) {
         $valid_hmac = false;
         $valid_hash = false;
 
-        if ($tokens_sql['created'] < time()-$tokens_sql['days_valid']*24*60*60) {
+        if ($token_sql['created'] < time()-$token_sql['days_valid']*24*60*60) {
             $valid_date = true;
         }
 
