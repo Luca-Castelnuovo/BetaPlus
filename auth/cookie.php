@@ -27,15 +27,6 @@ $config = config_load();
 
 $valid_cookie = false;
 
-var_dump($user);
-echo '<br /><br />';
-var_dump($leerling);
-echo '<br /><br />';
-var_dump($token);
-echo '<br /><br />';
-var_dump($mac);
-exit;
-
 if ($tokens_sql->num_rows > 0) {
     while ($token_sql = $tokens_sql->fetch_assoc()) {
         $valid_date = false;
