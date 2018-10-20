@@ -104,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             redirect('/?reset', 'Deze link is al gebruikt of niet geldig');
         }
 
-        if (!($token['created'] >= $token['valid'])) {
+        if (!($token['created'] >= $token['days_valid'])) {
             redirect('/?reset', 'Deze link is al gebruikt of niet geldig');
         }
 

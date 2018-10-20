@@ -23,18 +23,6 @@ WHERE
 
 $tokens_sql = sql_query($query, false);
 
-if ($tokens_sql->num_rows > 10) {
-    $query =
-        "DELETE FROM
-            tokens
-        WHERE
-            user='{$user}' AND type = 'remember_me'";
-
-    sql_query($query, false);
-
-    redirect('/?reset', 'U hebt uw account op teveel apparaten onthouden');
-}
-
 $valid_date = false;
 $valid_hmac = false;
 $valid_hash = false;
@@ -43,7 +31,7 @@ $config = config_load();
 
 if ($tokens_sql->num_rows > 0) {
     while ($token_sql = $tokens_sql->fetch_assoc() && ($valid_date != $valid_hmac) && ($valid_hmac != $valid_hash)) {
-        if ($token['created'] >= $token['valid']) {
+        if ($token['created'] >= $token['days_valid']) {
             $valid_date = $token_sql['id'];
         }
 
