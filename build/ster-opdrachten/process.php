@@ -57,6 +57,8 @@ END;
 
     api_mail($leerling['email'], 'U heeft feedback ontvangen voor een Ster Opdracht ||  BetaSterren', $body);
 
+    steropdrachten_notify($id, $_SESSION['id'], 'Ster Opdracht heeft feedback nodig.');
+
     $_SESSION['toast_set'] = true;
     echo json_encode(['url' => '/general/toast?url=/ster-opdrachten/view/' . $id . '&alert=Feedback verstuurd']);
     exit;
