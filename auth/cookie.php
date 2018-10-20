@@ -90,10 +90,9 @@ if (!$user['active']) {
     redirect('/?reset', 'Uw account is niet actief, contacteer AUB de administrator');
 }
 
-sql_query("UPDATE leerlingen SET failed_login='0' WHERE id='{$user['id']}' AND class='{$user['class']}'", false);
-sql_query("UPDATE docenten SET failed_login='0' WHERE id='{$user['id']}' AND class='{$user['class']}'", false);
+sql_query("UPDATE {$table} SET failed_login='0' WHERE id='{$user['id']}' AND class='{$user['class']}'", false);
 
-log_action($user['first_name'] . ' ' . $user['last_name'], 'Login with cookie', 0);
+log_action($user['first_name'] . ' ' . $user['last_name'], 'Login Remember', 0);
 
 $return_url = $_SESSION['return_url'];
 
@@ -112,6 +111,8 @@ if (isset($user['admin'])) {
 }
 
 session_regenerate_id(true);
+
+remember_clear_old();
 
 if (!empty($return_url)) {
     redirect($return_url, 'U bent ingelogd');

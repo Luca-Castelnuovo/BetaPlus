@@ -69,13 +69,7 @@ if (!$user['active']) {
 
 sql_query("UPDATE {$table} SET failed_login='0' WHERE id='{$user['id']}' AND class='{$user['class']}'", false);
 
-$query =
-    "DELETE FROM
-        tokens
-    WHERE
-        created < NOW() - INTERVAL 30 DAY AND type = 'remember_me'";
-
-sql_query($query, false);
+remember_clear_old();
 
 if (isset($_POST['remember'])) {
     $token = gen(256);

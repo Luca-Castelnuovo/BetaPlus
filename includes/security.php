@@ -34,6 +34,19 @@ function clean_data($data, $editor = false, $mail = false)
     return $data;
 }
 
+//Clear old remember me tokens
+function remember_clear_old()
+{
+    $query =
+        "DELETE FROM
+            tokens
+        WHERE
+            created < NOW() - INTERVAL 30 DAY AND type = 'remember_me'";
+
+    sql_query($query, false);
+}
+
+
 function csrf_gen()
 {
     if (isset($_SESSION['CSRFtoken'])) {
