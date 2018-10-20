@@ -61,7 +61,7 @@
         log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'Logout', '0');
         if (isset($_COOKIE['REMEMBERME'])) {
             list($user, $leerling, $token, $mac) = explode(':', $_COOKIE['REMEMBERME']);
-            $query = "DELETE FROM token WHERE user='{$user}' AND token='{$token}' AND type = 'remember_me'";
+            $query = "DELETE FROM tokens WHERE user='{$user}' AND token='{$token}' AND type = 'remember_me'";
             sql_query($query, false);
             unset($_COOKIE['REMEMBERME']);
             setcookie('REMEMBERME', null, time() - 3600, "/", "betasterren.hetbaarnschlyceum.nl");
