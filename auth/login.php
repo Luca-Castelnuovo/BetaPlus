@@ -53,7 +53,7 @@ if ($userDocent->num_rows > 0) {
 
 if ($user['failed_login'] > 4) {
     log_action($user['first_name'] . ' ' . $user['last_name'], 'Too many failed login attempts', 2);
-    redirect('/?reset', 'Uw account is geblokkeerd door teveel mislukt inlogpogingen, contacteer AUB de administrator');
+    redirect('/?reset', 'Uw account is geblokkeerd door teveel mislukt inlogpogingen, contacteer AUB de administrator.');
 }
 
 if (!password_verify($password, $user['password'])) {
@@ -64,7 +64,7 @@ if (!password_verify($password, $user['password'])) {
 
 if (!$user['active']) {
     log_action($user['first_name'] . ' ' . $user['last_name'], 'Account Inactive', 2);
-    redirect('/?reset', 'Uw account is niet actief, contacteer AUB de administrator');
+    redirect('/?reset', 'Uw account is niet actief, contacteer AUB de administrator.');
 }
 
 sql_query("UPDATE {$table} SET failed_login='0' WHERE id='{$user['id']}' AND class='{$user['class']}'", false);

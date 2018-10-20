@@ -29,7 +29,7 @@ if ($token['type'] != 'password_reset') {
     redirect('/?reset', 'Deze link is al gebruikt of niet geldig');
 }
 
-if (!($token['created'] >= $token['days_valid'])) {
+if (!($token['created'] < time()-$token['days_valid']*24*60*60)) {
     redirect('/?reset', 'Deze link is al gebruikt of niet geldig');
 }
 

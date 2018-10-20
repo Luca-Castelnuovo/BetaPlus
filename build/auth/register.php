@@ -104,8 +104,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             redirect('/?reset', 'Deze link is al gebruikt of niet geldig');
         }
 
-        if (!($token['created'] >= $token['days_valid'])) {
+        if (!($token['created'] < time()-$token['days_valid']*24*60*60)) {
             redirect('/?reset', 'Deze link is al gebruikt of niet geldig');
+        }
+
+        if (isset($row)) {
+            return ($token['created'] < time()-$token['days_valid']*24*60*60);
         }
 
         $query =

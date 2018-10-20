@@ -23,29 +23,36 @@ WHERE
 
 $tokens_sql = sql_query($query, false);
 
-$valid_date = false;
-$valid_hmac = false;
-$valid_hash = false;
-
 $config = config_load();
 
+$valid_cookie = false;
+
 if ($tokens_sql->num_rows > 0) {
-    while ($token_sql = $tokens_sql->fetch_assoc() && ($valid_date != $valid_hmac) && ($valid_hmac != $valid_hash)) {
-        if ($token['created'] >= $token['days_valid']) {
-            $valid_date = $token_sql['id'];
+    while ($token_sql = $tokens_sql->fetch_assoc()) {
+        $valid_date = false;
+        $valid_hmac = false;
+        $valid_hash = false;
+
+        if ($token['created'] < time()-$token['days_valid']*24*60*60) {
+            $valid_date = true;
         }
 
-        if (hash_equals(hash_hmac('sha512', $user . ':' . $leerling . ':' . $token, $config['hmac_key']), $mac)) {
-            $valid_hmac = $token_sql['id'];
+        if (hash_equals(hash_hmac('sha512', $user . ':' . $leerling . ':' . $tokens_sql['token'], $config['hmac_key']), $mac)) {
+            $valid_hmac = true;
         }
 
         if (hash_equals($token_sql['token'], $token)) {
-            $valid_hash = $token_sql['id'];
+            $valid_hash = true;
+        }
+
+        if ($valid_date && $valid_hmac && $valid_hash) {
+            $valid_cookie = true;
+            break;
         }
     }
 }
 
-if ($valid_date != $valid_hmac || $valid_hmac != $valid_hash) {
+if (!$valid_cookie) {
     redirect('/?logout');
 }
 
@@ -70,12 +77,12 @@ $user = sql_query($query, true);
 
 if ($user['failed_login'] > 4) {
     log_action($user['first_name'] . ' ' . $user['last_name'], 'Too many failed login attempts', 2);
-    redirect('/?reset', 'Uw account is geblokkeerd door teveel mislukt inlogpogingen, contacteer AUB de administrator');
+    redirect('/?reset', 'Uw account is geblokkeerd door teveel mislukt inlogpogingen, contacteer AUB de administrator.');
 }
 
 if (!$user['active']) {
     log_action($user['first_name'] . ' ' . $user['last_name'], 'Account Inactive', 2);
-    redirect('/?reset', 'Uw account is niet actief, contacteer AUB de administrator');
+    redirect('/?reset', 'Uw account is niet actief, contacteer AUB de administrator.');
 }
 
 sql_query("UPDATE {$table} SET failed_login='0' WHERE id='{$user['id']}' AND class='{$user['class']}'", false);
