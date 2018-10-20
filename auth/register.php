@@ -43,13 +43,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         FROM
             leerlingen
         WHERE
-            leerling_nummer = '{$leerling_nummer}'";
+            leerling_nummer = '{$leerling_nummer}' OR email='{$email}'";
 
     $leerling_existing = sql_query($query, true);
 
     if (isset($leerling_existing['id'])) {
         $_SESSION['register_get'] = true;
-        redirect('/auth/register', 'Dit leerling nummer wordt al gebruikt');
+        redirect('/auth/register', 'Dit leerling nummer/email adres wordt al gebruikt');
     }
 
     $query =
@@ -108,16 +108,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             redirect('/?reset', 'Deze link is al gebruikt of niet geldig');
         }
 
-        $ip = ip();
-        $date = current_date(true);
-
         $query =
-            "UPDATE
+            "DELETE FROM
                 tokens
-            SET
-                used = '1',
-                use_ip = '{$ip}',
-                used_date = '{$date}'
             WHERE
                 token='{$token_get}'";
 

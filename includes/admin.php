@@ -21,7 +21,6 @@ function admin_accounts_list($class)
                 active,
                 first_name,
                 last_name,
-                utalent,
                 leerling_nummer,
                 profile_url
             FROM
@@ -44,33 +43,23 @@ END;
             $opposite_enable_disable_state_binary = $user['active'] ? 0 : 1;
             $opposite_enable_disable_state_text = $user['active'] ? 'Disable' : 'Enable';
 
-            if ($class === 'docenten') {
-                $utalent = null;
-                $user['leerling_nummer'] = null;
-            } else {
-                $opposite_utalent_state_binary = $user['utalent'] ? 0 : 1;
-                $opposite_utalent_state_text = $user['utalent'] ? 'Disable' : 'Enable';
-                $utalent = "<li class=\"btn waves-effect waves-light color-secondary--background\"><a href=\"/admin/process/{$CSRFtoken}/utalent/{$user['id']}/{$class}/{$opposite_utalent_state_binary}\">{$opposite_utalent_state_text} Utalent</a></li>";
-            }
-
             echo <<<END
             <div class="col s12 m6 l4 xl3">
                 <div class="card medium hoverable">
                     <div class="card-image waves-effect waves-block waves-light">
                         <img class="activator responsive-img" src="{$user['profile_url']}" onerror="this.src='https://cdn.lucacastelnuovo.nl/images/betasterren/default_profile.png'">
                     </div>
-                    <div class="card-content"><span class="card-title activator grey-text text-darken-4 center">{$user['first_name']} {$user['last_name']}</span></div>
+                    <div class="card-content"><span class="card-title activator grey-text text-darken-4 center truncate">{$user['first_name']} {$user['last_name']}</span></div>
                     <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">Opties<i class="material-icons right">close</i></span>
                         <ul class="align-center card-reveal--links">
                             <li class="btn waves-effect waves-light color-secondary--background">
                                 <a href="/admin/process/{$CSRFtoken}/active/{$user['id']}/{$class}/{$opposite_enable_disable_state_binary}">{$opposite_enable_disable_state_text} User</a>
                             </li>
-                            {$utalent}
                             <li class="btn waves-effect waves-light color-secondary--background">
                                 <a href="/admin/process/{$CSRFtoken}/unblock/{$user['id']}/{$class}/">Unblock Password</a>
                             </li>
-                            <li class="btn waves-effect waves-light color-secondary--background disabled">
+                            <li class="btn waves-effect waves-light color-secondary--background">
                                 <a href="/admin/process/{$CSRFtoken}/delete/{$user['id']}/{$class}/" onclick="return confirm('Weet je het zeker?')">Delete User</a>
                             </li>
                         </ul>

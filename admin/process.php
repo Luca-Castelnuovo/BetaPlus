@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         created,
                         days_valid,
                         user,
-                        gen_ip
+                        ip
                     )
                 VALUES
                     (
@@ -80,10 +80,6 @@ END;
     switch ($type) {
         case 'active':
             $set = 'active';
-            break;
-
-        case 'utalent':
-            $set = 'utalent';
             break;
 
         case 'unblock':

@@ -91,7 +91,7 @@ if (isset($_POST['remember'])) {
             created,
             days_valid,
             user,
-            gen_ip)
+            ip)
         VALUES
             ('{$token}',
             'remember_me',

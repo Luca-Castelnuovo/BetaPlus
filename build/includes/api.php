@@ -7,13 +7,13 @@ function api_mail($to, $subject, $body)
     return api_request('POST', 'https://api.lucacastelnuovo.nl/mail/', ['api_key' => $config['api_key_mail'], 'to' => $to, 'subject' => $subject, 'body' => $body, 'from_name' => 'BetaSterren || HBL']);
 }
 
-//Send mails
+//Check captcha field
 function api_captcha($response_token, $redirect)
 {
     $config = config_load();
     $request = api_request('POST', 'https://api.lucacastelnuovo.nl/recaptcha/', ['api_key' => $config['api_key_recaptcha'], 'g-recaptcha-response' => $response_token]);
     if (!$request['status']) {
-        $user = isset($_SESSION) ? $_SESSION['first_name'] . ' ' . $_SESSION['last_name'] : 'UNKNOWN';
+        $user = $_SESSION['logged_in'] ? $_SESSION['first_name'] . ' ' . $_SESSION['last_name'] : 'UNKNOWN';
         log_action($user, 'Captcha Invalid', 0);
         redirect($redirect, 'Klik AUB op de captcha');
     }

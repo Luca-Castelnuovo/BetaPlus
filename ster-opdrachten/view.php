@@ -134,6 +134,13 @@ if ($steropdracht['leerling_id'] == $_SESSION['id'] || $steropdracht['buddy_id']
                                         class="material-icons left">feedback</i>Feedback Aanvragen</a>
                         </div>
                     </div>
+                    <?php if ($steropdracht['status'] == 3) {
+            echo <<<END
+                            <div class="col s12">
+                                <a href="/ster-opdrachten/abcd/{$id}" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">check</i>Beoordeel</a>
+                            </div>
+END;
+        } ?>
                     <?php
     } elseif ($steropdracht['status'] <= 2 && $_SESSION['class'] == 'docent') {
         ?>
@@ -152,12 +159,6 @@ END;
                             echo <<<END
                                 <div class="col s12">
                                     <a href="/ster-opdrachten/process/{$id}/go/{$CSRFtoken}" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">check</i>Go</a>
-                                </div>
-END;
-                        } elseif ($steropdracht['status'] == 3) {
-                            echo <<<END
-                                <div class="col s12">
-                                    <a href="/ster-opdrachten/abcd/{$id}" class="waves-effect waves-light btn color-primary--background"><i class="material-icons left">check</i>Beoordeel</a>
                                 </div>
 END;
                         } ?>
@@ -356,7 +357,7 @@ END;
     </div>
     <div class="section">
         <div class="card-panel center">
-            <?php $content = str_replace('&gt; ', '> ', $steropdracht['content']);
+            <?php $content = str_replace('&gt;', '>', $steropdracht['content']);
             echo $parsedown->text($content); ?>
         </div>
     </div>

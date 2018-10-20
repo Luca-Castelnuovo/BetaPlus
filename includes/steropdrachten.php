@@ -9,6 +9,7 @@ function steropdrachten_list($done)
             id,
             project_name,
             leerling_id,
+            buddy_id,
             image_url,
             status
         FROM
@@ -27,7 +28,7 @@ END;
         while ($steropdracht = $result->fetch_assoc()) {
             if ($steropdracht['leerling_id'] == $_SESSION['id'] && isset($_SESSION['admin']) && $steropdracht['status'] <= 2) {
                 $extra = "<li class=\"btn waves-effect waves-light color-secondary--background\"><a href=\"/ster-opdrachten/edit/{$steropdracht['id']}/\">Edit Opdracht</a></li>";
-            } elseif ($steropdracht['status'] <= 2) {
+            } elseif ($steropdracht['status'] <= 2 && empty($steropdracht['buddy_id'])) {
                 $extra = "<li class=\"btn waves-effect waves-light color-secondary--background\"><a href=\"/ster-opdrachten/join/{$steropdracht['id']}/{$_SESSION['id']}/\">Join Opdracht</a></li>";
             }
 
@@ -291,13 +292,13 @@ END;
         while ($file = $files->fetch_assoc()) {
             $created = date('Y-m-d', strtotime($file['created']));
 
-            if ($show) {
+            if ($show_leerling) {
                 $delete_td = "<td><a class=\"waves-effect waves-light btn color-secondary--background modal-trigger\" target=\"_blank\" href=\"/ster-opdrachten/files/{$id}/delete/{$file['id']}\" onclick=\"return confirm('Weet je het zeker?')\">Verwijder Bestand</a></td>";
             } else {
-                $date_td = null;
+                $delete_td = null;
             }
 
-            if ($show_leerling) {
+            if ($show) {
                 $date_td = "<td>{$created}</td>";
             } else {
                 $date_td = null;

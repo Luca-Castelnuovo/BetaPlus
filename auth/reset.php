@@ -2,8 +2,6 @@
 
 require($_SERVER['DOCUMENT_ROOT'] . '/init.php');
 
-$ip = ip();
-
 $token_get = clean_data($_GET['token']);
 
 is_empty([$token_get], '/?reset', 'Deze link is al gebruikt of niet geldig');
@@ -42,7 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         redirect('/auth/reset?my=true&token=' . $token, 'De wachtwoorden komen niet overeen');
     }
 
-    $class = $token['additional']['docent'] ? 'docenten' : 'leerlingen';
+    $additional = json_decode($token['additional'], true);
+    $class = $additional['docent'] ? 'docenten' : 'leerlingen';
     $password_new = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
     $query =
@@ -56,13 +55,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     sql_query($query, false);
 
     $query =
-        "UPDATE
+        "DELETE FROM
             tokens
-        SET
-            used='1',
-            use_ip='{$ip}'
         WHERE
-            token='{$token_get}'";
+            token='{$token_get}' AND type = 'password_reset'";
+
+    sql_query($query, false);
+
+    $query =
+        "SELECT
+            id
+        FROM
+            {$class}
+        WHERE
+            email = '{$token['user']}'";
+
+    $user = sql_query($query, true);
+
+    $query =
+        "DELETE FROM
+            tokens
+        WHERE
+            user='{$user['id']}' AND type = 'remember_me'";
 
     sql_query($query, false);
 
