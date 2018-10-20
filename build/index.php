@@ -87,7 +87,7 @@
     <div class="col s12 m8 offset-m2 l4 offset-l4">
         <div class="card login">
             <div class="card-action color-primary--background hover-disable white-text">
-                <h3>Login Form</h3>
+                <h3>Login</h3>
             </div>
             <div class="card-content">
                 <form action="/auth/login.php" method="post">
