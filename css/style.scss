@@ -214,33 +214,23 @@ $color_tertiary_darken: #ae7003;
 /* Framework override */
 /**********************/
 
-input {
-    &:not(.browser-default):focus:not([readonly]) {
-        border-color: $color_primary !important;
+.input-field input {
+    &:focus {
+        border-bottom: 1px solid $color_primary !important;
+        box-shadow: 0 1px 0 0 $color_primary !important;
+
+        & + label {
+            color: $color_primary !important;
+        }
+    }
+
+    &.valid {
+        border-bottom: 1px solid $color_primary !important;
         box-shadow: 0 1px 0 0 $color_primary !important;
     }
 
-    &.invalid:not(.browser-default) {
-        &:not([readonly]) {
-            border-color: $color_secundary;
-            box-shadow: 0 1px 0 0 $color_secundary;
-        }
-
-        &:focus:not([readonly]) {
-            border-color: $color_secundary;
-            box-shadow: 0 1px 0 0 $color_secundary;
-        }
-    }
-
-    &.valid:not(.browser-default) {
-        &:not([readonly]) {
-            border-color: $color_primary;
-            box-shadow: 0 1px 0 0 $color_primary;
-        }
-
-        &:focus:not([readonly]) {
-            border-color: $color_primary;
-            box-shadow: 0 1px 0 0 $color_primary;
-        }
+    &.invalid {
+        border-bottom: 1px solid $color_secundary !important;
+        box-shadow: 0 1px 0 0 $color_secundary !important;
     }
 }
