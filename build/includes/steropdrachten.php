@@ -123,15 +123,15 @@ function steropdrachten_list_docenten($type)
     switch ($type) {
         case '0':
             //0 = go/no go
-            $status = '< 2';
+            $status = '< 2 AND (docent_id = \'\' OR docent_id = \'{$_SESSION[\'id\']}\')';
             break;
         case '1':
             //1 = feedback requested
-            $status = '= 2 AND feedback_requested = 1';
+            $status = '= 2 AND feedback_requested = 1 AND (docent_id = \'\' OR docent_id = \'{$_SESSION[\'id\']}\')';
             break;
         case '2':
             //2 = beoordeling (sterren, en abcd)
-            $status = '= 3';
+            $status = '= 3 AND (docent_id = \'\' OR docent_id = \'{$_SESSION[\'id\']}\')';
             break;
         case '3':
             //3 = lopend
@@ -320,4 +320,13 @@ END;
     } else {
         echo 'Deze Ster Opdracht heeft geen bestanden.';
     }
+}
+
+//Send supervising teacher email on update
+function steropdrachten_notify($steropdracht_id)
+{
+    // query teacher id
+    // query teacher email
+    //build email
+    // send email
 }
