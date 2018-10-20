@@ -57,6 +57,8 @@ END;
 
     api_mail($leerling['email'], 'U heeft feedback ontvangen voor een Ster Opdracht ||  BetaSterren', $body);
 
+    log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'SterOpdracht feedback sent', 0);
+
     $_SESSION['toast_set'] = true;
     echo json_encode(['url' => '/general/toast?url=/ster-opdrachten/view/' . $id . '&alert=Feedback verstuurd']);
     exit;
@@ -115,6 +117,8 @@ END;
 
             api_mail($leerling['email'], 'Go Ster Opdracht ||  BetaSterren', $body);
 
+            log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'SterOpdracht GO', 0);
+
             redirect('/general/home/', 'Go verstuurd');
             break;
         case 'nogo':
@@ -159,6 +163,8 @@ END;
 END;
 
             api_mail($leerling['email'], 'No Go Ster Opdracht ||  BetaSterren', $body);
+
+            log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'SterOpdracht NO GO', 0);
 
             redirect('/general/home/', 'No Go verstuurd');
             break;
@@ -213,6 +219,8 @@ END;
 
             api_mail($leerling['email'], 'Beoordeling Ster Opdracht ||  BetaSterren', $body);
 
+            log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'SterOpdracht beoordeeld', 0);
+
             redirect('/ster-opdrachten/view/' . $id . '/', 'Beoordeling verstuurd');
             break;
         case 'request_feedback':
@@ -238,6 +246,8 @@ END;
                 sql_query($query, false);
 
                 steropdrachten_notify($id, $_SESSION['id'], 'Ster Opdracht heeft feedback nodig.');
+
+                log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'SterOpdracht feedback request', 0);
 
                 redirect('/ster-opdrachten/view/' . $id . '/', 'Feedback aangevraagd');
             } else {
