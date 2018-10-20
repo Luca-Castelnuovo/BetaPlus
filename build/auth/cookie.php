@@ -19,7 +19,7 @@ $query =
 FROM
     tokens
 WHERE
-    user='{$user}' AND type = 'remember_me'";
+    user='{$user}' AND token='{$token}' AND type = 'remember_me'";
 
 $tokens_sql = sql_query($query, false);
 
@@ -42,16 +42,16 @@ if ($tokens_sql->num_rows > 0) {
         $valid_hmac = false;
         $valid_hash = false;
 
-        if ($token['created'] < time()-$token['days_valid']*24*60*60) {
+        if ($tokens_sql['created'] < time()-$tokens_sql['days_valid']*24*60*60) {
             $valid_date = true;
-        }
-
-        if (hash_equals(hash_hmac('sha512', $user . ':' . $leerling . ':' . $tokens_sql['token'], $config['hmac_key']), $mac)) {
-            $valid_hmac = true;
         }
 
         if (hash_equals($token_sql['token'], $token)) {
             $valid_hash = true;
+        }
+
+        if (hash_equals(hash_hmac('sha512', $user . ':' . $leerling . ':' . $tokens_sql['token'], $config['hmac_key']), $mac)) {
+            $valid_hmac = true;
         }
 
         if ($valid_date && $valid_hmac && $valid_hash) {
@@ -62,12 +62,15 @@ if ($tokens_sql->num_rows > 0) {
 }
 
 if (!$valid_cookie) {
-    // $query =
-    //     "DELETE FROM
-    //         tokens
-    //     WHERE
-    //         token='$token' AND type = 'remember_me'";
-    // sql_query($query, false);
+    if (!empty($token)) {
+        $query =
+            "DELETE FROM
+                tokens
+            WHERE
+                user='{$user}' AND token='{$token}' AND type = 'remember_me'";
+        sql_query($query, false);
+    }
+
     redirect('/?logout');
 }
 
