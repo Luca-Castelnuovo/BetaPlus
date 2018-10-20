@@ -81,6 +81,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             sql_query($query, false);
 
+            steropdrachten_notify($id, $_SESSION['id'], 'Ster Opdracht is af.');
+
             log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'SterOpdrachten done', 1);
             redirect('/ster-opdrachten/view/' . $id, 'Ster Opdracht klaar, vul aub ABCD\'tje in');
             break;
@@ -93,6 +95,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     id='{$id}'";
 
             sql_query($query, false);
+
+            steropdrachten_notify($id, $_SESSION['id'], 'Ster Opdracht is verwijderd.');
 
             log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'SterOpdrachten delete', 1);
             redirect('/ster-opdrachten/', 'Ster Opdracht verwijderd');
