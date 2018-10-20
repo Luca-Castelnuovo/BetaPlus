@@ -360,7 +360,7 @@ function steropdrachten_notify($steropdracht_id, $leerling_id, $leerling_action)
         WHERE
             id='{$leerling_id}'";
 
-    $docent = sql_query($query, true);
+    $leerling = sql_query($query, true);
 
     //build email
     $body = <<<END
