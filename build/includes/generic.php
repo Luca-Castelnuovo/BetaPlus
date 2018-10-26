@@ -99,7 +99,7 @@ END;
             if (!empty($item['link']) || $_SESSION['class'] == 'docent') {
                 echo '<div class="card-action">';
                 if (!empty($item['link'])) {
-                    echo "<a href=\"{$item['link']}\" class=\"waves-effect waves-light btn color-primary--background\" target=\"_blank\">Link</a>";
+                    echo "<a href=\"{$item['link']}\" class=\"waves-effect waves-light btn color-primary--background\" target=\"_blank\" rel=\"noopener noreferrer\">Link</a>";
                 }
 
                 if ($_SESSION['class'] == 'docent') {
