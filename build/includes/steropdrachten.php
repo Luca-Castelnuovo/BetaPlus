@@ -75,7 +75,7 @@ function steropdrachten_list_my($done)
         FROM
             steropdrachten
         WHERE
-            status {$status} AND leerling_id='{$_SESSION['id']}'
+            status {$status} AND (leerling_id = '{$_SESSION['id']}' OR buddy_id = '{$_SESSION['id']}')
         ORDER BY
             created DESC";
 
@@ -242,7 +242,7 @@ function steropdrachten_counter()
             SUM(sterren)
         FROM
             steropdrachten
-        WHERE leerling_id = '{$_SESSION['id']}'";
+        WHERE leerling_id = '{$_SESSION['id']}' OR buddy_id = '{$_SESSION['id']}'";
 
     $aantal = sql_query($query, true);
     echo $aantal['SUM(sterren)'];
