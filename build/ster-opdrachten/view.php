@@ -67,10 +67,10 @@ switch ($steropdracht['status']) {
         $status = 'Go';
         break;
     case 3:
-        $status = 'Wachtend op Cijfer';
+        $status = 'Wachtend op beoordeling';
         break;
     case 4:
-        $status = 'Becijferd';
+        $status = 'Beoordeeld';
         break;
     default:
         $status = 'Unknown';
