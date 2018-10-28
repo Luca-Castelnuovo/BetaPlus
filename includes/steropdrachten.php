@@ -248,7 +248,7 @@ function steropdrachten_counter()
     echo $aantal['SUM(sterren)'];
 }
 
-function steropdrachten_files($id, $show, $show_leerling)
+function steropdrachten_files($id, $show, $show_leerling, $status)
 {
     $query =
         "SELECT
@@ -270,7 +270,7 @@ function steropdrachten_files($id, $show, $show_leerling)
             $date_th = null;
         }
 
-        if ($show_leerling) {
+        if ($show_leerling && $status < 3) {
             $delete_th = '<th>Verwijder</th>';
         } else {
             $delete_th = null;
@@ -292,7 +292,7 @@ END;
         while ($file = $files->fetch_assoc()) {
             $created = date('Y-m-d', strtotime($file['created']));
 
-            if ($show_leerling) {
+            if ($show_leerling && $status < 3) {
                 $delete_td = "<td><a class=\"waves-effect waves-light btn color-secondary--background modal-trigger\" target=\"_blank\" href=\"/ster-opdrachten/files/{$id}/delete/{$file['id']}\" onclick=\"return confirm('Weet je het zeker?')\">Verwijder Bestand</a></td>";
             } else {
                 $delete_td = null;

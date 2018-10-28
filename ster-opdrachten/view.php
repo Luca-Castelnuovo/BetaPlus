@@ -339,7 +339,7 @@ END;
     <div class="section">
         <div class="card-panel center">
             <h3 class="center">Bestanden</h3>
-            <?php if ($show_leerling) {
+            <?php if ($show_leerling && $steropdracht['status'] < 3) {
         ?>
                 <div class="row">
                     <div class="col s12">
@@ -351,7 +351,7 @@ END;
                 <?php
     } ?>
             <div class="row">
-                <?php steropdrachten_files($id, $show, $show_leerling); ?>
+                <?php steropdrachten_files($id, $show, $show_leerling, $steropdracht['status']); ?>
             </div>
         </div>
     </div>
