@@ -3,9 +3,9 @@ require($_SERVER['DOCUMENT_ROOT'] . '/init.php');
 
 login_leerling();
 
-$id = clean_data($_GET['id']);
+is_empty($_GET['id'], '/ster-opdrachten/', 'Deze link is niet geldig');
 
-is_empty([$id], '/ster-opdrachten/', 'Deze link is niet geldig');
+$id = clean_data($_GET['id']);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!token_val($id, true)) {
@@ -66,7 +66,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $query =
         "SELECT
             leerling_id,
-            buddy_id
+            buddy_id,
+            status
         FROM
             steropdrachten
         WHERE
@@ -81,6 +82,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (isset($_GET['delete'])) {
+        is_empty($_GET['file_id'], '/ster-opdrachten/', 'Deze link is niet geldig');
+
+        if ($steropdracht['status'] > 2) {
+            redirect('/ster-opdrachten/view/' . $id, 'Deze Ster Opdracht is klaar, u kunt hem niet meer aanpassen');
+        }
+
         if (!token_val($id, true)) {
             redirect('/ster-opdrachten/view/' . $id, 'U hebt geen toestemming om deze Ster Opdracht aan te passen');
         }
