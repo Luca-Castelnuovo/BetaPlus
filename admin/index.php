@@ -13,9 +13,9 @@ head('Admin', 5);
         <div class="row">
             <div class="col s12">
                 <ul class="tabs tabs-fixed-width z-depth-1">
-                    <li class="tab col s3"><a class="active" href="#logs">Logs</a></li>
-                    <li class="tab col s3"><a href="#users">Users</a></li>
-                    <li class="tab col s3"><a href="#extra">Extra</a></li>
+                    <li class="tab col s3"><a class="active" href="#logs" class="black-text color-secondary--background">Logs</a></li>
+                    <li class="tab col s3"><a href="#users" class="black-text color-tertiary--background">Users</a></li>
+                    <li class="tab col s3"><a href="#extra" class="black-text color-primary--background">Extra</a></li>
                 </ul>
             </div>
             <div id="users" class="col s12">

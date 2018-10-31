@@ -54,10 +54,10 @@ END;
                         <span class="card-title grey-text text-darken-4">Opties<i class="material-icons right">close</i></span>
                         <ul class="align-center card-reveal--links">
                             <li class="btn waves-effect waves-light color-secondary--background">
-                                <a href="/admin/process/{$CSRFtoken}/active/{$user['id']}/{$class}/{$opposite_enable_disable_state_binary}">{$opposite_enable_disable_state_text} User</a>
+                                <a href="/admin/process/{$CSRFtoken}/unblock/{$user['id']}/{$class}/">Unblock Password</a>
                             </li>
                             <li class="btn waves-effect waves-light color-secondary--background">
-                                <a href="/admin/process/{$CSRFtoken}/unblock/{$user['id']}/{$class}/">Unblock Password</a>
+                                <a href="/admin/process/{$CSRFtoken}/active/{$user['id']}/{$class}/{$opposite_enable_disable_state_binary}">{$opposite_enable_disable_state_text} User</a>
                             </li>
                             <li class="btn waves-effect waves-light color-secondary--background">
                                 <a href="/admin/process/{$CSRFtoken}/delete/{$user['id']}/{$class}/" onclick="return confirm('Weet je het zeker?')">Delete User</a>
@@ -90,9 +90,7 @@ function admin_log_list()
         FROM
             logs
         ORDER BY
-            date DESC
-        LIMIT
-            250";
+            date DESC";
 
     $result = sql_query($query, false);
 
@@ -100,7 +98,12 @@ function admin_log_list()
         $CSRFtoken = csrf_gen();
         echo <<<END
         <div class="row margin-top-5 input-field">
-            <div class="col s12"><input type="search" id="filter" class="light-table-filter" data-table="order-table" placeholder="Filter"></div>
+            <div class="col s12 m9">
+                <input type="search" id="filter" class="light-table-filter" data-table="order-table" placeholder="Filter">
+            </div>
+            <div class="col s12 m3">
+                <a href="/admin/process/{$CSRFtoken}/log_clear/id/class/state" class="waves-effect waves-light btn color-primary--background" onclick="return confirm('Weet je het zeker?')">Clear Log</a>
+            </div>
         </div>
         <table class="striped centered responsive-table order order-table">
             <thead>
@@ -147,8 +150,6 @@ END;
         echo <<<END
         </tbody>
       </table>
-      <br />
-      <a href="/admin/process/{$CSRFtoken}/log_clear/id/class/state" class="waves-effect waves-light btn color-primary--background" onclick="return confirm('Weet je het zeker?')">Clear Log</a>
 END;
     } else {
         echo 'There are no log entry\'s';
