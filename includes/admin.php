@@ -98,10 +98,10 @@ function admin_log_list()
         $CSRFtoken = csrf_gen();
         echo <<<END
         <div class="row margin-top-5 input-field">
-            <div class="col s12 m9">
+            <div class="col s12 m10">
                 <input type="search" id="filter" class="light-table-filter" data-table="order-table" placeholder="Filter">
             </div>
-            <div class="col s12 m3">
+            <div class="col s12 m2">
                 <a href="/admin/process/{$CSRFtoken}/log_clear/id/class/state" class="waves-effect waves-light btn color-primary--background" onclick="return confirm('Weet je het zeker?')">Clear Log</a>
             </div>
         </div>
