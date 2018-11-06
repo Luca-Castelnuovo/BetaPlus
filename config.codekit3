@@ -79,6 +79,12 @@
 		"oAP": "/build/auth/reset.php",
 		"oF": 0
 		},
+	"/build": {
+		"ft": 65536,
+		"oA": 1,
+		"oAP": "/build/build",
+		"oF": 0
+		},
 	"/docenten/home.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -91,6 +97,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "/build/docenten/settings.php",
+		"oF": 0
+		},
+	"/favicon.ico": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/build/favicon.ico",
 		"oF": 0
 		},
 	"/favicon.png": {
@@ -392,7 +405,7 @@
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "meme-drunkArcher",
 	"iconImageWasSetByUser": 0,
-	"lastBuiltDate": 563228941.51394105
+	"lastBuiltDate": 563229201.25534296
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

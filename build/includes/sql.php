@@ -3,7 +3,6 @@
 //Connect to database
 function sql_connect()
 {
-    $config = config_load();
     $conn = new mysqli($config->security->database->host, $config->security->database->user, $config->security->database->password, $config->security->database->database);
 
     if ($conn->connect_error) {

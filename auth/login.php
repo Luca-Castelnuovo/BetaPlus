@@ -93,12 +93,10 @@ if (isset($_POST['remember'])) {
 
     sql_query($query, false);
 
-    $config = config_load();
-
     $cookie_user = ($user['class'] == 'class') ? 0 : 1;
 
     $cookie = $user['id'] . ':' . $cookie_user . ':' . $token;
-    $mac = hash_hmac('sha512', $cookie, $config['hmac_key']);
+    $mac = hash_hmac('sha512', $cookie, $config->security->hmac);
     $cookie .= ':' . $mac;
     setcookie('REMEMBERME', $cookie, time() + 2592000, "/", $config->app->domain, true, true);
 

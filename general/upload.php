@@ -96,4 +96,4 @@ head('Upload', 5, 'Upload', '<link href="<?= $config->cdn->css->imgur ?>" rel="s
         </div>
     </div>
 </div>
-<?php $config = config_load(); footer('<script src="<?= $config->cdn->js->ajax ?>"></script><script src="' . $config->api->imgur->url . '?client_id=' . $config->api->imgur->key . '&response_url=/general/upload.php&type=' . clean_data($_GET['type']) . '&id=' . clean_data($_GET['id']) . '"></script>'); ?>
+<?php footer('<script src="<?= $config->cdn->js->ajax ?>"></script><script src="' . $config->api->imgur->url . '?client_id=' . $config->api->imgur->key . '&response_url=/general/upload.php&type=' . clean_data($_GET['type']) . '&id=' . clean_data($_GET['id']) . '"></script>'); ?>

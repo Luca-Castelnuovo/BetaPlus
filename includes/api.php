@@ -3,14 +3,12 @@
 //Send mails
 function api_mail($to, $subject, $body)
 {
-    $config = config_load();
     return api_request('POST', $config->api->mail->url, ['api_key' => $config->api->mail->key, 'to' => $to, 'subject' => $subject, 'body' => $body, 'from_name' => 'BetaSterren || HBL']);
 }
 
 //Check captcha field
 function api_captcha($response_token, $redirect)
 {
-    $config = config_load();
     $request = api_request('POST', $config->api->recaptcha->url, ['api_key' => $config->api->recaptcha->key, 'g-recaptcha-response' => $response_token]);
     if (!$request['status']) {
         $user = $_SESSION['logged_in'] ? $_SESSION['first_name'] . ' ' . $_SESSION['last_name'] : 'UNKNOWN';
