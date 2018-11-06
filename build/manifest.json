@@ -1,0 +1,58 @@
+{
+  "name": "HBL BetaSterren",
+  "short_name": "BetaSterren",
+  "theme_color": "#7a0036",
+  "background_color": "#003d14",
+  "display": "standalone",
+  "orientation": "portrait",
+  "Scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "https://cdn.lucacastelnuovo.nl/images/betasterren/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "https://cdn.lucacastelnuovo.nl/images/betasterren/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "https://cdn.lucacastelnuovo.nl/images/betasterren/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "https://cdn.lucacastelnuovo.nl/images/betasterren/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "https://cdn.lucacastelnuovo.nl/images/betasterren/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "https://cdn.lucacastelnuovo.nl/images/betasterren/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://cdn.lucacastelnuovo.nl/images/betasterren/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "https://cdn.lucacastelnuovo.nl/images/betasterren/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon.png",
+      "sizes": "946x946",
+      "type": "image/png"
+    }
+  ],
+  "splash_pages": null
+}

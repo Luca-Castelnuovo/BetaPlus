@@ -85,13 +85,6 @@
 		"oAP": "/build/build",
 		"oF": 0
 		},
-	"/config.ini": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "/build/config.ini",
-		"oF": 0
-		},
 	"/css/css.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -407,13 +400,6 @@
 		"oA": 0,
 		"oAP": "/build/ster-opdrachten/view.php",
 		"oF": 0
-		},
-	"/test.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "/build/test.php",
-		"oF": 0
 		}
 	},
 "hooks": [
@@ -426,7 +412,7 @@
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "meme-drunkArcher",
 	"iconImageWasSetByUser": 0,
-	"lastBuiltDate": 563180962.27139902
+	"lastBuiltDate": 563191981.527156
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
