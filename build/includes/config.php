@@ -41,7 +41,7 @@ return (object) array(
 
     'cdn' => (object) array(
         'css' => (object) array(
-            'materialize' => array(
+            'materialize' => (object) array(
                 'library' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/css/materialize.css",
                 'icons' => "https://fonts.googleapis.com/icon?family=Material+Icons",
             ),
@@ -52,7 +52,7 @@ return (object) array(
         ),
 
         'js' => (object) array(
-            'materialize' => array(
+            'materialize' => (object) array(
                 'library' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/js/materialize.js",
                 'init' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/hbl/js/materialize_init.js",
             ),
