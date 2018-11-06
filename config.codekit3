@@ -92,6 +92,13 @@
 		"oAP": "/build/config.ini",
 		"oF": 0
 		},
+	"/css/css.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/build/css/css.php",
+		"oF": 0
+		},
 	"/css/style.scss": {
 		"aP": 1,
 		"bl": 0,
@@ -214,6 +221,13 @@
 		"oAP": "/build/includes/api.php",
 		"oF": 0
 		},
+	"/includes/config.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/build/includes/config.php",
+		"oF": 0
+		},
 	"/includes/generic.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -305,6 +319,13 @@
 		"oAP": "/build/libs/Upload.php",
 		"oF": 0
 		},
+	"/LICENSE": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/build/LICENSE",
+		"oF": 0
+		},
 	"/manifest.json": {
 		"ft": 524288,
 		"oA": 2,
@@ -386,6 +407,13 @@
 		"oA": 0,
 		"oAP": "/build/ster-opdrachten/view.php",
 		"oF": 0
+		},
+	"/test.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/build/test.php",
+		"oF": 0
 		}
 	},
 "hooks": [
@@ -398,7 +426,7 @@
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "meme-drunkArcher",
 	"iconImageWasSetByUser": 0,
-	"lastBuiltDate": 562781126.602566
+	"lastBuiltDate": 563180962.27139902
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

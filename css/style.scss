@@ -23,7 +23,7 @@ $color_tertiary_darken: #ae7003;
             background-color: $color_primary !important;
 
             &:hover:not(.nav-wrapper):not(.hover-disable) {
-                background-color: $color_secundary !important;
+                background-color: $color_primary_darken !important;
             }
         }
 
@@ -31,7 +31,7 @@ $color_tertiary_darken: #ae7003;
             border-color: $color_primary !important;
 
             &:hover:not(.hover-disable) {
-                border-color: $color_secundary !important;
+                border-color: $color_primary_darken !important;
             }
         }
     }
