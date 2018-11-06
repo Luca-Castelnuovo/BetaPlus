@@ -124,12 +124,12 @@ head('Wachtwoord vergeten', 10);
 </div>
 
 <!--Import Materialize JavaScript-->
-<script src="<?= $config->cdn->js->materialize->library ?>"></script>
+<script src="<?= $GLOBALS['config']->cdn->js->materialize->library ?>"></script>
 <?php alert_display(); ?>
 <!--Import Partciles.JS JavaScript-->
-<script src="<?= $config->cdn->js->particle->library ?>"></script>
+<script src="<?= $GLOBALS['config']->cdn->js->particle->library ?>"></script>
 <canvas class="background"></canvas>
-<script src="<?= $config->cdn->js->particle->init ?>"></script>
+<script src="<?= $GLOBALS['config']->cdn->js->particle->init ?>"></script>
 </body>
 
 </html>

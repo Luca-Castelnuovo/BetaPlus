@@ -34,14 +34,14 @@ function head($title, $active_menu_item = null, $differen_menu_title = null, $ex
     <link rel="preconnect" href="https://betaplus.ams3.cdn.digitaloceanspaces.com/" crossorigin>
 
     <!--Import Materialize CSS-->
-    <link rel="stylesheet" href="{$config->cdn->css->main}">
+    <link rel="stylesheet" href="{$GLOBALS['config']->cdn->css->main}">
 
     <!--Import Materialize CSS-->
-    <link rel="stylesheet" href="{$config->cdn->css->materialize->library}">
+    <link rel="stylesheet" href="{$GLOBALS['config']->cdn->css->materialize->library}">
 
     <!--Import Google Icon Font-->
     <link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin>
-    <link href="{$config->cdn->css->materialize->icons}" rel="stylesheet">
+    <link href="{$GLOBALS['config']->cdn->css->materialize->icons}" rel="stylesheet">
     {$extra}
 </head>
 END;
@@ -134,9 +134,9 @@ function footer($extra = null)
 {
     echo <<<END
     <!--Import Materialize JavaScript-->
-    <script src="{$config->cdn->js->materialize->library}"></script>
+    <script src="{$GLOBALS['config']->cdn->js->materialize->library}"></script>
     <!--Init Materialize Components-->
-    <script src="{$config->cdn->js->materialize->init}"></script>
+    <script src="{$GLOBALS['config']->cdn->js->materialize->init}"></script>
 END;
     echo $extra;
     alert_display();

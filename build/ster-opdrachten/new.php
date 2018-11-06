@@ -3,8 +3,8 @@ require($_SERVER['DOCUMENT_ROOT'] . '/init.php');
 
 login_leerling();
 
-head('Nieuw || Ster Opdrachten', 2, 'Nieuw', '<link rel="stylesheet" href="' . $config->cdn->css->simplemde . '">
-<script src="' . $config->cdn->js->simplemde . '"></script>');
+head('Nieuw || Ster Opdrachten', 2, 'Nieuw', '<link rel="stylesheet" href="' . $GLOBALS['config']->cdn->css->simplemde . '">
+<script src="' . $GLOBALS['config']->cdn->js->simplemde . '"></script>');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $project_name = clean_data($_POST['project_name']);

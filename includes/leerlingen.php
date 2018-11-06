@@ -27,7 +27,7 @@ END;
             <div class="col s12 m6 l4 xl3" id="{$student['id']}">
                 <div class="card medium hoverable">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator responsive-img" src="{$student['profile_url']}" onerror="this.src='{$config->cdn->images->default_profile}'">
+                        <img class="activator responsive-img" src="{$student['profile_url']}" onerror="this.src='{$GLOBALS['config']->cdn->images->default_profile}'">
                     </div>
                     <div class="card-content"><span class="card-title activator grey-text text-darken-4 center truncate">{$student['first_name']} {$student['last_name']}</span></div>
                     <div class="card-reveal">

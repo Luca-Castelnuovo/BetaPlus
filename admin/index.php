@@ -61,4 +61,4 @@ head('Admin', 5);
         </div>
     </div>
 </div>
-<?php footer("<script>var instance = M.Tabs.init(document.querySelector('.tabs'), {});</script><script src='{$config->cdn->js->ajax}'></script><script src='{$config->cdn->js->gen}'></script><script src='{$config->cdn->js->filter}'></script>"); ?>
+<?php footer("<script>var instance = M.Tabs.init(document.querySelector('.tabs'), {});</script><script src='{$GLOBALS['config']->cdn->js->ajax}'></script><script src='{$GLOBALS['config']->cdn->js->gen}'></script><script src='{$GLOBALS['config']->cdn->js->filter}'></script>"); ?>

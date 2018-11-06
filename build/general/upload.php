@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-head('Upload', 5, 'Upload', '<link href="<?= $config->cdn->css->imgur ?>" rel="stylesheet">');
+head('Upload', 5, 'Upload', '<link href="<?= $GLOBALS['config']->cdn->css->imgur ?>" rel="stylesheet">');
 
 ?>
 
@@ -96,4 +96,4 @@ head('Upload', 5, 'Upload', '<link href="<?= $config->cdn->css->imgur ?>" rel="s
         </div>
     </div>
 </div>
-<?php footer('<script src="<?= $config->cdn->js->ajax ?>"></script><script src="' . $config->api->imgur->url . '?client_id=' . $config->api->imgur->key . '&response_url=/general/upload.php&type=' . clean_data($_GET['type']) . '&id=' . clean_data($_GET['id']) . '"></script>'); ?>
+<?php footer('<script src="<?= $GLOBALS['config']->cdn->js->ajax ?>"></script><script src="' . $GLOBALS['config']->api->imgur->url . '?client_id=' . $GLOBALS['config']->api->imgur->key . '&response_url=/general/upload.php&type=' . clean_data($_GET['type']) . '&id=' . clean_data($_GET['id']) . '"></script>'); ?>

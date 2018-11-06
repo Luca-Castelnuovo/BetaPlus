@@ -96,9 +96,9 @@ if (isset($_POST['remember'])) {
     $cookie_user = ($user['class'] == 'class') ? 0 : 1;
 
     $cookie = $user['id'] . ':' . $cookie_user . ':' . $token;
-    $mac = hash_hmac('sha512', $cookie, $config->security->hmac);
+    $mac = hash_hmac('sha512', $cookie, $GLOBALS['config']->security->hmac);
     $cookie .= ':' . $mac;
-    setcookie('REMEMBERME', $cookie, time() + 2592000, "/", $config->app->domain, true, true);
+    setcookie('REMEMBERME', $cookie, time() + 2592000, "/", $GLOBALS['config']->app->domain, true, true);
 
     log_action($user['first_name'] . ' ' . $user['last_name'], 'Login set cookie', 0);
 } else {

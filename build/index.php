@@ -13,7 +13,7 @@ if (isset($_GET['reset']) && isset($_GET['preserveremember'])) {
     $alert = $_SESSION['alert'];
     $return_url = $_SESSION['return_url'];
     unset($_COOKIE['REMEMBERME']);
-    setcookie('REMEMBERME', null, time() - 3600, "/", $config->app->domain, true, true);
+    setcookie('REMEMBERME', null, time() - 3600, "/", $GLOBALS['config']->app->domain, true, true);
     session_destroy();
     session_start();
     $_SESSION['return_url'] = $return_url;
@@ -27,7 +27,7 @@ if (isset($_GET['logout'])) {
         $query = "DELETE FROM tokens WHERE user='{$user}' AND token='{$token}' AND type = 'remember_me'";
         sql_query($query, false);
         unset($_COOKIE['REMEMBERME']);
-        setcookie('REMEMBERME', null, time() - 3600, "/", $config->app->domain, true, true);
+        setcookie('REMEMBERME', null, time() - 3600, "/", $GLOBALS['config']->app->domain, true, true);
     }
     session_destroy();
     session_start();
@@ -90,12 +90,12 @@ head('Login', 10);
 </div>
 
 <!--Import Materialize JavaScript-->
-<script src="<?= $config->cdn->js->materialize->library ?>"></script>
+<script src="<?= $GLOBALS['config']->cdn->js->materialize->library ?>"></script>
 <?php alert_display(); ?>
 <!--Import Partciles.JS JavaScript-->
-<script src="<?= $config->cdn->js->particle->library ?>"></script>
+<script src="<?= $GLOBALS['config']->cdn->js->particle->library ?>"></script>
 <canvas class="background"></canvas>
-<script src="<?= $config->cdn->js->particle->init ?>"></script>
+<script src="<?= $GLOBALS['config']->cdn->js->particle->init ?>"></script>
 </body>
 
 </html>

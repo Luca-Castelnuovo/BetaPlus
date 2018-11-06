@@ -3,13 +3,13 @@
 //Send mails
 function api_mail($to, $subject, $body)
 {
-    return api_request('POST', $config->api->mail->url, ['api_key' => $config->api->mail->key, 'to' => $to, 'subject' => $subject, 'body' => $body, 'from_name' => 'BetaSterren || HBL']);
+    return api_request('POST', $GLOBALS['config']->api->mail->url, ['api_key' => $GLOBALS['config']->api->mail->key, 'to' => $to, 'subject' => $subject, 'body' => $body, 'from_name' => 'BetaSterren || HBL']);
 }
 
 //Check captcha field
 function api_captcha($response_token, $redirect)
 {
-    $request = api_request('POST', $config->api->recaptcha->url, ['api_key' => $config->api->recaptcha->key, 'g-recaptcha-response' => $response_token]);
+    $request = api_request('POST', $GLOBALS['config']->api->recaptcha->url, ['api_key' => $GLOBALS['config']->api->recaptcha->key, 'g-recaptcha-response' => $response_token]);
     if (!$request['status']) {
         $user = $_SESSION['logged_in'] ? $_SESSION['first_name'] . ' ' . $_SESSION['last_name'] : 'UNKNOWN';
         log_action($user, 'Captcha Invalid', 0);
