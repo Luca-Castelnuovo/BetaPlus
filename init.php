@@ -1,6 +1,8 @@
 <?php
 
 $config = require $_SERVER['DOCUMENT_ROOT'] . '/includes/config.php';
+$GLOBALS['config'] = require $_SERVER['DOCUMENT_ROOT'] . '/includes/config.php';
+
 
 require $_SERVER['DOCUMENT_ROOT'] . '/includes/template.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/includes/generic.php';
