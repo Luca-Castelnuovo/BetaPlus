@@ -4,7 +4,7 @@
 function sql_connect()
 {
     $config = config_load();
-    $conn = new mysqli($config['db_host'], $config['db_user'], $config['db_password'], $config['db_name']);
+    $conn = new mysqli($config->security->database->host, $config->security->database->user, $config->security->database->password, $config->security->database->database);
 
     if ($conn->connect_error) {
         echo '<h1>DataBase connection error.</h1><h2>Please contact the administrator</h2>';

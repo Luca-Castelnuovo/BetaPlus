@@ -79,32 +79,6 @@
 		"oAP": "/build/auth/reset.php",
 		"oF": 0
 		},
-	"/build": {
-		"ft": 65536,
-		"oA": 1,
-		"oAP": "/build/build",
-		"oF": 0
-		},
-	"/css/css.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "/build/css/css.php",
-		"oF": 0
-		},
-	"/css/style.scss": {
-		"aP": 1,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 0,
-		"oAP": "/build/css/style.css",
-		"oF": 0,
-		"oS": 3,
-		"uL": 1
-		},
 	"/docenten/home.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -117,13 +91,6 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "/build/docenten/settings.php",
-		"oF": 0
-		},
-	"/favicon.ico": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "/build/favicon.ico",
 		"oF": 0
 		},
 	"/favicon.png": {
@@ -400,6 +367,19 @@
 		"oA": 0,
 		"oAP": "/build/ster-opdrachten/view.php",
 		"oF": 0
+		},
+	"/style.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/build/style.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
 		}
 	},
 "hooks": [
@@ -412,7 +392,7 @@
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "meme-drunkArcher",
 	"iconImageWasSetByUser": 0,
-	"lastBuiltDate": 563193642.08378994
+	"lastBuiltDate": 563228941.51394105
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

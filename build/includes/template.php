@@ -31,16 +31,17 @@ function head($title, $active_menu_item = null, $differen_menu_title = null, $ex
     <link rel="apple-touch-icon" href="/favicon.png">
     <link rel="mask-icon" href="/favicon.png" color="green">
 
-    <!--Import Materialize CSS-->
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com/" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link rel="preconnect" href="https://betaplus.ams3.cdn.digitaloceanspaces.com/" crossorigin>
 
     <!--Import Materialize CSS-->
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="{$config->cdn->css->main}">
+
+    <!--Import Materialize CSS-->
+    <link rel="stylesheet" href="{$config->cdn->css->materialize->library}">
 
     <!--Import Google Icon Font-->
     <link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{$config->cdn->css->materialize->icons}" rel="stylesheet">
     {$extra}
 </head>
 END;
@@ -49,7 +50,9 @@ END;
 
     $active_menu_item = $active_menu_item ?? null;
 
-    menu($active_menu_item, $menu_title);
+    if ($active_menu_item !== 10) {
+        menu($active_menu_item, $menu_title);
+    }
 }
 
 //Navbar
@@ -131,10 +134,9 @@ function footer($extra = null)
 {
     echo <<<END
     <!--Import Materialize JavaScript-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <script src="{$config->cdn->js->materialize->library}"></script>
     <!--Init Materialize Components-->
-    <link rel="preconnect" href="https://cdn.lucacastelnuovo.nl/" crossorigin>
-    <script src="https://cdn.lucacastelnuovo.nl/js/betasterren/init.js"></script>
+    <script src="{$config->cdn->js->materialize->init}"></script>
 END;
     echo $extra;
     alert_display();

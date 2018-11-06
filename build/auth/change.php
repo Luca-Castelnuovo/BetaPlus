@@ -3,8 +3,6 @@ require($_SERVER['DOCUMENT_ROOT'] . '/init.php');
 
 login();
 
-head('Verander wachtwoord', 5);
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     csrf_val($_POST['CSRFtoken']);
 
@@ -57,6 +55,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         redirect('/auth/change', 'Het oude wachtwoord is incorrect, probeer opnieuw of vraag een nieuw wachtwoord aan');
     }
 }
+
+head('Verander wachtwoord', 5);
+
 ?>
 
 <div class="row">

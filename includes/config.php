@@ -3,6 +3,7 @@
 return (object) array(
     'app' => array(
         'url' => "https://betasterren.hetbaarnschlyceum.nl",
+        'domain' => "betasterren.hetbaarnschlyceum.nl",
 
         'admin' => array(
             'email' => "lucacastelnuovo@hetbaarnschlyceum.nl",
@@ -17,9 +18,7 @@ return (object) array(
             'database' => "betasterren_db",
         ),
 
-        'hmac' => array(
-            'key'=>"XpkTQwW6K5Ni4rf3xpF2gNkmT0zlGJhWDtIXQRbWu3CJ5PJznZy4HzBYhJu0z8h",
-        ),
+        'hmac'=>"XpkTQwW6K5Ni4rf3xpF2gNkmT0zlGJhWDtIXQRbWu3CJ5PJznZy4HzBYhJu0z8h",
     ),
 
     'api' => array(
@@ -36,58 +35,53 @@ return (object) array(
 
         'imgur' => array(
             'key' => "b2c72661027878c",
+            'url' => "https://cdn.lucacastelnuovo.nl/js/betasterren/imgur.php.4.js",
         ),
     ),
 
     'cdn' => array(
         'css' => array(
             'materialize' => array(
-                'library' => "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css",
-                'library_icons' => "https://fonts.googleapis.com/icon?family=Material+Icons",
+                'library' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/css/materialize.css",
+                'icons' => "https://fonts.googleapis.com/icon?family=Material+Icons",
             ),
 
-            'main' => "https://cdn.lucacastelnuovo.nl/css/betasterren/style.css",
-            'simplemde' => "https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css",
-            'imgur' => "https://cdn.lucacastelnuovo.nl/css/betasterren/imgur.css",
+            'main' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/hbl/css/style.css",
+            'simplemde' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/css/simplemde.css",
+            'imgur' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/css/imgur.css",
         ),
 
         'js' => array(
             'materialize' => array(
-                'library' => "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js",
-                'init' => "https://cdn.lucacastelnuovo.nl/js/betasterren/init.js",
+                'library' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/js/materialize.js",
+                'init' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/hbl/js/materialize_init.js",
             ),
 
             'particle' => array(
-                'library' => "https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js",
-                'init' => "https://cdn.lucacastelnuovo.nl/js/betasterren/particles.js",
+                'library' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/js/particles.js",
+                'init' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/hbl/js/particles_init.js",
             ),
 
-            'simplemde' => array(
-                'library' => "https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js",
-                'init' => "https://cdn.lucacastelnuovo.nl/js/betasterren/particles.js",
-            ),
-
-            'ajax' => "https://cdn.lucacastelnuovo.nl/js/ajax.js",
-            'gen' => "https://cdn.lucacastelnuovo.nl/js/betasterren/gen.6.js",
-            'filter' => "https://cdn.lucacastelnuovo.nl/js/betasterren/filter.2.js",
-            'imgur' => "https://cdn.lucacastelnuovo.nl/js/betasterren/imgur.php.4.js?response_url=/general/upload.php&type=",
+            'simplemde' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/js/simplemde.js",
+            'ajax' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/js/ajax.js",
+            'gen' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/js/gen.js",
+            'filter' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/js/filter.js",
         ),
 
         'images' => array(
             'icons' => array(
-                '72x72' => "https://cdn.lucacastelnuovo.nl/images/betasterren/icons/icon-72x72.png",
-                '96x96' => "https://cdn.lucacastelnuovo.nl/images/betasterren/icons/icon-96x96.png",
-                '128x128' => "https://cdn.lucacastelnuovo.nl/images/betasterren/icons/icon-128x128.png",
-                '144x144' => "https://cdn.lucacastelnuovo.nl/images/betasterren/icons/icon-144x144.png",
-                '152x152' => "https://cdn.lucacastelnuovo.nl/images/betasterren/icons/icon-152x152.png",
-                '192x192' => "https://cdn.lucacastelnuovo.nl/images/betasterren/icons/icon-192x192.png",
-                '384x384' => "https://cdn.lucacastelnuovo.nl/images/betasterren/icons/icon-384x384.png",
-                '512x512' => "https://cdn.lucacastelnuovo.nl/images/betasterren/icons/icon-512x512.png",
+                '72x72' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/hbl/images/icons/icon-72x72.png",
+                '96x96' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/hbl/images/icons/icon-96x96.png",
+                '128x128' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/hbl/images/icons/icon-128x128.png",
+                '144x144' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/hbl/images/icons/icon-144x144.png",
+                '152x152' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/hbl/images/icons/icon-512x512.png",
+                '192x192' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/hbl/images/icons/icon-192x192.png",
+                '384x384' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/hbl/images/icons/icon-384x384.png",
+                '512x512' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/hbl/images/icons/icon-512x512.png",
             ),
 
-            'logo' => "https://cdn.lucacastelnuovo.nl/images/betasterren/logo.png",
-            'default_profile' => "https://cdn.lucacastelnuovo.nl/images/betasterren/default_profile.png",
-            'hack_attempt' => "https://cdn.lucacastelnuovo.nl/images/dont-hack.png",
+            'logo' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/hbl/images/logo.png",
+            'default_profile' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/images/default_profile.png",
         ),
     ),
 );

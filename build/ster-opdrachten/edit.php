@@ -3,8 +3,8 @@ require($_SERVER['DOCUMENT_ROOT'] . '/init.php');
 
 login_leerling();
 
-head('Edit || Ster Opdrachten', 2, 'Edit', '<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
-<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>');
+head('Edit || Ster Opdrachten', 2, 'Edit', '<link rel="stylesheet" href="' . $config->cdn->css->simplemde . '">
+<script src="' . $config->cdn->js->simplemde . '"></script>');
 
 $id = clean_data($_GET['id']);
 

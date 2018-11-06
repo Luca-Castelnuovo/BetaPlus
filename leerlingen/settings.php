@@ -34,7 +34,7 @@ $user = sql_query($query, true);
 <div class="section">
     <div class="row">
         <div class="col s12 m2">
-            <img src="<?= $user['profile_url'] ?>" alt="Profiel Foto" class="responsive-img" onerror="this.src='https://cdn.lucacastelnuovo.nl/images/betasterren/default_profile.png'">
+            <img src="<?= $user['profile_url'] ?>" alt="Profiel Foto" class="responsive-img" onerror="this.src='<?= $config->cdn->images->default_profile ?>'">
         </div>
         <div class="col s0 m10"></div>
     </div>

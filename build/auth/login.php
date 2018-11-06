@@ -4,9 +4,7 @@ require($_SERVER['DOCUMENT_ROOT'] . '/init.php');
 
 csrf_val($_POST['CSRFtoken']);
 
-if (empty($_POST['username']) || empty($_POST['password'])) {
-    redirect('https://cdn.lucacastelnuovo.nl/images/dont-hack.png');
-}
+is_empty([$_POST['username'], $_POST['password']], '/');
 
 $username = clean_data($_POST['username']);
 $password = clean_data($_POST['password']);
@@ -102,7 +100,7 @@ if (isset($_POST['remember'])) {
     $cookie = $user['id'] . ':' . $cookie_user . ':' . $token;
     $mac = hash_hmac('sha512', $cookie, $config['hmac_key']);
     $cookie .= ':' . $mac;
-    setcookie('REMEMBERME', $cookie, time() + 2592000, "/", "betasterren.hetbaarnschlyceum.nl", true, true);
+    setcookie('REMEMBERME', $cookie, time() + 2592000, "/", $config->app->domain, true, true);
 
     log_action($user['first_name'] . ' ' . $user['last_name'], 'Login set cookie', 0);
 } else {

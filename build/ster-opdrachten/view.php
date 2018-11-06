@@ -103,7 +103,7 @@ if ($steropdracht['leerling_id'] == $_SESSION['id'] || $steropdracht['buddy_id']
         <div class="card-panel center">
             <div class="card-image">
                 <img class="responsive-img" src="<?= $steropdracht['image_url'] ?>"
-                     onerror="this.src='https://cdn.lucacastelnuovo.nl/images/betasterren/logo.png'"
+                     onerror="this.src='<?= $config->cdn->images->logo ?>'"
                      alt="Ster Opdracht Banner">
             </div>
             <h1 class="center"><?= $steropdracht['project_name'] ?></h1>
@@ -363,4 +363,4 @@ END;
     </div>
 </div>
 
-<?php footer("<script src=\"https://cdn.lucacastelnuovo.nl/js/ajax.js\"></script><script>for(var p=document.querySelectorAll(\"p\"),i=0;i<p.length;i++)p[i].classList.add(\"flow-text\");for(var ul=document.querySelectorAll(\".container ul\"),i=0;i<ul.length;i++)ul[i].classList.add(\"browser-default\");for(var li=document.querySelectorAll(\".container ul li\"),i=0;i<li.length;i++)li[i].classList.add(\"browser-default\");</script>"); ?>
+<?php footer("<script src=\"<?= $config->cdn->js->ajax ?>\"></script><script>for(var p=document.querySelectorAll(\"p\"),i=0;i<p.length;i++)p[i].classList.add(\"flow-text\");for(var ul=document.querySelectorAll(\".container ul\"),i=0;i<ul.length;i++)ul[i].classList.add(\"browser-default\");for(var li=document.querySelectorAll(\".container ul li\"),i=0;i<li.length;i++)li[i].classList.add(\"browser-default\");</script>"); ?>

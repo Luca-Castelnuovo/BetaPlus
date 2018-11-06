@@ -1,12 +1,5 @@
 <?php
 
-//Load configuration
-function config_load()
-{
-    return parse_ini_file('/var/www/config.ini');
-}
-
-
 //Get clients ip
 function ip()
 {
