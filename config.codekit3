@@ -702,7 +702,7 @@
 	"/LICENSE": {
 		"cB": 0,
 		"ft": 8192,
-		"oA": 1,
+		"oA": 0,
 		"oAP": "/build/LICENSE",
 		"oF": 1
 		},
