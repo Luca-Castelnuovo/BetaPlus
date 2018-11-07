@@ -4,7 +4,7 @@ require($_SERVER['DOCUMENT_ROOT'] . '/init.php');
 login_leerling();
 
 head('Nieuw || Ster Opdrachten', 2, 'Nieuw', '<link rel="stylesheet" href="' . $GLOBALS['config']->cdn->css->simplemde . '">
-<script src="' . $GLOBALS['config']->cdn->js->simplemde . '"></script>');
+<script src="' . $GLOBALS['config']->cdn->js->simplemde->library . '"></script>');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $project_name = clean_data($_POST['project_name']);
@@ -97,12 +97,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <div class="row">
                             <h5>Content Ster Opdracht</h5>
                             <textarea name="content" id="simplemde" cols="30" rows="10"></textarea>
-                            <script>var simplemde = new SimpleMDE({element: document.querySelector("#simplemde")});</script>
                         </div>
-                        <button class="btn-large waves-effect waves-light color-primary--background" type="submit"
-                                name="action">Verstuur
-                            <i class="material-icons right">send</i>
-                        </button>
+                        <button class="btn-large waves-effect waves-light color-primary--background" type="submit" name="action">Verstuur <i class="material-icons right">send</i></button>
                     </form>
                 </div>
             </div>
@@ -110,4 +106,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </div>
 
-<?php footer(); ?>
+<?php footer('<script src="' . $GLOBALS['config']->cdn->js->simplemde->init . '">'); ?>

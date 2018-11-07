@@ -62,7 +62,11 @@ return (object) array(
                 'init' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/hbl/js/particles_init.js",
             ),
 
-            'simplemde' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/js/simplemde.js",
+            'simplemde' => (object) array(
+                'library' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/js/simplemde.js",
+                'init' => '"https://betaplus.ams3.cdn.digitaloceanspaces.com/hbl/js/simplemde_init.js"',
+            ),
+
             'ajax' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/js/ajax.js",
             'gen' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/js/gen.js",
             'filter' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/js/filter.js",

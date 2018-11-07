@@ -7,7 +7,7 @@ require("sendgrid-php.php");
 $email = new \SendGrid\Mail\Mail();
 $email->setFrom("test@example.com", "Example User");
 $email->setSubject("Sending with SendGrid is Fun");
-$email->addTo("test@example.com", "Example User");
+$email->addTo("ltcastelnuovo@gmail.com", "Example User");
 $email->addContent("text/plain", "and easy to do anywhere, even with PHP");
 $email->addContent(
     "text/html",
@@ -22,3 +22,7 @@ try {
 } catch (Exception $e) {
     echo 'Caught exception: '. $e->getMessage() ."\n";
 }
+
+//https://github.com/sendgrid/sendgrid-php/blob/master/USE_CASES.md#send-an-email-to-a-single-recipient
+//https://sendgrid.com/docs/for-developers/sending-email/v2-php-code-example/
+//https://app.sendgrid.com/

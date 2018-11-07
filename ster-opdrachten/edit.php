@@ -3,9 +3,6 @@ require($_SERVER['DOCUMENT_ROOT'] . '/init.php');
 
 login_leerling();
 
-head('Edit || Ster Opdrachten', 2, 'Edit', '<link rel="stylesheet" href="' . $GLOBALS['config']->cdn->css->simplemde . '">
-<script src="' . $GLOBALS['config']->cdn->js->simplemde . '"></script>');
-
 $id = clean_data($_GET['id']);
 
 is_empty([$id], '/ster-opdrachten/', 'Deze link is niet geldig');
@@ -104,6 +101,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+head('Edit || Ster Opdrachten', 2, 'Edit', '<link rel="stylesheet" href="' . $GLOBALS['config']->cdn->css->simplemde . '">
+<script src="' . $GLOBALS['config']->cdn->js->simplemde->library . '"></script>');
+
 ?>
 
 <div class="section">
@@ -163,9 +163,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </p>
                         <div class="row">
                             <h5>Content Ster Opdracht</h5>
-                            <textarea name="content" id="simplemde" cols="30"
-                                      rows="10"><?= $steropdracht['content'] ?></textarea>
-                            <script>var simplemde = new SimpleMDE({element: document.querySelector("#simplemde")});</script>
+                            <textarea name="content" id="simplemde" cols="30" rows="10"><?= $steropdracht['content'] ?></textarea>
                         </div>
                         <div class="row">
                             <?php if (!($steropdracht['status'] < 2)) {
@@ -196,4 +194,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </div>
 
-<?php footer(); ?>
+<?php footer('<script src="' . $GLOBALS['config']->cdn->js->simplemde->init . '">'); ?>
