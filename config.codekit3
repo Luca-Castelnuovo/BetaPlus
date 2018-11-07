@@ -286,24 +286,6 @@
 		"oAP": "/build/libs/Parsedown.php",
 		"oF": 0
 		},
-	"/libs/Sendgrid/lib/contacts/README.md": {
-		"cB": 0,
-		"cS": 0,
-		"eF": 1,
-		"eL": 0,
-		"ema": 1,
-		"eSQ": 1,
-		"ft": 4096,
-		"oA": 1,
-		"oAP": "/build/libs/Sendgrid/lib/contacts/README.html",
-		"oF": 0,
-		"oFM": 0,
-		"oS": 0,
-		"pHT": 0,
-		"pME": 1,
-		"rFN": 0,
-		"uCM": 0
-		},
 	"/libs/Sendgrid/lib/contacts/Recipient.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -318,24 +300,6 @@
 		"oAP": "/build/libs/Sendgrid/lib/contacts/RecipientForm.php",
 		"oF": 0
 		},
-	"/libs/Sendgrid/lib/helpers/contacts/README.md": {
-		"cB": 0,
-		"cS": 0,
-		"eF": 1,
-		"eL": 0,
-		"ema": 1,
-		"eSQ": 1,
-		"ft": 4096,
-		"oA": 1,
-		"oAP": "/build/libs/Sendgrid/lib/helpers/contacts/README.html",
-		"oF": 0,
-		"oFM": 0,
-		"oS": 0,
-		"pHT": 0,
-		"pME": 1,
-		"rFN": 0,
-		"uCM": 0
-		},
 	"/libs/Sendgrid/lib/helpers/contacts/Recipients.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -349,24 +313,6 @@
 		"oA": 0,
 		"oAP": "/build/libs/Sendgrid/lib/helpers/mail/Mail.php",
 		"oF": 0
-		},
-	"/libs/Sendgrid/lib/helpers/mail/README.md": {
-		"cB": 0,
-		"cS": 0,
-		"eF": 1,
-		"eL": 0,
-		"ema": 1,
-		"eSQ": 1,
-		"ft": 4096,
-		"oA": 1,
-		"oAP": "/build/libs/Sendgrid/lib/helpers/mail/README.html",
-		"oF": 0,
-		"oFM": 0,
-		"oS": 0,
-		"pHT": 0,
-		"pME": 1,
-		"rFN": 0,
-		"uCM": 0
 		},
 	"/libs/Sendgrid/lib/helpers/stats/Stats.php": {
 		"cB": 0,
@@ -564,24 +510,6 @@
 		"oAP": "/build/libs/Sendgrid/lib/mail/PlainTextContent.php",
 		"oF": 0
 		},
-	"/libs/Sendgrid/lib/mail/README.md": {
-		"cB": 0,
-		"cS": 0,
-		"eF": 1,
-		"eL": 0,
-		"ema": 1,
-		"eSQ": 1,
-		"ft": 4096,
-		"oA": 1,
-		"oAP": "/build/libs/Sendgrid/lib/mail/README.html",
-		"oF": 0,
-		"oFM": 0,
-		"oS": 0,
-		"pHT": 0,
-		"pME": 1,
-		"rFN": 0,
-		"uCM": 0
-		},
 	"/libs/Sendgrid/lib/mail/ReplyTo.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -750,28 +678,6 @@
 		"oAP": "/build/libs/Sendgrid/vendor/composer/ClassLoader.php",
 		"oF": 0
 		},
-	"/libs/Sendgrid/vendor/composer/installed.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "/build/libs/Sendgrid/vendor/composer/installed.json",
-		"oF": 1,
-		"oO": 0,
-		"oS": 0
-		},
-	"/libs/Sendgrid/vendor/composer/LICENSE": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 1,
-		"oAP": "/build/libs/Sendgrid/vendor/composer/LICENSE",
-		"oF": 1
-		},
-	"/libs/Sendgrid/vendor/sendgrid/php-http-client/.codeclimate.yml": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "/build/libs/Sendgrid/vendor/sendgrid/php-http-client/.codeclimate.yml",
-		"oF": 0
-		},
 	"/libs/Sendgrid/vendor/sendgrid/php-http-client/lib/Client.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -875,7 +781,7 @@
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "meme-obama",
 	"iconImageWasSetByUser": 1,
-	"lastBuiltDate": 563301031.388008
+	"lastBuiltDate": 563301253.74879503
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
@@ -2862,7 +2768,7 @@
 		],
 	"overrideExternalServerCSS": 0,
 	"previewPathAddition": "",
-	"skippedFoldersString": ".git,.idea,LICENSE",
+	"skippedFoldersString": ".git,.idea",
 	"sourceFolderName": "source",
 	"susyVersion": 3,
 	"tsAllowSyntheticDefaultImports": 0,
