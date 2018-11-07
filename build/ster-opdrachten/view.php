@@ -363,4 +363,4 @@ END;
     </div>
 </div>
 
-<?php footer("<script src=\"<?= $GLOBALS['config']->cdn->js->ajax ?>\"></script><script>for(var p=document.querySelectorAll(\"p\"),i=0;i<p.length;i++)p[i].classList.add(\"flow-text\");for(var ul=document.querySelectorAll(\".container ul\"),i=0;i<ul.length;i++)ul[i].classList.add(\"browser-default\");for(var li=document.querySelectorAll(\".container ul li\"),i=0;i<li.length;i++)li[i].classList.add(\"browser-default\");</script>"); ?>
+<?php footer("<script src=\"{$GLOBALS['config']->cdn->js->ajax}\"></script><script>for(var p=document.querySelectorAll(\"p\"),i=0;i<p.length;i++)p[i].classList.add(\"flow-text\");for(var ul=document.querySelectorAll(\".container ul\"),i=0;i<ul.length;i++)ul[i].classList.add(\"browser-default\");for(var li=document.querySelectorAll(\".container ul li\"),i=0;i<li.length;i++)li[i].classList.add(\"browser-default\");</script>"); ?>

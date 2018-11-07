@@ -35,7 +35,7 @@ return (object) array(
 
         'imgur' => (object) array(
             'key' => "b2c72661027878c",
-            'url' => "https://cdn.lucacastelnuovo.nl/js/betasterren/imgur.php.4.js",
+            'url' => "/libs/Imgur.php",
         ),
     ),
 
