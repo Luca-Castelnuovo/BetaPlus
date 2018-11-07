@@ -752,18 +752,18 @@
 		},
 	"/libs/Sendgrid/vendor/composer/installed.json": {
 		"ft": 524288,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "/build/libs/Sendgrid/vendor/composer/installed.json",
-		"oF": 0,
+		"oF": 1,
 		"oO": 0,
 		"oS": 0
 		},
 	"/libs/Sendgrid/vendor/composer/LICENSE": {
 		"cB": 0,
 		"ft": 8192,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "/build/libs/Sendgrid/vendor/composer/LICENSE",
-		"oF": 0
+		"oF": 1
 		},
 	"/libs/Sendgrid/vendor/sendgrid/php-http-client/.codeclimate.yml": {
 		"cB": 0,
@@ -796,9 +796,9 @@
 	"/LICENSE": {
 		"cB": 0,
 		"ft": 8192,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "/build/LICENSE",
-		"oF": 0
+		"oF": 1
 		},
 	"/manifest.json": {
 		"ft": 524288,
@@ -875,7 +875,7 @@
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "meme-obama",
 	"iconImageWasSetByUser": 1,
-	"lastBuiltDate": 563300879.00434101
+	"lastBuiltDate": 563301031.388008
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
@@ -2862,7 +2862,7 @@
 		],
 	"overrideExternalServerCSS": 0,
 	"previewPathAddition": "",
-	"skippedFoldersString": "_cache,cache,.git,.idea,log,_logs,logs,node_modules,/storage/framework/sessions,LICENSE",
+	"skippedFoldersString": ".git,.idea,LICENSE",
 	"sourceFolderName": "source",
 	"susyVersion": 3,
 	"tsAllowSyntheticDefaultImports": 0,
