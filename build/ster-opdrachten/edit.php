@@ -194,4 +194,4 @@ head('Edit || Ster Opdrachten', 2, 'Edit', '<link rel="stylesheet" href="' . $GL
     </div>
 </div>
 
-<?php footer('<script src="' . $GLOBALS['config']->cdn->js->simplemde->init . '">'); ?>
+<?php footer('<script src="' . $GLOBALS['config']->cdn->js->simplemde->init . '"></script>'); ?>
