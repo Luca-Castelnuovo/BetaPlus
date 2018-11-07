@@ -694,10 +694,96 @@
 		"oAP": "/build/libs/Sendgrid/sendgrid-php.php",
 		"oF": 0
 		},
-	"/libs/Sendgrid/vendor": {
-		"ft": 65536,
-		"oA": 1,
-		"oAP": "/build/libs/Sendgrid/vendor",
+	"/libs/Sendgrid/vendor/autoload.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/build/libs/Sendgrid/vendor/autoload.php",
+		"oF": 0
+		},
+	"/libs/Sendgrid/vendor/composer/autoload_classmap.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/build/libs/Sendgrid/vendor/composer/autoload_classmap.php",
+		"oF": 0
+		},
+	"/libs/Sendgrid/vendor/composer/autoload_files.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/build/libs/Sendgrid/vendor/composer/autoload_files.php",
+		"oF": 0
+		},
+	"/libs/Sendgrid/vendor/composer/autoload_namespaces.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/build/libs/Sendgrid/vendor/composer/autoload_namespaces.php",
+		"oF": 0
+		},
+	"/libs/Sendgrid/vendor/composer/autoload_psr4.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/build/libs/Sendgrid/vendor/composer/autoload_psr4.php",
+		"oF": 0
+		},
+	"/libs/Sendgrid/vendor/composer/autoload_real.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/build/libs/Sendgrid/vendor/composer/autoload_real.php",
+		"oF": 0
+		},
+	"/libs/Sendgrid/vendor/composer/autoload_static.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/build/libs/Sendgrid/vendor/composer/autoload_static.php",
+		"oF": 0
+		},
+	"/libs/Sendgrid/vendor/composer/ClassLoader.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/build/libs/Sendgrid/vendor/composer/ClassLoader.php",
+		"oF": 0
+		},
+	"/libs/Sendgrid/vendor/composer/installed.json": {
+		"ft": 524288,
+		"oA": 0,
+		"oAP": "/build/libs/Sendgrid/vendor/composer/installed.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 0
+		},
+	"/libs/Sendgrid/vendor/composer/LICENSE": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/build/libs/Sendgrid/vendor/composer/LICENSE",
+		"oF": 0
+		},
+	"/libs/Sendgrid/vendor/sendgrid/php-http-client/.codeclimate.yml": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/build/libs/Sendgrid/vendor/sendgrid/php-http-client/.codeclimate.yml",
+		"oF": 0
+		},
+	"/libs/Sendgrid/vendor/sendgrid/php-http-client/lib/Client.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/build/libs/Sendgrid/vendor/sendgrid/php-http-client/lib/Client.php",
+		"oF": 0
+		},
+	"/libs/Sendgrid/vendor/sendgrid/php-http-client/lib/Response.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/build/libs/Sendgrid/vendor/sendgrid/php-http-client/lib/Response.php",
 		"oF": 0
 		},
 	"/libs/Upload.php": {
@@ -787,9 +873,9 @@
 	"creationDate": 556208676,
 	"displayValue": "HBL-BetaSterren-V2",
 	"displayValueWasSetByUser": 1,
-	"iconImageName": "meme-drunkArcher",
-	"iconImageWasSetByUser": 0,
-	"lastBuiltDate": 563279321.90265596
+	"iconImageName": "meme-obama",
+	"iconImageWasSetByUser": 1,
+	"lastBuiltDate": 563279925.97555006
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
@@ -2776,7 +2862,7 @@
 		],
 	"overrideExternalServerCSS": 0,
 	"previewPathAddition": "",
-	"skippedFoldersString": "log, _logs, logs, _cache, cache, .idea, /storage/framework/sessions, node_modules, .git, vendor, tmp",
+	"skippedFoldersString": "_cache,cache,.git,.idea,log,_logs,logs,node_modules,/storage/framework/sessions,LICENSE",
 	"sourceFolderName": "source",
 	"susyVersion": 3,
 	"tsAllowSyntheticDefaultImports": 0,
