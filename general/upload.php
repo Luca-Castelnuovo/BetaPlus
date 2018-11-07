@@ -96,4 +96,12 @@ head('Upload', 5, 'Upload', '<link href="' . $GLOBALS['config']->cdn->css->imgur
         </div>
     </div>
 </div>
-<?php footer('<script src="' . $GLOBALS['config']->cdn->js->ajax . '"></script><script src="' . $GLOBALS['config']->api->imgur->url . '?client_id=' . $GLOBALS['config']->api->imgur->key . '&response_url=/general/upload.php&type=' . clean_data($_GET['type']) . '&id=' . clean_data($_GET['id']) . '"></script>'); ?>
+<?php
+
+if (empty($_GET['id'])) {
+    $GETID = 'undefined';
+} else {
+    $GETID = clean_data($_GET['id']);
+}
+
+footer('<script src="' . $GLOBALS['config']->cdn->js->ajax . '"></script><script src="' . $GLOBALS['config']->api->imgur->url . '?client_id=' . $GLOBALS['config']->api->imgur->key . '&response_url=/general/upload.php&type=' . clean_data($_GET['type']) . '&id=' . $GETID . '"></script>'); ?>
