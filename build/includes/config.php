@@ -42,34 +42,34 @@ return (object) array(
     'cdn' => (object) array(
         'css' => (object) array(
             'materialize' => (object) array(
-                'library' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/css/materialize.css",
+                'library' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/general/css/materialize.css",
                 'icons' => "https://fonts.googleapis.com/icon?family=Material+Icons",
             ),
 
             'main' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/hbl/css/style.css",
-            'simplemde' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/css/simplemde.css",
-            'imgur' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/css/imgur.css",
+            'simplemde' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/general/css/simplemde.css",
+            'imgur' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/general/css/imgur.css",
         ),
 
         'js' => (object) array(
             'materialize' => (object) array(
-                'library' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/js/materialize.js",
+                'library' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/general/js/materialize.js",
                 'init' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/hbl/js/materialize_init.js",
             ),
 
             'particle' => (object) array(
-                'library' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/js/particles.js",
+                'library' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/general/js/particles.js",
                 'init' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/hbl/js/particles_init.js",
             ),
 
             'simplemde' => (object) array(
-                'library' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/js/simplemde.js",
+                'library' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/general/js/simplemde.js",
                 'init' => 'https://betaplus.ams3.cdn.digitaloceanspaces.com/hbl/js/simplemde_init.js',
             ),
 
-            'ajax' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/js/ajax.js",
-            'gen' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/js/gen.js",
-            'filter' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/js/filter.js",
+            'ajax' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/general/js/ajax.js",
+            'gen' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/general/js/gen.js",
+            'filter' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/general/js/filter.js",
         ),
 
         'images' => (object) array(
@@ -85,7 +85,7 @@ return (object) array(
             ),
 
             'logo' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/hbl/images/logo.png",
-            'default_profile' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/images/default_profile.png",
+            'default_profile' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/general/images/default_profile.png",
         ),
     ),
 );
