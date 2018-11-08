@@ -133,7 +133,7 @@ function message_set($user_id, $user_class, $message)
 //Read User message
 function message_read()
 {
-    $user_id = $_SESSION['class'];
+    $user_id = $_SESSION['id'];
 
     if ($_SESSION['class'] == 'docent') {
         $table = 'docenten';

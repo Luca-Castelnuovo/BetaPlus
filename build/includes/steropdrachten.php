@@ -88,7 +88,10 @@ END;
         while ($steropdracht = $result->fetch_assoc()) {
             if ($steropdracht['status'] <= 2) {
                 $edit = "<li class=\"btn waves-effect waves-light color-secondary--background\"><a href=\"/ster-opdrachten/edit/{$steropdracht['id']}/\">Edit Opdracht</a></li>";
+            } else {
+                $edit = null;
             }
+
             echo <<<END
             <div class="col s12 m6 l4 xl3">
                 <div class="card medium hoverable">
