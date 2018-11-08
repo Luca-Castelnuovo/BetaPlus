@@ -109,3 +109,84 @@ END;
         echo '<p>Er zijn op dit moment geen agenda items.</p> ';
     }
 }
+
+//Set User message
+function message_set($user_id, $user_class, $message)
+{
+    if ($user_class) {
+        $table = 'docenten';
+    } else {
+        $table = 'leerlingen';
+    }
+
+    $query =
+        "UPDATE
+            {$table}
+        SET
+            message = {$message}
+        WHERE
+            id = '{$user_id}'";
+
+    sql_query($query, false);
+}
+
+//Read User message
+function message_read()
+{
+    $user_id = $_SESSION['class'];
+
+    if ($_SESSION['class'] == 'docent') {
+        $table = 'docenten';
+    } else {
+        $table = 'leerlingen';
+    }
+
+    $query =
+        "SELECT
+            message
+        FROM
+            {$table}
+        WHERE
+            id = '{$user_id}'";
+
+    $result = sql_query($query, true);
+
+    if (!empty($result['message'])) {
+        require($_SERVER['DOCUMENT_ROOT'] . '/libs/Parsedown.php');
+        $parsedown = new Parsedown();
+        $parsedown->setSafeMode(true);
+
+        $message = $parsedown->text($result['message']);
+
+        echo <<<END
+        <div id="message" class="modal">
+            <div class="modal-content">
+                {$message}
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-light color-secondary--background btn">Close</a>
+            </div>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var elems = document.querySelectorAll('.modal');
+                var instances = M.Modal.init(elems, {dismissible: false});
+
+                setTimeout(function () {
+                    M.Modal.getInstance(document.querySelector('#message')).open();
+                }, 100);
+            });
+        </script>
+END;
+
+        $query =
+            "UPDATE
+                {$table}
+            SET
+                message = NULL
+            WHERE
+                id = '{$user_id}'";
+
+        sql_query($query, false);
+    }
+}

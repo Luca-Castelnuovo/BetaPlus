@@ -26,4 +26,4 @@ head('Home', 0);
     </div>
 </div>
 
-<?php footer(); ?>
+<?php message_read(); footer(); ?>
