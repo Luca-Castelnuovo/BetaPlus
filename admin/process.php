@@ -71,7 +71,7 @@ END;
 
     is_empty([$type, $user_id, $user_class], '/admin');
 
-    $sql_table = ($user_class === 'docent') ? 'docenten' : 'leerlingen';
+    $sql_table = ($user_class === 'docenten') ? 'docenten' : 'leerlingen';
 
     $value = $state;
 
