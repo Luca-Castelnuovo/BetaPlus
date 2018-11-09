@@ -22,8 +22,8 @@ RewriteRule ^admin/edit/([^/]*)/([^/]*)/$ /admin/edit.php?id=$1&class=$2 [L]
 RewriteRule ^admin/edit/([^/]*)/([^/]*)$ /admin/edit.php?id=$1&class=$2 [L]
 
 #Message
-RewriteRule ^admin/message/([^/]*)/([^/]*)/$ /admin/agenda.php?id=$1&class=$2 [L]
-RewriteRule ^admin/message/([^/]*)/([^/]*)$ /admin/agenda.php?id=$1&class=$2 [L]
+RewriteRule ^admin/message/([^/]*)/([^/]*)/$ /admin/message.php?id=$1&class=$2 [L]
+RewriteRule ^admin/message/([^/]*)/([^/]*)$ /admin/message.php?id=$1&class=$2 [L]
 
 #Agenda
 RewriteRule ^admin/agenda/([^/]*)$ /admin/agenda.php?id=$1 [L]
