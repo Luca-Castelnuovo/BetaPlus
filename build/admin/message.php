@@ -51,9 +51,8 @@ head('Message || Admin', 2, 'Message', '<link rel="stylesheet" href="' . $GLOBAL
                 <div class="row">
                     <form class="col s12" method="post" action="/admin/message/<?= $id ?>/<?= $class ?>">
                         <div class="row">
-                            <div class="input-field col s12">
-                                <input id="username" value="<?= $user['first_name'] ?> <?= $user['last_name'] ?>" readonly> <label for="username">Gebruiker</label>
-                            </div>
+                            <h5>Gebruiker:</h5>
+                            <p><?= $user['first_name'] ?> <?= $user['last_name'] ?></p>
                         </div>
                         <div class="row">
                             <h5>Bericht:</h5>
