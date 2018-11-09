@@ -91,15 +91,19 @@ END;
             $customQuery = true;
             $query =
                 "DELETE FROM
-                    leerlingen
+                    {$sql_table}
                 WHERE
                     id = '{$user_id}'";
-            sql_query($query, false);
-            $query =
-                "DELETE FROM
-                    steropdrachten
-                WHERE
-                    leerling_id = '{$user_id}'";
+
+            if ($sql_table === 'docenten') {
+                sql_query($query, false);
+
+                $query =
+                    "DELETE FROM
+                        steropdrachten
+                    WHERE
+                        leerling_id = '{$user_id}'";
+            }
 
             log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'Admin delete user', 2);
             break;

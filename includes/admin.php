@@ -43,17 +43,22 @@ END;
             $opposite_enable_disable_state_binary = $user['active'] ? 0 : 1;
             $opposite_enable_disable_state_text = $user['active'] ? 'Disable' : 'Enable';
 
-            $status_class = 'red';
+            $status = 'Active';
+            $status_class = null;
+
+            if (!$user['active']) {
+                $status_class = 'red';
+                $status = 'Disabled';
+            }
+
+            if ($user['failed_login'] > 4) {
+                $status_class = 'red';
+                $status = 'Blocked';
+            }
 
             if ($user['failed_login'] > 4 && !$user['active']) {
+                $status_class = 'red';
                 $status = 'Disabled & Blocked';
-            } elseif (!$user['active']) {
-                $status = 'Disabled';
-            } elseif ($user['failed_login'] > 4) {
-                $status = 'Blocked';
-            } else {
-                $status = 'Active';
-                $status_class = null;
             }
 
             if ($user['failed_login'] > 4) {
