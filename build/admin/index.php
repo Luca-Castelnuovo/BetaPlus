@@ -13,8 +13,8 @@ head('Admin', 5);
         <div class="row">
             <div class="col s12">
                 <ul class="tabs tabs-fixed-width z-depth-1">
-                    <li class="tab col s3"><a class="active" href="#logs">Logs</a></li>
-                    <li class="tab col s3"><a href="#users">Users</a></li>
+                    <li class="tab col s3"><a class="active"  href="#users">Users</a></li>
+                    <li class="tab col s3"><a href="#logs">Logs</a></li>
                     <li class="tab col s3"><a href="#extra">Extra</a></li>
                 </ul>
             </div>
