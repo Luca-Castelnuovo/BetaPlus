@@ -68,8 +68,7 @@ return (object) array(
             ),
 
             'ajax' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/general/js/ajax.js",
-            'gen' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/general/js/gen.js",
-            'filter' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/general/js/filter.js",
+            'admin' => "https://betaplus.ams3.cdn.digitaloceanspaces.com/general/js/admin.js",
         ),
 
         'images' => (object) array(

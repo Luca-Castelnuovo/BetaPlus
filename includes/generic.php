@@ -18,11 +18,11 @@ function current_date($andTime = false)
 
 
 //Log actions
-function log_action($user, $action, $priority)
+function log_action($user, $action)
 {
     $date = current_date(true);
     $ip = ip();
-    $query = "INSERT INTO logs (date, user, action, ip, priority) VALUES ('{$date}', '{$user}', '{$action}', '{$ip}', '{$priority}')";
+    $query = "INSERT INTO logs (date, user, action, ip) VALUES ('{$date}', '{$user}', '{$action}', '{$ip}')";
     sql_query($query, false);
 }
 

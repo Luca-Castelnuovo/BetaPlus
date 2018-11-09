@@ -23,11 +23,25 @@
 		"oAP": "/build/admin/agenda.php",
 		"oF": 0
 		},
+	"/admin/edit.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/build/admin/edit.php",
+		"oF": 0
+		},
 	"/admin/index.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "/build/admin/index.php",
+		"oF": 0
+		},
+	"/admin/message.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/build/admin/message.php",
 		"oF": 0
 		},
 	"/admin/process.php": {
@@ -77,6 +91,12 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "/build/auth/reset.php",
+		"oF": 0
+		},
+	"/build": {
+		"ft": 65536,
+		"oA": 1,
+		"oAP": "/build/build",
 		"oF": 0
 		},
 	"/docenten/home.php": {
@@ -777,11 +797,11 @@
 	},
 "projectAttributes": {
 	"creationDate": 556208676,
-	"displayValue": "HBL-BetaSterren-V2",
+	"displayValue": "BetaPlus",
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "meme-obama",
 	"iconImageWasSetByUser": 1,
-	"lastBuiltDate": 563402609.96518302
+	"lastBuiltDate": 563472077.40404403
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

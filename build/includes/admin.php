@@ -34,8 +34,8 @@ function admin_accounts_list($class)
     $result = sql_query($query, false);
     if ($result->num_rows > 0) {
         echo <<<END
-        <div class="section white">
-            <div class="row">
+        <div class="section">
+            <ul class="collection">
 END;
         while ($user = $result->fetch_assoc()) {
             $CSRFtoken = csrf_gen();
@@ -43,37 +43,62 @@ END;
             $opposite_enable_disable_state_binary = $user['active'] ? 0 : 1;
             $opposite_enable_disable_state_text = $user['active'] ? 'Disable' : 'Enable';
 
+            $status_class = 'red';
+
+            if ($user['failed_login'] > 4 && !$user['active']) {
+                $status = 'disabled & blocked';
+            } elseif (!$user['active']) {
+                $status = 'disabled';
+            } elseif ($user['failed_login'] > 4) {
+                $status = 'blocked';
+            } else {
+                $status = 'active';
+                $status_class = null;
+            }
+
+            if ($user['failed_login'] > 4) {
+                $unblock = <<<END
+                <li tabindex="0">
+                    <a href="/admin/process/{$CSRFtoken}/unblock/{$user['id']}/{$class}/"><span class="black-text">Unblock</span></a>
+                </li>
+END;
+            } else {
+                $unblock = null;
+            }
+
             echo <<<END
-            <div class="col s12 m6 l4 xl3">
-                <div class="card medium hoverable">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator responsive-img" src="{$user['profile_url']}" onerror="this.src='{$GLOBALS['config']->cdn->images->default_profile}'">
-                    </div>
-                    <div class="card-content"><span class="card-title activator grey-text text-darken-4 center truncate">{$user['first_name']} {$user['last_name']}</span></div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Opties<i class="material-icons right">close</i></span>
-                        <ul class="align-center card-reveal--links">
-                            <li class="btn waves-effect waves-light color-secondary--background">
-                                <a href="/admin/process/{$CSRFtoken}/unblock/{$user['id']}/{$class}/">Unblock Password</a>
-                            </li>
-                            <li class="btn waves-effect waves-light color-secondary--background">
-                                <a href="/admin/process/{$CSRFtoken}/active/{$user['id']}/{$class}/{$opposite_enable_disable_state_binary}">{$opposite_enable_disable_state_text} User</a>
-                            </li>
-                            <li class="btn waves-effect waves-light color-secondary--background">
-                                <a href="/admin/process/{$CSRFtoken}/delete/{$user['id']}/{$class}/" onclick="return confirm('Weet je het zeker?')">Delete User</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <li class="collection-item avatar {$status_class}">
+                <img src="{$user['profile_url']}" onerror="this.src='{$GLOBALS['config']->cdn->images->default_profile}'" class="circle">
+                <span class="title">{$user['first_name']} {$user['last_name']}</span>
+                <p>Status: {$status}</p>
+                <a href="#!" class="secondary-content dropdown-trigger-user-settings" data-target='user-settings-{$user['id']}'><span class="black-text"><i class="material-icons">more_vert</i></span></a>
+
+                <ul class="dropdown-content" id="user-settings-{$user['id']}" tabindex="0" style="">
+                    <li tabindex="0">
+                        <a href="/admin/message/{$user['id']}/{$class}"><span class="black-text">Message</span></a>
+                    </li>
+                    <li tabindex="0">
+                        <a href="/admin/edit/{$user['id']}/{$class}" target="_blank"><span class="black-text">Edit</span></a>
+                    </li>
+                    {$unblock}
+                    <li class="divider" tabindex="0"></li>
+                    <li tabindex="0">
+                        <a href="/admin/process/{$CSRFtoken}/active/{$user['id']}/{$class}/{$opposite_enable_disable_state_binary}"><span class="black-text">{$opposite_enable_disable_state_text}</span></a>
+                    </li>
+                    <li tabindex="0">
+                        <a href="/admin/process/{$CSRFtoken}/delete/{$user['id']}/{$class}/" onclick="return confirm('Weet je het zeker?')"><span class="black-text">Delete</span></a>
+                    </li>
+                </ul>
+            </li>
+
 END;
         }
         echo <<<END
+            </ul>
         </div>
-    </div>
 END;
     } else {
-        echo "<p>Er doen op dit moment geen users in deze ({$class}) categorie.</p>";
+        echo "<p>Er doen op dit moment geen gebruikers in '{$class}'.</p>";
     }
 }
 
@@ -85,7 +110,6 @@ function admin_log_list()
             user,
             action,
             ip,
-            priority,
             date
         FROM
             logs
@@ -99,19 +123,18 @@ function admin_log_list()
         echo <<<END
         <div class="row margin-top-5 input-field">
             <div class="col s12 m10">
-                <input type="search" id="filter" class="light-table-filter" data-table="order-table" placeholder="Filter">
+                <input type="search" id="filter" class="table-logs" data-table="list-logs" placeholder="Filter">
             </div>
             <div class="col s12 m2">
                 <a href="/admin/process/{$CSRFtoken}/log_clear/id/class/state" class="waves-effect waves-light btn color-primary--background" onclick="return confirm('Weet je het zeker?')">Clear Log</a>
             </div>
         </div>
-        <table class="striped centered responsive-table order order-table">
+        <table class="striped centered responsive-table list-logs">
             <thead>
               <tr>
-                    <th>Priority</th>
-                    <th>User</th>
                     <th>Action</th>
                     <th>IP</th>
+                    <th>User</th>
                     <th>Date</th>
               </tr>
             </thead>
@@ -119,30 +142,11 @@ function admin_log_list()
             <tbody>
 END;
         while ($entry = $result->fetch_assoc()) {
-            switch ($entry['priority']) {
-                case '0':
-                    $priority = 'LOW';
-                    break;
-
-                case '1':
-                    $priority = 'MEDIUM';
-                    break;
-
-                case '2':
-                    $priority = 'HIGH';
-                    break;
-
-                default:
-                    $priority = 'unknown';
-                    break;
-            }
-
             echo <<<END
             <tr>
-                <td>{$priority}</td>
-                <td>{$entry['user']}</td>
                 <td>{$entry['action']}</td>
                 <td>{$entry['ip']}</td>
+                <td>{$entry['user']}</td>
                 <td>{$entry['date']}</td>
             </tr>
 END;
@@ -152,6 +156,6 @@ END;
       </table>
 END;
     } else {
-        echo 'There are no log entry\'s';
+        echo 'Er zijn geen logs.';
     }
 }
