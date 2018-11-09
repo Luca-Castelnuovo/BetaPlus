@@ -19,9 +19,9 @@ function admin_accounts_list($class)
             "SELECT
                 id,
                 active,
+                failed_login,
                 first_name,
                 last_name,
-                leerling_nummer,
                 profile_url
             FROM
                 leerlingen
