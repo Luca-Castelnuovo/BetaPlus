@@ -169,7 +169,7 @@ function message_read()
         </div>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
-                for(var p=document.querySelectorAll("p"),i=0;i<p.length;i++)p[i].classList.add("flow-text");for(var ul=document.querySelectorAll("ul"),i=0;i<ul.length;i++)ul[i].classList.add("browser-default");for(var li=document.querySelectorAll(ul li"),i=0;i<li.length;i++)li[i].classList.add("browser-default");
+                for(var p=document.querySelectorAll("p"),i=0;i<p.length;i++)p[i].classList.add("flow-text");for(var ul=document.querySelectorAll("ul"),i=0;i<ul.length;i++)ul[i].classList.add("browser-default");for(var li=document.querySelectorAll("ul li"),i=0;i<li.length;i++)li[i].classList.add("browser-default");
 
                 var elems = document.querySelectorAll('.modal');
                 var instances = M.Modal.init(elems, {dismissible: false});
