@@ -17,6 +17,14 @@ RewriteRule ^auth/register/([^/]*)$ /auth/register.php?token=$1 [L]
 RewriteRule ^admin/process/([^/]*)/([^/]*)/([^/]*)/([^/]*)/([^/]*)/$ /admin/process.php?CSRFtoken=$1&type=$2&id=$3&class=$4&state=$5 [L]
 RewriteRule ^admin/process/([^/]*)/([^/]*)/([^/]*)/([^/]*)/([^/]*)$ /admin/process.php?CSRFtoken=$1&type=$2&id=$3&class=$4&state=$5 [L]
 
+#Edit
+RewriteRule ^admin/edit/([^/]*)/([^/]*)/$ /admin/edit.php?id=$1&class=$2 [L]
+RewriteRule ^admin/edit/([^/]*)/([^/]*)$ /admin/edit.php?id=$1&class=$2 [L]
+
+#Message
+RewriteRule ^admin/message/([^/]*)/([^/]*)/$ /admin/agenda.php?id=$1&class=$2 [L]
+RewriteRule ^admin/message/([^/]*)/([^/]*)$ /admin/agenda.php?id=$1&class=$2 [L]
+
 #Agenda
 RewriteRule ^admin/agenda/([^/]*)$ /admin/agenda.php?id=$1 [L]
 
