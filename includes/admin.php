@@ -46,13 +46,13 @@ END;
             $status_class = 'red';
 
             if ($user['failed_login'] > 4 && !$user['active']) {
-                $status = 'disabled & blocked';
+                $status = 'Disabled & Blocked';
             } elseif (!$user['active']) {
-                $status = 'disabled';
+                $status = 'Disabled';
             } elseif ($user['failed_login'] > 4) {
-                $status = 'blocked';
+                $status = 'Blocked';
             } else {
-                $status = 'active';
+                $status = 'Active';
                 $status_class = null;
             }
 
