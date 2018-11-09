@@ -72,24 +72,23 @@ END;
                 <span class="title">{$user['first_name']} {$user['last_name']}</span>
                 <p>Status: {$status}</p>
                 <a href="#!" class="secondary-content dropdown-trigger-user-settings" data-target='user-settings-{$user['id']}'><span class="black-text"><i class="material-icons">more_vert</i></span></a>
-
-                <ul class="dropdown-content" id="user-settings-{$user['id']}" tabindex="0" style="">
-                    <li tabindex="0">
-                        <a href="/admin/message/{$user['id']}/{$class}"><span class="black-text">Message</span></a>
-                    </li>
-                    <li tabindex="0">
-                        <a href="/admin/edit/{$user['id']}/{$class}" target="_blank"><span class="black-text">Edit</span></a>
-                    </li>
-                    {$unblock}
-                    <li class="divider" tabindex="0"></li>
-                    <li tabindex="0">
-                        <a href="/admin/process/{$CSRFtoken}/active/{$user['id']}/{$class}/{$opposite_enable_disable_state_binary}"><span class="black-text">{$opposite_enable_disable_state_text}</span></a>
-                    </li>
-                    <li tabindex="0">
-                        <a href="/admin/process/{$CSRFtoken}/delete/{$user['id']}/{$class}/" onclick="return confirm('Weet je het zeker?')"><span class="black-text">Delete</span></a>
-                    </li>
-                </ul>
             </li>
+            <ul class="dropdown-content" id="user-settings-{$user['id']}" tabindex="0" style="">
+                <li tabindex="0">
+                    <a href="/admin/message/{$user['id']}/{$class}"><span class="black-text">Message</span></a>
+                </li>
+                <li tabindex="0">
+                    <a href="/admin/edit/{$user['id']}/{$class}" target="_blank"><span class="black-text">Edit</span></a>
+                </li>
+                {$unblock}
+                <li class="divider" tabindex="0"></li>
+                <li tabindex="0">
+                    <a href="/admin/process/{$CSRFtoken}/active/{$user['id']}/{$class}/{$opposite_enable_disable_state_binary}"><span class="black-text">{$opposite_enable_disable_state_text}</span></a>
+                </li>
+                <li tabindex="0">
+                    <a href="/admin/process/{$CSRFtoken}/delete/{$user['id']}/{$class}/" onclick="return confirm('Weet je het zeker?')"><span class="black-text">Delete</span></a>
+                </li>
+            </ul>
 
 END;
         }
@@ -123,18 +122,18 @@ function admin_log_list()
         echo <<<END
         <div class="row margin-top-5 input-field">
             <div class="col s12 m10">
-                <input type="search" id="filter" class="table-logs" data-table="list-logs" placeholder="Filter">
+                <input type="search" id="filter" class="light-table-filter" data-table="order-table" placeholder="Filter">
             </div>
             <div class="col s12 m2">
                 <a href="/admin/process/{$CSRFtoken}/log_clear/id/class/state" class="waves-effect waves-light btn color-primary--background" onclick="return confirm('Weet je het zeker?')">Clear Log</a>
             </div>
         </div>
-        <table class="striped centered responsive-table list-logs">
+        <table class="striped centered responsive-table order-table">
             <thead>
               <tr>
                     <th>Action</th>
-                    <th>IP</th>
                     <th>User</th>
+                    <th>IP</th>
                     <th>Date</th>
               </tr>
             </thead>
@@ -145,8 +144,8 @@ END;
             echo <<<END
             <tr>
                 <td>{$entry['action']}</td>
-                <td>{$entry['ip']}</td>
                 <td>{$entry['user']}</td>
+                <td>{$entry['ip']}</td>
                 <td>{$entry['date']}</td>
             </tr>
 END;
