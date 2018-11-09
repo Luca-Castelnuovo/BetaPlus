@@ -40,7 +40,7 @@ $query =
 
 $user = sql_query($query, true);
 
-head('Message || Admin', 2, 'Message', '<link rel="stylesheet" href="' . $GLOBALS['config']->cdn->css->simplemde . '">');
+head('Message || Admin', 5, 'Message', '<link rel="stylesheet" href="' . $GLOBALS['config']->cdn->css->simplemde . '">');
 
 ?>
 
