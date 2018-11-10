@@ -78,7 +78,7 @@ if ($class === 'docenten') {
             <div class="row">
                 <div class="col s12">
                     <div class="row">
-                        <form action="/auth/register.php" method="post">
+                        <form action="/admin/edit/{$id}/{$class}" method="post">
                             <div class="row">
                                 <div class="input-field col s12">
                                     <label for="first_name">Voornaam</label>
@@ -160,7 +160,7 @@ END;
             <div class="row">
                 <div class="col s12">
                     <div class="row">
-                        <form action="/auth/register.php" method="post">
+                        <form action="/admin/edit/{$id}/{$class}" method="post">
                             <div class="row">
                                 <div class="input-field col s12">
                                     <label for="first_name">Voornaam</label>
