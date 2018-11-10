@@ -10,6 +10,8 @@ $class = clean_data($_GET['class']);
 is_empty([$id, $class], '/admin', 'Deze link is niet geldig');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    csrf_val($_POST['CSRFtoken']);
+
     $first_name = clean_data($_POST['first_name']);
     $last_name = clean_data($_POST['last_name']);
     $email = clean_data($_POST['email']);
@@ -26,9 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 id='{$id}';";
     } else {
         $leerling_nummer = clean_data($_POST['leerling_nummer']);
-        $class_post = clean_data($_POST['class']);
         $profile_url = clean_data($_POST['profile_url']);
-        $admin = clean_data($_POST['admin']);
+        $class_post = clean_data($_POST['class']);
 
         $query =
             "UPDATE
@@ -52,43 +53,188 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     redirect('/admin', 'Gebruiker Aangepast');
 }
 
-$query =
-    "SELECT
-        first_name,
-        last_name
-    FROM
-        {$sql_table}
-    WHERE
-        id='{$id}'";
-
-$user = sql_query($query, true);
+$sql_table = ($class === 'docenten') ? 'docenten' : 'leerlingen';
 
 head('Edit || Admin', 5, 'Edit');
 
-?>
+$CSRFtoken = csrf_gen();
 
-<div class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col s12">
-                <div class="row">
-                    <form class="col s12" method="post" action="/admin/message/<?= $id ?>/<?= $class ?>">
-                        <div class="row">
-                            <h5>Gebruiker:</h5>
-                            <p><?= $user['first_name'] ?> <?= $user['last_name'] ?></p>
-                        </div>
-                        <div class="row">
-                            <h5>Bericht:</h5>
-                            <textarea name="message" id="simplemde" cols="30" rows="10"></textarea>
-                        </div>
-                        <button class="btn-large waves-effect waves-light color-primary--background" type="submit" name="action">
-                            Verstuur <i class="material-icons right">send</i>
-                        </button>
-                    </form>
+if ($class === 'docenten') {
+    $query =
+        "SELECT
+            first_name,
+            last_name,
+            email
+        FROM
+            docenten
+        WHERE
+            id='{$id}'";
+
+    $user = sql_query($query, true);
+
+    echo <<<END
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <div class="row">
+                        <form action="/auth/register.php" method="post">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <label for="first_name">Voornaam</label>
+                                    <input type="text" id="first_name" name="first_name" required value="{$user['first_name']}"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <label for="last_name">Achternaam</label>
+                                    <input type="text" id="last_name" name="last_name" required value="{$user['last_name']}"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" required value="{$user['email']}"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <input type="hidden" name="CSRFtoken" value="{$CSRFtoken}"/>
+                                <button type="submit" class="waves-effect waves-light btn color-primary--background">
+                                    Bevestig
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+END;
+} else {
+    $query =
+        "SELECT
+            first_name,
+            last_name,
+            email,
+            class,
+            profile_url,
+            leerling_nummer
+        FROM
+            docenten
+        WHERE
+            id='{$id}'";
 
-<?php footer('<script src="' . $GLOBALS['config']->cdn->js->simplemde->library . '"></script><script src="' . $GLOBALS['config']->cdn->js->simplemde->init . '"></script>'); ?>
+    $user = sql_query($query, true);
+
+    $class_4havo = null;
+    $class_4vwo = null;
+    $class_5havo= null;
+    $class_5vwo = null;
+    $class_6vwo = null;
+
+    switch ($user['class']) {
+        case '4havo':
+            $class_4havo = 'checked';
+            break;
+
+        case '4vwo':
+            $class_4vwo = 'checked';
+            break;
+
+        case '5havo':
+            $class_5havo = 'checked';
+            break;
+
+        case '5vwo':
+            $class_5vwo = 'checked';
+            break;
+
+        case '6vwo':
+            $class_6vwo = 'checked';
+            break;
+    }
+
+    echo <<<END
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <div class="row">
+                        <form action="/auth/register.php" method="post">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <label for="first_name">Voornaam</label>
+                                    <input type="text" id="first_name" name="first_name" required value="{$user['first_name']}"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <label for="last_name">Achternaam</label>
+                                    <input type="text" id="last_name" name="last_name" required value="{$user['last_name']}"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" required value="{$user['email']}"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <label for="profile_url">Profile URL</label>
+                                    <input type="text" id="profile_url" name="profile_url" required value="{$user['profile_url']}"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <label for="leerling_nummer">Leerling Nummer</label>
+                                    <input type="number" id="leerling_nummer" name="leerling_nummer" required value="{$user['leerling_nummer']}"/>
+                                </div>
+                            </div>
+                            <h4>Klas:</h4>
+                            <p>
+                                <label>
+                                    <input name="class" type="radio" value="4havo" required {$class_4havo} />
+                                    <span>4havo</span>
+                                </label>
+                            </p>
+                            <p>
+                                <label>
+                                    <input name="class" type="radio" value="4vwo" required {$class_4vwo} />
+                                    <span>4vwo</span>
+                                </label>
+                            </p>
+                            <p>
+                                <label>
+                                    <input name="class" type="radio" value="5havo" required {$class_5havo} />
+                                    <span>5havo</span>
+                                </label>
+                            </p>
+                            <p>
+                                <label>
+                                    <input name="class" type="radio" value="5vwo" required {$class_5vwo} />
+                                    <span>5vwo</span>
+                                </label>
+                            </p>
+                            <p>
+                                <label>
+                                    <input name="class" type="radio" value="6vwo" required {$class_6vwo} />
+                                    <span>6vwo</span>
+                                </label>
+                            </p>
+                            <div class="row">
+                                <input type="hidden" name="CSRFtoken" value="{$CSRFtoken}"/>
+                                <button type="submit" class="waves-effect waves-light btn color-primary--background">
+                                    Bevestig
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+END;
+}
+
+footer();

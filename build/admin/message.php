@@ -10,6 +10,8 @@ $class = clean_data($_GET['class']);
 $sql_table = ($class === 'docenten') ? 'docenten' : 'leerlingen';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    csrf_val($_POST['CSRFtoken']);
+
     $message = clean_data($_POST['message'], true);
 
     $query =
@@ -58,6 +60,7 @@ head('Message || Admin', 5, 'Message', '<link rel="stylesheet" href="' . $GLOBAL
                             <h5>Bericht:</h5>
                             <textarea name="message" id="simplemde" cols="30" rows="10"></textarea>
                         </div>
+                        <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>"/>
                         <button class="btn-large waves-effect waves-light color-primary--background" type="submit" name="action">
                             Verstuur <i class="material-icons right">send</i>
                         </button>
