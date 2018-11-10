@@ -120,7 +120,7 @@ END;
             profile_url,
             leerling_nummer
         FROM
-            docenten
+            leerlingen
         WHERE
             id='{$id}'";
 
