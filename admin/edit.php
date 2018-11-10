@@ -23,9 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             SET
                 first_name = '{$first_name}',
                 last_name = '{$last_name}',
-                email = '{$email}',
+                email = '{$email}'
             WHERE
-                id='{$id}';";
+                id='{$id}'";
     } else {
         $leerling_nummer = clean_data($_POST['leerling_nummer']);
         $profile_url = clean_data($_POST['profile_url']);
@@ -40,10 +40,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 email = '{$email}',
                 class = '{$class_post}',
                 profile_url = '{$profile_url}',
-                leerling_nummer = '{$leerling_nummer}',
-                admin = '{$admin}',
+                leerling_nummer = '{$leerling_nummer}'
             WHERE
-                id='{$id}';";
+                id='{$id}'";
     }
 
     sql_query($query, false);
