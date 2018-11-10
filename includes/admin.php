@@ -83,7 +83,7 @@ END;
                     <a href="/admin/message/{$user['id']}/{$class}"><span class="black-text">Message</span></a>
                 </li>
                 <li tabindex="0">
-                    <a href="/admin/edit/{$user['id']}/{$class}" target="_blank"><span class="black-text">Edit</span></a>
+                    <a href="/admin/edit/{$user['id']}/{$class}"><span class="black-text">Edit</span></a>
                 </li>
                 {$unblock}
                 <li class="divider" tabindex="0"></li>
