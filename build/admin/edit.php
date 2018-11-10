@@ -182,7 +182,7 @@ END;
                             <div class="row">
                                 <div class="input-field col s12">
                                     <label for="profile_url">Profile URL</label>
-                                    <input type="text" id="profile_url" name="profile_url" required value="{$user['profile_url']}"/>
+                                    <input type="text" id="profile_url" name="profile_url" value="{$user['profile_url']}"/>
                                 </div>
                             </div>
                             <div class="row">
