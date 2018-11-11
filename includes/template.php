@@ -137,9 +137,10 @@ function footer($extra = null)
     <script src="{$GLOBALS['config']->cdn->js->materialize->library}"></script>
     <!--Init Materialize Components-->
     <script src="{$GLOBALS['config']->cdn->js->materialize->init}"></script>
+    {$extra}
 END;
-    echo $extra;
     alert_display();
+    message_read();
     echo <<<END
 </body>
 
