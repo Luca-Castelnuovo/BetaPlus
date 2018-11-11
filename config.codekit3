@@ -306,6 +306,13 @@
 		"oAP": "/build/libs/Parsedown.php",
 		"oF": 0
 		},
+	"/libs/Recaptcha.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/build/libs/Recaptcha.php",
+		"oF": 0
+		},
 	"/libs/Sendgrid/lib/contacts/Recipient.php": {
 		"cB": 0,
 		"ft": 8192,

@@ -113,6 +113,8 @@ END;
             $query =
                 "DELETE FROM
                     logs";
+
+            log_action('admin.clear_log');
             break;
 
         case 'remember':
