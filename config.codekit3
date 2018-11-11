@@ -93,6 +93,12 @@
 		"oAP": "/build/auth/reset.php",
 		"oF": 0
 		},
+	"/build": {
+		"ft": 65536,
+		"oA": 1,
+		"oAP": "/build/build",
+		"oF": 0
+		},
 	"/docenten/home.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -298,6 +304,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "/build/libs/Parsedown.php",
+		"oF": 0
+		},
+	"/libs/PHPMailer/Exception.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/build/libs/PHPMailer/Exception.php",
 		"oF": 0
 		},
 	"/libs/PHPMailer/PHPMailer.php": {

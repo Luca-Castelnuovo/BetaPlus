@@ -2,9 +2,11 @@
 
 //Send mails
 use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 function api_mail($to, $subject, $body)
 {
+    require($_SERVER['DOCUMENT_ROOT'] . '/libs/PHPMailer/Exception.php');
     require($_SERVER['DOCUMENT_ROOT'] . '/libs/PHPMailer/PHPMailer.php');
     require($_SERVER['DOCUMENT_ROOT'] . '/libs/PHPMailer/SMTP.php');
 
