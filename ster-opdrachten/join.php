@@ -97,9 +97,7 @@ END;
 
     log_action('steropdracht.join_request');
 
-    if (api_mail($owner['email'], 'Iemand wil meedoen aan je Ster Opdracht ||  BetaSterren', $body)) {
-        redirect('/ster-opdrachten/view/' . $id, 'Verzoek verstuurd');
-    } else {
-        redirect('/ster-opdrachten/view/' . $id, 'Oeps verstuurd');
-    }
+    api_mail($owner['email'], 'Iemand wil meedoen aan je Ster Opdracht ||  BetaSterren', $body);
+
+    redirect('/ster-opdrachten/view/' . $id, 'Verzoek verstuurd');
 }

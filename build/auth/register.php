@@ -73,8 +73,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     log_action('user.register', $first_name . ' ' . $last_name);
 
-    api_mail($GLOBALS['config']->app->admin->email, 'Nieuw account ||  BetaSterren', $email . ' heeft een nieuw account aangemaakt');
-
     redirect('/?reset', 'Uw account is aangemaakt');
 } else {
     if (!$_SESSION['register_get']) {

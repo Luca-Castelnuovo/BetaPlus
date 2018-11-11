@@ -4,10 +4,6 @@ return (object) array(
     'app' => (object) array(
         'url' => "https://betasterren.hetbaarnschlyceum.nl",
         'domain' => "betasterren.hetbaarnschlyceum.nl",
-
-        'admin' => (object) array(
-            'email' => "lucacastelnuovo@hetbaarnschlyceum.nl",
-        ),
     ),
 
     'security' => (object) array(
@@ -23,8 +19,15 @@ return (object) array(
 
     'api' => (object) array(
         'mail' => (object) array(
-            'key' => "rqc4o57337jp9d9ilueflk6rwl5s48ra",
-            'url' => "https://api.lucacastelnuovo.nl/mail/",
+            'host' => "smtp.strato.com",
+            'smtpauth' => "true",
+            'smtpsecure' => "ssl",
+            'port' => "465",
+            'username' => "no-reply@lucacastelnuovo.nl",
+            'password' => "WP2zGFvhFpBjHzSaQQ1O",
+
+            'from' => "no-reply@lucacastelnuovo.nl",
+            'from_name' => "BetaSterren || HBL",
         ),
 
         'recaptcha' => (object) array(

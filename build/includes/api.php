@@ -1,9 +1,46 @@
 <?php
 
 //Send mails
+use PHPMailer\PHPMailer\PHPMailer;
+
 function api_mail($to, $subject, $body)
 {
-    return api_request('POST', $GLOBALS['config']->api->mail->url, ['api_key' => $GLOBALS['config']->api->mail->key, 'to' => $to, 'subject' => $subject, 'body' => $body, 'from_name' => 'BetaSterren || HBL']);
+    require($_SERVER['DOCUMENT_ROOT'] . '/libs/PHPMailer/PHPMailer.php');
+    require($_SERVER['DOCUMENT_ROOT'] . '/libs/PHPMailer/SMTP.php');
+
+    //Server configuration
+    $mail = new PHPMailer();
+    $mail->isSMTP();
+    $mail->CharSet = 'UTF-8';
+
+    $mail->Host = $GLOBALS['config']->api->mail->host;
+
+    $mail->SMTPSecure = $GLOBALS['config']->api->mail->smtpsecure;
+    $mail->Port = $GLOBALS['config']->api->mail->port;
+
+    $mail->SMTPAuth = $GLOBALS['config']->api->mail->smtpauth;
+    $mail->Username = $GLOBALS['config']->api->mail->username;
+    $mail->Password = $GLOBALS['config']->api->mail->password;
+    $mail->msgHTML(true);
+    // $mail->SMTPDebug = 2; //for debugging purposes
+
+    //From
+    $mail->setFrom($GLOBALS['config']->api->mail->from, $GLOBALS['config']->api->mail->from_name);
+    $mail->addReplyTo($GLOBALS['config']->api->mail->from, $GLOBALS['config']->api->mail->from_name);
+
+    //To
+    $mail->addAddress($to);
+
+    //Subject and Body
+    $mail->Subject = $subject;
+    $mail->Body = $body;
+
+    //Execute mail send
+    if (!$mail->send()) {
+        log_action('api.mail_error');
+    } else {
+        log_action('api.mail_sent');
+    }
 }
 
 //Check captcha field
@@ -18,33 +55,4 @@ function api_captcha($response_token, $redirect)
         log_action('api.captcha_invalid');
         redirect($redirect, 'Klik AUB op de captcha');
     }
-}
-
-//Make api request
-function api_request($method, $url, $data = false)
-{
-    $curl = curl_init();
-    switch ($method) {
-        case "POST":
-            curl_setopt($curl, CURLOPT_POST, 1);
-            if ($data) {
-                curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-            }
-            break;
-
-        case "PUT":
-            curl_setopt($curl, CURLOPT_PUT, 1);
-            break;
-
-        default:
-            if ($data) {
-                $url = sprintf("%s?%s", $url, http_build_query($data));
-            }
-    }
-
-    curl_setopt($curl, CURLOPT_URL, $url);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-    $result = curl_exec($curl);
-    curl_close($curl);
-    return json_decode($result, true);
 }
