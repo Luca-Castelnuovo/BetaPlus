@@ -3,10 +3,6 @@
 require($_SERVER['DOCUMENT_ROOT'] . '/init.php');
 
 if (isset($_GET['reset']) && isset($_GET['preserveremember'])) {
-    if ($_SESSION['logged_in']) {
-        log_action('user.reset_remember');
-    }
-
     $alert = $_SESSION['alert'];
     $return_url = $_SESSION['return_url'];
     session_destroy();
@@ -14,10 +10,6 @@ if (isset($_GET['reset']) && isset($_GET['preserveremember'])) {
     $_SESSION['return_url'] = $return_url;
     redirect('/', $alert);
 } elseif (isset($_GET['reset'])) {
-    if ($_SESSION['logged_in']) {
-        log_action('user.reset');
-    }
-
     $alert = $_SESSION['alert'];
     $return_url = $_SESSION['return_url'];
     unset($_COOKIE['REMEMBERME']);
