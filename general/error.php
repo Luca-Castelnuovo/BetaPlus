@@ -1,8 +1,9 @@
 <?php
 
-session_start();
+require($_SERVER['DOCUMENT_ROOT'] . '/init.php');
 
-$error = htmlspecialchars($_GET['code']);
+$error = clean_data($_GET['code']);
+
 $goto = $_SESSION['logged_in'] ? 'home' : 'login';
 $goto_url = $_SESSION['logged_in'] ? '/general/home' : '/';
 
@@ -39,8 +40,7 @@ switch ($error) {
             <div class="col s12">
                 <h1><?= $error ?> Error</h1>
                 <h3><?= $error_text ?></h3>
-                <a href="<?= $goto_url ?>" class="waves-effect waves-light btn-large red accent-4">Ga
-                    naar <?= $goto ?></a>
+                <a href="<?= $goto_url ?>" class="waves-effect waves-light btn-large red accent-4">Ga naar <?= $goto ?></a>
             </div>
         </div>
     </div>
