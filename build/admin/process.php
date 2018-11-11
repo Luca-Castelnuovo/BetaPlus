@@ -111,8 +111,8 @@ END;
         case 'log_clear':
             $customQuery = true;
             $query = "DELETE FROM logs";
-            log_action('admin.clear_log');
             sql_query($query, false);
+            log_action('admin.clear_log');
             $query = null;
             break;
 
