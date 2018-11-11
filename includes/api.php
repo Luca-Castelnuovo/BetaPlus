@@ -9,12 +9,14 @@ function api_mail($to, $subject, $body)
 //Check captcha field
 function api_captcha($response_token, $redirect)
 {
-    $request = api_request('POST', $GLOBALS['config']->api->recaptcha->url, ['api_key' => $GLOBALS['config']->api->recaptcha->key, 'g-recaptcha-response' => $response_token]);
-    if (!$request['status']) {
+    $url = "https://www.google.com/recaptcha/api/siteverify?secret={$GLOBALS['config']->api->recaptcha->private}&response={$response_token}";
+    $response = json_decode(file_get_contents($url));
+
+    if ($response->success) {
+        log_action('api.captcha_valid');
+    } else {
         log_action('api.captcha_invalid');
         redirect($redirect, 'Klik AUB op de captcha');
-    } else {
-        log_action('api.captcha_valid');
     }
 }
 

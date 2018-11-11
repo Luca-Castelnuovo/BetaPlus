@@ -94,7 +94,7 @@ head('Wachtwoord vergeten', 10);
                         </div>
                     </div>
                     <div class="row">
-                        <div class="g-recaptcha" data-sitekey="6LfdLGQUAAAAAOpA5HxwP6Q6Q2XfsA7s8qpDCRVG"></div>
+                        <div class="g-recaptcha" data-sitekey="<?= $GLOBALS['config']->api->recaptcha->public ?>"></div>
                     </div>
                     <div class="row">
                         <input type="hidden" name="CSRFtoken" value="<?= csrf_gen() ?>"/>

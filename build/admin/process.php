@@ -110,20 +110,15 @@ END;
 
         case 'log_clear':
             $customQuery = true;
-            $query =
-                "DELETE FROM
-                    logs";
-
+            $query = "DELETE FROM logs";
             log_action('admin.clear_log');
+            sql_query($query, false);
+            $query = null;
             break;
 
         case 'remember':
             $customQuery = true;
-            $query =
-                "DELETE FROM
-                tokens
-            WHERE
-                type = 'remember_me'";
+            $query = "DELETE FROM tokens WHERE type = 'remember_me'";
             log_action('admin.cookie_auth_delete');
             break;
 

@@ -28,8 +28,8 @@ return (object) array(
         ),
 
         'recaptcha' => (object) array(
-            'key' => "ln8k76qgxhbtukg2qu8lbxwsc6lgcveay",
-            'url' => "https://api.lucacastelnuovo.nl/recaptcha/",
+            'private' => "6LcX_XkUAAAAAF-QhQzTZWkJ__J2N5ECDXHlOH9j",
+            'public' => "6LcX_XkUAAAAAFheWsBUreNsbJftLIbJ0C9p5ZHi",
             'library' => "https://www.google.com/recaptcha/api.js",
         ),
 
