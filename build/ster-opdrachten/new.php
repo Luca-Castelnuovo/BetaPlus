@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     sql_query($query, false);
 
-    log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'SterOpdrachten new', 0);
+    log_action('steropdracht.create');
 
     redirect('/leerlingen/home', 'Ster Opdracht toegevoegd');
 }

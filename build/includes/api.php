@@ -11,9 +11,10 @@ function api_captcha($response_token, $redirect)
 {
     $request = api_request('POST', $GLOBALS['config']->api->recaptcha->url, ['api_key' => $GLOBALS['config']->api->recaptcha->key, 'g-recaptcha-response' => $response_token]);
     if (!$request['status']) {
-        $user = $_SESSION['logged_in'] ? $_SESSION['first_name'] . ' ' . $_SESSION['last_name'] : 'UNKNOWN';
-        log_action($user, 'Captcha Invalid', 0);
+        log_action('api.captcha_invalid');
         redirect($redirect, 'Klik AUB op de captcha');
+    } else {
+        log_action('api.captcha_valid');
     }
 }
 

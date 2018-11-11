@@ -60,8 +60,7 @@ function csrf_gen()
 function csrf_val($post_token, $returnbool = false)
 {
     if (!isset($_SESSION['CSRFtoken'])) {
-        $user = isset($_SESSION) ? $_SESSION['first_name'] . ' ' . $_SESSION['last_name'] : 'UNKNOWN';
-        log_action($user, 'CSRF - session tkn not set', 1);
+        log_action('security.csrf_not_set');
         if ($returnbool) {
             return false;
         } else {
@@ -70,8 +69,7 @@ function csrf_val($post_token, $returnbool = false)
     }
 
     if (!(hash_equals($_SESSION['CSRFtoken'], $post_token))) {
-        $user = isset($_SESSION) ? $_SESSION['first_name'] . ' ' . $_SESSION['last_name'] : 'UNKNOWN';
-        log_action($user, 'CSRF - Post tkn not equal to session tkn', 2);
+        log_action('security.csrf_mismatch');
         if ($returnbool) {
             return false;
         } else {
@@ -105,6 +103,7 @@ function token_val($identifier, $returnbool = false)
         if ($returnbool) {
             return false;
         } else {
+            log_action('security.token_val_denied');
             redirect('/general/home', 'U hebt geen toegang tot deze pagina!');
         }
     } else {
@@ -130,7 +129,7 @@ function login()
     }
 
     if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) {
-        log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'Session Expired', 0);
+        log_action('security.session_expired');
         $_SESSION['return_url'] = $_SERVER['REQUEST_URI'];
         redirect('/?reset&preserveremember', 'Uw sessie is verlopen');
     } else {
@@ -138,7 +137,7 @@ function login()
     }
 
     if ($_SESSION['ip'] != ip()) {
-        log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'Session IP doesnt match client IP', 2);
+        log_action('security.session_ip_mismatch');
         $_SESSION['return_url'] = $_SERVER['REQUEST_URI'];
         redirect('/?reset&preserveremember', 'Uw sessie is verlopen');
     }
@@ -149,6 +148,7 @@ function login_leerling()
     login();
 
     if ($_SESSION['class'] === 'docent') {
+        log_action('user.access_student_denied');
         redirect('/general/home', 'Deze pagina is alleen zichtbaar voor leerlingen!');
     }
 }
@@ -158,7 +158,7 @@ function login_docent()
     login();
 
     if ($_SESSION['class'] !== 'docent') {
-        log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'User tried to access teacher page', 1);
+        log_action('user.access_teacher_denied');
         redirect('/general/home', 'Deze pagina is alleen zichtbaar voor docenten!');
     }
 }
@@ -168,7 +168,7 @@ function login_admin()
     login();
 
     if ($_SESSION['admin'] != true) {
-        log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'User tried to access admin page', 2);
+        log_action('user.access_admin_denied');
         redirect('/general/home', 'Deze pagina is alleen zichtbaar voor administrators!');
     }
 }

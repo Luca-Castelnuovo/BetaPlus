@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     sql_query($query, false);
 
-    log_action($email, 'Register', 2);
+    log_action('user.register', $first_name . ' ' . $last_name);
 
     api_mail($GLOBALS['config']->app->admin->email, 'Nieuw account ||  BetaSterren', $email . ' heeft een nieuw account aangemaakt');
 

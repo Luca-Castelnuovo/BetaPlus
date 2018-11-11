@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 END;
             if (api_mail($user, 'Registreer uw account ||  BetaSterren', $body)) {
                 echo json_encode(['status' => true]);
-                log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'Admin registration token sent', 2);
+                log_action('admin.registration_sent');
                 exit;
             } else {
                 echo json_encode(['status' => false]);
@@ -105,7 +105,7 @@ END;
                         leerling_id = '{$user_id}'";
             }
 
-            log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'Admin delete user', 2);
+            log_action('admin.user_delete');
             break;
 
         case 'log_clear':
@@ -122,7 +122,7 @@ END;
                 tokens
             WHERE
                 type = 'remember_me'";
-            log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'Admin deleted remember_me tokens', 1);
+            log_action('admin.cookie_auth_delete');
             break;
 
         default:

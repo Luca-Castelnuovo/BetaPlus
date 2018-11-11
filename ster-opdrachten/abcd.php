@@ -22,6 +22,7 @@ $query =
 $steropdracht = sql_query($query, true);
 
 if ($steropdracht['status'] != 3) {
+    log_action('steropdracht.edit_denied_because_not_sdone');
     redirect('/ster-opdrachten/view/' . $id, 'Ster Opdracht niet af en kan dus niet worden beoordeeld');
 }
 

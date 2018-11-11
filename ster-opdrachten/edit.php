@@ -9,10 +9,10 @@ is_empty([$id], '/ster-opdrachten/', 'Deze link is niet geldig');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!token_val($id, true)) {
+        log_action('steropdracht.edit_denied_because_no_access_POST');
+
         redirect('/ster-opdrachten/view/' . $id, 'U hebt geen toestemming om deze Ster Opdracht aan te passen');
     }
-
-    log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'SterOpdrachten edit', 0);
 
     $project_name = clean_data($_POST['project_name']);
     $subject = clean_data($_POST['subject']);
@@ -34,6 +34,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     sql_query($query, false);
 
+    log_action('steropdracht.edit');
+
     redirect('/ster-opdrachten/view/' . $id, 'Ster Opdracht aangepast');
 } else {
     $query =
@@ -53,11 +55,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($_SESSION['id'] == $steropdracht['leerling_id'] || $_SESSION['id'] == $steropdracht['buddy_id']) {
         token_gen($id);
     } else {
-        log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'SterOpdrachten edit access denied', 1);
+        log_action('steropdracht.edit_denied_because_no_access_GET');
+
         redirect('/ster-opdrachten/view/' . $id, 'U hebt geen toestemming om deze Ster Opdracht aan te passen');
     }
 
     if ($steropdracht['status'] >= 3) {
+        log_action('steropdracht.edit_denied_because_done');
+
         redirect('/ster-opdrachten/view/' . $id, 'Deze Ster Opdracht is klaar, u kunt hem niet meer aanpassen');
     }
 
@@ -65,6 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         case 'done':
 
             if ($steropdracht['status'] < 2) {
+                log_action('steropdracht.done_denied_because_no_go');
                 redirect('/ster-opdrachten/view/' . $id, 'Ster Opdracht heeft geen GO en kan dus niet klaar zijn');
             }
 
@@ -80,7 +86,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             steropdrachten_notify($id, $_SESSION['id'], 'Ster Opdracht is af.');
 
-            log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'SterOpdrachten done', 1);
+            log_action('steropdracht.done');
+
             redirect('/ster-opdrachten/view/' . $id, 'Ster Opdracht klaar, vul aub ABCD\'tje in');
             break;
 
@@ -95,8 +102,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             steropdrachten_notify($id, $_SESSION['id'], 'Ster Opdracht is verwijderd.');
 
-            log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'SterOpdrachten delete', 1);
-            redirect('/ster-opdrachten/', 'Ster Opdracht verwijderd');
+            log_action('steropdracht.delete');
+
+            redirect('/ster-opdrachten', 'Ster Opdracht verwijderd');
             break;
     }
 }

@@ -14,7 +14,7 @@ if (isset($_GET['logout'])) {
 
     sql_query($query, false);
 
-    log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'Revoked all remember_me', 1);
+    log_action('user.cookie_auth_delete');
 
     redirect('/docenten/settings', 'U bent overal uitgelogd');
 }

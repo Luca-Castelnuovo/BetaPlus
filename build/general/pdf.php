@@ -19,6 +19,7 @@ $query =
 $file = sql_query($query, true);
 
 if (empty($file['path'])) {
+    log_action('file.not_found');
     redirect('/general/error?code=404');
 }
 

@@ -50,18 +50,19 @@ if ($userDocent->num_rows > 0) {
 }
 
 if ($user['failed_login'] > 4) {
-    log_action($user['first_name'] . ' ' . $user['last_name'], 'Too many failed login attempts', 2);
+    log_action('user.account_blocked', $user['first_name'] . ' ' . $user['last_name']);
     redirect('/?reset', 'Uw account is geblokkeerd door teveel mislukt inlogpogingen, contacteer AUB de administrator.');
 }
 
 if (!password_verify($password, $user['password'])) {
     $table = ($user['class'] == 'docenten') ? 'docenten' : 'leerlingen';
     sql_query("UPDATE {$table} SET failed_login = failed_login + 1 WHERE id='{$user['id']}'", false);
+    log_action('user.password_auth_failed', $user['first_name'] . ' ' . $user['last_name']);
     redirect('/?reset', 'Het is niet mogelijk om in te loggen met de ingevulde gegevens.');
 }
 
 if (!$user['active']) {
-    log_action($user['first_name'] . ' ' . $user['last_name'], 'Account Inactive', 2);
+    log_action('user.disabled', $user['first_name'] . ' ' . $user['last_name']);
     redirect('/?reset', 'Uw account is niet actief, contacteer AUB de administrator.');
 }
 
@@ -100,9 +101,10 @@ if (isset($_POST['remember'])) {
     $cookie .= ':' . $mac;
     setcookie('REMEMBERME', $cookie, time() + 2592000, "/", $GLOBALS['config']->app->domain, true, true);
 
-    log_action($user['first_name'] . ' ' . $user['last_name'], 'Login set cookie', 0);
+    log_action('user.cookie_auth_set', $user['first_name'] . ' ' . $user['last_name']);
 } else {
-    log_action($user['first_name'] . ' ' . $user['last_name'], 'Login', 0);
+    log_action('user.password_auth_succeeded', $user['first_name'] . ' ' . $user['last_name']);
+    log_action('user.login', $user['first_name'] . ' ' . $user['last_name']);
 }
 
 $return_url = $_SESSION['return_url'];

@@ -28,12 +28,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             sql_query($query, false);
             echo json_encode(['status' => true, 'url' => '/general/toast?url=/leerlingen/settings&alert=Profiel foto aangepast']);
+            log_action('user.profile_picture_upload');
             exit;
             break;
 
         case 'steropdrachten_cover':
             if (!token_val($id, true)) {
                 echo json_encode(['status' => true, 'url' => '/general/toast?url=/ster-opdrachten/edit/' . $id . '/&alert=Oeps er ging iets fout']);
+                log_action('steropdracht.cover_upload_denied');
                 exit;
             }
 
@@ -47,11 +49,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             sql_query($query, false);
             echo json_encode(['status' => true, 'url' => '/general/toast?url=/ster-opdrachten/view/' . $id . '/&alert=Cover foto aangepast']);
+            log_action('steropdracht.cover_upload');
             exit;
             break;
 
         default:
             echo json_encode(['status' => true, 'url' => '/general/toast?url=/general/home&alert=Oeps er ging iets fout']);
+            log_action('upload.error_invalid_type');
             exit;
             break;
     }

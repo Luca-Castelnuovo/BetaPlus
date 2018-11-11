@@ -82,18 +82,19 @@ $query =
 $user = sql_query($query, true);
 
 if ($user['failed_login'] > 4) {
-    log_action($user['first_name'] . ' ' . $user['last_name'], 'Too many failed login attempts', 2);
+    log_action('user.account_blocked', $user['first_name'] . ' ' . $user['last_name']);
     redirect('/?reset', 'Uw account is geblokkeerd door teveel mislukt inlogpogingen, contacteer AUB de administrator.');
 }
 
 if (!$user['active']) {
-    log_action($user['first_name'] . ' ' . $user['last_name'], 'Account Inactive', 2);
+    log_action('user.disabled', $user['first_name'] . ' ' . $user['last_name']);
     redirect('/?reset', 'Uw account is niet actief, contacteer AUB de administrator.');
 }
 
 sql_query("UPDATE {$table} SET failed_login='0' WHERE id='{$user['id']}' AND class='{$user['class']}'", false);
 
-log_action($user['first_name'] . ' ' . $user['last_name'], 'Login Remember', 0);
+log_action('user.cookie_auth_succeeded', $user['first_name'] . ' ' . $user['last_name']);
+log_action('user.login', $user['first_name'] . ' ' . $user['last_name']);
 
 $return_url = $_SESSION['return_url'];
 

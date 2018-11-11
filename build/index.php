@@ -3,6 +3,10 @@
 require($_SERVER['DOCUMENT_ROOT'] . '/init.php');
 
 if (isset($_GET['reset']) && isset($_GET['preserveremember'])) {
+    if ($_SESSION['logged_in']) {
+        log_action('user.reset_remember');
+    }
+
     $alert = $_SESSION['alert'];
     $return_url = $_SESSION['return_url'];
     session_destroy();
@@ -10,6 +14,10 @@ if (isset($_GET['reset']) && isset($_GET['preserveremember'])) {
     $_SESSION['return_url'] = $return_url;
     redirect('/', $alert);
 } elseif (isset($_GET['reset'])) {
+    if ($_SESSION['logged_in']) {
+        log_action('user.reset');
+    }
+
     $alert = $_SESSION['alert'];
     $return_url = $_SESSION['return_url'];
     unset($_COOKIE['REMEMBERME']);
@@ -21,7 +29,10 @@ if (isset($_GET['reset']) && isset($_GET['preserveremember'])) {
 }
 
 if (isset($_GET['logout'])) {
-    log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'Logout', '0');
+    if ($_SESSION['logged_in']) {
+        log_action('user.logout');
+    }
+
     if (isset($_COOKIE['REMEMBERME'])) {
         list($user, $leerling, $token, $mac) = explode(':', $_COOKIE['REMEMBERME']);
         $query = "DELETE FROM tokens WHERE user='{$user}' AND token='{$token}' AND type = 'remember_me'";

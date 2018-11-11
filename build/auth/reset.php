@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     sql_query($query, false);
 
-    log_action($token['user'], 'Reset Password', 1);
+    log_action('user.password_reset', $token['user']);
 
     redirect('/?reset', 'Uw wachtwoord is gewijzigd');
 } else {

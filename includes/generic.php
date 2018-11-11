@@ -18,8 +18,16 @@ function current_date($andTime = false)
 
 
 //Log actions
-function log_action($user, $action)
+function log_action($action, $user = null)
 {
+    if (empty($user)) {
+        if (!empty($_SESSION['first_name'])) {
+            $user = $_SESSION['first_name'] . ' ' . $_SESSION['last_name'];
+        } else {
+            $user = 'Unknown';
+        }
+    }
+
     $date = current_date(true);
     $ip = ip();
     $query = "INSERT INTO logs (date, user, action, ip) VALUES ('{$date}', '{$user}', '{$action}', '{$ip}')";

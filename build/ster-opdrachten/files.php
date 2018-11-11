@@ -3,12 +3,13 @@ require($_SERVER['DOCUMENT_ROOT'] . '/init.php');
 
 login_leerling();
 
-is_empty($_GET['id'], '/ster-opdrachten/', 'Deze link is niet geldig');
+is_empty($_GET['id'], '/ster-opdrachten', 'Deze link is niet geldig');
 
 $id = clean_data($_GET['id']);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!token_val($id, true)) {
+        log_action('steropdracht.edit_denied_because_no_access_POST');
         redirect('/ster-opdrachten/view/' . $id, 'U hebt geen toestemming om deze Ster Opdracht aan te passen');
     }
 
@@ -59,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     sql_query($query, false);
 
-    log_action($_SESSION['first_name'] . ' ' . $_SESSION['last_name'], 'SterOpdrachten bestand toegevoegd', 0);
+    log_action('steropdracht.file_create');
 
     redirect('/ster-opdrachten/view/' . $id, 'Bestand toegevoegd');
 } else {
@@ -78,18 +79,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($_SESSION['id'] == $steropdracht['leerling_id'] || $_SESSION['id'] == $steropdracht['buddy_id']) {
         token_gen($id);
     } else {
+        log_action('steropdracht.edit_denied_because_no_access_GET');
         redirect('/ster-opdrachten/view/' . $id, 'U hebt geen toestemming om deze Ster Opdracht aan te passen');
     }
 
     if (isset($_GET['delete'])) {
-        is_empty($_GET['file_id'], '/ster-opdrachten/', 'Deze link is niet geldig');
+        is_empty($_GET['file_id'], '/ster-opdrachten', 'Deze link is niet geldig');
 
         if ($steropdracht['status'] > 2) {
+            log_action('steropdracht.edit_denied_because_done');
             redirect('/ster-opdrachten/view/' . $id, 'Deze Ster Opdracht is klaar, u kunt hem niet meer aanpassen');
-        }
-
-        if (!token_val($id, true)) {
-            redirect('/ster-opdrachten/view/' . $id, 'U hebt geen toestemming om deze Ster Opdracht aan te passen');
         }
 
         $file_id = clean_data($_GET['file_id']);
@@ -113,6 +112,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             id='{$file_id}'";
 
         sql_query($query, false);
+
+        log_action('steropdracht.file_delete');
 
         redirect('/ster-opdrachten/view/' . $id, 'Bestand verwijderd');
     }
