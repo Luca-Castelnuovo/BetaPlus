@@ -179,8 +179,7 @@ head('Edit || Ster Opdrachten', 2, 'Edit', '<link rel="stylesheet" href="' . $GL
                                 <div class="col s12 m4">
                                     <a href="/ster-opdrachten/edit/<?= $id ?>/done"
                                        class="waves-effect waves-light btn-small color-secondary--background"
-                                       onclick="return confirm('Weet je het zeker?')"><i class="material-icons left">done</i>Ster
-                                        Opdracht klaar</a>
+                                       onclick="return confirm('Weet je het zeker?')"><i class="material-icons left">done</i>Klaar</a>
                                 </div>
                                 <?php
 } ?>
@@ -188,7 +187,7 @@ head('Edit || Ster Opdrachten', 2, 'Edit', '<link rel="stylesheet" href="' . $GL
                                 <a href="/ster-opdrachten/edit/<?= $id ?>/delete"
                                    class="waves-effect waves-light btn-small color-secondary--background"
                                    onclick="return confirm('Weet je het zeker?')"><i
-                                            class="material-icons left">delete</i>Verwijder Ster Opdracht</a>
+                                            class="material-icons left">delete</i>Verwijder</a>
                             </div>
                         </div>
                         <button class="btn-large waves-effect waves-light color-primary--background" type="submit"
