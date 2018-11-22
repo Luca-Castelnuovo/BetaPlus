@@ -130,7 +130,7 @@ head('Bestanden || Ster Opdrachten', 2, 'Bestanden');
                     <form class="col s12" method="post" action="/ster-opdrachten/files/<?= $id ?>" enctype="multipart/form-data">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input class="validate" id="name" name="name" type="text" value="<?php echo isset($_GET['abcd']) ? 'abcd' : ''; ?>" required>
+                                <input class="validate" id="name" name="name" type="text" value="<?php echo isset($_GET['abcd']) ? 'ABCD' : ''; ?>" <?php echo isset($_GET['abcd']) ? 'readonly' : 'required'; ?>>
                                 <label for="name">Bestandsnaam</label>
                             </div>
                         </div>
