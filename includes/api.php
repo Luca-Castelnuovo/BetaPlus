@@ -40,10 +40,11 @@ function api_mail($to, $subject, $body)
     //Execute mail send
     if (!$mail->send()) {
         log_action('api.mail_error');
+        return true;
     } else {
-        echo $mail->ErrorInfo;
-        exit;
+        // echo $mail->ErrorInfo;
         log_action('api.mail_sent');
+        return false;
     }
 }
 

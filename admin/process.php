@@ -47,8 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 END;
 
             api_mail($user, 'Registreer uw account ||  BetaSterren', $body);
-            echo json_encode(['status' => true]);
             log_action('admin.registration_sent');
+            echo "['status' => true]";
             exit;
             break;
 
