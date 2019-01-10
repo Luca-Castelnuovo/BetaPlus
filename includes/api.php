@@ -11,7 +11,8 @@ function api_mail($to, $subject, $body)
     require($_SERVER['DOCUMENT_ROOT'] . '/libs/PHPMailer/SMTP.php');
 
     //Server configuration
-    $mail = new PHPMailer();
+    $mail = new PHPMailer(true);
+    $mail->SMTPDebug = 2;
     $mail->isSMTP();
     $mail->CharSet = 'UTF-8';
 
@@ -41,6 +42,8 @@ function api_mail($to, $subject, $body)
     if (!$mail->send()) {
         log_action('api.mail_error');
     } else {
+        echo $mail->ErrorInfo;
+        exit;
         log_action('api.mail_sent');
     }
 }
