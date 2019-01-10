@@ -24,7 +24,7 @@ return (object) array(
             'smtpsecure' => "ssl",
             'port' => "465",
             'username' => "no-reply@lucacastelnuovo.nl",
-            'password' => "1BWWeAGWaYTjAECKqHlXulzRf1euc3mHzti155KSYH0x28uiZMq3blT13zOo9MpJDedYezF0YGx1sPsTJCU3heskArhJqo7nxMkfUtofxKRhNg0dvFcYIq0ht1s5a3sH",
+            'password' => "W5V3RAYGPkATdWN5OYe2W4QYtTFiwsWFlxPHchJ5rNWyzi8THnPFmRuZ9IlHM6MnhHO8WPgVQeYvi1n8J408LTLszRY8lIquOn2b7r0CMcu7YnV4jCFzxn28XTbIuWBm",
 
             'from' => "no-reply@lucacastelnuovo.nl",
             'from_name' => "BetaSterren || HBL",

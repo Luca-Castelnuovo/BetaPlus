@@ -12,7 +12,7 @@ function api_mail($to, $subject, $body)
 
     //Server configuration
     $mail = new PHPMailer(true);
-    $mail->SMTPDebug = 2;
+    // $mail->SMTPDebug = 2;
     $mail->isSMTP();
     $mail->CharSet = 'UTF-8';
 
@@ -25,7 +25,6 @@ function api_mail($to, $subject, $body)
     $mail->Username = $GLOBALS['config']->api->mail->username;
     $mail->Password = $GLOBALS['config']->api->mail->password;
     $mail->msgHTML(true);
-    // $mail->SMTPDebug = 2; //for debugging purposes
 
     //From
     $mail->setFrom($GLOBALS['config']->api->mail->from, $GLOBALS['config']->api->mail->from_name);
