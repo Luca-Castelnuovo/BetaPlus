@@ -42,6 +42,10 @@ function head($title, $active_menu_item = null, $differen_menu_title = null, $ex
     <!--Import Google Icon Font-->
     <link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin>
     <link href="{$GLOBALS['config']->cdn->css->materialize->icons}" rel="stylesheet">
+
+    <!--Analytics-->
+    <script src="https://cdn.lucacastelnuovo.nl/tracking/6"></script>
+
     {$extra}
 </head>
 END;
